@@ -9,7 +9,8 @@ dp = Dispatcher()
 
 @dp.message(CommandStart())
 async def start(message: Message):
-    await message.answer(f"{message.from_user.full_name}")
+    await message.answer(f"Привіт радий вітати тебе {message.from_user.full_name}!!")
+
 
 
 async def main():
