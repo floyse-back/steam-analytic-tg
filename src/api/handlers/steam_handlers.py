@@ -2,12 +2,26 @@ from aiogram import Router
 from aiogram.filters import Command
 from aiogram.types import Message
 
+from src.application.services.steam_service import SteamService
+from src.infrastructure.steam_analytic_api.steam_client import SteamAnalyticsAPIClient
+
 router = Router(name=__name__)
+
+steam_service = SteamService(
+    steam_client= SteamAnalyticsAPIClient()
+)
 
 # [ ] /search_game <назва>                — Пошук гри
 @router.message(Command("search_game"))
 async def search_game(message: Message):
-    return await message.reply("Soon...")
+    split_message = message.text.split()
+    await message.delete()
+
+    if len(split_message) < 2:
+        return await message.answer("You need to specify a game name")
+
+    data = await steam_service.search_games(name=split_message[1])
+    await message.answer(f"{data}")
 
 #[ ] /free_games_now                     — Актуальні безкоштовні ігри (Steam + Epic)
 @router.message(Command("free_games_now"))
@@ -26,12 +40,12 @@ async def most_played_games(message: Message):
 
 #[ ] /games_for_you <user_id>/None                     — Індивідуальні рекомендації
 @router.message(Command("search_game"))
-async def search_game(message: Message):
+async def games_for_you(message: Message):
     return await message.reply("Soon...")
 
 #[ ] /discount_for_you <user_id>/None                  — Персональні знижки
 @router.message(Command("search_game"))
-async def search_game(message: Message):
+async def discount_for_you(message: Message):
     return await message.reply("Soon...")
 
 #[ ] /achievements_game <gameID>         — Досягнення гри
