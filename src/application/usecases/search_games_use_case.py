@@ -6,4 +6,4 @@ class SearchGamesUseCase:
         self.steam_client = steam_client
 
     async def execute(self,name):
-        return await self.steam_client.search_games(name)
+        return await self.steam_client.search_games(name=name)

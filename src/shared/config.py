@@ -6,6 +6,9 @@ load_dotenv()
 
 TELEGRAM_API_TOKEN = getenv('TELEGRAM_API_TOKEN')
 
+STEAM_ANALYTIC_NAME = getenv('STEAM_ANALYTIC_NAME')
+STEAM_ANALYTIC_PASSWORD = getenv('STEAM_ANALYTIC_PASSWORD')
+
 start_message = """
 🎮 *Ласкаво просимо до SteamHandler!*  
 Твій персональний асистент у світі ігор Steam та Epic Games.
