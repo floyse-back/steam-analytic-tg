@@ -26,32 +26,70 @@ async def search_game(message: Message):
 #[ ] /free_games_now                     — Актуальні безкоштовні ігри (Steam + Epic)
 @router.message(Command("free_games_now"))
 async def free_games_now(message: Message):
-    return await message.reply("Soon...")
+    await message.delete()
+
+    data = await steam_service.free_games_now()
+    await message.answer(f"{data}")
 
 #[ ] /discounts_game                     — Знижки на ігри
 @router.message(Command("discounts_game"))
 async def discounts_game(message: Message):
-    return await message.reply("Soon...")
+    await message.delete()
+    data = await steam_service.discount_games()
+    print(data)
+    await message.answer(f"{data}")
 
 #[ ] /most_played_games                  — Топ найпопулярніших ігор
 @router.message(Command("most_played_games"))
 async def most_played_games(message: Message):
-    return await message.reply("Soon...")
+    await message.delete()
+
+    data = await steam_service.most_played_games()
+    await message.answer(f"{data}")
 
 #[ ] /games_for_you <user_id>/None                     — Індивідуальні рекомендації
-@router.message(Command("search_game"))
+@router.message(Command("games_for_you"))
 async def games_for_you(message: Message):
-    return await message.reply("Soon...")
+    split_message = message.text.split()
+
+    if len(split_message) < 2:
+        return await message.answer("You need to specify a game name")
+    else:
+        user = " ".join(split_message[1:])
+    await message.delete()
+
+    data = await steam_service.games_for_you(user=user)
+    await message.answer(f"{data}")
 
 #[ ] /discount_for_you <user_id>/None                  — Персональні знижки
-@router.message(Command("search_game"))
+@router.message(Command("discount_for_you"))
 async def discount_for_you(message: Message):
-    return await message.reply("Soon...")
+    split_message = message.text.split()
+
+    if len(split_message) < 2:
+        return await message.answer("You need to specify a game name")
+    else:
+        user = " ".join(split_message[1:])
+    await message.delete()
+
+    data = await steam_service.discount_for_you(user=user)
+    await message.answer(f"{data}")
+
 
 #[ ] /achievements_game <gameID>         — Досягнення гри
 @router.message(Command("achievements_game"))
 async def achievements_game(message: Message):
-    return await message.reply("Soon...")
+    split_message = message.text.split()
+
+    if len(split_message) < 2:
+        return await message.answer("You need to specify a game name")
+    else:
+        game = " ".join(split_message[1:])
+    await message.delete()
+
+    data = await steam_service.achievements_game(game=game)
+    await message.answer(f"{data}")
+
 
 #[ ] /check_game_price <назва гри>      — Моніторинг ціни
 @router.message(Command("check_game_price"))
