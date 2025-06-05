@@ -1,9 +1,18 @@
 from aiogram import Router
+from aiogram.enums import ParseMode
 from aiogram.types import Message
 from aiogram.filters import Command
 
+from src.application.services.player_service import PlayerService
 
 router = Router(name=__name__)
+
+player_service = PlayerService()
+
+@router.message(Command("player"))
+async def player_help(message: Message):
+    await message.delete()
+    return await message.answer(player_service.player_help(),parse_mode=ParseMode.MARKDOWN)
 
 # [ ] /user_full_stats <user_id>         — Повна статистика
 @router.message(Command("user_full_stats"))

@@ -25,6 +25,8 @@ class SteamAnalyticsAPIClient:
             })
         if response.status_code == 201:
             cls.API_KEY = response.json()["refresh_token"]
+        else:
+            raise Exception(response.text)
 
     async def search_games(self,name):
         async with self.__create_client_session() as client:

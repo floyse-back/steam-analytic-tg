@@ -1,4 +1,5 @@
 from aiogram import Router
+from aiogram.enums import ParseMode
 from aiogram.filters import Command
 from aiogram.types import Message
 
@@ -10,6 +11,11 @@ router = Router(name=__name__)
 steam_service = SteamService(
     steam_client= SteamAnalyticsAPIClient()
 )
+
+@router.message(Command("games"))
+async def help_command(message: Message):
+    await message.delete()
+    return await message.answer(steam_service.steam_help(),parse_mode=ParseMode.MARKDOWN)
 
 # [ ] /search_game <назва>                — Пошук гри
 @router.message(Command("search_game"))

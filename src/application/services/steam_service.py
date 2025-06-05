@@ -8,6 +8,7 @@ from src.application.usecases.games_for_you_use_case import GamesGameForYouUseCa
 from src.application.usecases.most_played_games_use_case import MostPlayedGamesUseCase
 from src.application.usecases.search_games_use_case import SearchGamesUseCase
 from src.infrastructure.steam_analytic_api.steam_client import SteamAnalyticsAPIClient
+from src.shared.config import help_config
 
 
 class SteamService:
@@ -35,6 +36,9 @@ class SteamService:
         self.achievements_game_use_case = AchievementsGameUseCase(
             steam_client = self.steam_client,
         )
+
+    def steam_help(self):
+        return help_config.get("games")
 
     async def search_games(self,name):
         return await self.search_games_use_case.execute(name)

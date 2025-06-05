@@ -1,3 +1,5 @@
+from aiogram.enums import ParseMode
+
 from src.shared.config import TELEGRAM_API_TOKEN,help_config,start_message
 from aiogram import Bot,Dispatcher
 from aiogram.filters import CommandStart,Command
@@ -19,14 +21,15 @@ dp.include_routers(user_router,steam_router,player_router,subscribe_router)
 
 @dp.message(CommandStart())
 async def start(message: Message):
-    await message.answer(f"{start_message}", parse_mode="Markdown")
+    await message.delete()
+    return await message.answer(f"{start_message}", parse_mode=ParseMode.MARKDOWN)
 
 
 
 @dp.message(Command(commands=["help"]))
 async def help(message: Message):
-    await message.answer(help_config.get(f"help"))
     await message.delete()
+    return await message.answer(help_config.get(f"help"),parse_mode=ParseMode.MARKDOWN)
 
 
 async def main():

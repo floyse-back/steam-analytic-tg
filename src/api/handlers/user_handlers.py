@@ -1,8 +1,18 @@
 from aiogram import Router
+from aiogram.enums import ParseMode
 from aiogram.types import Message
 from aiogram.filters import Command
 
+from src.application.services.user_service import UserService
+
 router = Router(name=__name__)
+
+user_service = UserService()
+
+@router.message(Command("user"))
+async def user_help(message: Message):
+    await message.delete()
+    return await message.answer(user_service.user_help(),parse_mode=ParseMode.MARKDOWN)
 
 #[ ] /wishlist                           — Показати список бажаного
 @router.message(Command(commands=["whishlist"]))

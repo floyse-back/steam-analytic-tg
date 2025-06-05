@@ -1,9 +1,19 @@
 from aiogram import Router
+from aiogram.enums import ParseMode
 from aiogram.types import Message
 from aiogram.filters import Command
 
+from src.application.services.subscribe_service import SubscribeService
 
 router = Router(name=__name__)
+subscribe_service = SubscribeService()
+
+@router.message(Command("games"))
+async def help_command(message: Message):
+    await message.delete()
+    return await message.answer(subscribe_service.subscribe_help(),parse_mode=ParseMode.MARKDOWN)
+
+
 # [ ] /subscribe_new_release <True/False>             — Нові релізи
 @router.message(Command("subscribe_new_release"))
 async def subscribe_new_release(message: Message):
