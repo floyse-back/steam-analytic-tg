@@ -1,6 +1,6 @@
-from aiogram import Router
+from aiogram import Router, F
 from aiogram.enums import ParseMode
-from aiogram.types import Message
+from aiogram.types import Message, CallbackQuery
 from aiogram.filters import Command
 
 from src.application.services.subscribe_service import SubscribeService
@@ -47,3 +47,9 @@ async def subscribe_whishlist_notificate(message: Message):
 @router.message(Command("subscribe_hot_discount_notificate"))
 async def subscribe_hot_discount_notificate(message: Message):
     return await message.answer("Soon...")
+
+#Callback
+@router.callback_query(F.data == "subscribe_help")
+async def subscribe_help_callback(callback_query: CallbackQuery):
+    await callback_query.message.edit_text(text=f"{subscribe_service.subscribe_help()}",parse_mode=ParseMode.MARKDOWN)
+    await callback_query.answer()

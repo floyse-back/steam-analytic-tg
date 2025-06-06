@@ -1,7 +1,7 @@
-from aiogram import Router
+from aiogram import Router, F
 from aiogram.enums import ParseMode
 from aiogram.filters import Command
-from aiogram.types import Message
+from aiogram.types import Message, CallbackQuery, InlineKeyboardMarkup
 
 from src.application.services.steam_service import SteamService
 from src.infrastructure.steam_analytic_api.steam_client import SteamAnalyticsAPIClient
@@ -12,7 +12,7 @@ steam_service = SteamService(
     steam_client= SteamAnalyticsAPIClient()
 )
 
-@router.message(Command("games"))
+@router.message(Command(commands=["games"]))
 async def help_command(message: Message):
     await message.delete()
     return await message.answer(steam_service.steam_help(),parse_mode=ParseMode.MARKDOWN)
@@ -108,3 +108,10 @@ async def check_game_price(message: Message):
 @router.message(Command("suggest_game"))
 async def suggest_game(message: Message):
     return await message.reply("Soon...")
+
+#Callbacks
+@router.callback_query(F.data == "games_help")
+async def games_help_callback(callback_query: CallbackQuery):
+    await callback_query.message.edit_text(text=f"{steam_service.steam_help()}",parse_mode=ParseMode.MARKDOWN)
+    await callback_query.answer()
+

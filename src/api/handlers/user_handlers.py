@@ -1,6 +1,6 @@
-from aiogram import Router
+from aiogram import Router, F
 from aiogram.enums import ParseMode
-from aiogram.types import Message
+from aiogram.types import Message, CallbackQuery
 from aiogram.filters import Command
 
 from src.application.services.user_service import UserService
@@ -44,3 +44,9 @@ async def user_player(message:Message):
     parts = message.text.split()
 
     await message.answer("User player id: {}".format(parts[1]))
+
+#Callback
+@router.callback_query(F.data == "user_help")
+async def user_help_callback(callback_query: CallbackQuery):
+    await callback_query.message.edit_text(text=f"{user_service.user_help()}",parse_mode=ParseMode.MARKDOWN)
+    await callback_query.answer()
