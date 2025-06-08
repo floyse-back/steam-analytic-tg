@@ -1,5 +1,6 @@
 from typing import Optional
 
+from dataclasses import dataclass
 from dotenv import load_dotenv
 from os import getenv
 
@@ -10,6 +11,22 @@ TELEGRAM_API_TOKEN = getenv('TELEGRAM_API_TOKEN')
 
 STEAM_ANALYTIC_NAME = getenv('STEAM_ANALYTIC_NAME')
 STEAM_ANALYTIC_PASSWORD = getenv('STEAM_ANALYTIC_PASSWORD')
+
+@dataclass(frozen=True)
+class MainMenu:
+    steam:str = "Steam"
+    player:str = "Player"
+    subscribes:str = "Subscribes"
+    help:str = "Help"
+    profile:str = "Profile"
+    subtitle:str = "Menu"
+
+
+
+
+
+
+
 
 start_message = """
 🎮 *Ласкаво просимо до SteamHandler!*  

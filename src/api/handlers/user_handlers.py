@@ -3,16 +3,25 @@ from aiogram.enums import ParseMode
 from aiogram.types import Message, CallbackQuery
 from aiogram.filters import Command
 
+from src.api.keyboards.main_keyboards import back_help_keyboard
+from src.api.keyboards.user_keyboards import user_inline_keyboard
 from src.application.services.user_service import UserService
+from src.shared.config import MainMenu
 
 router = Router(name=__name__)
 
 user_service = UserService()
 
+
 @router.message(Command("user"))
 async def user_help(message: Message):
     await message.delete()
     return await message.answer(user_service.user_help(),parse_mode=ParseMode.MARKDOWN)
+
+@router.message(lambda message: message.text == f"{MainMenu.profile}")
+async def user_reply(message: Message):
+    await message.delete()
+    await message.answer(text="Hello World",parse_mode=ParseMode.MARKDOWN,reply_markup=user_inline_keyboard)
 
 #[ ] /wishlist                           — Показати список бажаного
 @router.message(Command(commands=["whishlist"]))
@@ -48,5 +57,5 @@ async def user_player(message:Message):
 #Callback
 @router.callback_query(F.data == "user_help")
 async def user_help_callback(callback_query: CallbackQuery):
-    await callback_query.message.edit_text(text=f"{user_service.user_help()}",parse_mode=ParseMode.MARKDOWN)
+    await callback_query.message.edit_text(text=f"{user_service.user_help()}",parse_mode=ParseMode.MARKDOWN,reply_markup=back_help_keyboard)
     await callback_query.answer()

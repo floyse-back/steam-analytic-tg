@@ -2,8 +2,9 @@ from aiogram import Router, F
 from aiogram.enums import ParseMode
 from aiogram.types import Message, CallbackQuery
 from aiogram.filters import Command
-
+from src.api.keyboards.main_keyboards import back_help_keyboard
 from src.application.services.subscribe_service import SubscribeService
+from src.shared.config import MainMenu
 
 router = Router(name=__name__)
 subscribe_service = SubscribeService()
@@ -13,6 +14,10 @@ async def help_command(message: Message):
     await message.delete()
     return await message.answer(subscribe_service.subscribe_help(),parse_mode=ParseMode.MARKDOWN)
 
+@router.message(lambda message: message.text == f"{MainMenu.subscribes}")
+async def subscribes_main(message: Message):
+    await message.delete()
+    await message.answer(text="Hello World Steam",parse_mode=ParseMode.MARKDOWN)
 
 # [ ] /subscribe_new_release <True/False>             — Нові релізи
 @router.message(Command("subscribe_new_release"))
@@ -51,5 +56,5 @@ async def subscribe_hot_discount_notificate(message: Message):
 #Callback
 @router.callback_query(F.data == "subscribe_help")
 async def subscribe_help_callback(callback_query: CallbackQuery):
-    await callback_query.message.edit_text(text=f"{subscribe_service.subscribe_help()}",parse_mode=ParseMode.MARKDOWN)
+    await callback_query.message.edit_text(text=f"{subscribe_service.subscribe_help()}",parse_mode=ParseMode.MARKDOWN,reply_markup=back_help_keyboard)
     await callback_query.answer()

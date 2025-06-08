@@ -3,7 +3,10 @@ from aiogram.enums import ParseMode
 from aiogram.types import Message, CallbackQuery
 from aiogram.filters import Command
 
+from src.api.keyboards.main_keyboards import back_help_keyboard
+
 from src.application.services.player_service import PlayerService
+from src.shared.config import MainMenu
 
 router = Router(name=__name__)
 
@@ -13,6 +16,11 @@ player_service = PlayerService()
 async def player_help(message: Message):
     await message.delete()
     return await message.answer(player_service.player_help(),parse_mode=ParseMode.MARKDOWN)
+
+@router.message(lambda message: message.text == f"{MainMenu.player}")
+async def player_main(message: Message):
+    await message.delete()
+    await message.answer(text="Hello World Player",parse_mode=ParseMode.MARKDOWN)
 
 # [ ] /user_full_stats <user_id>         — Повна статистика
 @router.message(Command("user_full_stats"))
@@ -50,5 +58,5 @@ async def compare_players(message: Message):
 #Callback
 @router.callback_query(F.data == "player_help")
 async def player_help_callback(callback_query: CallbackQuery):
-    await callback_query.message.edit_text(text=f"{player_service.player_help()}",parse_mode=ParseMode.MARKDOWN)
+    await callback_query.message.edit_text(text=f"{player_service.player_help()}",parse_mode=ParseMode.MARKDOWN,reply_markup=back_help_keyboard)
     await callback_query.answer()

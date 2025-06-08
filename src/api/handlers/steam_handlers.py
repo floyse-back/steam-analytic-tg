@@ -3,14 +3,21 @@ from aiogram.enums import ParseMode
 from aiogram.filters import Command
 from aiogram.types import Message, CallbackQuery, InlineKeyboardMarkup
 
+from src.api.keyboards.main_keyboards import back_help_keyboard
 from src.application.services.steam_service import SteamService
 from src.infrastructure.steam_analytic_api.steam_client import SteamAnalyticsAPIClient
+from src.shared.config import MainMenu
 
 router = Router(name=__name__)
 
 steam_service = SteamService(
     steam_client= SteamAnalyticsAPIClient()
 )
+
+@router.message(lambda message: message.text == f"{MainMenu.steam}")
+async def steam_main(message: Message):
+    await message.delete()
+    await message.answer(text="Hello World Steam",parse_mode=ParseMode.MARKDOWN)
 
 @router.message(Command(commands=["games"]))
 async def help_command(message: Message):
@@ -112,6 +119,6 @@ async def suggest_game(message: Message):
 #Callbacks
 @router.callback_query(F.data == "games_help")
 async def games_help_callback(callback_query: CallbackQuery):
-    await callback_query.message.edit_text(text=f"{steam_service.steam_help()}",parse_mode=ParseMode.MARKDOWN)
+    await callback_query.message.edit_text(text=f"{steam_service.steam_help()}",parse_mode=ParseMode.MARKDOWN,reply_markup=back_help_keyboard)
     await callback_query.answer()
 
