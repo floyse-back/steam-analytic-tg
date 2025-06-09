@@ -1,12 +1,13 @@
 from aiogram import Router, F
 from aiogram.enums import ParseMode
 from aiogram.filters import Command
-from aiogram.types import Message, CallbackQuery, InlineKeyboardMarkup
+from aiogram.types import Message, CallbackQuery
 
 from src.api.keyboards.main_keyboards import back_help_keyboard
+from src.api.keyboards.steam_keyboards import create_inline_steam_commands
 from src.application.services.steam_service import SteamService
 from src.infrastructure.steam_analytic_api.steam_client import SteamAnalyticsAPIClient
-from src.shared.config import MainMenu
+from src.shared.config import MainMenu, steam_message_menu
 
 router = Router(name=__name__)
 
@@ -14,10 +15,11 @@ steam_service = SteamService(
     steam_client= SteamAnalyticsAPIClient()
 )
 
+
 @router.message(lambda message: message.text == f"{MainMenu.steam}")
 async def steam_main(message: Message):
     await message.delete()
-    await message.answer(text="Hello World Steam",parse_mode=ParseMode.MARKDOWN)
+    await message.answer(text=f"{steam_message_menu}",parse_mode=ParseMode.MARKDOWN,reply_markup=await create_inline_steam_commands())
 
 @router.message(Command(commands=["games"]))
 async def help_command(message: Message):

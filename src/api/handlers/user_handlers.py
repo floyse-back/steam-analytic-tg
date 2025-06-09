@@ -4,9 +4,9 @@ from aiogram.types import Message, CallbackQuery
 from aiogram.filters import Command
 
 from src.api.keyboards.main_keyboards import back_help_keyboard
-from src.api.keyboards.user_keyboards import user_inline_keyboard
+from src.api.keyboards.user_keyboards import user_inline_keyboard, create_user_inline_keyboard
 from src.application.services.user_service import UserService
-from src.shared.config import MainMenu
+from src.shared.config import MainMenu, user_message_menu
 
 router = Router(name=__name__)
 
@@ -21,7 +21,7 @@ async def user_help(message: Message):
 @router.message(lambda message: message.text == f"{MainMenu.profile}")
 async def user_reply(message: Message):
     await message.delete()
-    await message.answer(text="Hello World",parse_mode=ParseMode.MARKDOWN,reply_markup=user_inline_keyboard)
+    await message.answer(text=f"{user_message_menu}",parse_mode=ParseMode.MARKDOWN,reply_markup=await create_user_inline_keyboard())
 
 #[ ] /wishlist                           — Показати список бажаного
 @router.message(Command(commands=["whishlist"]))
@@ -43,7 +43,7 @@ async def delete_game(message:Message):
     await message.answer("Delete game whishlist {}".format(parts[1]))
 
 # [ ] /my_wishlist_deals                 — Знижки з wishlist
-@router.message(Command("my_wishlist_deals"))
+@router.message(Command("my_whishlist_deals"))
 async def player_stats(message: Message):
     return await message.reply("Soon...")
 
