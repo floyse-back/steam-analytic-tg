@@ -9,11 +9,18 @@ from src.application.usecases.most_played_games_use_case import MostPlayedGamesU
 from src.application.usecases.search_games_use_case import SearchGamesUseCase
 from src.infrastructure.steam_analytic_api.steam_client import SteamAnalyticsAPIClient
 from src.shared.config import help_config
+from src.shared.dispatcher import DispatcherCommands
 
 
 class SteamService:
     def __init__(self,steam_client:SteamAnalyticsAPIClient):
         self.steam_client = steam_client
+
+        self.dispatcher = DispatcherCommands(
+            command_map={
+                "search_game":self.search_games
+            }
+        )
 
         self.search_games_use_case = SearchGamesUseCase(
             steam_client = self.steam_client,
@@ -66,6 +73,11 @@ class SteamService:
 
     async def suggest_game(self):
         pass
+
+    async def dispetcher(self,command_name,*args,**kwargs):
+        return await self.dispatcher.dispatch(command_name,*args,**kwargs)
+
+
 
 
 

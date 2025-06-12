@@ -124,8 +124,9 @@ async def suggest_game(message: Message):
 async def steam_game_name(message: Message,state: FSMContext):
     await state.update_data(game_id=message.text)
     data = await state.get_data()
-
+    response = await steam_service.dispetcher(data["command"],data["game_id"])
     await state.clear()
+    await message.answer(f"{response}",parse_mode=ParseMode.MARKDOWN)
 
 
 #Callbacks
@@ -137,6 +138,7 @@ async def games_help_callback(callback_query: CallbackQuery):
 @router.callback_query(F.data == "search_game")
 async def search_game_callback(callback_query: CallbackQuery,state: FSMContext):
     await callback_query.message.answer(text="S",parse_mode=ParseMode.MARKDOWN)
+    await state.update_data(command ="search_game")
     await state.set_state(SteamGamesID.game_id)
     await callback_query.message.answer("Введіть назву гри:")
     await callback_query.answer()
