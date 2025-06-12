@@ -8,7 +8,7 @@ async def create_inline_steam_commands():
         steam_inline_keyboard.add(
             InlineKeyboardButton(
                 text=v,
-                callback_data=v
+                callback_data=i
             )
         )
 

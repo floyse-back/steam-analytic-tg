@@ -3,9 +3,9 @@ from logging import getLogger,basicConfig
 
 
 logger = getLogger(__name__)
-logger.setLevel(logging.INFO)
+logger.setLevel(logging.DEBUG)
 
-basicConfig(level=logging.INFO,
+basicConfig(level=logging.DEBUG,
             format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
             datefmt='%m/%d/%Y %I:%M:%S %p'
             )

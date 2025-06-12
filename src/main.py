@@ -2,7 +2,7 @@ from aiogram.enums import ParseMode
 
 import src.api.keyboards.main_keyboards as main_keyboards
 from src.infrastructure.logging.logger import logger
-from src.shared.config import TELEGRAM_API_TOKEN,help_config,start_message
+from src.shared.config import TELEGRAM_API_TOKEN, help_config, start_message, MainMenu
 from aiogram import Bot, Dispatcher, F
 from aiogram.filters import CommandStart
 from aiogram.types import Message, CallbackQuery
@@ -26,7 +26,7 @@ async def start(message: Message):
 
 
 
-@dp.message(lambda message: message.text == "Help")
+@dp.message(lambda message: message.text == f"{MainMenu.help}")
 async def help(message: Message):
     await message.delete()
     return await message.answer(help_config.get(f"help"),parse_mode=ParseMode.MARKDOWN,reply_markup=main_keyboards.help_inline_keyboard)

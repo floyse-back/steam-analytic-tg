@@ -14,12 +14,12 @@ STEAM_ANALYTIC_PASSWORD = getenv('STEAM_ANALYTIC_PASSWORD')
 
 @dataclass(frozen=True)
 class MainMenu:
-    steam:str = "Steam"
-    player:str = "Player"
-    subscribes:str = "Subscribes"
-    help:str = "Help"
-    profile:str = "Profile"
-    subtitle:str = "Menu"
+    steam: str = "🧩 Steam"
+    player: str = "🎮 Гравець"
+    subscribes: str = "📬 Підписки"
+    help: str = "❓ Допомога"
+    profile: str = "👤 Профіль"
+    subtitle: str = "📋 Головне меню"
 
 steam_commands: dict[str, str] = {
     "🔍 Знайти гру": "search_game",
@@ -51,13 +51,26 @@ user_message_menu = (
 )
 
 player_commands: dict[str, str] = {
-
+    "ℹ️ Статистика за ID": "user_full_stats",
+    "🏆 Рейтинг гравця": "player_rating",
+    "🎖️ Досягнення": "achievements_player",
+    "🕵️ Відстежити гравця": "player_stalkering",
+    "🟢 Онлайн статус": "player_play",
+    "⚖️ Порівняти з іншим": "compare_users",
+    "👥 Активність друзів": "friend_activity",
 }
+player_message_menu = "Оберіть команду, пов’язану з гравцем 🎮:"
 
 subscribes_commands: dict[str, str] = {
-
+    "🆕 Нові релізи": "subscribe_new_release",
+    "🆓 Безкоштовні ігри": "subscribe_free_games",
+    "📅 Івенти та події": "subscribe_new_event",
+    "📰 Офіційні новини": "subscribe_steam_news",
+    "⚙️ Оновлення Steam": "subscribe_steam_update",
+    "🔔 Бажані ігри зі знижками": "subscribe_whishlist_notificate",
+    "🔥 Гарячі знижки": "subscribe_hot_discount_notificate"
 }
-
+subscribes_message_menu = "Підписки на оновлення 🗞️ – оберіть категорію:"
 
 
 
