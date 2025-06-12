@@ -2,9 +2,8 @@ from aiogram import Router, F
 from aiogram.enums import ParseMode
 from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
-from aiogram.types import Message, CallbackQuery
+from aiogram.types import Message
 
-from src.api.keyboards.main_keyboards import back_help_keyboard
 from src.api.keyboards.steam_keyboards import create_inline_steam_commands
 from src.application.services.steam_service import SteamService
 from src.infrastructure.steam_analytic_api.steam_client import SteamAnalyticsAPIClient
@@ -127,18 +126,3 @@ async def steam_game_name(message: Message,state: FSMContext):
     response = await steam_service.dispetcher(data["command"],data["game_id"])
     await state.clear()
     await message.answer(f"{response}",parse_mode=ParseMode.MARKDOWN)
-
-
-#Callbacks
-@router.callback_query(F.data == "games_help")
-async def games_help_callback(callback_query: CallbackQuery):
-    await callback_query.message.edit_text(text=f"{steam_service.steam_help()}",parse_mode=ParseMode.MARKDOWN,reply_markup=back_help_keyboard)
-    await callback_query.answer()
-
-@router.callback_query(F.data == "search_game")
-async def search_game_callback(callback_query: CallbackQuery,state: FSMContext):
-    await callback_query.message.answer(text="S",parse_mode=ParseMode.MARKDOWN)
-    await state.update_data(command ="search_game")
-    await state.set_state(SteamGamesID.game_id)
-    await callback_query.message.answer("Введіть назву гри:")
-    await callback_query.answer()
