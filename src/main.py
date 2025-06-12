@@ -7,17 +7,22 @@ from src.api.handlers.steam_handlers import router as steam_router
 from src.api.handlers.player_handlers import router as player_router
 from src.api.handlers.subscribe_handler import router as subscribe_router
 from src.api.handlers.main_handler import router as main_router
+
 from src.api.handlers.callback.steam_callback import router as steam_callback_router
+from src.api.handlers.callback.player_callback import router as player_callback_router
+from src.api.handlers.callback.user_callback import router as user_callback_router
+from src.api.handlers.callback.subscribe_callback import router as subscribe_callback_router
+
 
 import asyncio
 
 dp = Dispatcher()
 
 #Збирання всіх Routers
-dp.include_routers(user_router,
+dp.include_routers(user_router,user_callback_router,
                    steam_router,steam_callback_router,
-                   player_router,
-                   subscribe_router,
+                   player_router,player_callback_router,
+                   subscribe_router,subscribe_callback_router,
                    main_router)
 
 

@@ -52,7 +52,6 @@ async def free_games_now(message: Message):
 async def discounts_game(message: Message):
     await message.delete()
     data = await steam_service.discount_games()
-    print(data)
     await message.answer(f"{data}")
 
 #[ ] /most_played_games                  — Топ найпопулярніших ігор
