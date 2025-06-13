@@ -1,5 +1,8 @@
+import random
+
 from typing_extensions import Optional
 
+from src.application.dto.steam_dto import GameShortModel, transform_to_dto
 from src.application.usecases.achievements_game_use_case import AchievementsGameUseCase
 from src.application.usecases.discount_for_you_use_case import DiscountsGameForYouUseCase
 from src.application.usecases.discounts_game_use_case import DiscountsGameUseCase
@@ -8,9 +11,8 @@ from src.application.usecases.games_for_you_use_case import GamesGameForYouUseCa
 from src.application.usecases.most_played_games_use_case import MostPlayedGamesUseCase
 from src.application.usecases.search_games_use_case import SearchGamesUseCase
 from src.infrastructure.steam_analytic_api.steam_client import SteamAnalyticsAPIClient
-from src.shared.config import help_config
+from src.shared.config import help_config, ganre_config
 from src.shared.dispatcher import DispatcherCommands
-
 
 class SteamService:
     def __init__(self,steam_client:SteamAnalyticsAPIClient):
@@ -18,7 +20,11 @@ class SteamService:
 
         self.dispatcher = DispatcherCommands(
             command_map={
-                "search_game":self.search_games
+                "search_game":self.search_games,
+                "games_for_you":self.games_for_you,
+                "discount_for_you":self.discount_for_you,
+                "achievements_game":self.achievements_game,
+                "game_price":self.games_for_you
             }
         )
 
@@ -47,26 +53,61 @@ class SteamService:
     def steam_help(self):
         return help_config.get("games")
 
+    def __create_empty_message(self):
+        return "Game Not Found"
+
+    def __generate_first_smile(self):
+        data = ["🎮","🎪","👻"]
+        return random.choice(data)
+
+    def __create_short_desc(self,data:GameShortModel):
+        ganre_string = ""
+        ganres_dict = data[f"game_ganre"]
+        for i in range(0,min(len(ganres_dict),5)):
+            ganre_string += f"{ganre_config.get(ganres_dict[i]["ganres_name"],"🎮")}" + ganres_dict[i]["ganres_name"] + " "
+
+        first_smile = self.__generate_first_smile()
+        price_smile = "🆓" if data["final_formatted_price"] == "Free" else "💵"
+
+        discount_string = f" - ({data["discount"]})" if data["discount"]>0 else ""
+
+        return f"""
+{first_smile} [{data["name"]}](https://store.steampowered.com/app/{data["steam_appid"]}/) - {price_smile} {data["final_formatted_price"]}{discount_string}
+_{data["short_description"]}_
+✅ **Ganres:** {ganre_string}
+        """
+
     async def search_games(self,name):
-        return await self.search_games_use_case.execute(name)
+        data = await self.search_games_use_case.execute(name)
+        new_message = ""
+
+        if data is None or len(data) == 0:
+            return self.__create_empty_message()
+
+        for model in data:
+            new_data=transform_to_dto(GameShortModel,model)
+            new_message+=f"{self.__create_short_desc(new_data)}"
+
+        return new_message
 
     async def discount_games(self):
-        return await self.discount_games_use_case.execute()
+        data = await self.discount_games_use_case.execute()
 
     async def free_games_now(self):
-        return await self.free_games_now_use_case.execute()
+        data = await self.free_games_now_use_case.execute()
+        return data
 
     async def most_played_games(self):
-        return await self.most_played_games_use_case.execute()
+        data = await self.most_played_games_use_case.execute()
 
     async def games_for_you(self,user:Optional[str]=None):
-        return await self.games_for_you_use_case.execute(user)
+        data =  await self.games_for_you_use_case.execute(user)
 
     async def discount_for_you(self,user:Optional[str]=None):
-        return await self.discount_for_you_use_case.execute(user)
+        data = await self.discount_for_you_use_case.execute(user)
 
     async def achievements_game(self,game:Optional[str]=None):
-        return await self.achievements_game_use_case.execute(game)
+        data = await self.achievements_game_use_case.execute(game)
 
     async def check_game_price(self,game_id:int):
         pass

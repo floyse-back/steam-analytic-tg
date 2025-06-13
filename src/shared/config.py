@@ -164,5 +164,33 @@ _📌 Використай /help, щоби побачити це знову._
     """
 }
 
+ganre_config = {
+    "Action": "⚡",
+    "Adventure": "🌐",
+    "RPG": "🛡️",
+    "Strategy": "♟️",
+    "Simulation": "🖥️",
+    "Sports": "⚽",
+    "Racing": "🏎️",
+    "Puzzle": "🧩",
+    "Horror": "🕯️",
+    "Platformer": "👟",
+    "Fighting": "🥋",
+    "Sandbox": "🗃️",
+    "Shooter": "🎯",
+    "Survival": "⚒️",
+    "Battle Royale": "🏹",
+    "Stealth": "👤",
+    "Visual Novel": "📖",
+    "Rhythm": "🎵",
+    "Educational": "📚",
+    "Card Game": "🃏",
+    "Board Game": "♟️",
+
+    "Free to Play": "🆓",
+    "Paid": "💰",
+    "DLC": "📦",
+    "Expansion": "➕",
+}
 
 

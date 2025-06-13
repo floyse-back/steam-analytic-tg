@@ -12,4 +12,4 @@ class DispatcherCommands:
                 raise ValueError(f"Unknown command: {command_name}")
             return await command(*args, **kwargs)
         except Exception as e:
-            raise RuntimeError(f"Dispatcher error: {e}")
+            raise RuntimeError(f"Dispatcher error:")

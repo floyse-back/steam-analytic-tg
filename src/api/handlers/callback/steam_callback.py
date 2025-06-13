@@ -22,7 +22,7 @@ async def games_help_callback(callback_query: CallbackQuery):
 @router.callback_query(F.data == "search_game")
 async def search_game_callback(callback_query: CallbackQuery,state: FSMContext):
     await state.update_data(command ="search_game")
-    await state.set_state(SteamGamesID.game_id)
+    await state.set_state(SteamGamesID.game)
     await callback_query.message.answer("Введіть назву гри:")
     await callback_query.answer()
 
@@ -32,8 +32,15 @@ async def free_games_now_callback(callback_query: CallbackQuery):
     await callback_query.message.answer(f"{data}")
     await callback_query.answer()
 
+@router.callback_query(F.data == "achievements_game")
+async def achievements_game_callback(callback_query: CallbackQuery,state: FSMContext):
+    await state.update_data(command="achievements_game")
+    await state.set_state(SteamGamesID.game)
+    await callback_query.answer("Введіть назву гри")
+    await callback_query.answer()
+
 @router.callback_query(F.data == "most_played_games")
-async def free_games_now_callback(callback_query: CallbackQuery):
+async def most_played_games_callback(callback_query: CallbackQuery):
     data=await steam_service.most_played_games()
     await callback_query.answer(f"{data}",parse_mode=ParseMode.MARKDOWN)
 

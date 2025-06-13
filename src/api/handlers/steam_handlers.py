@@ -6,6 +6,7 @@ from aiogram.types import Message
 
 from src.api.keyboards.steam_keyboards import create_inline_steam_commands
 from src.application.services.steam_service import SteamService
+from src.infrastructure.logging.logger import logger
 from src.infrastructure.steam_analytic_api.steam_client import SteamAnalyticsAPIClient
 from src.shared.config import MainMenu, steam_message_menu
 from src.api.utils.state import SteamGamesID
@@ -118,10 +119,12 @@ async def check_game_price(message: Message):
 async def suggest_game(message: Message):
     return await message.reply("Soon...")
 
-@router.message(SteamGamesID.game_id)
+@router.message(SteamGamesID.game)
 async def steam_game_name(message: Message,state: FSMContext):
-    await state.update_data(game_id=message.text)
+    await state.update_data(game=message.text)
     data = await state.get_data()
-    response = await steam_service.dispetcher(data["command"],data["game_id"])
+    response = await steam_service.dispetcher(data["command"],data["game"])
+    logger.debug(response)
+    logger.debug(len(response))
     await state.clear()
     await message.answer(f"{response}",parse_mode=ParseMode.MARKDOWN)
