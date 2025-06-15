@@ -95,7 +95,15 @@ _{data["short_description"]}_
 
     async def free_games_now(self):
         data = await self.free_games_now_use_case.execute()
-        return data
+
+        if data is None or len(data) == 0:
+            return self.__create_empty_message()
+
+        for model in data:
+            new_data = transform_to_dto(GameShortModel,model)
+            new_message=f"{self.__create_short_desc(new_data)}"
+
+        return new_message
 
     async def most_played_games(self):
         data = await self.most_played_games_use_case.execute()

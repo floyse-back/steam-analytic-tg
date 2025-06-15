@@ -29,7 +29,7 @@ async def search_game_callback(callback_query: CallbackQuery,state: FSMContext):
 @router.callback_query(F.data == "free_now")
 async def free_games_now_callback(callback_query: CallbackQuery):
     data = await steam_service.free_games_now()
-    await callback_query.message.answer(f"{data}")
+    await callback_query.message.answer(f"{data}",parse_mode=ParseMode.MARKDOWN)
     await callback_query.answer()
 
 @router.callback_query(F.data == "achievements_game")

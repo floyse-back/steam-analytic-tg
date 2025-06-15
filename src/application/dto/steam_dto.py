@@ -5,7 +5,7 @@ from pydantic import BaseModel
 
 class GameShortModel(BaseModel):
     name:str
-    steam_appid:Optional[int]
+    steam_appid:Optional[int] = None
     final_formatted_price:Optional[str]
     discount:Union[int,str]
     game_ganre:List[Dict]
