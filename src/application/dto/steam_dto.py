@@ -15,6 +15,13 @@ class GameShortModel(BaseModel):
     class Config:
         from_attributes = True
 
+class GameShortListModel(BaseModel):
+    name:str
+    appid:Union[int,str]
+    price:Union[int,str]
+    discount:Union[int,str]
+    img_url:Optional[str]
+
 class GameLongModel(BaseModel):
     pass
 

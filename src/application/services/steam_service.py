@@ -77,18 +77,27 @@ _{data["short_description"]}_
 ✅ **Ganres:** {ganre_string}
         """
 
+    def __create_short_list_games(self,data):
+        new_text = ""
+
+        for i,game in enumerate(data):
+            new_text += f"{i+1}.{game["name"]}\n"
+
+        return f"""
+        Найпопулярніші ігри:
+        {new_text}
+        """
+
     async def search_games(self,name):
         data = await self.search_games_use_case.execute(name)
         new_message = ""
 
-        if data is None or len(data) == 0:
+        if data is None:
             return self.__create_empty_message()
 
         for model in data:
-            new_data=transform_to_dto(GameShortModel,model)
-            new_message+=f"{self.__create_short_desc(new_data)}"
-
-        return new_message
+            new_message+=f"{self.__create_short_desc(model)}"
+        return "Знайдені ігри за вашим запитом: \n{}".format(new_message)
 
     async def discount_games(self):
         data = await self.discount_games_use_case.execute()
@@ -107,15 +116,21 @@ _{data["short_description"]}_
 
     async def most_played_games(self):
         data = await self.most_played_games_use_case.execute()
+        print(data)
+        text = self.__create_short_list_games(data)
+        return text
 
     async def games_for_you(self,user:Optional[str]=None):
         data =  await self.games_for_you_use_case.execute(user)
+        return data
 
     async def discount_for_you(self,user:Optional[str]=None):
         data = await self.discount_for_you_use_case.execute(user)
+        return data
 
     async def achievements_game(self,game:Optional[str]=None):
         data = await self.achievements_game_use_case.execute(game)
+        return data
 
     async def check_game_price(self,game_id:int):
         pass
