@@ -45,6 +45,12 @@ async def most_played_games_callback(callback_query: CallbackQuery):
     await callback_query.answer()
     await callback_query.message.answer(f"{data}",parse_mode=ParseMode.MARKDOWN)
 
+@router.callback_query(F.data == "discount_games")
+async def discount_games_callback(callback_query: CallbackQuery):
+    data = await steam_service.discount_games(page=1,limit=10)
+    await callback_query.answer()
+    await callback_query.message.answer(f"{data}",parse_mode=ParseMode.MARKDOWN)
+
 @router.callback_query(F.data == "games_for_you")
 async def games_for_you_callback(callback_query:CallbackQuery,state: FSMContext):
     await state.update_data(command="games_for_you",text="🎮 Ігри для тебе")

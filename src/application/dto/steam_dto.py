@@ -20,6 +20,9 @@ class GameShortListModel(BaseModel):
     appid:Union[int,str]
     price:Union[int,str]
     discount:Union[int,str]
+    positive:Optional[int]
+    negative:Optional[int]
+    average_forever:Optional[int]
     img_url:Optional[str]
 
 class GameLongModel(BaseModel):

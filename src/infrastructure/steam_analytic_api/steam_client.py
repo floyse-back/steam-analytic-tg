@@ -33,7 +33,7 @@ class SteamAnalyticsAPIClient:
             response = await client.get(f"api/v1/steam/search_game",params={"name":name})
         return response.json()
 
-    async def discounts_games(self,limit=2,page=1):
+    async def discounts_games(self,limit=10,page=1):
         async with self.__create_client_session() as client:
             response = await client.get(f"api/v1/steam/best_sallers",
                                            params={

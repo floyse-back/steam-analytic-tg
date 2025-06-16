@@ -1,3 +1,5 @@
+from src.application.dto.steam_dto import transform_to_dto, GameShortListModel
+from src.infrastructure.logging.logger import logger
 from src.infrastructure.steam_analytic_api.steam_client import SteamAnalyticsAPIClient
 
 
@@ -6,4 +8,9 @@ class DiscountsGameUseCase:
         self.steam_client = steam_client
 
     async def execute(self,page:int=1,limit:int=2):
-        return await self.steam_client.discounts_games(limit=limit,page=page)
+        data =  await self.steam_client.discounts_games(limit=limit,page=page)
+        logger.info("%s",data)
+
+        data = [transform_to_dto(GameShortListModel,i) for i in data]
+
+        return data

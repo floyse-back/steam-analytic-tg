@@ -7,7 +7,6 @@ from aiogram.types import Message
 from src.api.keyboards.steam_keyboards import create_inline_steam_commands, search_new_game_inline_keyboard, \
     create_player_details_inline
 from src.application.services.steam_service import SteamService
-from src.infrastructure.logging.logger import logger
 from src.infrastructure.steam_analytic_api.steam_client import SteamAnalyticsAPIClient
 from src.shared.config import MainMenu, steam_message_menu
 from src.api.utils.state import SteamGamesID, PlayerSteamName
@@ -42,7 +41,7 @@ async def free_games_now(message: Message):
 async def discounts_game(message: Message):
     await message.delete()
     data = await steam_service.discount_games()
-    await message.answer(f"{data}")
+    await message.answer(f"{data}",parse_mode=ParseMode.MARKDOWN)
 
 #[ ] /most_played_games                  — Топ найпопулярніших ігор
 @router.message(Command("most_played_games"))
@@ -50,7 +49,7 @@ async def most_played_games(message: Message):
     await message.delete()
 
     data = await steam_service.most_played_games()
-    await message.answer(f"{data}")
+    await message.answer(f"{data}",parse_mode=ParseMode.MARKDOWN)
 
 #[ ] /discount_for_you <user_id>/None                  — Персональні знижки
 @router.message(Command("discount_for_you"))
