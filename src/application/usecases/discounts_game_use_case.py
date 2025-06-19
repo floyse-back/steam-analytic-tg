@@ -9,7 +9,6 @@ class DiscountsGameUseCase:
 
     async def execute(self,page:int=1,limit:int=2):
         data =  await self.steam_client.discounts_games(limit=limit,page=page)
-        logger.info("%s",data)
 
         data = [transform_to_dto(GameShortListModel,i) for i in data]
 

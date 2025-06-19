@@ -6,3 +6,6 @@ class SteamGamesID(StatesGroup):
 
 class PlayerSteamName(StatesGroup):
     player = State()
+
+class PageNumberSwapper(StatesGroup):
+    current_page = State()

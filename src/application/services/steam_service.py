@@ -77,11 +77,11 @@ _{data["short_description"]}_
 ✅ **Ganres:** {ganre_string}
         """
 
-    def __create_short_list_games(self,data):
+    def __create_short_list_games(self,data,page,limit):
         new_text = ""
-
+        start_number = (page-1)*limit+1
         for i,game in enumerate(data):
-            new_text += f"{i+1}.[{game["name"]}](https://store.steampowered.com/app/{game["appid"]}/) |{game["price"]/100 if not game["price"]==0 else "🆓"}$ | {f'({game["discount"]}%)' if game["discount"]>0 else ""}| 👍{game["positive"]} | 👎{game["negative"]} \n"
+            new_text += f"{start_number+i}.[{game["name"]}](https://store.steampowered.com/app/{game["appid"]}/) |{game["price"]/100 if not game["price"]==0 else "🆓"}$ | {f'({game["discount"]}%)' if game["discount"]>0 else ""}| 👍{game["positive"]} | 👎{game["negative"]} \n"
 
         return f"{new_text}"
 
@@ -98,7 +98,7 @@ _{data["short_description"]}_
 
     async def discount_games(self,page:int=1,limit:int=10):
         data = await self.discount_games_use_case.execute(page=page,limit=limit)
-        new_message = f"🎮🤑 **Найкращі знижки дня** 🤑🎮\n{self.__create_short_list_games(data)}"
+        new_message = f"🎮🤑 **Найкращі знижки дня** 🤑🎮\n{self.__create_short_list_games(data,page,limit)}"
         return new_message
 
     async def free_games_now(self):
@@ -113,10 +113,10 @@ _{data["short_description"]}_
 
         return new_message
 
-    async def most_played_games(self):
-        data = await self.most_played_games_use_case.execute()
+    async def most_played_games(self,page:int=1,limit:int=10):
+        data = await self.most_played_games_use_case.execute(page=page,limit=limit)
 
-        text = self.__create_short_list_games(data)
+        text = self.__create_short_list_games(data,page,limit)
         text = "\t🔥🎮 **Найпопулярніші ігри:** 🎮🔥\n" + text
         return text
 

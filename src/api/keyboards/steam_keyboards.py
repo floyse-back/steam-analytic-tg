@@ -29,3 +29,33 @@ async def create_player_details_inline(callback_data,text):
         )
     )
     return inline_buttons.adjust(1).as_markup()
+
+async def create_page_swapper_inline(callback_data:str,menu_callback_data:str,current_page:int):
+    inline_keyboard =  InlineKeyboardBuilder()
+    if current_page-1 == 0:
+        inline_keyboard.add(
+            InlineKeyboardButton(
+                text=f"",
+                callback_data=f"noop"
+            )
+            )
+    else:
+        inline_keyboard.add(
+            InlineKeyboardButton(
+                text=f"⬅️ {current_page-1}",
+                callback_data=f"{callback_data}:{current_page-1}"
+            )
+            )
+    inline_keyboard.add(
+        InlineKeyboardButton(
+            text="🏠 Меню",
+            callback_data=f"{menu_callback_data}"
+        )
+    )
+    inline_keyboard.add(
+        InlineKeyboardButton(
+            text=f"{current_page+1} ➡️",
+            callback_data=f"{callback_data}:{current_page+1}"
+        )
+    )
+    return inline_keyboard.adjust(3).as_markup()

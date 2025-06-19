@@ -4,9 +4,13 @@ from aiogram.fsm.context import FSMContext
 from aiogram.types import CallbackQuery
 
 from src.api.keyboards.main_keyboards import back_help_keyboard
+from src.api.keyboards.steam_keyboards import create_page_swapper_inline, create_inline_steam_commands
+from src.api.utils.pages_utils import page_utils_elements
 from src.api.utils.state import SteamGamesID, PlayerSteamName
 from src.application.services.steam_service import SteamService
+from src.infrastructure.logging.logger import logger
 from src.infrastructure.steam_analytic_api.steam_client import SteamAnalyticsAPIClient
+from src.shared.config import steam_message_menu
 
 router = Router()
 steam_service = SteamService(
@@ -39,17 +43,25 @@ async def achievements_game_callback(callback_query: CallbackQuery,state: FSMCon
     await callback_query.message.answer("Введіть назву гри:")
     await callback_query.answer("Введіть назву гри")
 
-@router.callback_query(F.data == "most_played_games")
+@router.callback_query(lambda c:c.data.startswith("most_played_games"))
 async def most_played_games_callback(callback_query: CallbackQuery):
-    data=await steam_service.most_played_games()
-    await callback_query.answer()
-    await callback_query.message.answer(f"{data}",parse_mode=ParseMode.MARKDOWN)
+    callback_name = "most_played_games"
+    page = page_utils_elements(callback_data=callback_query.data, page_one_data=callback_name)
 
-@router.callback_query(F.data == "discount_games")
+    data = await steam_service.most_played_games(page=page, limit=10)
+    await callback_query.message.edit_text(f"{data}", parse_mode=ParseMode.MARKDOWN,
+                                           reply_markup=await create_page_swapper_inline(callback_data=callback_name,
+                                                                                         menu_callback_data="steam_menu",
+                                                                                         current_page=page))
+
+
+@router.callback_query(lambda c:c.data.startswith("discount_games"))
 async def discount_games_callback(callback_query: CallbackQuery):
-    data = await steam_service.discount_games(page=1,limit=10)
-    await callback_query.answer()
-    await callback_query.message.answer(f"{data}",parse_mode=ParseMode.MARKDOWN)
+    callback_name = "discount_games"
+    page = page_utils_elements(callback_data=callback_query.data,page_one_data=callback_name)
+
+    data = await steam_service.discount_games(page=page,limit=10)
+    await callback_query.message.edit_text(f"{data}",parse_mode=ParseMode.MARKDOWN,reply_markup=await create_page_swapper_inline(callback_data=callback_name,menu_callback_data="steam_menu",current_page=page))
 
 @router.callback_query(F.data == "games_for_you")
 async def games_for_you_callback(callback_query:CallbackQuery,state: FSMContext):
@@ -74,3 +86,12 @@ async def game_price_callback(callback_query: CallbackQuery):
 async def suggest_game_callback(callback_query: CallbackQuery):
     await callback_query.message.answer("Soon...")
     await callback_query.answer()
+
+@router.callback_query(F.data == "steam_menu")
+async def steam_menu_callback(callback_query: CallbackQuery):
+    await callback_query.answer()
+    return await callback_query.message.edit_text(text=f"{steam_message_menu}",parse_mode=ParseMode.MARKDOWN,reply_markup=await create_inline_steam_commands())
+
+@router.callback_query(F.data == "noop")
+async def noop_callback(callback_query: CallbackQuery):
+    return await callback_query.answer()

@@ -62,7 +62,7 @@ class SteamAnalyticsAPIClient:
 
     async def games_for_you(self,user:Optional[str]=None):
         if user is None:
-            raise Exception("user is required")
+            raise Exception("User is required")
         async with self.__create_client_session() as client:
             response = await client.get(f"api/v1/analytics/games_for_you",params={
                 "user":user
@@ -70,10 +70,11 @@ class SteamAnalyticsAPIClient:
 
         if response.status_code == 200:
             return response.json()
+        return None
 
     async def discount_for_you(self, user: Optional[str] = None):
         if user is None:
-            raise Exception("user is required")
+            raise Exception("User is required")
         async with self.__create_client_session() as client:
             response = await client.get(f"api/v1/analytics/salling_for_you", params={
                 "user": user
@@ -81,6 +82,7 @@ class SteamAnalyticsAPIClient:
 
         if response.status_code == 200:
             return response.json()
+        return None
 
     async def achievements_game(self, game: str):
         async with self.__create_client_session() as client:

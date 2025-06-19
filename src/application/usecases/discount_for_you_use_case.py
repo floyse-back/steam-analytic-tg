@@ -7,4 +7,9 @@ class DiscountsGameForYouUseCase:
         self.steam_client = steam_client
 
     async def execute(self,user:Optional[str]=None):
-        return await self.steam_client.discount_for_you(user)
+        data = await self.steam_client.discount_for_you(user)
+        if data is None:
+            return {"Try Later"}
+        else:
+            #Логіка сериалізації
+            return data

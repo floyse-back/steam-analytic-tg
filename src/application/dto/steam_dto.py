@@ -25,6 +25,12 @@ class GameShortListModel(BaseModel):
     average_forever:Optional[int]
     img_url:Optional[str]
 
+class GameForYouModel(BaseModel):
+    appid:Union[int]
+    name:Optional[str]
+    img: Optional[str]
+    rating:Optional[int] = None
+
 class GameLongModel(BaseModel):
     pass
 
