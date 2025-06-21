@@ -1,3 +1,4 @@
+from src.infrastructure.db.database import get_async_db
 from src.infrastructure.logging.logger import logger
 from src.shared.config import TELEGRAM_API_TOKEN
 from aiogram import Bot, Dispatcher

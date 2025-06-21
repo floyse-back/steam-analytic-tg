@@ -1,0 +1,40 @@
+User Context
+Table users
+-user_id(telegram_id)
+-username
+-steam_id
+-subscribes(ManyToMany)
+-whistlist(ManyToMany)
+
+Table whishlist
+--telegram_id
+-game_id
+-date
+
+Subscribes Context
+Table
+subscribes
+-id
+-user_id
+-type
+-content
+-date
+
+type subscribes
+-id
+-name
+-content
+
+Player Context
+Table
+player_stats
+-steam_id
+-username
+-onlinestatus
+-games(JSON)
+-friends(JSON)
+-achievements(JSON)
+
+Steam Context
+Table
+Тут немає таблиць з баз даних лише моделі

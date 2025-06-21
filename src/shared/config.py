@@ -6,6 +6,7 @@ from os import getenv
 
 load_dotenv()
 
+ASYNC_DATABASE_URL = getenv("ASYNC_DATABASE_URL")
 
 TELEGRAM_API_TOKEN = getenv('TELEGRAM_API_TOKEN')
 
