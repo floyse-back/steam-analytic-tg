@@ -10,6 +10,7 @@ from src.application.usecases.free_games_now_use_case import FreeGamesNowUseCase
 from src.application.usecases.games_for_you_use_case import GamesGameForYouUseCase
 from src.application.usecases.most_played_games_use_case import MostPlayedGamesUseCase
 from src.application.usecases.search_games_use_case import SearchGamesUseCase
+from src.application.usecases.suggest_game_use_case import GetSuggestGameUseCase
 from src.infrastructure.steam_analytic_api.steam_client import SteamAnalyticsAPIClient
 from src.shared.config import help_config, ganre_config
 from src.shared.dispatcher import DispatcherCommands
@@ -48,6 +49,9 @@ class SteamService:
         )
         self.achievements_game_use_case = AchievementsGameUseCase(
             steam_client = self.steam_client,
+        )
+        self.suggest_game_use_case = GetSuggestGameUseCase(
+            steam_client = self.steam_client
         )
 
     def steam_help(self):
@@ -136,7 +140,11 @@ _{data["short_description"]}_
         pass
 
     async def suggest_game(self):
-        pass
+        data = await self.suggest_game_use_case.execute()
+        text =""
+        for i in data:
+            text+=self.__create_short_desc(i)
+        return f"""Випадкова гра:\n {text}"""
 
     async def dispetcher(self,command_name,*args,**kwargs):
         return await self.dispatcher.dispatch(command_name,*args,**kwargs)

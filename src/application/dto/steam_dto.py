@@ -10,7 +10,7 @@ class GameShortModel(BaseModel):
     discount:Union[int,str]
     game_ganre:List[Dict]
     short_description:Optional[str]
-    url:Optional[str] = None
+    img_url:Optional[str] = None
 
     class Config:
         from_attributes = True

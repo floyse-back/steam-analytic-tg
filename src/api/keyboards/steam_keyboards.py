@@ -71,3 +71,21 @@ async def create_page_swapper_inline(callback_data:str,menu_callback_data:str,cu
         )
     )
     return inline_keyboard.adjust(3).as_markup()
+
+suggest_game_keyboard = InlineKeyboardMarkup(
+    inline_keyboard = [
+        [
+         InlineKeyboardButton(
+             text="🎮🔄 - Згенерувати повторно",
+             callback_data=f"suggest_game"
+         )
+        ],
+        [
+        InlineKeyboardButton(
+            text="🏠 Меню",
+            callback_data=f"steam_menu"
+        )
+        ]
+
+    ]
+)

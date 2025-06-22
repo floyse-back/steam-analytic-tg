@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, Union, List
 
 from httpx import AsyncClient,Client
 from src.shared.config import STEAM_ANALYTIC_NAME,STEAM_ANALYTIC_PASSWORD
@@ -28,12 +28,12 @@ class SteamAnalyticsAPIClient:
         else:
             raise Exception(response.text)
 
-    async def search_games(self,name):
+    async def search_games(self,name)->Optional[List[dict]]:
         async with self.__create_client_session() as client:
             response = await client.get(f"api/v1/steam/search_game",params={"name":name})
         return response.json()
 
-    async def discounts_games(self,limit=10,page=1):
+    async def discounts_games(self,limit=10,page=1)->Optional[List[dict]]:
         async with self.__create_client_session() as client:
             response = await client.get(f"api/v1/steam/best_sallers",
                                            params={
@@ -43,14 +43,14 @@ class SteamAnalyticsAPIClient:
                                            )
         return response.json()
 
-    async def free_games_now(self):
+    async def free_games_now(self)->Optional[List[dict]]:
         async with self.__create_client_session() as client:
             response = await client.get(f"api/v1/analytics/free_games")
 
         if response.status_code == 200:
             return response.json()
 
-    async def most_played_games(self,page=1,limit=5):
+    async def most_played_games(self,page=1,limit=5) -> Optional[List[dict]]:
         async with self.__create_client_session() as client:
             response = await client.get(f"api/v1/steam/get_top_games/",params={
                 "page":page,
@@ -60,7 +60,7 @@ class SteamAnalyticsAPIClient:
         if response.status_code == 200:
             return response.json()
 
-    async def games_for_you(self,user:Optional[str]=None):
+    async def games_for_you(self,user:Optional[str]=None) -> Optional[dict]:
         if user is None:
             raise Exception("User is required")
         async with self.__create_client_session() as client:
@@ -72,7 +72,7 @@ class SteamAnalyticsAPIClient:
             return response.json()
         return None
 
-    async def discount_for_you(self, user: Optional[str] = None):
+    async def discount_for_you(self, user: Optional[str] = None)-> Optional[dict]:
         if user is None:
             raise Exception("User is required")
         async with self.__create_client_session() as client:
@@ -84,10 +84,10 @@ class SteamAnalyticsAPIClient:
             return response.json()
         return None
 
-    async def achievements_game(self, game: str):
+    async def achievements_game(self, game: str) -> Optional[dict]:
         async with self.__create_client_session() as client:
             response = await client.get(f"api/v1/steam/game_achivements", params={
-                "game_id": game
+                "game": game
             })
         if response.status_code == 200:
             return response.json()
@@ -95,5 +95,10 @@ class SteamAnalyticsAPIClient:
     async def check_game_price(self, game_id: int):
         pass
 
-    async def suggest_game(self):
-        pass
+    async def suggest_game(self) -> Optional[List]:
+        async with self.__create_client_session() as client:
+            response = await client.get(f"api/v1/analytics/random_games")
+
+        if response.status_code == 200:
+            return response.json()
+        return None

@@ -4,11 +4,11 @@ from aiogram.fsm.context import FSMContext
 from aiogram.types import CallbackQuery
 
 from src.api.keyboards.main_keyboards import back_help_keyboard
-from src.api.keyboards.steam_keyboards import create_page_swapper_inline, create_inline_steam_commands
+from src.api.keyboards.steam_keyboards import create_page_swapper_inline, create_inline_steam_commands, \
+    suggest_game_keyboard
 from src.api.utils.pages_utils import page_utils_elements
 from src.api.utils.state import SteamGamesID, PlayerSteamName
 from src.application.services.steam_service import SteamService
-from src.infrastructure.logging.logger import logger
 from src.infrastructure.steam_analytic_api.steam_client import SteamAnalyticsAPIClient
 from src.shared.config import steam_message_menu
 
@@ -84,7 +84,8 @@ async def game_price_callback(callback_query: CallbackQuery):
 
 @router.callback_query(F.data == "suggest_game")
 async def suggest_game_callback(callback_query: CallbackQuery):
-    await callback_query.message.answer("Soon...")
+    data = await steam_service.suggest_game()
+    await callback_query.message.edit_text(f"{data}",parse_mode=ParseMode.MARKDOWN,reply_markup=suggest_game_keyboard)
     await callback_query.answer()
 
 @router.callback_query(F.data == "steam_menu")
