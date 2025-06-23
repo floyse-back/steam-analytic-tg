@@ -20,6 +20,7 @@ class Users(Base):
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
     steam_id: Mapped[Optional[int]] = mapped_column(Integer, default=None, nullable=True)
+    role: Mapped[str] = mapped_column(String, default="user")
 
     subscribes: Mapped[List["Subscribes"]] = relationship(
         back_populates="user",
