@@ -40,10 +40,6 @@ async def subscribe_new_event(message: Message):
 async def subscribe_steam_news(message: Message):
     return await message.answer("Soon...")
 
-# [ ] /subscribe_steam_update <True/False>            — Оновлення Steam
-@router.message(Command("subscribe_steam_update"))
-async def subscribe_steam_update(message: Message):
-    return await message.answer("Soon...")
 # [ ] /subscribe_whishlist_notificate <True/False>    — Знижки у wishlist
 @router.message(Command("subscribe_whishlist_notificate"))
 async def subscribe_whishlist_notificate(message: Message):

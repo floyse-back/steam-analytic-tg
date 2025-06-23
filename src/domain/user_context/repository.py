@@ -2,7 +2,7 @@ from abc import ABC,abstractmethod
 from typing import Optional, List
 
 
-class UsersRepository(ABC):
+class IUsersRepository(ABC):
     @abstractmethod
     async def create_user(self,steam_id:Optional[int],id:int,session)->None:
         pass
@@ -44,7 +44,7 @@ class UsersRepository(ABC):
         pass
 
 
-class WhishlistRepository(ABC):
+class IWhishlistRepository(ABC):
     @abstractmethod
     async def update_game_whishlist(self,game_id:int,name:str,short_desc:Optional[str],price:int,session)->None:
         pass

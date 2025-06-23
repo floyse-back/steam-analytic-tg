@@ -9,6 +9,7 @@ from src.api.keyboards.steam_keyboards import create_page_swapper_inline, create
 from src.api.utils.pages_utils import page_utils_elements
 from src.api.utils.state import SteamGamesID, PlayerSteamName
 from src.application.services.steam_service import SteamService
+from src.infrastructure.logging.logger import logger
 from src.infrastructure.steam_analytic_api.steam_client import SteamAnalyticsAPIClient
 from src.shared.config import steam_message_menu
 
@@ -37,11 +38,31 @@ async def free_games_now_callback(callback_query: CallbackQuery):
     await callback_query.answer()
 
 @router.callback_query(F.data == "achievements_game")
-async def achievements_game_callback(callback_query: CallbackQuery,state: FSMContext):
+async def achievements_game_callback_state(callback_query: CallbackQuery,state: FSMContext):
     await state.update_data(command="achievements_game")
     await state.set_state(SteamGamesID.game)
     await callback_query.message.answer("Введіть назву гри:")
     await callback_query.answer("Введіть назву гри")
+
+@router.callback_query(lambda c:c.data.startswith("achievements_game"))
+async def achievements_game_callback(callback_query: CallbackQuery):
+    """
+    Цей метод перевіряє чи початок callback_query achievements_game
+    achievements_game:{page}:{appid}
+    Приблизно таке буде приймати цей callback
+    """
+
+    callback_name =":".join(callback_query.data.split(":")[0:2])
+    logger.info(f"callback_name:{callback_name}")
+    page = page_utils_elements(callback_data=callback_query.data,page_one_data=callback_name,index=2)
+    appid_game = callback_query.data.split(":")[1]
+
+    data = await steam_service.achievements_game(game=appid_game,page=page,offset=10)
+    await callback_query.message.edit_text(f"{data}",parse_mode=ParseMode.MARKDOWN,reply_markup=await create_page_swapper_inline(callback_data=callback_name,
+                                                                                         menu_callback_data="steam_menu",
+                                                                                         current_page=page
+    ))
+    await callback_query.answer()
 
 @router.callback_query(lambda c:c.data.startswith("most_played_games"))
 async def most_played_games_callback(callback_query: CallbackQuery):

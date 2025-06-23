@@ -84,10 +84,12 @@ class SteamAnalyticsAPIClient:
             return response.json()
         return None
 
-    async def achievements_game(self, game: str) -> Optional[dict]:
+    async def achievements_game(self, game: str,page:int=1,offset:int=10) -> Optional[dict]:
         async with self.__create_client_session() as client:
             response = await client.get(f"api/v1/steam/game_achivements", params={
-                "game": game
+                "game": game,
+                "page":page,
+                "offset":offset
             })
         if response.status_code == 200:
             return response.json()

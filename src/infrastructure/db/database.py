@@ -14,7 +14,7 @@ logger.info("Database Engine Initialized")
 
 
 AsyncSessionLocal = async_sessionmaker(
-    engine=engine,
+    bind=engine,
     expire_on_commit=False,
     class_=AsyncSession,
 )

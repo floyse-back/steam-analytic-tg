@@ -132,8 +132,8 @@ _{data["short_description"]}_
         data = await self.discount_for_you_use_case.execute(user)
         return data
 
-    async def achievements_game(self,game:Optional[str]=None):
-        data = await self.achievements_game_use_case.execute(game)
+    async def achievements_game(self,game:Optional[str]=None,page:int=1,offset:int=10):
+        data = await self.achievements_game_use_case.execute(game=game,page=page,offset=offset)
         return data
 
     async def check_game_price(self,game_id:int):

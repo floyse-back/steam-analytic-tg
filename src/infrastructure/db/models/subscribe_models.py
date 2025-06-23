@@ -26,7 +26,7 @@ class Subscribes(Base):
 class SubscribesType(Base):
     __tablename__ = "subscribes_types"
 
-    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
     name: Mapped[str] = mapped_column(String, nullable=False)
 
     subscribes: Mapped[List[Subscribes]] = relationship(

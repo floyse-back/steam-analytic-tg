@@ -23,6 +23,7 @@ search_new_game_inline_keyboard = InlineKeyboardMarkup(
         )]
     ]
 )
+
 go_to_main_menu_inline_keyboard = InlineKeyboardMarkup(
     inline_keyboard=[
         [   InlineKeyboardButton(

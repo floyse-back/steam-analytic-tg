@@ -1,3 +1,4 @@
+from src.infrastructure.db.database import get_async_db
 from src.infrastructure.logging.logger import logger
 from src.shared.config import TELEGRAM_API_TOKEN
 from aiogram import Bot, Dispatcher
@@ -16,6 +17,8 @@ from src.api.handlers.callback.subscribe_callback import router as subscribe_cal
 
 import asyncio
 
+from src.startup import init_subscribe_types
+
 dp = Dispatcher()
 
 #Збирання всіх Routers
@@ -27,6 +30,10 @@ dp.include_routers(user_router,user_callback_router,
 
 
 async def main():
+    async for session in get_async_db():
+        await init_subscribe_types(session=session)
+        break
+
     bot = Bot(token=TELEGRAM_API_TOKEN)
     logger.info("Start Telegram Bot...")
     await dp.start_polling(bot)
