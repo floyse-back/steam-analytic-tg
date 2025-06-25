@@ -11,7 +11,7 @@ users_to_whishlist = Table(
     "users_to_whishlist",
     Base.metadata,
     Column("user_id", Integer, ForeignKey("users.id"), primary_key=True),
-    Column("game_id", Integer, ForeignKey("whishlist.game_id"), primary_key=True)
+    Column("game_id", Integer, ForeignKey("wishlist.game_id"), primary_key=True)
 )
 
 
@@ -26,14 +26,14 @@ class Users(Base):
         back_populates="user",
         cascade="all, delete-orphan"
     )
-    whishlist: Mapped[List[Whishlist]] = relationship(
+    wishlist: Mapped[List[Wishlist]] = relationship(
         secondary=users_to_whishlist,
         back_populates="users"
     )
 
 
-class Whishlist(Base):
-    __tablename__ = 'whishlist'
+class Wishlist(Base):
+    __tablename__ = 'wishlist'
 
     game_id: Mapped[int] = mapped_column(Integer, primary_key=True)
     name: Mapped[str] = mapped_column(String)
@@ -42,7 +42,7 @@ class Whishlist(Base):
 
     users: Mapped[List[Users]] = relationship(
         secondary=users_to_whishlist,
-        back_populates="whishlist"
+        back_populates="wishlist",
     )
 
 

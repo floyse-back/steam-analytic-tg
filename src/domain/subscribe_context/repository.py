@@ -4,7 +4,7 @@ from typing import Union, List
 
 class ISubscribeRepository(ABC):
     @abstractmethod
-    async def show_subscribe_type(self,type:int,session):
+    async def get_subscribe_type(self,type:int,session):
         pass
 
 class ISubscribesTypesRepository(ABC):
