@@ -2,8 +2,9 @@ import random
 
 from typing_extensions import Optional
 
-from src.application.dto.steam_dto import GameShortModel, transform_to_dto
+from src.application.dto.steam_dto import GameShortModel, transform_to_dto, GameAchievementsModel
 from src.application.usecases.achievements_game_use_case import AchievementsGameUseCase
+from src.application.usecases.check_game_price_use_case import GetCheckGamePriceUseCase
 from src.application.usecases.discount_for_you_use_case import DiscountsGameForYouUseCase
 from src.application.usecases.discounts_game_use_case import DiscountsGameUseCase
 from src.application.usecases.free_games_now_use_case import FreeGamesNowUseCase
@@ -25,7 +26,7 @@ class SteamService:
                 "games_for_you":self.games_for_you,
                 "discount_for_you":self.discount_for_you,
                 "achievements_game":self.achievements_game,
-                "game_price":self.games_for_you
+                "game_price":self.check_game_price
             }
         )
 
@@ -51,6 +52,9 @@ class SteamService:
             steam_client = self.steam_client,
         )
         self.suggest_game_use_case = GetSuggestGameUseCase(
+            steam_client = self.steam_client
+        )
+        self.steam_price_game = GetCheckGamePriceUseCase(
             steam_client = self.steam_client
         )
 
@@ -80,6 +84,23 @@ class SteamService:
 _{data["short_description"]}_
 ✅ **Ganres:** {ganre_string}
         """
+
+    def __create_achievements_description(self,data:GameAchievementsModel,page:int=1,offset:int=10):
+        achievements_description = ""
+        start_number = (page-1)*offset+1
+        for i,ach in enumerate(data["achievements"]["highlighted"]):
+            achievements_description += f" - {start_number+i}.{ach["name"]}\n"
+
+        text = (f"🔥 Гра: [{data["name"]}](https://store.steampowered.com/app/{data["steam_appid"]}/)"
+                f"\n📝 Короткий опис: {data["short_description"]}"
+                f"\n** 🏅 Досягнень:{data["achievements"]["total"]}**"
+                f"\nСписок досягнень:\n {achievements_description}"
+                f"\nЦіна: **{data["price_overview"]["final_formatted"] if not data.get("price_overview") is None else 'Безкоштовно'}**")
+        return text
+
+
+
+
 
     def __create_short_list_games(self,data,page,limit):
         new_text = ""
@@ -134,10 +155,12 @@ _{data["short_description"]}_
 
     async def achievements_game(self,game:Optional[str]=None,page:int=1,offset:int=10):
         data = await self.achievements_game_use_case.execute(game=game,page=page,offset=offset)
-        return data
+        text = self.__create_achievements_description(data,page,offset)
+        return text
 
-    async def check_game_price(self,game_id:int):
-        pass
+    async def check_game_price(self,game:str):
+        data = await self.steam_price_game.execute(game)
+        return data
 
     async def suggest_game(self):
         data = await self.suggest_game_use_case.execute()

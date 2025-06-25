@@ -1,11 +1,12 @@
-from aiogram import Router, F
+from aiogram import Router
 from aiogram.enums import ParseMode
 from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
 from aiogram.types import Message
 
-from src.api.keyboards.steam_keyboards import create_inline_steam_commands, search_new_game_inline_keyboard, \
-    create_player_details_inline, create_page_swapper_inline
+from src.api.keyboards.steam.steam_dict_keyboards import steam_games_keyboards_dictionary
+from src.api.keyboards.steam.steam_keyboards import create_inline_steam_commands, \
+    create_player_details_inline
 from src.application.services.steam_service import SteamService
 from src.infrastructure.steam_analytic_api.steam_client import SteamAnalyticsAPIClient
 from src.shared.config import MainMenu, steam_message_menu
@@ -78,7 +79,7 @@ async def achievements_game(message: Message):
     await message.delete()
 
     data = await steam_service.achievements_game(game=game,page=1,offset=10)
-    await message.answer(f"{data}")
+    await message.answer(f"{data}",parse_mode=ParseMode.MARKDOWN)
 
 
 #[ ] /check_game_price <назва гри>      — Моніторинг ціни
@@ -99,15 +100,8 @@ async def steam_game_name(message: Message,state: FSMContext):
     data = await state.get_data()
     response = await steam_service.dispetcher(data["command"],data["game"])
     await state.clear()
-    if data["command"] == "search_game":
-        markup = search_new_game_inline_keyboard
-    else:
-        markup = await create_page_swapper_inline(
-            callback_data=f"{data["command"]}:{data["game"]}",
-            menu_callback_data="steam_menu",
-            current_page=1
-        )
-    await message.answer(f"{response}",parse_mode=ParseMode.MARKDOWN,reply_markup=markup)
+    await message.answer(f"{response}",parse_mode=ParseMode.MARKDOWN,reply_markup=steam_games_keyboards_dictionary[data["command"]])
+
 
 @router.message(PlayerSteamName.player)
 async def steam_player_name_or_id(message: Message,state: FSMContext):

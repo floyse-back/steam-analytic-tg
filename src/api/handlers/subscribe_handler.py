@@ -3,7 +3,7 @@ from aiogram.enums import ParseMode
 from aiogram.types import Message, CallbackQuery
 from aiogram.filters import Command
 from src.api.keyboards.main_keyboards import back_help_keyboard
-from src.api.keyboards.subscribe_keyboards import create_inline_subscribes_commands
+from src.api.keyboards.subscribes.subscribe_keyboards import create_inline_subscribes_commands
 from src.application.services.subscribe_service import SubscribeService
 from src.shared.config import MainMenu, subscribes_message_menu
 

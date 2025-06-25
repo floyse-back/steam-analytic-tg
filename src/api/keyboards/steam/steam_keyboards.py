@@ -14,6 +14,8 @@ async def create_inline_steam_commands():
 
     return steam_inline_keyboard.adjust(2).as_markup()
 
+
+
 search_new_game_inline_keyboard = InlineKeyboardMarkup(
     inline_keyboard=[
         [InlineKeyboardButton(text="🎮🔄 — Знайти іншу гру",callback_data="search_game")],
@@ -23,6 +25,26 @@ search_new_game_inline_keyboard = InlineKeyboardMarkup(
         )]
     ]
 )
+
+achievements_new_game_inline_keyboard = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [InlineKeyboardButton(text="🎮🔄 — Знайти іншу гру",callback_data="achievements_game")],
+        [InlineKeyboardButton(
+            text="🏠 Меню",
+            callback_data=f"steam_menu"
+        )]
+    ]
+)
+game_price_inline_keyboard = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [InlineKeyboardButton(text="🎮🔄 — Ціна іншої гри",callback_data="game_price")],
+        [InlineKeyboardButton(
+            text="🏠 Меню",
+            callback_data=f"steam_menu"
+        )]
+    ]
+)
+
 
 go_to_main_menu_inline_keyboard = InlineKeyboardMarkup(
     inline_keyboard=[

@@ -94,8 +94,12 @@ class SteamAnalyticsAPIClient:
         if response.status_code == 200:
             return response.json()
 
-    async def check_game_price(self, game_id: int):
-        pass
+    async def check_game_price(self, game_id: str):
+        async with self.__create_client_session() as client:
+            response = await client.get(f"api/v1/analytics/game_price_now/{game_id}")
+
+        if response.status_code == 200:
+            return response.json()
 
     async def suggest_game(self) -> Optional[List]:
         async with self.__create_client_session() as client:
@@ -103,4 +107,3 @@ class SteamAnalyticsAPIClient:
 
         if response.status_code == 200:
             return response.json()
-        return None
