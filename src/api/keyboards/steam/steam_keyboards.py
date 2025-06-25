@@ -45,6 +45,19 @@ game_price_inline_keyboard = InlineKeyboardMarkup(
     ]
 )
 
+def generate_steam_games_keyboard(text:str,callback_data:str,menu_callback_data:str="steam_menu",menu_text:str="🏠 Меню")->InlineKeyboardMarkup:
+    inline_keyboard = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [InlineKeyboardButton(text="🎮🔄 — Знайти іншу гру",callback_data="achievements_game")],
+        [InlineKeyboardButton(
+            text=f"{menu_text}",
+            callback_data=f"{menu_callback_data}"
+        )]
+    ]
+    )
+
+    return inline_keyboard
+
 
 go_to_main_menu_inline_keyboard = InlineKeyboardMarkup(
     inline_keyboard=[

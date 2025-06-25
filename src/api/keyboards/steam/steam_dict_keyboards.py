@@ -1,8 +1,7 @@
-from src.api.keyboards.steam.steam_keyboards import achievements_new_game_inline_keyboard, \
-    search_new_game_inline_keyboard, game_price_inline_keyboard
+from src.api.keyboards.steam.steam_keyboards import generate_steam_games_keyboard
 
 steam_games_keyboards_dictionary = {
-    "game_price":game_price_inline_keyboard,
-    "search_game":search_new_game_inline_keyboard,
-    "achievements_game":achievements_new_game_inline_keyboard,
+    "game_price":generate_steam_games_keyboard(text="🎮🔄 — Ціна іншої гри",callback_data="game_price"),
+    "search_game":generate_steam_games_keyboard(text="🎮🔄 — Знайти іншу гру",callback_data="search_game"),
+    "achievements_game":generate_steam_games_keyboard(text="🎮🔄 — Знайти іншу гру",callback_data="achievements_game"),
 }

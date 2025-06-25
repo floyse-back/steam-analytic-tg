@@ -61,8 +61,13 @@ class SteamService:
     def steam_help(self):
         return help_config.get("games")
 
-    def __create_empty_message(self):
-        return "Game Not Found"
+    def __create_empty_message(self,game:Optional[str] = None):
+        if game is None:
+            return "🥺 Нажаль, гру не знайдено..."
+        else:
+            return (f"🥺 Нажаль, гру за запитом: **{game}** не знайдено..."
+                    f"\nМожливо, є помилка у назві? 🧐"
+                    f"\n**Спробуй ще раз! 🙌🎮**")
 
     def __generate_first_smile(self):
         data = ["🎮","🎪","👻"]
@@ -90,17 +95,15 @@ _{data["short_description"]}_
         start_number = (page-1)*offset+1
         for i,ach in enumerate(data["achievements"]["highlighted"]):
             achievements_description += f" - {start_number+i}.{ach["name"]}\n"
+        if achievements_description == "":
+            achievements_description = "🚫Ця гра немає досягнень 🚫"
 
-        text = (f"🔥 Гра: [{data["name"]}](https://store.steampowered.com/app/{data["steam_appid"]}/)"
-                f"\n📝 Короткий опис: {data["short_description"]}"
-                f"\n** 🏅 Досягнень:{data["achievements"]["total"]}**"
-                f"\nСписок досягнень:\n {achievements_description}"
-                f"\nЦіна: **{data["price_overview"]["final_formatted"] if not data.get("price_overview") is None else 'Безкоштовно'}**")
+        text = (f"🔥 *Гра*: **[{data['name']}](https://store.steampowered.com/app/{data['steam_appid']}/)**\n"
+                f"📝 *Короткий опис*: {data['short_description']}\n"
+                f"**🏅 Кількість досягнень: {data['achievements']['total']}**\n"
+                f"🏅 *Список досягнень*:\n{achievements_description}\n"
+                f"{self.__generate_first_smile()} *Ціна*: **{data['price_overview']['final_formatted'] if data.get('price_overview') is not None else 'Безкоштовно'}**")
         return text
-
-
-
-
 
     def __create_short_list_games(self,data,page,limit):
         new_text = ""
@@ -115,7 +118,7 @@ _{data["short_description"]}_
         new_message = ""
 
         if data is None:
-            return self.__create_empty_message()
+            return self.__create_empty_message(game=name)
 
         for model in data:
             new_message+=f"{self.__create_short_desc(model)}"
@@ -155,11 +158,19 @@ _{data["short_description"]}_
 
     async def achievements_game(self,game:Optional[str]=None,page:int=1,offset:int=10):
         data = await self.achievements_game_use_case.execute(game=game,page=page,offset=offset)
+
+        if data is None:
+            return self.__create_empty_message(game=game)
+
         text = self.__create_achievements_description(data,page,offset)
         return text
 
     async def check_game_price(self,game:str):
         data = await self.steam_price_game.execute(game)
+
+        if data is None:
+            return self.__create_empty_message(game=game)
+
         return data
 
     async def suggest_game(self):

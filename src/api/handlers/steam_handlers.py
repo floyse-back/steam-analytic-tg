@@ -8,6 +8,7 @@ from src.api.keyboards.steam.steam_dict_keyboards import steam_games_keyboards_d
 from src.api.keyboards.steam.steam_keyboards import create_inline_steam_commands, \
     create_player_details_inline
 from src.application.services.steam_service import SteamService
+from src.infrastructure.logging.logger import logger
 from src.infrastructure.steam_analytic_api.steam_client import SteamAnalyticsAPIClient
 from src.shared.config import MainMenu, steam_message_menu
 from src.api.utils.state import SteamGamesID, PlayerSteamName
@@ -99,6 +100,7 @@ async def steam_game_name(message: Message,state: FSMContext):
     await state.update_data(game=message.text)
     data = await state.get_data()
     response = await steam_service.dispetcher(data["command"],data["game"])
+    logger.debug("Handler {%s}",response)
     await state.clear()
     await message.answer(f"{response}",parse_mode=ParseMode.MARKDOWN,reply_markup=steam_games_keyboards_dictionary[data["command"]])
 

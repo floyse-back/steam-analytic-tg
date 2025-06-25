@@ -5,7 +5,7 @@ from aiogram.types import CallbackQuery
 
 from src.api.keyboards.main_keyboards import back_help_keyboard
 from src.api.keyboards.steam.steam_keyboards import create_page_swapper_inline, create_inline_steam_commands, \
-    suggest_game_keyboard, achievements_new_game_inline_keyboard
+    suggest_game_keyboard
 from src.api.utils.pages_utils import page_utils_elements
 from src.api.utils.state import SteamGamesID, PlayerSteamName
 from src.application.services.steam_service import SteamService
