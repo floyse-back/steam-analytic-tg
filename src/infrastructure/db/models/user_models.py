@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import List, Optional
 
-from sqlalchemy import Integer, ForeignKey, Table, Column, String
+from sqlalchemy import Integer, ForeignKey, Table, Column, String, BigInteger
 
 from src.infrastructure.db.database import Base
 from sqlalchemy.orm import mapped_column, Mapped, relationship
@@ -18,7 +18,7 @@ users_to_whishlist = Table(
 class Users(Base):
     __tablename__ = 'users'
 
-    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
     steam_id: Mapped[Optional[int]] = mapped_column(Integer, default=None, nullable=True)
     role: Mapped[str] = mapped_column(String, default="user")
 

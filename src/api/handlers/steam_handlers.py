@@ -3,10 +3,11 @@ from aiogram.enums import ParseMode
 from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
 from aiogram.types import Message
+from aiogram.utils.markdown import markdown_decoration
 
 from src.api.keyboards.steam.steam_dict_keyboards import steam_games_keyboards_dictionary
 from src.api.keyboards.steam.steam_keyboards import create_inline_steam_commands, \
-    create_player_details_inline
+    create_player_details_inline, create_page_swapper_inline
 from src.application.services.steam_service import SteamService
 from src.infrastructure.logging.logger import logger
 from src.infrastructure.steam_analytic_api.steam_client import SteamAnalyticsAPIClient
@@ -102,7 +103,11 @@ async def steam_game_name(message: Message,state: FSMContext):
     response = await steam_service.dispetcher(data["command"],data["game"])
     logger.debug("Handler {%s}",response)
     await state.clear()
-    await message.answer(f"{response}",parse_mode=ParseMode.MARKDOWN,reply_markup=steam_games_keyboards_dictionary[data["command"]])
+    if data["command"] == "search_game":
+        reply_command = create_page_swapper_inline(callback_data=f"{data['command']}:{data['game']}",menu_callback_data=f"steam_menu",current_page=1)
+    else:
+        reply_command = steam_games_keyboards_dictionary[data["command"]]
+    await message.answer(f"{response}",parse_mode=ParseMode.MARKDOWN,reply_markup=reply_command)
 
 
 @router.message(PlayerSteamName.player)

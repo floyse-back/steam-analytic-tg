@@ -28,9 +28,14 @@ class SteamAnalyticsAPIClient:
         else:
             raise Exception(response.text)
 
-    async def search_games(self,name)->Optional[List[dict]]:
+    async def search_games(self,name,page=1,limit=5,share:bool=True)->Optional[List[dict]]:
         async with self.__create_client_session() as client:
-            response = await client.get(f"api/v1/steam/search_game",params={"name":name})
+            response = await client.get(f"api/v1/steam/search_game",params={
+                "name":name,
+                "page":page,
+                "limit":limit,
+                "share":share
+            })
         return response.json()
 
     async def discounts_games(self,limit=10,page=1)->Optional[List[dict]]:

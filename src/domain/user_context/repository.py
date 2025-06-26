@@ -6,7 +6,11 @@ from src.domain.user_context.models import Users, Game
 
 class IUsersRepository(ABC):
     @abstractmethod
-    async def create_user(self,steam_id:Optional[int],id:int,role:str,session)->None:
+    async def check_user_created(self,user_id:int,session):
+        pass
+
+    @abstractmethod
+    async def create_user(self,user_id:int,session,steam_id:Optional[int]=None,role:str="user")->None:
         pass
 
     @abstractmethod

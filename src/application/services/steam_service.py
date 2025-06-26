@@ -15,6 +15,8 @@ from src.application.usecases.suggest_game_use_case import GetSuggestGameUseCase
 from src.infrastructure.steam_analytic_api.steam_client import SteamAnalyticsAPIClient
 from src.shared.config import help_config, ganre_config
 from src.shared.dispatcher import DispatcherCommands
+from src.shared.utils import escape_markdown
+
 
 class SteamService:
     def __init__(self,steam_client:SteamAnalyticsAPIClient):
@@ -65,6 +67,7 @@ class SteamService:
         if game is None:
             return "🥺 Нажаль, гру не знайдено..."
         else:
+            game = escape_markdown(text=game)
             return (f"🥺 Нажаль, гру за запитом: **{game}** не знайдено..."
                     f"\nМожливо, є помилка у назві? 🧐"
                     f"\n**Спробуй ще раз! 🙌🎮**")
@@ -113,11 +116,11 @@ _{data["short_description"]}_
 
         return f"{new_text}"
 
-    async def search_games(self,name):
-        data = await self.search_games_use_case.execute(name)
+    async def search_games(self,name,page:int=1,limit:int=5):
+        data = await self.search_games_use_case.execute(name,page=page,limit=limit)
         new_message = ""
 
-        if data is None:
+        if data is None or len(data) == 0:
             return self.__create_empty_message(game=name)
 
         for model in data:

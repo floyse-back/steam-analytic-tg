@@ -1,9 +1,8 @@
-from aiogram import Router, F
+from aiogram import Router
 from aiogram.enums import ParseMode
-from aiogram.types import Message, CallbackQuery
+from aiogram.types import Message
 from aiogram.filters import Command
 
-from src.api.keyboards.main_keyboards import back_help_keyboard
 from src.api.keyboards.player.player_keyboards import create_inline_player_commands
 
 from src.application.services.player_service import PlayerService
@@ -56,8 +55,3 @@ async def compare_users(message: Message):
 async def compare_players(message: Message):
     return await message.reply("Soon...")
 
-#Callback
-@router.callback_query(F.data == "player_help")
-async def player_help_callback(callback_query: CallbackQuery):
-    await callback_query.message.edit_text(text=f"{player_service.player_help()}",parse_mode=ParseMode.MARKDOWN,reply_markup=back_help_keyboard)
-    await callback_query.answer()

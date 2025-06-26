@@ -48,7 +48,7 @@ game_price_inline_keyboard = InlineKeyboardMarkup(
 def generate_steam_games_keyboard(text:str,callback_data:str,menu_callback_data:str="steam_menu",menu_text:str="🏠 Меню")->InlineKeyboardMarkup:
     inline_keyboard = InlineKeyboardMarkup(
     inline_keyboard=[
-        [InlineKeyboardButton(text="🎮🔄 — Знайти іншу гру",callback_data="achievements_game")],
+        [InlineKeyboardButton(text=f"{text}",callback_data=f"{callback_data}")],
         [InlineKeyboardButton(
             text=f"{menu_text}",
             callback_data=f"{menu_callback_data}"
@@ -78,7 +78,7 @@ async def create_player_details_inline(callback_data,text):
     )
     return inline_buttons.adjust(1).as_markup()
 
-async def create_page_swapper_inline(callback_data:str,menu_callback_data:str,current_page:int):
+def create_page_swapper_inline(callback_data:str,menu_callback_data:str,current_page:int):
     inline_keyboard =  InlineKeyboardBuilder()
     if current_page-1 == 0:
         inline_keyboard.add(

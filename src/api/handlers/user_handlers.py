@@ -1,16 +1,18 @@
-from aiogram import Router, F
+from aiogram import Router
 from aiogram.enums import ParseMode
-from aiogram.types import Message, CallbackQuery
+from aiogram.types import Message
 from aiogram.filters import Command
 
-from src.api.keyboards.main_keyboards import back_help_keyboard
-from src.api.keyboards.user.user_keyboards import create_user_inline_keyboard
-from src.application.services.user_service import UserService
+from src.api.keyboards.users.users_keyboards import create_user_inline_keyboard
+from src.application.services.users_service import UsersService
+from src.infrastructure.db.repository.users_repository import UsersRepository
 from src.shared.config import MainMenu, user_message_menu
 
 router = Router(name=__name__)
 
-user_service = UserService()
+user_service = UsersService(
+    users_repository=UsersRepository(),
+)
 
 
 @router.message(Command("user"))
@@ -53,9 +55,3 @@ async def user_player(message:Message):
     parts = message.text.split()
 
     await message.answer("User player id: {}".format(parts[1]))
-
-#Callback
-@router.callback_query(F.data == "user_help")
-async def user_help_callback(callback_query: CallbackQuery):
-    await callback_query.message.edit_text(text=f"{user_service.user_help()}",parse_mode=ParseMode.MARKDOWN,reply_markup=back_help_keyboard)
-    await callback_query.answer()

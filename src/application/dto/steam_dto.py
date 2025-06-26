@@ -15,6 +15,15 @@ class GameShortModel(BaseModel):
     class Config:
         from_attributes = True
 
+class GameListModel(BaseModel):
+    name:str
+    steam_appid:Optional[int] = None
+    final_formatted_price:Optional[str]
+    discount:Union[int] = None
+
+    class Config:
+        from_attributes = True
+
 class GameShortListModel(BaseModel):
     name:str
     appid:Union[int,str]

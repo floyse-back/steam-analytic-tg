@@ -9,9 +9,18 @@ from src.infrastructure.db.models import Users, Wishlist
 
 
 class UsersRepository(IUsersRepository):
-    async def create_user(self,steam_id:Optional[int],id:int,role:str,session:AsyncSession)->None:
+    async def check_user_created(self,user_id:int,session):
+        """
+        Надає True тоді коли користувач вже є
+        Надає False тоді коли користувач ще не створений
+        """
+        statement = select(Users.id).where(Users.id == user_id)
+        result = await session.execute(statement)
+        return True if result.scalars().first() else False
+
+    async def create_user(self,user_id:int,session,steam_id:Optional[int]=None,role:str="user")->None:
         new_model = Users(
-            id=id,
+            id=user_id,
             steam_id=steam_id,
             role=role
         )

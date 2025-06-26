@@ -31,6 +31,16 @@ async def search_game_callback(callback_query: CallbackQuery,state: FSMContext):
     await callback_query.message.answer("Введіть назву гри:")
     await callback_query.answer()
 
+@router.callback_query(lambda c: c.data.startswith("search_game"))
+async def search_game_callback_pages(callback_query: CallbackQuery):
+    callback_name = "".join(callback_query.data.split(":")[0:1])
+    await callback_query.answer()
+    page = page_utils_elements(callback_data=callback_query.data,page_one_data=callback_name,index=2)
+    game =callback_query.data.split(":")[1]
+    logger.debug("Game:%s,Page:%s",game,page)
+    data = await steam_service.search_games(name=game,page=page,limit=5)
+    await callback_query.message.edit_text(f"{data}",parse_mode=ParseMode.MARKDOWN,reply_markup=create_page_swapper_inline(callback_data=f"search_game:{game}",current_page=page,menu_callback_data=f"steam_menu"))
+
 @router.callback_query(F.data == "free_now")
 async def free_games_now_callback(callback_query: CallbackQuery):
     data = await steam_service.free_games_now()
@@ -51,7 +61,7 @@ async def most_played_games_callback(callback_query: CallbackQuery):
 
     data = await steam_service.most_played_games(page=page, limit=10)
     await callback_query.message.edit_text(f"{data}", parse_mode=ParseMode.MARKDOWN,
-                                           reply_markup=await create_page_swapper_inline(callback_data=callback_name,
+                                           reply_markup=create_page_swapper_inline(callback_data=callback_name,
                                                                                          menu_callback_data="steam_menu",
                                                                                          current_page=page))
 
@@ -62,7 +72,7 @@ async def discount_games_callback(callback_query: CallbackQuery):
     page = page_utils_elements(callback_data=callback_query.data,page_one_data=callback_name)
 
     data = await steam_service.discount_games(page=page,limit=10)
-    await callback_query.message.edit_text(f"{data}",parse_mode=ParseMode.MARKDOWN,reply_markup=await create_page_swapper_inline(callback_data=callback_name,menu_callback_data="steam_menu",current_page=page))
+    await callback_query.message.edit_text(f"{data}",parse_mode=ParseMode.MARKDOWN,reply_markup= create_page_swapper_inline(callback_data=callback_name,menu_callback_data="steam_menu",current_page=page))
 
 @router.callback_query(F.data == "games_for_you")
 async def games_for_you_callback(callback_query:CallbackQuery,state: FSMContext):
