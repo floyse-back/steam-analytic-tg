@@ -3,11 +3,10 @@ from aiogram.enums import ParseMode
 from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
 from aiogram.types import Message
-from aiogram.utils.markdown import markdown_decoration
 
 from src.api.keyboards.steam.steam_dict_keyboards import steam_games_keyboards_dictionary
 from src.api.keyboards.steam.steam_keyboards import create_inline_steam_commands, \
-    create_player_details_inline, create_page_swapper_inline
+    create_player_details_inline, create_page_swapper_inline, create_search_share_keyboards
 from src.application.services.steam_service import SteamService
 from src.infrastructure.logging.logger import logger
 from src.infrastructure.steam_analytic_api.steam_client import SteamAnalyticsAPIClient
@@ -98,22 +97,33 @@ async def suggest_game(message: Message):
 
 @router.message(SteamGamesID.game)
 async def steam_game_name(message: Message,state: FSMContext):
+    page,limit=1,5
     await state.update_data(game=message.text)
     data = await state.get_data()
-    response = await steam_service.dispetcher(data["command"],data["game"])
+    if data["command"]!="search_game":
+        response,new_data = await steam_service.search_games(name=data["game"],page=page,limit=limit,share=False)
+        logger.debug("Response: %s",response)
+        logger.debug("New data: %s",new_data)
+        if not new_data is None:
+            reply_command = create_search_share_keyboards(callback_data=data["command"],value=data["game"],data=new_data,page=page,limit=limit)
+    else:
+        response,new_data = await steam_service.search_games(name=data["game"],page=page,limit=limit)
+        if not new_data is None:
+            reply_command = create_page_swapper_inline(callback_data=f"search_game:{data['game']}",menu_callback_data="steam_menu",current_page=page)
+
+    if new_data is not None and len(new_data)==1:
+        response = await steam_service.dispatcher(data["command"], data["game"])
+        reply_command=steam_games_keyboards_dictionary[f'{data["command"]}']
+
     logger.debug("Handler {%s}",response)
     await state.clear()
-    if data["command"] == "search_game":
-        reply_command = create_page_swapper_inline(callback_data=f"{data['command']}:{data['game']}",menu_callback_data=f"steam_menu",current_page=1)
-    else:
-        reply_command = steam_games_keyboards_dictionary[data["command"]]
-    await message.answer(f"{response}",parse_mode=ParseMode.MARKDOWN,reply_markup=reply_command)
 
+    await message.answer(f"{response}",parse_mode=None,reply_markup=reply_command)
 
 @router.message(PlayerSteamName.player)
 async def steam_player_name_or_id(message: Message,state: FSMContext):
     await state.update_data(player=message.text)
     data = await state.get_data()
-    response = await steam_service.dispetcher(data["command"],data["player"])
+    response = await steam_service.dispatcher(data["command"],data["player"])
     await state.clear()
-    await message.answer(f"{response}",parse_mode=ParseMode.MARKDOWN,reply_markup=await create_player_details_inline(data["command"],data["text"]))
+    await message.answer(f"{response}",parse_mode=None,reply_markup=await create_player_details_inline(data["command"],data["text"]))

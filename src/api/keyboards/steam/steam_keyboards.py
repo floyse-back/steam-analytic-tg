@@ -1,4 +1,9 @@
+from typing import List, Union
+
 from aiogram.utils.keyboard import InlineKeyboardButton,InlineKeyboardMarkup, InlineKeyboardBuilder
+
+from src.application.dto.steam_dto import GameListModel
+from src.infrastructure.logging.logger import logger
 from src.shared.config import steam_commands
 
 async def create_inline_steam_commands():
@@ -78,35 +83,25 @@ async def create_player_details_inline(callback_data,text):
     )
     return inline_buttons.adjust(1).as_markup()
 
-def create_page_swapper_inline(callback_data:str,menu_callback_data:str,current_page:int):
+def create_page_swapper_inline(callback_data:str,menu_callback_data:str,current_page:int,count=5,limit=5,mark_up=True)->Union[InlineKeyboardMarkup,InlineKeyboardBuilder]:
     inline_keyboard =  InlineKeyboardBuilder()
     if current_page-1 == 0:
-        inline_keyboard.add(
-            InlineKeyboardButton(
-                text=f"",
-                callback_data=f"noop"
-            )
+        behind_button=InlineKeyboardButton(text=f"-",callback_data=f"noop")
+    else:
+        behind_button = InlineKeyboardButton( text=f"⬅️ {current_page-1}",callback_data=f"{callback_data}:{current_page-1}")
+    menu_button=InlineKeyboardButton(text="🏠 Меню",callback_data=f"{menu_callback_data}")
+    if count>=limit:
+        next_button = InlineKeyboardButton(
+                text=f"{current_page+1} ➡️",
+                callback_data=f"{callback_data}:{current_page+1}"
             )
     else:
-        inline_keyboard.add(
-            InlineKeyboardButton(
-                text=f"⬅️ {current_page-1}",
-                callback_data=f"{callback_data}:{current_page-1}"
-            )
-            )
-    inline_keyboard.add(
-        InlineKeyboardButton(
-            text="🏠 Меню",
-            callback_data=f"{menu_callback_data}"
-        )
-    )
-    inline_keyboard.add(
-        InlineKeyboardButton(
-            text=f"{current_page+1} ➡️",
-            callback_data=f"{callback_data}:{current_page+1}"
-        )
-    )
-    return inline_keyboard.adjust(3).as_markup()
+        next_button=InlineKeyboardButton(text=f"-",callback_data=f"noop")
+
+    inline_keyboard.row(behind_button,menu_button,next_button)
+    if mark_up:
+        return inline_keyboard.as_markup()
+    return inline_keyboard
 
 suggest_game_keyboard = InlineKeyboardMarkup(
     inline_keyboard = [
@@ -125,3 +120,23 @@ suggest_game_keyboard = InlineKeyboardMarkup(
 
     ]
 )
+
+def create_search_share_keyboards(callback_data:str,value:str,data:List[GameListModel],page:int=1,limit:int=5):
+    inline_keyboard = create_page_swapper_inline(
+        callback_data=f"search_short_games:{value}:{callback_data}",
+        menu_callback_data=f"steam_menu",
+        current_page=page,
+        limit = 5,
+        count=len(data),
+        mark_up=False
+    )
+    start_value = (page-1)*limit+1
+    logger.debug("Search Share Keyboards:%s", data)
+    for i,model in enumerate(data):
+        inline_keyboard.add(
+            InlineKeyboardButton(
+                text=f"{start_value+i}",
+                callback_data=f"{callback_data}:{model['steam_appid']}"
+            )
+        )
+    return inline_keyboard.adjust(3).as_markup()

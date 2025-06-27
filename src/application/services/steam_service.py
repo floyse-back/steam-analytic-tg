@@ -2,7 +2,7 @@ import random
 
 from typing_extensions import Optional
 
-from src.application.dto.steam_dto import GameShortModel, transform_to_dto, GameAchievementsModel
+from src.application.dto.steam_dto import GameShortModel, transform_to_dto, GameAchievementsModel, GameListModel
 from src.application.usecases.achievements_game_use_case import AchievementsGameUseCase
 from src.application.usecases.check_game_price_use_case import GetCheckGamePriceUseCase
 from src.application.usecases.discount_for_you_use_case import DiscountsGameForYouUseCase
@@ -22,7 +22,7 @@ class SteamService:
     def __init__(self,steam_client:SteamAnalyticsAPIClient):
         self.steam_client = steam_client
 
-        self.dispatcher = DispatcherCommands(
+        self.dispatcher_command = DispatcherCommands(
             command_map={
                 "search_game":self.search_games,
                 "games_for_you":self.games_for_you,
@@ -116,16 +116,32 @@ _{data["short_description"]}_
 
         return f"{new_text}"
 
-    async def search_games(self,name,page:int=1,limit:int=5):
-        data = await self.search_games_use_case.execute(name,page=page,limit=limit)
+    def __create_short_search_games(self,data,page,limit):
+        new_text = ""
+        start_number = (page-1)*limit+1
+        for i,game in enumerate(data):
+            new_text += (f"\n{start_number+i}.{game['name']}"
+                         f"\nЦіна гри: {game['final_formatted_price']}")
+        return f"{new_text}"
+
+    async def search_games(self,name,page:int=1,limit:int=5,share:bool=True):
+        """
+        Повертає при share=True Pydantic:GameShortModel
+        Повертає при share=False Pydantic:GameListModel
+        """
+        data = await self.search_games_use_case.execute(name,page=page,limit=limit,share=share)
         new_message = ""
 
         if data is None or len(data) == 0:
-            return self.__create_empty_message(game=name)
+            return self.__create_empty_message(game=name),None
 
-        for model in data:
-            new_message+=f"{self.__create_short_desc(model)}"
-        return "Знайдені ігри за вашим запитом: \n{}".format(new_message)
+        if share:
+            for model in data:
+                new_message+=f"{self.__create_short_desc(model)}"
+        else:
+            new_message=f"{self.__create_short_search_games(data,page,limit)}"
+
+        return "Знайдені ігри за вашим запитом: \n{}".format(new_message),data
 
     async def discount_games(self,page:int=1,limit:int=10):
         data = await self.discount_games_use_case.execute(page=page,limit=limit)
@@ -183,8 +199,8 @@ _{data["short_description"]}_
             text+=self.__create_short_desc(i)
         return f"""Випадкова гра:\n {text}"""
 
-    async def dispetcher(self,command_name,*args,**kwargs):
-        return await self.dispatcher.dispatch(command_name,*args,**kwargs)
+    async def dispatcher(self,command_name,*args,**kwargs):
+        return await self.dispatcher_command.dispatch(command_name, *args, **kwargs)
 
 
 
