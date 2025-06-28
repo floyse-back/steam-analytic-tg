@@ -130,18 +130,9 @@ _{data["short_description"]}_
         Повертає при share=False Pydantic:GameListModel
         """
         data = await self.search_games_use_case.execute(name,page=page,limit=limit,share=share)
-        new_message = ""
-
         if data is None or len(data) == 0:
-            return self.__create_empty_message(game=name),None
-
-        if share:
-            for model in data:
-                new_message+=f"{self.__create_short_desc(model)}"
-        else:
-            new_message=f"{self.__create_short_search_games(data,page,limit)}"
-
-        return "Знайдені ігри за вашим запитом: \n{}".format(new_message),data
+            return None
+        return data
 
     async def discount_games(self,page:int=1,limit:int=10):
         data = await self.discount_games_use_case.execute(page=page,limit=limit)
@@ -158,7 +149,7 @@ _{data["short_description"]}_
             new_data = transform_to_dto(GameShortModel,model)
             new_message=f"{self.__create_short_desc(new_data)}"
 
-        return new_message
+        return data
 
     async def most_played_games(self,page:int=1,limit:int=10):
         data = await self.most_played_games_use_case.execute(page=page,limit=limit)
@@ -194,10 +185,7 @@ _{data["short_description"]}_
 
     async def suggest_game(self):
         data = await self.suggest_game_use_case.execute()
-        text =""
-        for i in data:
-            text+=self.__create_short_desc(i)
-        return f"""Випадкова гра:\n {text}"""
+        return data
 
     async def dispatcher(self,command_name,*args,**kwargs):
         return await self.dispatcher_command.dispatch(command_name, *args, **kwargs)

@@ -6,7 +6,8 @@ from aiogram.types import CallbackQuery
 from src.api.keyboards.main_keyboards import back_help_keyboard
 from src.api.keyboards.steam.steam_dict_keyboards import steam_games_keyboards_dictionary
 from src.api.keyboards.steam.steam_keyboards import create_page_swapper_inline, create_inline_steam_commands, \
-    suggest_game_keyboard, create_search_share_keyboards
+    suggest_game_keyboard, create_search_share_keyboards, go_to_main_menu_inline_keyboard
+from src.api.presentation.steam_style_text import SteamStyleText
 from src.api.utils.pages_utils import page_utils_elements
 from src.api.utils.state import SteamGamesID, PlayerSteamName
 from src.application.services.steam_service import SteamService
@@ -18,6 +19,7 @@ router = Router()
 steam_service = SteamService(
     steam_client=SteamAnalyticsAPIClient()
 )
+steam_style_text = SteamStyleText()
 
 #Callbacks
 @router.callback_query(F.data == "games_help")
@@ -40,7 +42,9 @@ async def search_game_callback_pages(callback_query: CallbackQuery):
     game =callback_query.data.split(":")[1]
     logger.debug("Game:%s,Page:%s",game,page)
     data = await steam_service.search_games(name=game,page=page,limit=5)
-    await callback_query.message.edit_text(f"{data}",parse_mode=ParseMode.MARKDOWN,reply_markup=create_page_swapper_inline(callback_data=f"search_game:{game}",current_page=page,menu_callback_data=f"steam_menu"))
+    response = steam_style_text.create_short_desc(data)
+    logger.debug("data:%s",data)
+    await callback_query.message.edit_text(f"{response}",parse_mode=ParseMode.HTML,reply_markup=create_page_swapper_inline(callback_data=f"search_game:{game}",current_page=page,menu_callback_data=f"steam_menu"))
 
 @router.callback_query(lambda c: c.data.startswith("search_short_games"))
 async def search_game_callback_pages_short(callback_query: CallbackQuery):
@@ -50,8 +54,8 @@ async def search_game_callback_pages_short(callback_query: CallbackQuery):
     page = page_utils_elements(callback_data=callback_query.data, page_one_data=callback_name, index=3)
     game = callback_query.data.split(":")[1]
     logger.debug("Game:%s,Page:%s", game, page)
-    response,data = await steam_service.search_games(name=game, page=page, limit=5,share=False)
-
+    data = await steam_service.search_games(name=game, page=page, limit=5,share=False)
+    response = steam_style_text.create_short_search_games(data,page=page,limit=5)
     inline_board_new = create_search_share_keyboards(
                                                callback_data=f"{main_callback_name}",
                                                value=game,
@@ -72,7 +76,8 @@ async def search_game_callback_pages_short(callback_query: CallbackQuery):
 @router.callback_query(F.data == "free_now")
 async def free_games_now_callback(callback_query: CallbackQuery):
     data = await steam_service.free_games_now()
-    await callback_query.message.answer(f"{data}",parse_mode=ParseMode.MARKDOWN)
+    response = steam_style_text.create_short_desc(data=data)
+    await callback_query.message.answer(f"{response}",parse_mode=ParseMode.HTML,reply_markup=go_to_main_menu_inline_keyboard)
     await callback_query.answer()
 
 @router.callback_query(F.data == "achievements_game")
@@ -138,7 +143,7 @@ async def game_price_callback(callback_query: CallbackQuery):
 @router.callback_query(F.data == "suggest_game")
 async def suggest_game_callback(callback_query: CallbackQuery):
     data = await steam_service.suggest_game()
-    await callback_query.message.edit_text(f"{data}",parse_mode=ParseMode.MARKDOWN,reply_markup=suggest_game_keyboard)
+    await callback_query.message.edit_text(f"{steam_style_text.create_short_desc(data=data)}",parse_mode=ParseMode.HTML,reply_markup=suggest_game_keyboard)
     await callback_query.answer()
 
 @router.callback_query(F.data == "steam_menu")

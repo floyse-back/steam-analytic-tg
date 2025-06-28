@@ -91,9 +91,7 @@ def create_page_swapper_inline(callback_data:str,menu_callback_data:str,current_
         behind_button = InlineKeyboardButton( text=f"⬅️ {current_page-1}",callback_data=f"{callback_data}:{current_page-1}")
     menu_button=InlineKeyboardButton(text="🏠 Меню",callback_data=f"{menu_callback_data}")
     if count>=limit:
-        next_button = InlineKeyboardButton(
-                text=f"{current_page+1} ➡️",
-                callback_data=f"{callback_data}:{current_page+1}"
+        next_button = InlineKeyboardButton(text=f"{current_page+1} ➡️",callback_data=f"{callback_data}:{current_page+1}"
             )
     else:
         next_button=InlineKeyboardButton(text=f"-",callback_data=f"noop")

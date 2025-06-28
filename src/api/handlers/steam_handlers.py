@@ -6,7 +6,9 @@ from aiogram.types import Message
 
 from src.api.keyboards.steam.steam_dict_keyboards import steam_games_keyboards_dictionary
 from src.api.keyboards.steam.steam_keyboards import create_inline_steam_commands, \
-    create_player_details_inline, create_page_swapper_inline, create_search_share_keyboards
+    create_player_details_inline, create_page_swapper_inline, create_search_share_keyboards, \
+    go_to_main_menu_inline_keyboard
+from src.api.presentation.steam_style_text import SteamStyleText
 from src.application.services.steam_service import SteamService
 from src.infrastructure.logging.logger import logger
 from src.infrastructure.steam_analytic_api.steam_client import SteamAnalyticsAPIClient
@@ -19,6 +21,7 @@ steam_service = SteamService(
     steam_client= SteamAnalyticsAPIClient()
 )
 
+steam_style_text = SteamStyleText()
 
 @router.message(lambda message: message.text == f"{MainMenu.steam}")
 async def steam_main(message: Message):
@@ -36,7 +39,8 @@ async def free_games_now(message: Message):
     await message.delete()
 
     data = await steam_service.free_games_now()
-    await message.answer(f"{data}")
+    response = steam_style_text.create_short_desc(data=data)
+    await message.answer(f"{response}",parse_mode=ParseMode.HTML,reply_markup=go_to_main_menu_inline_keyboard)
 
 #[ ] /discounts_game                     — Знижки на ігри
 @router.message(Command("discounts_game"))
@@ -101,13 +105,14 @@ async def steam_game_name(message: Message,state: FSMContext):
     await state.update_data(game=message.text)
     data = await state.get_data()
     if data["command"]!="search_game":
-        response,new_data = await steam_service.search_games(name=data["game"],page=page,limit=limit,share=False)
+        new_data = await steam_service.search_games(name=data["game"],page=page,limit=limit,share=False)
+        response = steam_style_text.create_short_search_games(new_data,page=page,limit=limit)
         logger.debug("Response: %s",response)
-        logger.debug("New data: %s",new_data)
         if not new_data is None:
             reply_command = create_search_share_keyboards(callback_data=data["command"],value=data["game"],data=new_data,page=page,limit=limit)
     else:
-        response,new_data = await steam_service.search_games(name=data["game"],page=page,limit=limit)
+        new_data = await steam_service.search_games(name=data["game"],page=page,limit=limit)
+        response = steam_style_text.create_short_desc(data=new_data)
         if not new_data is None:
             reply_command = create_page_swapper_inline(callback_data=f"search_game:{data['game']}",menu_callback_data="steam_menu",current_page=page)
 
@@ -118,7 +123,7 @@ async def steam_game_name(message: Message,state: FSMContext):
     logger.debug("Handler {%s}",response)
     await state.clear()
 
-    await message.answer(f"{response}",parse_mode=None,reply_markup=reply_command)
+    await message.answer(f"{response}",parse_mode=ParseMode.HTML,reply_markup=reply_command)
 
 @router.message(PlayerSteamName.player)
 async def steam_player_name_or_id(message: Message,state: FSMContext):
