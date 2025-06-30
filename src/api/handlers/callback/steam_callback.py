@@ -65,7 +65,7 @@ async def search_game_callback_pages_short(callback_query: CallbackQuery):
     if data is None:
         await callback_query.message.edit_reply_markup(reply_markup=inline_board_new)
     else:
-        await callback_query.message.edit_text(f"{response}", parse_mode=ParseMode.MARKDOWN,
+        await callback_query.message.edit_text(f"{response}", parse_mode=ParseMode.HTML,
                                            reply_markup=create_search_share_keyboards(
                                                callback_data=f"{main_callback_name}",
                                                value=game,
@@ -90,8 +90,10 @@ async def achievements_game_callback_state(callback_query: CallbackQuery,state: 
 @router.callback_query(lambda c: c.data.startswith("achievements_game"))
 async def achievements_game_callback(callback_query: CallbackQuery):
     await callback_query.answer()
-    response = await steam_service.achievements_game(game=callback_query.data.split(":")[1])
-    await callback_query.message.edit_text(f"{response}",parse_mode=ParseMode.MARKDOWN,reply_markup=steam_games_keyboards_dictionary["achievements_game"])
+    game = callback_query.data.split(":")[1]
+    data = await steam_service.achievements_game(game=game)
+    response = steam_style_text.create_achievements_description(data=data,game=game)
+    await callback_query.message.edit_text(f"{response}",parse_mode=ParseMode.HTML,reply_markup=steam_games_keyboards_dictionary["achievements_game"])
 
 @router.callback_query(lambda c:c.data.startswith("most_played_games"))
 async def most_played_games_callback(callback_query: CallbackQuery):
@@ -99,7 +101,8 @@ async def most_played_games_callback(callback_query: CallbackQuery):
     page = page_utils_elements(callback_data=callback_query.data, page_one_data=callback_name)
 
     data = await steam_service.most_played_games(page=page, limit=10)
-    await callback_query.message.edit_text(f"{data}", parse_mode=ParseMode.MARKDOWN,
+    response = steam_style_text.create_short_list_games(data=data,page=page,limit=10)
+    await callback_query.message.edit_text(f"{response}", parse_mode=ParseMode.HTML,
                                            reply_markup=create_page_swapper_inline(callback_data=callback_name,
                                                                                          menu_callback_data="steam_menu",
                                                                                          current_page=page))
@@ -111,34 +114,60 @@ async def discount_games_callback(callback_query: CallbackQuery):
     page = page_utils_elements(callback_data=callback_query.data,page_one_data=callback_name)
 
     data = await steam_service.discount_games(page=page,limit=10)
-    await callback_query.message.edit_text(f"{data}",parse_mode=ParseMode.MARKDOWN,reply_markup= create_page_swapper_inline(callback_data=callback_name,menu_callback_data="steam_menu",current_page=page))
+    response = steam_style_text.create_short_list_games(data=data,limit=10,page=page)
+    await callback_query.message.edit_text(f"{response}",parse_mode=ParseMode.HTML,reply_markup= create_page_swapper_inline(callback_data=callback_name,menu_callback_data="steam_menu",current_page=page))
 
 @router.callback_query(F.data == "games_for_you")
 async def games_for_you_callback(callback_query:CallbackQuery,state: FSMContext):
     await state.update_data(command="games_for_you",text="🎮 Ігри для тебе")
     await state.set_state(PlayerSteamName.player)
-    await callback_query.message.answer("**Введіть назву користувача: **",parse_mode=ParseMode.MARKDOWN)
+    await callback_query.message.answer("<b>Введіть назву користувача: </b>",parse_mode=ParseMode.HTML)
     await callback_query.answer("Введіть ім'я користувача")
+
+@router.callback_query(lambda c:c.data.startswith("games_for_you"))
+async def games_for_you_callback_pages(callback_query: CallbackQuery):
+    name,player,page = callback_query.data.split(":")
+    logger.debug("Discount Params %s %s %s",name,player,page)
+    data = await steam_service.games_for_you(user=player,page=int(page),limit=5)
+    response = steam_style_text.create_for_you(data=data,player=player,page=int(page),limit=5)
+    await callback_query.answer()
+    await callback_query.message.edit_text(f"{response}",parse_mode=ParseMode.HTML,reply_markup=create_page_swapper_inline(
+        callback_data=f"{name}:{player}", menu_callback_data="steam_menu", current_page=int(page),
+        count=len(data)
+    ))
 
 @router.callback_query(F.data == "discount_for_you")
 async def discount_for_you_callback(callback_query: CallbackQuery,state: FSMContext):
     await state.update_data(command="discount_for_you",text="💰 Знижки для тебе")
     await state.set_state(PlayerSteamName.player)
-    await callback_query.message.answer("**Введіть назву користувача: **",parse_mode=ParseMode.MARKDOWN)
+    await callback_query.message.answer("<b>Введіть назву користувача: </b>",parse_mode=ParseMode.HTML)
     await callback_query.answer("Введіть ім'я користувача")
+
+@router.callback_query(lambda c:c.data.startswith("discount_for_you"))
+async def discount_for_you_callback_pages(callback_query: CallbackQuery):
+    name,player,page = callback_query.data.split(":")
+    logger.debug("Discount Params %s %s %s",name,player,page)
+    data = await steam_service.discount_for_you(user=player,page=int(page),limit=5)
+    response = steam_style_text.create_for_you(data=data,player=player,page=int(page),limit=5)
+    await callback_query.answer()
+    await callback_query.message.edit_text(f"{response}",parse_mode=ParseMode.HTML,reply_markup=create_page_swapper_inline(
+        callback_data=f"{name}:{player}", menu_callback_data="steam_menu", current_page=int(page),
+        count=len(data)
+    ))
 
 @router.callback_query(F.data == "game_price")
 async def game_price_callback_state(callback_query: CallbackQuery,state:FSMContext):
     await state.update_data(command="game_price")
     await state.set_state(SteamGamesID.game)
-    await callback_query.message.answer("**Введіть назву гри:**",parse_mode=ParseMode.MARKDOWN)
+    await callback_query.message.answer("<b>Введіть назву гри:</b>",parse_mode=ParseMode.HTML)
     await callback_query.answer("Введіть назву гри")
 
 @router.callback_query(lambda c: c.data.startswith("game_price"))
 async def game_price_callback(callback_query: CallbackQuery):
     await callback_query.answer()
-    response =await steam_service.check_game_price(game=callback_query.data.split(":")[1])
-    await callback_query.message.edit_text(f"{response}",parse_mode=ParseMode.MARKDOWN,reply_markup=steam_games_keyboards_dictionary["game_price"])
+    data =await steam_service.check_game_price(game=callback_query.data.split(":")[1])
+    response = steam_style_text.create_game_price(data=data)
+    await callback_query.message.edit_text(f"{response}",parse_mode=ParseMode.HTML,reply_markup=steam_games_keyboards_dictionary["game_price"])
 
 @router.callback_query(F.data == "suggest_game")
 async def suggest_game_callback(callback_query: CallbackQuery):

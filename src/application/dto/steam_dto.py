@@ -80,7 +80,18 @@ class GamePriceModel(BaseModel):
     class Config:
         from_attributes = True
 
+class GamesForYouModel(BaseModel):
+    steam_appid:Optional[int]
+    name:Optional[str]
+    final_formatted_price:Optional[str]
+    total:Optional[int]
+    discount:Union[int]
+    short_description:Optional[str]
+    recomendations:Optional[int]
+    metacritic:Optional[str]
 
+    class Config:
+        from_attributes = True
 
 def transform_to_dto(model:BaseModel,orm:dict):
     return model.model_validate(orm).model_dump()

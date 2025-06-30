@@ -65,28 +65,34 @@ class SteamAnalyticsAPIClient:
         if response.status_code == 200:
             return response.json()
 
-    async def games_for_you(self,user:Optional[str]=None) -> Optional[dict]:
+    async def games_for_you(self,user:Optional[str]=None,page:int=1,limit:int=5) -> Optional[dict]:
         if user is None:
             raise Exception("User is required")
         async with self.__create_client_session() as client:
             response = await client.get(f"api/v1/analytics/games_for_you",params={
-                "user":user
+                "user":user,
+                "page":page,
+                "limit":limit
             })
 
         if response.status_code == 200:
+            return response.json().get("games")
+        elif response.status_code in [404,403]:
             return response.json()
         return None
 
-    async def discount_for_you(self, user: Optional[str] = None)-> Optional[dict]:
+    async def discount_for_you(self, user: Optional[str] = None,page:int=1,limit:int=5)-> Optional[dict]:
         if user is None:
             raise Exception("User is required")
         async with self.__create_client_session() as client:
             response = await client.get(f"api/v1/analytics/salling_for_you", params={
-                "user": user
+                "user": user,
+                "page": page,
+                "limit": limit,
             })
 
         if response.status_code == 200:
-            return response.json()
+            return response.json().get("games")
         return None
 
     async def achievements_game(self, game: str,page:int=1,offset:int=10) -> Optional[dict]:
@@ -109,6 +115,13 @@ class SteamAnalyticsAPIClient:
     async def suggest_game(self) -> Optional[List]:
         async with self.__create_client_session() as client:
             response = await client.get(f"api/v1/analytics/random_games")
+
+        if response.status_code == 200:
+            return response.json()
+
+    async def vanity_user_find(self,steam_user:str)->Optional[dict]:
+        async with self.__create_client_session() as client:
+            response = await client.get(f"api/v1/steam/vanity_user/{steam_user}")
 
         if response.status_code == 200:
             return response.json()

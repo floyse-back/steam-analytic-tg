@@ -6,7 +6,11 @@ from src.domain.user_context.models import Users, Game
 
 class IUsersRepository(ABC):
     @abstractmethod
-    async def check_user_created(self,user_id:int,session):
+    async def check_user_created(self,user_id:int,session)->bool:
+        pass
+
+    @abstractmethod
+    async def check_user_steamid(self,user_id:int,session)->bool:
         pass
 
     @abstractmethod
@@ -18,11 +22,11 @@ class IUsersRepository(ABC):
         pass
 
     @abstractmethod
-    async def get_steam_id(self,user_id:int,session)->Optional[int]:
+    async def get_user(self,user_id:int,session)->Optional[int]:
         pass
 
     @abstractmethod
-    async def update_user(self,user_id:int,data:dict,session)->None:
+    async def update_user(self,user,steam_id,session)->None:
         pass
 
     @abstractmethod

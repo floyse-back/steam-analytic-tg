@@ -13,3 +13,12 @@ class DispatcherCommands:
             return await command(*args, **kwargs)
         except Exception as e:
             raise RuntimeError(f"Dispatcher error:")
+
+    def dispatch_sync(self,command_name:str,*args,**kwargs):
+        try:
+            command = self.command_map.get(command_name)
+            if not command:
+                raise ValueError(f"Unknown command: {command_name}")
+            return command(*args,**kwargs)
+        except Exception as e:
+            raise RuntimeError(f"Dispatcher error:")

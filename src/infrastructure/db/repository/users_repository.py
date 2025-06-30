@@ -6,6 +6,7 @@ from sqlalchemy.orm import selectinload
 
 from src.domain.user_context.repository import IUsersRepository
 from src.infrastructure.db.models import Users, Wishlist
+from src.infrastructure.logging.logger import logger
 
 
 class UsersRepository(IUsersRepository):
@@ -17,6 +18,16 @@ class UsersRepository(IUsersRepository):
         statement = select(Users.id).where(Users.id == user_id)
         result = await session.execute(statement)
         return True if result.scalars().first() else False
+
+    async def check_user_steamid(self,user_id:int,session):
+        """
+        Видає True тоді коли користувач(user_id) зареєстрований + має steamid
+        """
+        statement = select(Users.steam_id).where(Users.id == user_id)
+        result = await session.execute(statement)
+        data = result.scalars().first()
+        logger.debug(data)
+        return True if data else False
 
     async def create_user(self,user_id:int,session,steam_id:Optional[int]=None,role:str="user")->None:
         new_model = Users(
@@ -31,14 +42,16 @@ class UsersRepository(IUsersRepository):
         statement = delete(Users).where(Users.id == user_id)
         await session.execute(statement)
 
-    async def get_steam_id(self,user_id:int,session:AsyncSession)->Optional[int]:
-        statement = select(Users.steam_id).where(Users.id == user_id)
+    async def get_user(self,user_id:int,session:AsyncSession)->Optional[Users]:
+        statement = select(Users).where(Users.id == user_id)
         result = await session.execute(statement)
+        data = result.scalars().first()
+        logger.debug("Data %d",data)
+        return data
 
-        return result.scalars().first()
-
-    async def update_user(self,user_id:int,steam_id:int,role:str,session:AsyncSession)->None:
-        pass
+    async def update_user(self,user:Users,steam_id,session:AsyncSession)->None:
+        user.steam_id = steam_id
+        await session.commit()
 
     async def get_user_subscribes(self,session:AsyncSession)->Optional[List["Subscribes"]]:
         pass

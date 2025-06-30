@@ -13,3 +13,10 @@ class EmptyMessages:
             return (f"🥺 Нажаль, гру за запитом: **{game}** не знайдено..."
                     f"\nМожливо, є помилка у назві? 🧐"
                     f"\n**Спробуй ще раз! 🙌🎮**")
+
+    @staticmethod
+    def create_empty_message_for_you(data:Optional[dict],player:str):
+        player = f'<b><s>{player}<s></b>' if player else ''
+        if data['detail'] =="Steam user not found":
+            return f"<b>😔 Нажаль, гравця {player} не було знайдено</b>"
+        return f"🔒 Гравець {player} закрив профіль 🙈"

@@ -6,7 +6,7 @@ from aiogram.types import Message
 
 from src.api.keyboards.steam.steam_dict_keyboards import steam_games_keyboards_dictionary
 from src.api.keyboards.steam.steam_keyboards import create_inline_steam_commands, \
-    create_player_details_inline, create_page_swapper_inline, create_search_share_keyboards, \
+    create_page_swapper_inline, create_search_share_keyboards, \
     go_to_main_menu_inline_keyboard
 from src.api.presentation.steam_style_text import SteamStyleText
 from src.application.services.steam_service import SteamService
@@ -55,7 +55,8 @@ async def most_played_games(message: Message):
     await message.delete()
 
     data = await steam_service.most_played_games()
-    await message.answer(f"{data}",parse_mode=ParseMode.MARKDOWN)
+    response = steam_style_text.create_short_list_games(data=data)
+    await message.answer(f"{response}",parse_mode=ParseMode.HTML)
 
 #[ ] /discount_for_you <user_id>/None                  — Персональні знижки
 @router.message(Command("discount_for_you"))
@@ -83,8 +84,9 @@ async def achievements_game(message: Message):
         game = " ".join(split_message[1:])
     await message.delete()
 
-    data = await steam_service.achievements_game(game=game,page=1,offset=10)
-    await message.answer(f"{data}",parse_mode=ParseMode.MARKDOWN)
+    data = await steam_service.achievements_game(game=game)
+    response = steam_style_text.create_achievements_description(data=data)
+    await message.answer(f"{response}",parse_mode=ParseMode.HTML)
 
 
 #[ ] /check_game_price <назва гри>      — Моніторинг ціни
@@ -114,10 +116,12 @@ async def steam_game_name(message: Message,state: FSMContext):
         new_data = await steam_service.search_games(name=data["game"],page=page,limit=limit)
         response = steam_style_text.create_short_desc(data=new_data)
         if not new_data is None:
-            reply_command = create_page_swapper_inline(callback_data=f"search_game:{data['game']}",menu_callback_data="steam_menu",current_page=page)
+            reply_command = create_page_swapper_inline(callback_data=f"search_game:{data['game']}",menu_callback_data="steam_menu",current_page=page,limit=limit,count=len(new_data))
 
     if new_data is not None and len(new_data)==1:
-        response = await steam_service.dispatcher(data["command"], data["game"])
+        answer = await steam_service.dispatcher(data["command"], data["game"])
+        logger.debug("Response: %s  ,Command:%s",answer,data["command"])
+        response = steam_style_text.dispatcher(data["command"],answer)
         reply_command=steam_games_keyboards_dictionary[f'{data["command"]}']
 
     logger.debug("Handler {%s}",response)
@@ -129,6 +133,8 @@ async def steam_game_name(message: Message,state: FSMContext):
 async def steam_player_name_or_id(message: Message,state: FSMContext):
     await state.update_data(player=message.text)
     data = await state.get_data()
-    response = await steam_service.dispatcher(data["command"],data["player"])
+    steam_data = await steam_service.dispatcher(data["command"],data["player"])
+    logger.debug("Response: %s,Data: %s",steam_data,data)
+    response = steam_style_text.dispatcher(data["command"],steam_data)
     await state.clear()
-    await message.answer(f"{response}",parse_mode=None,reply_markup=await create_player_details_inline(data["command"],data["text"]))
+    await message.answer(f"{response}",parse_mode=ParseMode.HTML,reply_markup=create_page_swapper_inline(callback_data=f"{data['command']}:{data['player']}",menu_callback_data="steam_menu",current_page=1,count=len(steam_data)))

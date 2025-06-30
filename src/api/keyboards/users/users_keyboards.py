@@ -24,3 +24,9 @@ wishlist_inline_keyboard_main = InlineKeyboardMarkup(
         [InlineKeyboardButton(text="Профіль",callback_data="user_main")]
     ]
 )
+
+profile_cancel_inline_keyboard_main = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [InlineKeyboardButton(text="Нагадати пізніше!",callback_data="profile_cancel_state")]
+    ]
+)
