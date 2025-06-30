@@ -10,16 +10,19 @@ from src.application.usecases.discount_for_you_use_case import DiscountsGameForY
 from src.application.usecases.discounts_game_use_case import DiscountsGameUseCase
 from src.application.usecases.free_games_now_use_case import FreeGamesNowUseCase
 from src.application.usecases.games_for_you_use_case import GamesGameForYouUseCase
+from src.application.usecases.get_user_use_case import GetUserUseCase
 from src.application.usecases.most_played_games_use_case import MostPlayedGamesUseCase
 from src.application.usecases.search_games_use_case import SearchGamesUseCase
 from src.application.usecases.suggest_game_use_case import GetSuggestGameUseCase
+from src.domain.user_context.repository import IUsersRepository
+from src.infrastructure.logging.logger import logger
 from src.infrastructure.steam_analytic_api.steam_client import SteamAnalyticsAPIClient
 from src.shared.config import help_config
 from src.shared.dispatcher import DispatcherCommands
 
 
 class SteamService:
-    def __init__(self,steam_client:SteamAnalyticsAPIClient):
+    def __init__(self,steam_client:SteamAnalyticsAPIClient,users_repository:IUsersRepository):
         self.steam_client = steam_client
 
         self.dispatcher_command = DispatcherCommands(
@@ -58,6 +61,9 @@ class SteamService:
         )
         self.steam_price_game = GetCheckGamePriceUseCase(
             steam_client = self.steam_client
+        )
+        self.get_user_use_case = GetUserUseCase(
+            users_repository=users_repository
         )
 
     def steam_help(self):
@@ -103,6 +109,14 @@ class SteamService:
 
     async def suggest_game(self):
         data = await self.suggest_game_use_case.execute()
+        return data
+
+    async def get_player(self,telegram_appid:int,session):
+        data:Optional[int] = await self.get_user_use_case.execute(user_id=telegram_appid,session=session)
+        logger.info("Steam Appid From Steam Service,%s",data)
+        if data is None:
+            return None
+        logger.info("Steam Appid From Steam Service,%s",data)
         return data
 
     async def dispatcher(self,command_name,*args,**kwargs):

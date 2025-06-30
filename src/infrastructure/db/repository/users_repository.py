@@ -46,7 +46,6 @@ class UsersRepository(IUsersRepository):
         statement = select(Users).where(Users.id == user_id)
         result = await session.execute(statement)
         data = result.scalars().first()
-        logger.debug("Data %d",data)
         return data
 
     async def update_user(self,user:Users,steam_id,session:AsyncSession)->None:

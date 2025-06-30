@@ -12,7 +12,7 @@ class DiscountsGameForYouUseCase:
         data = await self.steam_client.discount_for_you(user=user,page=page,limit=limit)
         if data is None:
             return None
-        elif data.get("detail"):
+        elif isinstance(data,dict) and data.get("detail"):
             return data
         else:
             answer = [transform_to_dto(GamesForYouModel,model) for model in data]

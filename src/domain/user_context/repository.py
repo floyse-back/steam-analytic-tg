@@ -22,7 +22,7 @@ class IUsersRepository(ABC):
         pass
 
     @abstractmethod
-    async def get_user(self,user_id:int,session)->Optional[int]:
+    async def get_user(self,user_id:int,session)->Optional[Users]:
         pass
 
     @abstractmethod

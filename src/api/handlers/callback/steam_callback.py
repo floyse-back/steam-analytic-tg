@@ -6,18 +6,21 @@ from aiogram.types import CallbackQuery
 from src.api.keyboards.main_keyboards import back_help_keyboard
 from src.api.keyboards.steam.steam_dict_keyboards import steam_games_keyboards_dictionary
 from src.api.keyboards.steam.steam_keyboards import create_page_swapper_inline, create_inline_steam_commands, \
-    suggest_game_keyboard, create_search_share_keyboards, go_to_main_menu_inline_keyboard
+    suggest_game_keyboard, create_search_share_keyboards, go_to_main_menu_inline_keyboard, create_player_steam_id
 from src.api.presentation.steam_style_text import SteamStyleText
 from src.api.utils.pages_utils import page_utils_elements
 from src.api.utils.state import SteamGamesID, PlayerSteamName
 from src.application.services.steam_service import SteamService
+from src.infrastructure.db.database import get_async_db
+from src.infrastructure.db.repository.users_repository import UsersRepository
 from src.infrastructure.logging.logger import logger
 from src.infrastructure.steam_analytic_api.steam_client import SteamAnalyticsAPIClient
 from src.shared.config import steam_message_menu
 
 router = Router()
 steam_service = SteamService(
-    steam_client=SteamAnalyticsAPIClient()
+    steam_client=SteamAnalyticsAPIClient(),
+    users_repository = UsersRepository()
 )
 steam_style_text = SteamStyleText()
 
@@ -121,7 +124,11 @@ async def discount_games_callback(callback_query: CallbackQuery):
 async def games_for_you_callback(callback_query:CallbackQuery,state: FSMContext):
     await state.update_data(command="games_for_you",text="🎮 Ігри для тебе")
     await state.set_state(PlayerSteamName.player)
-    await callback_query.message.answer("<b>Введіть назву користувача: </b>",parse_mode=ParseMode.HTML)
+    async for session in get_async_db():
+        steam_appid = await steam_service.get_player(telegram_appid=callback_query.from_user.id,session=session)
+        logger.debug("Steam Appid From Steam Service,%s",callback_query.message.from_user.id)
+        logger.debug(f"steam_appid: {steam_appid}")
+        await callback_query.message.answer("<b>Введіть назву користувача: </b>",parse_mode=ParseMode.HTML,reply_markup=create_player_steam_id(callback_data=callback_query.data,steam_appid=steam_appid))
     await callback_query.answer("Введіть ім'я користувача")
 
 @router.callback_query(lambda c:c.data.startswith("games_for_you"))
@@ -140,6 +147,10 @@ async def games_for_you_callback_pages(callback_query: CallbackQuery):
 async def discount_for_you_callback(callback_query: CallbackQuery,state: FSMContext):
     await state.update_data(command="discount_for_you",text="💰 Знижки для тебе")
     await state.set_state(PlayerSteamName.player)
+    async for session in get_async_db():
+        steam_appid = await steam_service.get_player(telegram_appid=callback_query.from_user.id,session=session)
+        logger.debug("Steam Appid From Steam Service,%s",callback_query.message.from_user.id)
+        logger.debug(f"steam_appid: {steam_appid}")
     await callback_query.message.answer("<b>Введіть назву користувача: </b>",parse_mode=ParseMode.HTML)
     await callback_query.answer("Введіть ім'я користувача")
 

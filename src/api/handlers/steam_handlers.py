@@ -9,7 +9,10 @@ from src.api.keyboards.steam.steam_keyboards import create_inline_steam_commands
     create_page_swapper_inline, create_search_share_keyboards, \
     go_to_main_menu_inline_keyboard
 from src.api.presentation.steam_style_text import SteamStyleText
+from src.application.dto.steam_dto import GameAppidValidatedModel
+from src.application.dto.users_dto import SteamAppid, SteamVanityNameCorrection
 from src.application.services.steam_service import SteamService
+from src.infrastructure.db.repository.users_repository import UsersRepository
 from src.infrastructure.logging.logger import logger
 from src.infrastructure.steam_analytic_api.steam_client import SteamAnalyticsAPIClient
 from src.shared.config import MainMenu, steam_message_menu
@@ -18,7 +21,8 @@ from src.api.utils.state import SteamGamesID, PlayerSteamName
 router = Router(name=__name__)
 
 steam_service = SteamService(
-    steam_client= SteamAnalyticsAPIClient()
+    steam_client= SteamAnalyticsAPIClient(),
+    users_repository=UsersRepository()
 )
 
 steam_style_text = SteamStyleText()
@@ -104,7 +108,11 @@ async def suggest_game(message: Message):
 @router.message(SteamGamesID.game)
 async def steam_game_name(message: Message,state: FSMContext):
     page,limit=1,5
-    await state.update_data(game=message.text)
+    app = GameAppidValidatedModel(
+        steam_appid=message.text
+    )
+    logger.debug("Steam Handler: %s",app.steam_appid)
+    await state.update_data(game=app.steam_appid)
     data = await state.get_data()
     if data["command"]!="search_game":
         new_data = await steam_service.search_games(name=data["game"],page=page,limit=limit,share=False)
@@ -131,7 +139,8 @@ async def steam_game_name(message: Message,state: FSMContext):
 
 @router.message(PlayerSteamName.player)
 async def steam_player_name_or_id(message: Message,state: FSMContext):
-    await state.update_data(player=message.text)
+    steam_vanity = SteamVanityNameCorrection(steam_appid=message.text)
+    await state.update_data(player=steam_vanity.steam_appid)
     data = await state.get_data()
     steam_data = await steam_service.dispatcher(data["command"],data["player"])
     logger.debug("Response: %s,Data: %s",steam_data,data)

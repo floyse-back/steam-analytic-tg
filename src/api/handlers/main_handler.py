@@ -11,6 +11,7 @@ from src.api.presentation.main_style_text import MainStyleText
 from src.api.utils.state import ProfileSteamName
 from src.application.services.users_service import UsersService
 from src.infrastructure.db.repository.users_repository import UsersRepository
+from src.infrastructure.logging.logger import logger
 from src.infrastructure.steam_analytic_api.steam_client import SteamAnalyticsAPIClient
 from src.shared.config import MainMenu, help_config
 
@@ -31,6 +32,7 @@ async def start(message: Message,state: FSMContext):
         await state.set_state(ProfileSteamName.profile)
         await message.answer(f"{main_style_text.start_message_no_steam_id(username=message.from_user.username)}",parse_mode=ParseMode.HTML,reply_markup=profile_cancel_inline_keyboard_main)
     else:
+        logger.debug("Steam Appid From Steam Service,%s",message.from_user.id)
         await message.answer(f"{main_style_text.start_message_with_steam_id(username=message.from_user.username)}",parse_mode=ParseMode.HTML,reply_markup=start_keyboard)
 
 

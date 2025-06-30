@@ -1,4 +1,4 @@
-from typing import List, Union
+from typing import List, Union, Optional
 
 from aiogram.utils.keyboard import InlineKeyboardButton,InlineKeyboardMarkup, InlineKeyboardBuilder
 
@@ -138,3 +138,17 @@ def create_search_share_keyboards(callback_data:str,value:str,data:List[GameList
             )
         )
     return inline_keyboard.adjust(3).as_markup()
+
+def create_player_steam_id(callback_data:str,steam_appid:Optional[int],page:int=1)->Optional[InlineKeyboardMarkup]:
+    if steam_appid is None:
+        return None
+
+    inline_keyboard = InlineKeyboardMarkup(
+        inline_keyboard = [
+            [InlineKeyboardButton(
+                text=f"{steam_appid} - Ваш",
+                callback_data =f"{callback_data}:{steam_appid}:{page}"
+            )]
+        ]
+    )
+    return inline_keyboard

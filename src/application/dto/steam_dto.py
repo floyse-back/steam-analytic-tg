@@ -1,6 +1,6 @@
 from typing import Optional, List, Dict, Union
 
-from pydantic import BaseModel
+from pydantic import BaseModel, field_validator
 
 
 class GameShortModel(BaseModel):
@@ -92,6 +92,18 @@ class GamesForYouModel(BaseModel):
 
     class Config:
         from_attributes = True
+
+class GameAppidValidatedModel(BaseModel):
+    steam_appid:Optional[str]
+
+    @field_validator("steam_appid",mode='before')
+    def validate_steam_appid(cls, v:str):
+        if isinstance(v,str) and v.strip().startswith("https://store.steampowered.com/app/"):
+            v = v.replace("https://store.steampowered.com/app/","").split("/")[0]
+            return str(v)
+        elif isinstance(v,str):
+            return v
+        raise ValueError(f"steam_appid must be an integer, not {v}")
 
 def transform_to_dto(model:BaseModel,orm:dict):
     return model.model_validate(orm).model_dump()
