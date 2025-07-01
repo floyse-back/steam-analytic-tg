@@ -106,14 +106,14 @@ async def suggest_game(message: Message):
     return await message.reply("Soon...")
 
 @router.message(SteamGamesID.game)
-async def steam_game_name(message: Message,state: FSMContext):
+async def steam_game_name(message: Message, state: FSMContext):
     page,limit=1,5
     app = GameAppidValidatedModel(
         steam_appid=message.text
     )
-    logger.debug("Steam Handler: %s",app.steam_appid)
     await state.update_data(game=app.steam_appid)
     data = await state.get_data()
+    reply_command = steam_games_keyboards_dictionary.get(f'{data['command']}')
     if data["command"]!="search_game":
         new_data = await steam_service.search_games(name=data["game"],page=page,limit=limit,share=False)
         response = steam_style_text.create_short_search_games(new_data,page=page,limit=limit)
@@ -134,7 +134,6 @@ async def steam_game_name(message: Message,state: FSMContext):
 
     logger.debug("Handler {%s}",response)
     await state.clear()
-
     await message.answer(f"{response}",parse_mode=ParseMode.HTML,reply_markup=reply_command)
 
 @router.message(PlayerSteamName.player)

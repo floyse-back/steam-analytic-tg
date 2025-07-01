@@ -113,8 +113,12 @@ class SteamStyleText:
         return f"{new_text}"
 
     def create_short_search_games(self,data,page,limit):
+        if data is None:
+            return EmptyMessages.create_empty_message()
         new_text = ""
         start_number = (page-1)*limit+1
+
+
         for i,game in enumerate(data):
             new_text += (f"\n{start_number+i}.<b><a href='https://store.steampowered.com/app/{game["steam_appid"]}/'>{game['name']}</a></b>"
                          f"\nЦіна гри: {game['final_formatted_price']}")

@@ -151,7 +151,7 @@ async def discount_for_you_callback(callback_query: CallbackQuery,state: FSMCont
         steam_appid = await steam_service.get_player(telegram_appid=callback_query.from_user.id,session=session)
         logger.debug("Steam Appid From Steam Service,%s",callback_query.message.from_user.id)
         logger.debug(f"steam_appid: {steam_appid}")
-    await callback_query.message.answer("<b>Введіть назву користувача: </b>",parse_mode=ParseMode.HTML)
+    await callback_query.message.answer("<b>Введіть назву користувача: </b>",parse_mode=ParseMode.HTML,reply_markup=create_player_steam_id(callback_data=callback_query.data,steam_appid=steam_appid))
     await callback_query.answer("Введіть ім'я користувача")
 
 @router.callback_query(lambda c:c.data.startswith("discount_for_you"))

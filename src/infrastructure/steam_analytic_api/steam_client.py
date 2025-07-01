@@ -125,3 +125,47 @@ class SteamAnalyticsAPIClient:
 
         if response.status_code == 200:
             return response.json()
+
+    async def get_full_stats_player(self,user:str)->Optional[dict]:
+        async with self.__create_client_session() as client:
+            response = await client.get(f"api/v1/steam/users_full_stats/{user}",
+                                        params={
+                                            "user_badges":False,
+                                            "friends_details":False,
+                                            "user_games":False,
+                                        }
+                                        )
+
+        if response.status_code == 200:
+            return response.json()
+        return None
+
+    async def get_player_badges(self,user:str)->Optional[dict]:
+        async with self.__create_client_session() as client:
+            response = await client.get(f"api/v1/steam/user_badges/{user}")
+
+        if response.status_code == 200:
+            return response.json()
+        return None
+
+    async def get_player_rating(self,user:str)->Optional[dict]:
+        async with self.__create_client_session() as client:
+            response = await client.get(f"api/v1/analytics/user_score",
+                                        params={"user":user}
+                                        )
+
+        if response.status_code == 200:
+            return response.json()
+        return None
+
+    async def get_player_battle(self,user1:str,user2:str)->Optional[dict]:
+        async with self.__create_client_session() as client:
+            response = await client.get(f"api/v1/steam/user_battle",
+                                        params={
+                                            "user1_id":user1,
+                                            "user2_id":user2,
+                                        }
+                                        )
+            if response.status_code == 200:
+                return response.json()
+            return None
