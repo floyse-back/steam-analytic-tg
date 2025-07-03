@@ -1,3 +1,4 @@
+from src.application.dto.player_dto import transform_to_dto, PlayerComparison
 from src.infrastructure.logging.logger import logger
 from src.infrastructure.steam_analytic_api.steam_client import SteamAnalyticsAPIClient
 
@@ -12,5 +13,7 @@ class GetPlayerBattleUseCase:
             return None
 
         #Серіалізація
+        serialize_data = transform_to_dto(PlayerComparison, data)
         logger.debug("Data:%s",data)
-        return data
+
+        return serialize_data

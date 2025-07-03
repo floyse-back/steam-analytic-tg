@@ -1,4 +1,4 @@
-from aiogram.types import InlineKeyboardButton
+from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 
 from src.shared.config import player_commands
@@ -16,3 +16,18 @@ async def create_inline_player_commands():
         )
 
     return player_inline_keyboard.adjust(2).as_markup()
+
+back_to_menu_inline_keyboard = InlineKeyboardMarkup(
+    inline_keyboard = [
+        [InlineKeyboardButton(text= "Повернутися до меню",callback_data="player_menu")]
+    ]
+)
+
+def find_other_player(callback_data:str):
+    inline_keyboard = InlineKeyboardMarkup(
+        inline_keyboard = [
+            [InlineKeyboardButton(text="Знайти іншого користувача 🔍",callback_data=callback_data)],
+            [InlineKeyboardButton(text="Повернутися до меню 🔙",callback_data="player_menu")]
+        ]
+    )
+    return inline_keyboard

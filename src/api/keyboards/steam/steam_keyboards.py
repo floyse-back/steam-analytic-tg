@@ -139,7 +139,7 @@ def create_search_share_keyboards(callback_data:str,value:str,data:List[GameList
         )
     return inline_keyboard.adjust(3).as_markup()
 
-def create_player_steam_id(callback_data:str,steam_appid:Optional[int],page:int=1)->Optional[InlineKeyboardMarkup]:
+def create_player_steam_id(callback_data:str,steam_appid:Optional[int],page:Union[int,str]=1)->Optional[InlineKeyboardMarkup]:
     if steam_appid is None:
         return None
 

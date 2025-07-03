@@ -10,7 +10,7 @@ class PlayerSteamName(StatesGroup):
 class ProfileSteamName(StatesGroup):
     profile = State()
 
-class RatingSteamPlayer(StatesGroup):
+class BattleSteamPlayer(StatesGroup):
     user_1 = State()
     user_2 = State()
 

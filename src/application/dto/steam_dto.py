@@ -90,8 +90,6 @@ class GamesForYouModel(BaseModel):
     recomendations:Optional[int]
     metacritic:Optional[str]
 
-    class Config:
-        from_attributes = True
 
 class GameAppidValidatedModel(BaseModel):
     steam_appid:Optional[str]

@@ -160,7 +160,7 @@ class SteamAnalyticsAPIClient:
 
     async def get_player_battle(self,user1:str,user2:str)->Optional[dict]:
         async with self.__create_client_session() as client:
-            response = await client.get(f"api/v1/steam/user_battle",
+            response = await client.get(f"api/v1/analytics/user_battle",
                                         params={
                                             "user1_id":user1,
                                             "user2_id":user2,

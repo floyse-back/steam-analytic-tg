@@ -15,6 +15,5 @@ class GetPlayerBudgesUseCase:
             return None
         logger.debug("Data:%s",data)
         serialize_data = transform_to_dto(SteamBadgesListModel,data)
-        logger.debug("Serialize Data",serialize_data)
 
         return serialize_data

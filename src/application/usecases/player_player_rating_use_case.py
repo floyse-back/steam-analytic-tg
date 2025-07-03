@@ -1,3 +1,4 @@
+from src.application.dto.player_dto import transform_to_dto, SteamRatingModel
 from src.infrastructure.logging.logger import logger
 from src.infrastructure.steam_analytic_api.steam_client import SteamAnalyticsAPIClient
 
@@ -12,6 +13,7 @@ class GetPlayerRatingUseCase:
             return None
 
         #Серіалізація
-        logger.debug("Data:%s",data)
+        serialize_data = transform_to_dto(SteamRatingModel,data)
+        logger.debug("Data:%s",serialize_data)
 
-        return data
+        return serialize_data
