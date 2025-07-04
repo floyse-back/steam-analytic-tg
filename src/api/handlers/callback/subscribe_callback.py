@@ -54,7 +54,7 @@ async def callback_subscribe_confirm(callback_query: CallbackQuery):
         if await subscribes_service.subscribe(user_id=int(user_id),type_id=int(subscribe_type_id),session=session):
             await callback_query.message.edit_text(text=f"{subscribes_style_text.after_subscribes()}",parse_mode=ParseMode.HTML,reply_markup=inline_back_subscribe_menu)
         else:
-            await callback_query.message.edit_text(text=f"{subscribes_style_text.after_subscribes()}",parse_mode=ParseMode.HTML,reply_markup=inline_back_subscribe_menu)
+            await callback_query.message.edit_text(text=f"{subscribes_style_text.after_bad_subscribe()}",parse_mode=ParseMode.HTML,reply_markup=inline_back_subscribe_menu)
     await callback_query.answer()
 
 @router.callback_query(lambda c:c.data.startswith("unsubscribe_user"))
@@ -66,7 +66,7 @@ async def callback_unsubscribe_confirm(callback_query: CallbackQuery):
         if await subscribes_service.unsubscribe(user_id=callback_query.from_user.id,type_id=int(subscribe_type_id),session=session):
             await callback_query.message.edit_text(text=f"{subscribes_style_text.after_unsubscribe()}",parse_mode=ParseMode.HTML,reply_markup=inline_back_subscribe_menu)
         else:
-            await callback_query.message.edit_text(text=f"{subscribes_style_text.after_unsubscribe()}",parse_mode=ParseMode.HTML,reply_markup=inline_back_subscribe_menu)
+            await callback_query.message.edit_text(text=f"{subscribes_style_text.after_bad_unsubscribe()}",parse_mode=ParseMode.HTML,reply_markup=inline_back_subscribe_menu)
     await callback_query.answer()
 
 @router.callback_query(lambda c:c.data == "subscribe_main")
