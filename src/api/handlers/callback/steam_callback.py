@@ -6,7 +6,7 @@ from aiogram.types import CallbackQuery
 from src.api.handlers.callback.message_utils import create_page_message
 from src.api.keyboards.main_keyboards import back_help_keyboard
 from src.api.keyboards.steam.steam_dict_keyboards import steam_games_keyboards_dictionary
-from src.api.keyboards.steam.steam_keyboards import create_page_swapper_inline, create_inline_steam_commands, \
+from src.api.keyboards.steam.steam_keyboards import create_inline_steam_commands, \
     suggest_game_keyboard, create_search_share_keyboards, go_to_main_menu_inline_keyboard, create_player_steam_id
 from src.api.presentation.steam_style_text import SteamStyleText
 from src.api.utils.pages_utils import page_utils_elements

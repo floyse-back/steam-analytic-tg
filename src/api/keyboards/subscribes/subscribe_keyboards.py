@@ -1,3 +1,5 @@
+from typing import Union
+
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 
@@ -17,22 +19,22 @@ async def create_inline_subscribes_commands():
 
     return subscribes_inline_keyboard.adjust(2).as_markup()
 
-def create_subscribes_keyboard(callback_data: str, user_id: str):
+def create_subscribes_keyboard(type_id: Union[str,int], user_id: Union[str,int]):
     inline_keyboard_markup = InlineKeyboardMarkup(
         inline_keyboard=[
             [
-                InlineKeyboardButton(text="✅ Підписатися", callback_data=f"subscribe:{callback_data}:{user_id}"),
+                InlineKeyboardButton(text="✅ Підписатися", callback_data=f"subscribe_user:{type_id}:{user_id}"),
                 InlineKeyboardButton(text="🔙 Назад", callback_data="subscribe_main")
             ],
         ]
     )
     return inline_keyboard_markup
 
-def create_unsubscribes_keyboard(callback_data: str, user_id: str):
+def create_unsubscribes_keyboard(type_id: Union[str,int], user_id: Union[str,int]):
     inline_keyboard_markup = InlineKeyboardMarkup(
         inline_keyboard=[
             [
-                InlineKeyboardButton(text="🚫 Відписатися", callback_data=f"unsubscribe:{callback_data}:{user_id}"),
+                InlineKeyboardButton(text="🚫 Відписатися", callback_data=f"unsubscribe_user:{type_id}:{user_id}"),
                 InlineKeyboardButton(text="🔙 Назад", callback_data="subscribe_main")
             ]
         ]

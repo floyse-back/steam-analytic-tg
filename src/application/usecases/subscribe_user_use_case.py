@@ -6,4 +6,4 @@ class SubscribeUserUseCase:
         self.users_repositoty = users_repositoty
 
     async def execute(self,user_id:int,type_id:int,session):
-        await self.users_repositoty.subscribe(user_id=user_id,type_id=type_id,session=session)
+        return await self.users_repositoty.subscribe(user_id=user_id,type_id=type_id,session=session)

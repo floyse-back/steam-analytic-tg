@@ -46,11 +46,15 @@ class IUsersRepository(ABC):
         pass
 
     @abstractmethod
-    async def subscribe(self,type_id:int,user:Users,session)->None:
+    async def check_subscribes(self,user_id:int,type_id:int,session)->bool:
         pass
 
     @abstractmethod
-    async def unsubscribe(self,type_id:int,user:Users,session)->None:
+    async def subscribe(self,type_id:int,user_id:int,session)->None:
+        pass
+
+    @abstractmethod
+    async def unsubscribe(self,type_id:int,user_id:int,session)->None:
         pass
 
 

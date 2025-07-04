@@ -35,29 +35,38 @@ async def callback_subscribe(callback_query: CallbackQuery):
     if data == True:
         await callback_query.message.edit_text(text=f"{subscribes_style_text.user_have_subscribe(description=subscribes_type_details.get("description",'-'))}",
                                                parse_mode=ParseMode.HTML,
-                                               reply_markup=create_unsubscribes_keyboard(callback_data=callback_query.data,user_id = callback_query.from_user.id)
+                                               reply_markup=create_unsubscribes_keyboard(type_id=subscribes_type_details.get("type_id"),user_id = callback_query.from_user.id)
                                                )
     else:
         await callback_query.message.edit_text(text=f"{subscribes_style_text.user_dont_have_subscribe(description=subscribes_type_details.get("description",'-'))}",
                                                parse_mode=ParseMode.HTML,
-                                               reply_markup=create_subscribes_keyboard(callback_data=callback_query.data,user_id = callback_query.from_user.id)
+                                               reply_markup=create_subscribes_keyboard(type_id=subscribes_type_details.get("type_id"),user_id = callback_query.from_user.id)
                                                )
     await callback_query.answer()
 
-@router.callback_query(lambda c:c.data.startswith("subscribe:"))
+@router.callback_query(lambda c:c.data.startswith("subscribe_user"))
 async def callback_subscribe_confirm(callback_query: CallbackQuery):
     subscribe_type_id,user_id=subscribe_correct(callback_query=callback_query)
+    logger.debug("Logger Debug Sub Type %s",subscribe_type_id)
     if subscribe_type_id is None:
         return None
-    await callback_query.message.edit_text(text=f"{subscribes_style_text.after_subscribes()}",parse_mode=ParseMode.HTML,reply_markup=inline_back_subscribe_menu)
+    async for session in get_async_db():
+        if await subscribes_service.subscribe(user_id=int(user_id),type_id=int(subscribe_type_id),session=session):
+            await callback_query.message.edit_text(text=f"{subscribes_style_text.after_subscribes()}",parse_mode=ParseMode.HTML,reply_markup=inline_back_subscribe_menu)
+        else:
+            await callback_query.message.edit_text(text=f"{subscribes_style_text.after_subscribes()}",parse_mode=ParseMode.HTML,reply_markup=inline_back_subscribe_menu)
     await callback_query.answer()
 
-@router.callback_query(lambda c:c.data.startswith("unsubscribe:"))
+@router.callback_query(lambda c:c.data.startswith("unsubscribe_user"))
 async def callback_unsubscribe_confirm(callback_query: CallbackQuery):
     subscribe_type_id,user_id=subscribe_correct(callback_query=callback_query)
     if subscribe_type_id is None:
         return None
-    await callback_query.message.edit_text(text=f"{subscribes_style_text.after_unsubscribe()}",parse_mode=ParseMode.HTML,reply_markup=inline_back_subscribe_menu)
+    async for session in get_async_db():
+        if await subscribes_service.unsubscribe(user_id=callback_query.from_user.id,type_id=int(subscribe_type_id),session=session):
+            await callback_query.message.edit_text(text=f"{subscribes_style_text.after_unsubscribe()}",parse_mode=ParseMode.HTML,reply_markup=inline_back_subscribe_menu)
+        else:
+            await callback_query.message.edit_text(text=f"{subscribes_style_text.after_unsubscribe()}",parse_mode=ParseMode.HTML,reply_markup=inline_back_subscribe_menu)
     await callback_query.answer()
 
 @router.callback_query(lambda c:c.data == "subscribe_main")

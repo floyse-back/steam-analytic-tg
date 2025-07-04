@@ -2,10 +2,10 @@ from typing import Optional, List
 
 from sqlalchemy import delete, select
 from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy.orm import selectinload
+from sqlalchemy.orm import selectinload, joinedload
 
 from src.domain.user_context.repository import IUsersRepository
-from src.infrastructure.db.models import Users, Wishlist, Subscribes
+from src.infrastructure.db.models import Users, Wishlist, Subscribes, SubscribesType
 from src.infrastructure.logging.logger import logger
 
 
@@ -52,17 +52,23 @@ class UsersRepository(IUsersRepository):
         user.steam_id = steam_id
         await session.commit()
 
-    async def get_user_subscribes(self,session:AsyncSession)->Optional[List["Subscribes"]]:
-        pass
-
-    async def get_games_wishlist(self,user_id:int,session:AsyncSession)->Optional[Users]:
+    async def get_user_subscribes(self,user_id:int,session:AsyncSession)->Optional[Users]:
         statement = select(Users.id).options(
-            selectinload(Wishlist),
+            selectinload(Users.wishlist),
         ).where(Users.id == user_id).limit(1)
 
         result = await session.execute(statement)
 
-        return result.scalars().all()
+        return result.scalars().first()
+
+    async def get_games_wishlist(self,user_id:int,session:AsyncSession)->Optional[Users]:
+        statement = select(Users.id).options(
+            selectinload(Users.wishlist),
+        ).where(Users.id == user_id).limit(1)
+
+        result = await session.execute(statement)
+
+        return result.scalars().first()
 
     async def add_game_wishlist_user(self,user_id:int,game_id:int,session:AsyncSession)->None:
         pass
@@ -70,12 +76,28 @@ class UsersRepository(IUsersRepository):
     async def remove_game_wishlist_user(self,user_id:int,session:AsyncSession)->None:
         pass
 
-    async def subscribe(self,type_id:int,user:Users,session:AsyncSession)->None:
-        subscribes = await session.get(Subscribes,type_id)
-        user.subscribes.append(subscribes)
-        await session.commit()
+    async def check_subscribes(self,user_id:int,type_id:int,session:AsyncSession)->bool:
+        statement = select(Subscribes).filter(Subscribes.type_id == type_id).filter(Subscribes.user_id == user_id)
+        exsisting = await session.scalar(statement)
+        if exsisting:
+            return True
+        return False
 
-    async def unsubscribe(self,type_id:int,user:Users,session:AsyncSession)->None:
-        subscribes = await session.get(Subscribes,type_id)
-        user.subscribes.remove(subscribes)
+    async def subscribe(self,type_id:int,user_id:int,session:AsyncSession)->bool:
+        subscribes_type_model  = await session.get(SubscribesType,type_id)
+        if subscribes_type_model is None:
+            logger.debug("subscribes_type_model not found %s",type_id)
+            return False
+        sub_model = Subscribes(
+            user_id=user_id,
+            type_id=type_id
+        )
+        session.add(sub_model)
         await session.commit()
+        return True
+
+    async def unsubscribe(self,type_id:int,user_id:int,session:AsyncSession)->bool:
+        stmt = delete(Subscribes).filter(Subscribes.type_id == type_id).filter(Subscribes.user_id == user_id)
+        await session.execute(stmt)
+        await session.commit()
+        return True
