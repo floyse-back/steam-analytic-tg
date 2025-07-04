@@ -38,3 +38,9 @@ def create_unsubscribes_keyboard(callback_data: str, user_id: str):
         ]
     )
     return inline_keyboard_markup
+
+inline_back_subscribe_menu = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [InlineKeyboardButton(text="↩️ Назад до підписок", callback_data="subscribe_main")]
+    ]
+)

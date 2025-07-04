@@ -29,3 +29,4 @@ async def user_register_utils(message:Message,state:FSMContext,users_service:Use
             await message.answer(f"{main_style_text.start_message_no_steam_id(username=message.from_user.username)}",parse_mode=ParseMode.HTML,reply_markup=reply_markup)
             return True
         return False
+

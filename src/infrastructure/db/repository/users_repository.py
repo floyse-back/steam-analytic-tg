@@ -5,7 +5,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import selectinload
 
 from src.domain.user_context.repository import IUsersRepository
-from src.infrastructure.db.models import Users, Wishlist
+from src.infrastructure.db.models import Users, Wishlist, Subscribes
 from src.infrastructure.logging.logger import logger
 
 
@@ -70,8 +70,12 @@ class UsersRepository(IUsersRepository):
     async def remove_game_wishlist_user(self,user_id:int,session:AsyncSession)->None:
         pass
 
-    async def subscribe(self,type:int,user_id:int,session)->None:
-        pass
+    async def subscribe(self,type_id:int,user:Users,session:AsyncSession)->None:
+        subscribes = await session.get(Subscribes,type_id)
+        user.subscribes.append(subscribes)
+        await session.commit()
 
-    async def unsubscribe(self,type:int,user_id:int,session:AsyncSession)->None:
-        pass
+    async def unsubscribe(self,type_id:int,user:Users,session:AsyncSession)->None:
+        subscribes = await session.get(Subscribes,type_id)
+        user.subscribes.remove(subscribes)
+        await session.commit()
