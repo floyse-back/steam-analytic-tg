@@ -1,5 +1,6 @@
 from aiogram import Router
 from aiogram.enums import ParseMode
+from aiogram.exceptions import TelegramBadRequest
 from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
 from aiogram.types import Message
@@ -37,74 +38,6 @@ async def help_command(message: Message):
     await message.delete()
     return await message.answer(steam_service.steam_help(),parse_mode=ParseMode.MARKDOWN)
 
-#[ ] /free_games_now                     — Актуальні безкоштовні ігри (Steam + Epic)
-@router.message(Command("free_games_now"))
-async def free_games_now(message: Message):
-    await message.delete()
-
-    data = await steam_service.free_games_now()
-    response = steam_style_text.create_short_desc(data=data)
-    await message.answer(f"{response}",parse_mode=ParseMode.HTML,reply_markup=go_to_main_menu_inline_keyboard)
-
-#[ ] /discounts_game                     — Знижки на ігри
-@router.message(Command("discounts_game"))
-async def discounts_game(message: Message):
-    await message.delete()
-    data = await steam_service.discount_games()
-    await message.answer(f"{data}",parse_mode=ParseMode.MARKDOWN)
-
-#[ ] /most_played_games                  — Топ найпопулярніших ігор
-@router.message(Command("most_played_games"))
-async def most_played_games(message: Message):
-    await message.delete()
-
-    data = await steam_service.most_played_games()
-    response = steam_style_text.create_short_list_games(data=data)
-    await message.answer(f"{response}",parse_mode=ParseMode.HTML)
-
-#[ ] /discount_for_you <user_id>/None                  — Персональні знижки
-@router.message(Command("discount_for_you"))
-async def discount_for_you(message: Message):
-    split_message = message.text.split()
-
-    if len(split_message) < 2:
-        return await message.answer("You need to specify a game name")
-    else:
-        user = " ".join(split_message[1:])
-    await message.delete()
-
-    data = await steam_service.discount_for_you(user=user)
-    await message.answer(f"{data}")
-
-
-#[ ] /achievements_game <gameID>         — Досягнення гри
-@router.message(Command("achievements_game"))
-async def achievements_game(message: Message):
-    split_message = message.text.split()
-
-    if len(split_message) < 2:
-        return await message.answer("You need to specify a game name")
-    else:
-        game = " ".join(split_message[1:])
-    await message.delete()
-
-    data = await steam_service.achievements_game(game=game)
-    response = steam_style_text.create_achievements_description(data=data)
-    await message.answer(f"{response}",parse_mode=ParseMode.HTML)
-
-
-#[ ] /check_game_price <назва гри>      — Моніторинг ціни
-@router.message(Command("check_game_price"))
-async def check_game_price(message: Message):
-    return await message.reply("Soon...")
-
-"""
-Доволі важка функція буде створена в кінці самому з використанням ChatGPT API
-"""
-@router.message(Command("suggest_game"))
-async def suggest_game(message: Message):
-    return await message.reply("Soon...")
-
 @router.message(SteamGamesID.game)
 async def steam_game_name(message: Message, state: FSMContext):
     page,limit=1,5
@@ -126,7 +59,7 @@ async def steam_game_name(message: Message, state: FSMContext):
         if not new_data is None:
             reply_command = create_page_swapper_inline(callback_data=f"search_game:{data['game']}",menu_callback_data="steam_menu",current_page=page,limit=limit,count=len(new_data))
 
-    if new_data is not None and len(new_data)==1:
+    if new_data is not None and len(new_data)==1 and data["command"]!="search_game":
         answer = await steam_service.dispatcher(data["command"], data["game"])
         logger.debug("Response: %s  ,Command:%s",answer,data["command"])
         response = steam_style_text.dispatcher(data["command"],answer)
@@ -134,6 +67,11 @@ async def steam_game_name(message: Message, state: FSMContext):
 
     logger.debug("Handler {%s}",response)
     await state.clear()
+    try:
+        await message.bot.delete_message(message.chat.id, data['last_bot_message_id'])
+    except TelegramBadRequest as tbr:
+        logger.critical("Chat ID %s,message %s Error Info:%s",message.chat.id,data['last_bot_message_id'],tbr.message)
+    await message.delete()
     await message.answer(f"{response}",parse_mode=ParseMode.HTML,reply_markup=reply_command)
 
 @router.message(PlayerSteamName.player)
@@ -145,4 +83,9 @@ async def steam_player_name_or_id(message: Message,state: FSMContext):
     logger.debug("Response: %s,Data: %s",steam_data,data)
     response = steam_style_text.dispatcher(data["command"],steam_data)
     await state.clear()
+    try:
+        await message.bot.delete_message(message.chat.id, data['last_bot_message_id'])
+    except TelegramBadRequest as tbr:
+        logger.critical("Chat ID %s,message %s Error Info:%s",message.chat.id,data['last_bot_message_id'],tbr.message)
+    await message.delete()
     await message.answer(f"{response}",parse_mode=ParseMode.HTML,reply_markup=create_page_swapper_inline(callback_data=f"{data['command']}:{data['player']}",menu_callback_data="steam_menu",current_page=1,count=len(steam_data)))

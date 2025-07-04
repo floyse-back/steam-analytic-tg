@@ -83,14 +83,17 @@ async def create_player_details_inline(callback_data,text):
     )
     return inline_buttons.adjust(1).as_markup()
 
-def create_page_swapper_inline(callback_data:str,menu_callback_data:str,current_page:int,count=5,limit=5,mark_up=True)->Union[InlineKeyboardMarkup,InlineKeyboardBuilder]:
+def create_page_swapper_inline(callback_data:str,menu_callback_data:str,current_page:int,count=5,limit=5,mark_up=True,next_page:Optional[bool] = None)->Union[InlineKeyboardMarkup,InlineKeyboardBuilder]:
     inline_keyboard =  InlineKeyboardBuilder()
     if current_page-1 == 0:
         behind_button=InlineKeyboardButton(text=f"-",callback_data=f"noop")
     else:
         behind_button = InlineKeyboardButton( text=f"⬅️ {current_page-1}",callback_data=f"{callback_data}:{current_page-1}")
     menu_button=InlineKeyboardButton(text="🏠 Меню",callback_data=f"{menu_callback_data}")
-    if count>=limit:
+    """
+    В майбутньому можливо буде накинуто ліміт...
+    """
+    if count>=limit and next_page is None:
         next_button = InlineKeyboardButton(text=f"{current_page+1} ➡️",callback_data=f"{callback_data}:{current_page+1}"
             )
     else:

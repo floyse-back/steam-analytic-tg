@@ -26,7 +26,6 @@ class PlayerStyleText:
                 "player_full_stats": self.get_player_full_stats,
                 "player_rating": self.get_player_rating_text,
                 "player_badges": self.get_player_badges_text,
-                "player_play": self.get_player_play_text
             }
         )
 
@@ -141,9 +140,6 @@ class PlayerStyleText:
                 f"🗓️ Отримано: <code>{datetime.datetime.fromtimestamp(badge.completion_time).strftime('%d.%m.%Y')}</code>\n\n"
             )
         return text
-
-    def get_player_play_text(self,data):
-        pass
 
     def get_player_compare(self,data:PlayerComparison):
         if answer:=self.__validator(data):

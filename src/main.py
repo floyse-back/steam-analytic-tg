@@ -11,7 +11,7 @@ from src.api.handlers.main_handler import router as main_router
 
 from src.api.handlers.callback.steam_callback import router as steam_callback_router
 from src.api.handlers.callback.player_callback import router as player_callback_router
-from src.api.handlers.callback.user_callback import router as user_callback_router
+from src.api.handlers.callback.users_callback import router as user_callback_router
 from src.api.handlers.callback.subscribe_callback import router as subscribe_callback_router
 
 

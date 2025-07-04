@@ -51,6 +51,7 @@ async def player_one_main(message: Message,state: FSMContext):
     data = await player_service.dispatcher(state_data['command'],state_data['user'])
     response = player_style_text.dispatcher(state_data['command'],data=data)
     await state.clear()
+    await message.bot.delete_message(message.chat.id, state_data['last_bot_message_id'])
     await message.answer(text=f"{response}",parse_mode=ParseMode.HTML,reply_markup=find_other_player(callback_data=state_data['command']))
 
 @router.message(BattleSteamPlayer.user_1)
@@ -67,7 +68,7 @@ async def player_user_1(message: Message,state: FSMContext):
                                               page="")
     if data is not None:
         await state.update_data(user1=data['steam_appid'])
-        if data['steam_appid'] == state_data['steam_appid']:
+        if data.get('steam_appid') == state_data.get('steam_appid'):
             await state.update_data(complited=True)
         await state.set_state(BattleSteamPlayer.user_2)
         await message.answer(text=f"{player_style_text.create_message_from_get_user()}",parse_mode=ParseMode.HTML,reply_markup=reply_markup)

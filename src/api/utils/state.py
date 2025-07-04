@@ -10,6 +10,9 @@ class PlayerSteamName(StatesGroup):
 class ProfileSteamName(StatesGroup):
     profile = State()
 
+class ChangeSteamName(StatesGroup):
+    steam_appid_new = State()
+
 class BattleSteamPlayer(StatesGroup):
     user_1 = State()
     user_2 = State()

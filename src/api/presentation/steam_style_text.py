@@ -3,6 +3,7 @@ from typing import Optional, List, Union
 
 from src.api.presentation.empty_messages import EmptyMessages
 from src.application.dto.steam_dto import GameShortModel, GameAchievementsModel, GamePriceModel, GamesForYouModel
+from src.infrastructure.logging.logger import logger
 from src.shared.config import ganre_config
 from src.shared.dispatcher import DispatcherCommands
 
@@ -112,7 +113,7 @@ class SteamStyleText:
 
         return f"{new_text}"
 
-    def create_short_search_games(self,data,page,limit):
+    def create_short_search_games(self,data,page:int=1,limit:int=10):
         if data is None:
             return EmptyMessages.create_empty_message()
         new_text = ""
@@ -142,8 +143,9 @@ class SteamStyleText:
         new_text +=f"\n<b>{emojis[1]} Steam AppID {data['steam_appid']}</b>"
         return new_text
 
-    def create_for_you(self,data:List[GamesForYouModel],player:Optional['str']=None,page:int=1,limit:int=5):
-        if isinstance(data,dict) and data.get('detail'):
+    def create_for_you(self,data:Optional[List[GamesForYouModel]],player:Optional['str']=None,page:int=1,limit:int=5):
+        logger.info("Steam Data %s",data)
+        if data is None or (isinstance(data,dict) and data.get('detail')):
             return EmptyMessages.create_empty_message_for_you(data=data,player=player)
 
         emojis = self.__generate_emojis(count=len(data))
@@ -158,6 +160,15 @@ class SteamStyleText:
                 f"<b>⭐ Рейтинг: {self.__generate_stars_from_total(total=model['total'])} ({model['total']} балів)</b>\n\n"
             )
         return new_text
+
+    def input_game_name(self,type:Optional[str] = None):
+        return "<b>🔍 Введіть назву гри</b>\nНаприклад: <i>Counter-Strike 2</i>"
+
+    def input_player_name(self):
+        return (
+            "<b>👤 Введіть ім'я, ID або URL користувача Steam:</b>\n"
+            "Наприклад: <i>pacukevich</i> або <i>https://steamcommunity.com/id/pacukevich</i>"
+        )
 
     def dispatcher(self,command_name,*args,**kwargs):
         return self.dispatcher_command.dispatch_sync(command_name,*args,**kwargs)

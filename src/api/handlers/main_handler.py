@@ -4,6 +4,7 @@ from aiogram.filters import CommandStart
 from aiogram.fsm.context import FSMContext
 from aiogram.types import Message, CallbackQuery
 
+from src.api.handlers.callback.message_utils import user_register_utils
 from src.api.keyboards import main_keyboards as main_keyboards
 from src.api.keyboards.main_keyboards import start_keyboard
 from src.api.keyboards.users.users_keyboards import profile_cancel_inline_keyboard_main
@@ -26,11 +27,8 @@ main_style_text = MainStyleText()
 
 @router.message(CommandStart())
 async def start(message: Message,state: FSMContext):
-    await message.delete()
-    if not await users_service.check_register_steam_id_user(message.from_user.id):
-        await state.update_data()
-        await state.set_state(ProfileSteamName.profile)
-        await message.answer(f"{main_style_text.start_message_no_steam_id(username=message.from_user.username)}",parse_mode=ParseMode.HTML,reply_markup=profile_cancel_inline_keyboard_main)
+    if await user_register_utils(message=message,state=state,users_service=users_service,main_style_text=main_style_text,reply_markup=profile_cancel_inline_keyboard_main):
+        return None
     else:
         logger.debug("Steam Appid From Steam Service,%s",message.from_user.id)
         await message.answer(f"{main_style_text.start_message_with_steam_id(username=message.from_user.username)}",parse_mode=ParseMode.HTML,reply_markup=start_keyboard)

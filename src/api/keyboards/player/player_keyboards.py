@@ -19,7 +19,12 @@ async def create_inline_player_commands():
 
 back_to_menu_inline_keyboard = InlineKeyboardMarkup(
     inline_keyboard = [
-        [InlineKeyboardButton(text= "Повернутися до меню",callback_data="player_menu")]
+        [InlineKeyboardButton(text= "Повернутися до меню 🔙",callback_data="player_menu")]
+    ]
+)
+back_to_menu_inline_callback_close_keyboard = InlineKeyboardMarkup(
+    inline_keyboard = [
+        [InlineKeyboardButton(text= "Повернутися до меню 🔙",callback_data="player_menu_callback_close")]
     ]
 )
 
@@ -27,7 +32,7 @@ def find_other_player(callback_data:str):
     inline_keyboard = InlineKeyboardMarkup(
         inline_keyboard = [
             [InlineKeyboardButton(text="Знайти іншого користувача 🔍",callback_data=callback_data)],
-            [InlineKeyboardButton(text="Повернутися до меню 🔙",callback_data="player_menu")]
+            [InlineKeyboardButton(text="Повернутися до меню 🔙",callback_data="player_menu_callback_close")]
         ]
     )
     return inline_keyboard

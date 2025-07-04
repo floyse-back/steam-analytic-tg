@@ -37,18 +37,16 @@ steam_message_menu = "Привіт! Що тебе цікавить у світі
 
 user_commands: dict[str, str] = {
     "👤 Профіль": "profile",
-    "🎯 Улюблені ігри": "whishlist",
-    "🆔 Перевірка по ID": "user_steam_info",
+    "🎯 Улюблені ігри": "wishlist",
     "✏️ Змінити мій ID": "change_my_id"
 }
 user_message_menu = (
-    "👤 *Твій кабінет Steam*\n\n"
-    "Оберіть, що хочеш зробити:\n"
-    "— Переглянути профіль\n"
-    "— Керувати улюбленими іграми\n"
-    "— Перевірити Steam-інформацію по ID\n"
-    "— Змінити свій Steam ID\n\n"
-    "⬇️ Обери дію з меню нижче:"
+    "👤 *Твій ігровий кабінет Steam*\n\n"
+    "Обирай, що будемо робити далі:\n"
+    "— 🔍 Подивитись профіль\n"
+    "— 🎮 Улюблені ігри — додати чи видалити\n"
+    "— ♻️ Змінити Steam ID\n\n"
+    "⬇️ Натискай кнопку нижче — усе під контролем 😉"
 )
 
 player_commands: dict[str, str] = {
@@ -62,10 +60,9 @@ player_message_menu = "Оберіть команду, пов’язану з г�
 subscribes_commands: dict[str, str] = {
     "🆕 Нові релізи": "subscribe_new_release",
     "🆓 Безкоштовні ігри": "subscribe_free_games",
-    "📅 Івенти та події": "subscribe_new_event",
+    "📅 Івенти та події": "subscribe_new_events",
     "📰 Офіційні новини": "subscribe_steam_news",
-    "⚙️ Оновлення Steam": "subscribe_steam_update",
-    "🔔 Бажані ігри зі знижками": "subscribe_whishlist_notificate",
+    "🔔 Бажані ігри зі знижками": "subscribe_wishlist_notificate",
     "🔥 Гарячі знижки": "subscribe_hot_discount_notificate"
 }
 subscribes_message_menu = "Підписки на оновлення 🗞️ – оберіть категорію:"
