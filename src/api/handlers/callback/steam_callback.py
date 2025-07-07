@@ -53,7 +53,9 @@ async def search_game_callback_pages(callback_query: CallbackQuery):
 @router.callback_query(lambda c: c.data.startswith("search_short_games"))
 async def search_game_callback_pages_short(callback_query: CallbackQuery):
     callback_name = "".join(callback_query.data.split(":")[0:1])
+    logger.debug("Game:%s,Page:%s",callback_name,callback_query.data)
     main_callback_name = callback_query.data.split(":")[2]
+    logger.debug("main_callback_name:%s",main_callback_name)
     await callback_query.answer()
     page = page_utils_elements(callback_data=callback_query.data, page_one_data=callback_name, index=3)
     game = callback_query.data.split(":")[1]

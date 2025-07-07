@@ -1,11 +1,11 @@
-from typing import Optional, List
+from typing import Optional
 
-from sqlalchemy import delete, select
+from sqlalchemy import delete, select, and_
 from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy.orm import selectinload, joinedload
+from sqlalchemy.orm import selectinload
 
 from src.domain.user_context.repository import IUsersRepository
-from src.infrastructure.db.models import Users, Wishlist, Subscribes, SubscribesType
+from src.infrastructure.db.models import Users, Wishlist, Subscribes, SubscribesType, users_to_whishlist
 from src.infrastructure.logging.logger import logger
 
 
@@ -48,6 +48,22 @@ class UsersRepository(IUsersRepository):
         data = result.scalars().first()
         return data
 
+    async def get_user_and_wishlist(self,user_id:int,session) ->Optional[Users]:
+        statement = select(Users).options(
+            selectinload(Users.wishlist),
+        ).where(Users.id == user_id)
+        result = await session.execute(statement)
+        data = result.scalars().first()
+        return data
+
+    async def get_wishlist_user_pages(self,user_id:int,session,page:int=1,limit:int=5):
+        statement = (select(Wishlist)
+                     .join(users_to_whishlist)
+                     .where(users_to_whishlist.c.user_id == user_id)
+                     .offset((page-1)*limit).limit(limit))
+        result = await session.execute(statement)
+        return result.scalars().all()
+
     async def update_user(self,user:Users,steam_id,session:AsyncSession)->None:
         user.steam_id = steam_id
         await session.commit()
@@ -70,11 +86,19 @@ class UsersRepository(IUsersRepository):
 
         return result.scalars().first()
 
-    async def add_game_wishlist_user(self,user_id:int,game_id:int,session:AsyncSession)->None:
-        pass
+    async def add_game_wishlist_user(self,user:Users,wishlist:Wishlist,session:AsyncSession)->bool:
+        user.wishlist.append(wishlist)
+        await session.commit()
 
-    async def remove_game_wishlist_user(self,user_id:int,session:AsyncSession)->None:
-        pass
+    async def remove_game_wishlist_user(self,user_id,game_id,session:AsyncSession)->Optional[bool]:
+        try:
+             statement = delete(users_to_whishlist).filter(and_(users_to_whishlist.c.user_id == user_id,users_to_whishlist.c.game_id == game_id))
+             await session.execute(statement)
+             await session.commit()
+             return True
+        except Exception as e:
+            logger.error("SQLAlchemy Error: %s",e)
+            return False
 
     async def check_subscribes(self,user_id:int,type_id:int,session:AsyncSession)->bool:
         statement = select(Subscribes).filter(Subscribes.type_id == type_id).filter(Subscribes.user_id == user_id)

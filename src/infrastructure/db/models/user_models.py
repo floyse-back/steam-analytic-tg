@@ -10,7 +10,7 @@ from sqlalchemy.orm import mapped_column, Mapped, relationship
 users_to_whishlist = Table(
     "users_to_whishlist",
     Base.metadata,
-    Column("user_id", Integer, ForeignKey("users.id"), primary_key=True),
+    Column("user_id", BigInteger, ForeignKey("users.id"), primary_key=True),
     Column("game_id", Integer, ForeignKey("wishlist.game_id"), primary_key=True)
 )
 
@@ -38,7 +38,8 @@ class Wishlist(Base):
     game_id: Mapped[int] = mapped_column(Integer, primary_key=True)
     name: Mapped[str] = mapped_column(String)
     short_desc: Mapped[Optional[str]] = mapped_column(String,default="")
-    price: Mapped[int] = mapped_column(Integer)
+    discount: Mapped[Optional[int]] = mapped_column(Integer,default=0)
+    price: Mapped[int] = mapped_column(Integer,default=0)
 
     users: Mapped[List[Users]] = relationship(
         secondary=users_to_whishlist,

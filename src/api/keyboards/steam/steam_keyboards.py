@@ -84,6 +84,12 @@ async def create_player_details_inline(callback_data,text):
     return inline_buttons.adjust(1).as_markup()
 
 def create_page_swapper_inline(callback_data:str,menu_callback_data:str,current_page:int,count=5,limit=5,mark_up=True,next_page:Optional[bool] = None)->Union[InlineKeyboardMarkup,InlineKeyboardBuilder]:
+    """
+    Про next_page
+    if next_page is None тоді наступна сторінка заблокована
+    if next_page == True тоді вона не заблокована і може бути при деяких умовах
+    """
+
     inline_keyboard =  InlineKeyboardBuilder()
     if current_page-1 == 0:
         behind_button=InlineKeyboardButton(text=f"-",callback_data=f"noop")

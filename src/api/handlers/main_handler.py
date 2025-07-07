@@ -12,6 +12,7 @@ from src.api.presentation.main_style_text import MainStyleText
 from src.api.utils.state import ProfileSteamName
 from src.application.services.users_service import UsersService
 from src.infrastructure.db.repository.users_repository import UsersRepository
+from src.infrastructure.db.repository.wishlist_repository import WishlistRepository
 from src.infrastructure.logging.logger import logger
 from src.infrastructure.steam_analytic_api.steam_client import SteamAnalyticsAPIClient
 from src.shared.config import MainMenu, help_config
@@ -21,6 +22,7 @@ router = Router()
 users_service = UsersService(
     users_repository=UsersRepository(),
     steam_client=SteamAnalyticsAPIClient(),
+    wishlist_repository=WishlistRepository(),
 )
 
 main_style_text = MainStyleText()

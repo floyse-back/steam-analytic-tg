@@ -2,6 +2,7 @@ import random
 from typing import Optional, List, Union
 
 from src.api.presentation.empty_messages import EmptyMessages
+from src.api.presentation.utils.shared_text import create_short_search_games_shared
 from src.application.dto.steam_dto import GameShortModel, GameAchievementsModel, GamePriceModel, GamesForYouModel
 from src.infrastructure.logging.logger import logger
 from src.shared.config import ganre_config
@@ -114,16 +115,7 @@ class SteamStyleText:
         return f"{new_text}"
 
     def create_short_search_games(self,data,page:int=1,limit:int=10):
-        if data is None:
-            return EmptyMessages.create_empty_message()
-        new_text = ""
-        start_number = (page-1)*limit+1
-
-
-        for i,game in enumerate(data):
-            new_text += (f"\n{start_number+i}.<b><a href='https://store.steampowered.com/app/{game["steam_appid"]}/'>{game['name']}</a></b>"
-                         f"\nЦіна гри: {game['final_formatted_price']}")
-        return f"{new_text}"
+        return create_short_search_games_shared(data=data,page=page,limit=limit)
 
     def create_game_price(self,data:GamePriceModel)->str:
         emojis = self.__generate_emojis(count=2)

@@ -16,6 +16,7 @@ class Wishlist:
     game_id: int
     name:str
     short_desc:str
+    discount:int
     price:int
     users: List["Users"]
 

@@ -1,9 +1,11 @@
 import datetime
-from typing import Optional, Union
+from typing import Optional, Union, List
 
 from pydantic import BaseModel
 
+from src.api.presentation.utils.shared_text import create_short_search_games_shared
 from src.application.dto.player_dto import SteamPlayer
+from src.application.dto.users_dto import GamesToWishlist
 
 
 class UsersStyleText:
@@ -86,3 +88,66 @@ class UsersStyleText:
         return (f"✅ <b>Ваш Steam профіль успішно оновлено, @{username}!</b>\n\n"
                 f"🆔 Новий SteamID: <code>{steam_appid}</code>\n"
                 f"🎉 Тепер ви можете користуватися всіма функціями бота без обмежень!")
+
+    def message_post_game(self):
+        return "<b>🎮 Введіть назву гри, яку хочете додати:</b>"
+
+    def message_incorrect_game(self):
+        return "<b>⚠️ Гру не знайдено. Перевірте правильність написання та спробуйте ще раз.</b>"
+
+    def create_short_search_games(self,data,page:int=1,limit:int=5):
+        return create_short_search_games_shared(data,page,limit)
+
+    def message_correct_add_game(self):
+        return "<b>✅ Гру успішно додано до вашого вішліста!</b>"
+
+    def message_incorrect_add_game(self):
+        return "<b>❌ Не вдалося додати гру до вішліста. Спробуйте пізніше або перевірте назву гри.</b>"
+
+    from typing import List
+
+    from typing import List
+
+    def create_short_wishlist_message(self, data: List[GamesToWishlist]) -> str:
+        if not data:
+            return "📝 Вішліст порожній."
+
+        lines = []
+        for game in data:
+            # Назва гри + ID
+            line = f"🎮 <b>{game.name}</b> (ID: {game.steam_appid})\n"
+
+            # Короткий опис (обрізаний до 100 символів)
+            desc = game.short_description or "Без опису"
+            if len(desc) > 100:
+                desc = desc[:97] + "..."
+            line += f"📖 {desc}\n"
+
+            # Ціна + знижка, якщо є
+            if game.price_overview:
+                price = game.price_overview.final / 100  # ціна в доларах
+                discount = game.price_overview.discount_percent or 0
+                if discount > 0:
+                    discounted_price = price * (100 - discount) / 100
+                    line += (
+                        f"💸 Ціна: <s>{price:.2f}$</s> → <b>{discounted_price:.2f}$</b> "
+                        f"(<i>-{discount}%</i>)\n"
+                    )
+                else:
+                    line += f"💰 Ціна: <b>{price:.2f}$</b>\n"
+
+            else:
+                line += "💰 Ціна: відсутня\n"
+
+            lines.append(line)
+
+        return "\n".join(lines)
+
+    def game_correct_delete_wishlist(self, user):
+        return f"✅ <b>Гру успішно видалено з вашого списку бажаного, {user}!</b>"
+
+    def game_not_delete_wishlist(self, user):
+        return f"⚠️ <b>Не вдалося видалити гру з вашого списку бажаного, {user}. Можливо, її там не було.</b>"
+
+
+

@@ -8,11 +8,13 @@ from aiogram.filters import Command
 
 from src.api.handlers.callback.users_callback import users_style_text
 from src.api.keyboards.main_keyboards import start_keyboard
+from src.api.keyboards.steam.steam_keyboards import create_search_share_keyboards
 from src.api.keyboards.users.users_keyboards import create_user_inline_keyboard, profile_cancel_inline_keyboard_main, \
     back_to_profile_main
-from src.api.utils.state import ProfileSteamName, ChangeSteamName
+from src.api.utils.state import ProfileSteamName, ChangeSteamName, WishlistGame
 from src.application.services.users_service import UsersService
 from src.infrastructure.db.repository.users_repository import UsersRepository
+from src.infrastructure.db.repository.wishlist_repository import WishlistRepository
 from src.infrastructure.logging.logger import logger
 from src.infrastructure.steam_analytic_api.steam_client import SteamAnalyticsAPIClient
 from src.shared.config import MainMenu, user_message_menu
@@ -22,6 +24,7 @@ router = Router(name=__name__)
 users_service = UsersService(
     users_repository=UsersRepository(),
     steam_client=SteamAnalyticsAPIClient(),
+    wishlist_repository=WishlistRepository(),
 )
 
 
@@ -68,3 +71,22 @@ async def user_profile_change(message:Message, state:FSMContext):
     else:
         await message.answer(f"{users_style_text.message_correct_change_steam_id(username=message.from_user.username,steam_appid=steam_appid)}",parse_mode=ParseMode.HTML,reply_markup=back_to_profile_main)
         await state.clear()
+
+@router.message(WishlistGame.game)
+async def get_wishlist_game(message: Message, state:FSMContext):
+    await state.update_data(game=message.text)
+    state_data = await state.get_data()
+    await state.clear()
+    page,limit=1,5
+    logger.debug(f"User wishlist game %s",state_data)
+    if state_data.get("game") is not None:
+        data = await users_service.search_games_short(name=state_data["game"],page=page,limit=limit)
+        if data is None:
+            await state.set_state(WishlistGame.game)
+            await message.edit_text(f"{users_style_text.message_incorrect_game()}",parse_mode=ParseMode.HTML)
+            return None
+        else:
+            reply_command = create_search_share_keyboards(callback_data=state_data["command"],value=state_data["game"],data=data,page=page,limit=limit)
+        response = users_style_text.create_short_search_games(data,page=page,limit=limit)
+        await message.delete()
+        await message.answer(f"{response}", parse_mode=ParseMode.HTML, reply_markup=reply_command)

@@ -19,3 +19,6 @@ class BattleSteamPlayer(StatesGroup):
 
 class SteamPlayerName(StatesGroup):
     player = State()
+
+class WishlistGame(StatesGroup):
+    game = State()

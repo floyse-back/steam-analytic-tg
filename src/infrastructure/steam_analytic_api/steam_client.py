@@ -14,7 +14,7 @@ class SteamAnalyticsAPIClient:
 
     def __create_client_session(self)->AsyncClient:
         auth = {"Authorization": "{}".format(self.API_KEY)}
-        return AsyncClient(base_url=self.__url,follow_redirects=True,headers=auth)
+        return AsyncClient(base_url=self.__url,follow_redirects=True,timeout=2.5,headers=auth)
 
     @classmethod
     def login_account(cls):
@@ -169,3 +169,10 @@ class SteamAnalyticsAPIClient:
             if response.status_code == 200:
                 return response.json()
             return None
+
+    async def get_game_stats(self,steam_appid:str)->Optional[dict]:
+        async with self.__create_client_session() as client:
+            response = await client.get(f"api/v1/steam/game_stats/{steam_appid}")
+
+        if response.status_code == 200 and response.json().get(f"{steam_appid}",{"success": False}).get("success"):
+            return response.json()[f"{steam_appid}"].get("data")
