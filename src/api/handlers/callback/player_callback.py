@@ -3,7 +3,6 @@ from aiogram.enums import ParseMode
 from aiogram.fsm.context import FSMContext
 from aiogram.types import CallbackQuery
 
-from src.api.keyboards.main_keyboards import back_help_keyboard
 from src.api.keyboards.player.player_keyboards import create_inline_player_commands, find_other_player
 from src.api.keyboards.steam.steam_keyboards import create_player_steam_id
 from src.api.presentation.player_style_text import PlayerStyleText
@@ -22,11 +21,6 @@ player_service = PlayerService(
     users_repository=UsersRepository(),
 )
 player_style_text = PlayerStyleText()
-
-@router.callback_query(F.data == "player_help")
-async def player_help_callback(callback_query: CallbackQuery):
-    await callback_query.message.edit_text(text=f"{player_service.player_help()}",parse_mode=ParseMode.MARKDOWN,reply_markup=back_help_keyboard)
-    await callback_query.answer()
 
 @router.callback_query(lambda c: c.data in ["player_badges","player_full_stats","player_rating","player_play"])
 async def player_one_user_callback(callback_query:CallbackQuery,state:FSMContext):

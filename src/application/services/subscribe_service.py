@@ -2,7 +2,6 @@ from src.application.usecases.check_subscribes_user_use_case import CheckSubscri
 from src.application.usecases.subscribe_user_use_case import SubscribeUserUseCase
 from src.application.usecases.unscribe_user_use_case import UnsubscribeUserUseCase
 from src.domain.user_context.repository import IUsersRepository
-from src.shared.config import help_config
 
 
 class SubscribeService:
@@ -16,9 +15,6 @@ class SubscribeService:
         self.check_subscribes_user_use_case = CheckSubscribesUserUseCase(
             users_repository=users_repository
         )
-
-    def subscribe_help(self):
-        return help_config.get("subscribe")
 
     async def check_subscribes_user(self,user_id:int,type_id:int,session):
         """

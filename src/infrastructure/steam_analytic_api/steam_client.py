@@ -14,7 +14,7 @@ class SteamAnalyticsAPIClient:
 
     def __create_client_session(self)->AsyncClient:
         auth = {"Authorization": "{}".format(self.API_KEY)}
-        return AsyncClient(base_url=self.__url,follow_redirects=True,timeout=2.5,headers=auth)
+        return AsyncClient(base_url=self.__url,follow_redirects=True,timeout=8.0,headers=auth)
 
     @classmethod
     def login_account(cls):

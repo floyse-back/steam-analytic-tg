@@ -4,7 +4,6 @@ from aiogram import Router
 from aiogram.enums import ParseMode
 from aiogram.fsm.context import FSMContext
 from aiogram.types import Message
-from aiogram.filters import Command
 
 from src.api.handlers.callback.users_callback import users_style_text
 from src.api.keyboards.main_keyboards import start_keyboard
@@ -27,11 +26,6 @@ users_service = UsersService(
     wishlist_repository=WishlistRepository(),
 )
 
-
-@router.message(Command("user"))
-async def user_help(message: Message):
-    await message.delete()
-    return await message.answer(users_service.user_help(),parse_mode=ParseMode.MARKDOWN)
 
 @router.message(lambda message: message.text == f"{MainMenu.profile}")
 async def user_reply(message: Message):
@@ -81,9 +75,13 @@ async def get_wishlist_game(message: Message, state:FSMContext):
     logger.debug(f"User wishlist game %s",state_data)
     if state_data.get("game") is not None:
         data = await users_service.search_games_short(name=state_data["game"],page=page,limit=limit)
+
         if data is None:
+            await state.clear()
+            await state.update_data(command="add_wishlist_game")
             await state.set_state(WishlistGame.game)
-            await message.edit_text(f"{users_style_text.message_incorrect_game()}",parse_mode=ParseMode.HTML)
+            await message.delete()
+            await message.answer(f"{users_style_text.message_incorrect_game()}",parse_mode=ParseMode.HTML)
             return None
         else:
             reply_command = create_search_share_keyboards(callback_data=state_data["command"],value=state_data["game"],data=data,page=page,limit=limit)

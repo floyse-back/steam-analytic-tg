@@ -1,4 +1,3 @@
-import random
 from typing import List
 
 from typing_extensions import Optional, Union
@@ -17,7 +16,6 @@ from src.application.usecases.suggest_game_use_case import GetSuggestGameUseCase
 from src.domain.user_context.repository import IUsersRepository
 from src.infrastructure.logging.logger import logger
 from src.infrastructure.steam_analytic_api.steam_client import SteamAnalyticsAPIClient
-from src.shared.config import help_config
 from src.shared.dispatcher import DispatcherCommands
 
 
@@ -65,9 +63,6 @@ class SteamService:
         self.get_user_use_case = GetUserUseCase(
             users_repository=users_repository
         )
-
-    def steam_help(self):
-        return help_config.get("games")
 
     async def search_games(self,name,page:int=1,limit:int=5,share:bool=True)->List[Optional[Union[GameShortModel,GameListModel]]]:
         """

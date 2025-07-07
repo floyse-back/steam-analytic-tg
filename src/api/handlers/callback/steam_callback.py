@@ -4,7 +4,6 @@ from aiogram.fsm.context import FSMContext
 from aiogram.types import CallbackQuery
 
 from src.api.handlers.callback.message_utils import create_page_message
-from src.api.keyboards.main_keyboards import back_help_keyboard
 from src.api.keyboards.steam.steam_dict_keyboards import steam_games_keyboards_dictionary
 from src.api.keyboards.steam.steam_keyboards import create_inline_steam_commands, \
     suggest_game_keyboard, create_search_share_keyboards, go_to_main_menu_inline_keyboard, create_player_steam_id
@@ -27,11 +26,6 @@ steam_style_text = SteamStyleText()
 
 
 #Callbacks
-@router.callback_query(F.data == "games_help")
-async def games_help_callback(callback_query: CallbackQuery):
-    await callback_query.message.edit_text(text=f"{steam_service.steam_help()}",parse_mode=ParseMode.MARKDOWN,reply_markup=back_help_keyboard)
-    await callback_query.answer()
-
 @router.callback_query(F.data == "search_game")
 async def search_game_callback(callback_query: CallbackQuery,state: FSMContext):
     await state.update_data(command ="search_game",last_bot_message_id = callback_query.message.message_id)

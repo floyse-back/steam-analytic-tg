@@ -19,7 +19,6 @@ from src.domain.user_context.repository import IUsersRepository, IWishlistReposi
 from src.infrastructure.db.database import get_async_db
 from src.infrastructure.logging.logger import logger
 from src.infrastructure.steam_analytic_api.steam_client import SteamAnalyticsAPIClient
-from src.shared.config import help_config
 
 
 class UsersService:
@@ -66,9 +65,6 @@ class UsersService:
         self.remove_wishlist_game_use_case = RemoveWishlistGameUseCase(
             users_repository=users_repository
         )
-
-    def user_help(self):
-        return help_config.get("user")
 
     async def update_or_register_user(self,user_id,steam_user:Optional[str]=None)->Optional[bool]:
         """
@@ -131,8 +127,7 @@ class UsersService:
             else:
                 wishlist_model=await self.create_wishlist_use_case.execute(game_id=data.steam_appid,name=data.name,short_desc=data.short_description,discount=data.price_overview.discount_percent,price=data.price_overview.final,session=session,back_response=True)
         logger.debug("Wishlist Model %s",wishlist_model)
-        await self.add_wishlist_game_use_case.execute(wishlist=wishlist_model,user=user_model,session=session)
-        return True
+        return await self.add_wishlist_game_use_case.execute(wishlist=wishlist_model,user=user_model,session=session)
 
     async def remove_wishlist_game(self,user_id:int,game_id:int,session)->Optional[bool]:
         return await self.remove_wishlist_game_use_case.execute(user_id=user_id,game=game_id,session=session)

@@ -13,7 +13,7 @@ from src.api.handlers.callback.steam_callback import router as steam_callback_ro
 from src.api.handlers.callback.player_callback import router as player_callback_router
 from src.api.handlers.callback.users_callback import router as user_callback_router
 from src.api.handlers.callback.subscribe_callback import router as subscribe_callback_router
-
+from src.api.handlers.callback.main_callback import router as main_callback_router
 
 import asyncio
 
@@ -26,7 +26,7 @@ dp.include_routers(user_router,user_callback_router,
                    steam_router,steam_callback_router,
                    player_router,player_callback_router,
                    subscribe_router,subscribe_callback_router,
-                   main_router)
+                   main_router,main_callback_router)
 
 
 async def main():

@@ -88,7 +88,11 @@ class UsersRepository(IUsersRepository):
 
     async def add_game_wishlist_user(self,user:Users,wishlist:Wishlist,session:AsyncSession)->bool:
         user.wishlist.append(wishlist)
+        for wishlist_model in user.wishlist:
+            if wishlist_model.game_id == wishlist.game_id:
+                return False
         await session.commit()
+        return True
 
     async def remove_game_wishlist_user(self,user_id,game_id,session:AsyncSession)->Optional[bool]:
         try:

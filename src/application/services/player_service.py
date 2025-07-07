@@ -6,7 +6,6 @@ from src.application.usecases.player_player_rating_use_case import GetPlayerRati
 from src.application.usecases.steamid_correct_use_case import SteamIDCorrectUseCase
 from src.domain.user_context.repository import IUsersRepository
 from src.infrastructure.steam_analytic_api.steam_client import SteamAnalyticsAPIClient
-from src.shared.config import help_config
 from src.shared.dispatcher import DispatcherCommands
 
 
@@ -38,9 +37,6 @@ class PlayerService:
         self.get_player_steam_id_use_case = GetUserUseCase(
             users_repository=users_repository
         )
-
-    def player_help(self):
-        return help_config.get("player")
 
     async def get_player_badges(self,user):
         return await self.get_player_budges_use_case.execute(user=user)

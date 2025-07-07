@@ -7,11 +7,10 @@ from aiogram.types import Message
 
 from src.api.keyboards.steam.steam_dict_keyboards import steam_games_keyboards_dictionary
 from src.api.keyboards.steam.steam_keyboards import create_inline_steam_commands, \
-    create_page_swapper_inline, create_search_share_keyboards, \
-    go_to_main_menu_inline_keyboard
+    create_page_swapper_inline, create_search_share_keyboards
 from src.api.presentation.steam_style_text import SteamStyleText
 from src.application.dto.steam_dto import GameAppidValidatedModel
-from src.application.dto.users_dto import SteamAppid, SteamVanityNameCorrection
+from src.application.dto.users_dto import SteamVanityNameCorrection
 from src.application.services.steam_service import SteamService
 from src.infrastructure.db.repository.users_repository import UsersRepository
 from src.infrastructure.logging.logger import logger
@@ -32,11 +31,6 @@ steam_style_text = SteamStyleText()
 async def steam_main(message: Message):
     await message.delete()
     await message.answer(text=f"{steam_message_menu}",parse_mode=ParseMode.MARKDOWN,reply_markup=await create_inline_steam_commands())
-
-@router.message(Command(commands=["games"]))
-async def help_command(message: Message):
-    await message.delete()
-    return await message.answer(steam_service.steam_help(),parse_mode=ParseMode.MARKDOWN)
 
 @router.message(SteamGamesID.game)
 async def steam_game_name(message: Message, state: FSMContext):

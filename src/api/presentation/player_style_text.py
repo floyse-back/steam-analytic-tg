@@ -141,6 +141,17 @@ class PlayerStyleText:
             )
         return text
 
+    @staticmethod
+    def change_unix_time(v):
+        if isinstance(v,(int,float)):
+            delta = datetime.timedelta(seconds=v*60)
+            total_days = delta.days
+            hours = delta.seconds // 3600
+            minutes = (delta.seconds % 3600) // 60
+
+            return f"{total_days:02}д. {hours:02}г. {minutes:02}хв."
+        return v
+
     def get_player_compare(self,data:PlayerComparison):
         if answer:=self.__validator(data):
             return answer
@@ -157,7 +168,7 @@ class PlayerStyleText:
             "badge_count": "🎖️ Кількість бейджів",
             "total_badges_xp": "💠 Загальний XP з бейджів",
             "game_count": "🎮 Кількість ігор",
-            "total_playtime": "🕒 Загальний ігровий час (у хв)",
+            "total_playtime": "🕒 Загальний ігровий час",
             "total_rating": "📊 Загальний рейтинг",
         }
 
@@ -169,6 +180,10 @@ class PlayerStyleText:
             val1 = field_data.user_1 if field_data.user_1 is not None else "—"
             val2 = field_data.user_2 if field_data.user_2 is not None else "—"
             diff = field_data.difference if field_data.difference is not None else "—"
+            if field == "total_playtime":
+                val1 = self.change_unix_time(val1)
+                val2 = self.change_unix_time(val2)
+                diff = self.change_unix_time(diff)
 
             winner = field_data.winner
             if winner == "user_1":

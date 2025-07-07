@@ -10,12 +10,12 @@ from src.application.services.subscribe_service import SubscribeService
 from src.infrastructure.db.database import get_async_db
 from src.infrastructure.db.repository.users_repository import UsersRepository
 from src.infrastructure.logging.logger import logger
-from src.shared.config import subscribes_commands, subscribes_message_menu
-from src.shared.subscribe_types import SUBSCRIBES_TYPE_DATA_REVERSE
+from src.shared.config import subscribes_message_menu
+from src.shared.subscribe_types import SUBSCRIBES_TYPE_DATA_REVERSE, SUBSCRIBES_TYPE_DATA
 
 router = Router()
 
-subscribes_list = [i for i in list(subscribes_commands.values())]
+subscribes_list = [i for i in list(SUBSCRIBES_TYPE_DATA.values())]
 subscribes_service = SubscribeService(
     users_repository=UsersRepository()
 )

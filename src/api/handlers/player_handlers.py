@@ -25,11 +25,6 @@ player_service = PlayerService(
 player_style_text = PlayerStyleText()
 
 
-@router.message(Command("player"))
-async def player_help(message: Message):
-    await message.delete()
-    return await message.answer(player_service.player_help(),parse_mode=ParseMode.MARKDOWN)
-
 @router.message(lambda message: message.text == f"{MainMenu.player}")
 async def player_main(message: Message):
     await message.delete()
