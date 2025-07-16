@@ -10,26 +10,23 @@ from src.api.keyboards.main_keyboards import start_keyboard
 from src.api.keyboards.steam.steam_keyboards import create_search_share_keyboards
 from src.api.keyboards.users.users_keyboards import create_user_inline_keyboard, profile_cancel_inline_keyboard_main, \
     back_to_profile_main
+from src.api.middleware.account import user_get_or_none
 from src.api.utils.state import ProfileSteamName, ChangeSteamName, WishlistGame
-from src.application.services.users_service import UsersService
-from src.infrastructure.db.repository.users_repository import UsersRepository
-from src.infrastructure.db.repository.wishlist_repository import WishlistRepository
-from src.infrastructure.logging.logger import logger
-from src.infrastructure.steam_analytic_api.steam_client import SteamAnalyticsAPIClient
+from src.infrastructure.logging.logger import Logger
 from src.shared.config import MainMenu, user_message_menu
+from src.shared.depends import get_users_service
 
 router = Router(name=__name__)
 
-users_service = UsersService(
-    users_repository=UsersRepository(),
-    steam_client=SteamAnalyticsAPIClient(),
-    wishlist_repository=WishlistRepository(),
-)
+logger = Logger(name="api.user_handler",file_path="api")
+users_service = get_users_service()
 
 
 @router.message(lambda message: message.text == f"{MainMenu.profile}")
-async def user_reply(message: Message):
-    await message.delete()
+async def user_reply(message: Message,state: FSMContext):
+    if await user_get_or_none(state=state,telegram_id=message.from_user.id,users_service=users_service,message=message,style_text=users_style_text) is None:
+        return None
+
     await message.answer(text=f"{user_message_menu}",parse_mode=ParseMode.MARKDOWN,reply_markup=await create_user_inline_keyboard())
 
 @router.message(ProfileSteamName.profile)

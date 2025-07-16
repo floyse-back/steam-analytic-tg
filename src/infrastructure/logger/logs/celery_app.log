@@ -1,0 +1,609 @@
+2025-07-15 22:30:01,085 - api.startup - INFO - Init subscribe types
+2025-07-15 22:30:01,172 - api.startup - INFO - Init subscribe types done
+2025-07-15 22:30:01,351 - api.main - INFO - Start Telegram Bot...
+2025-07-15 22:30:25,976 - api.startup - INFO - Init subscribe types
+2025-07-15 22:30:27,737 - api.startup - INFO - Init subscribe types done
+2025-07-15 22:30:28,037 - api.main - INFO - Start Telegram Bot...
+2025-07-15 22:31:15,236 - api.startup - INFO - Init subscribe types
+2025-07-15 22:31:15,323 - api.startup - INFO - Init subscribe types done
+2025-07-15 22:31:15,500 - api.main - INFO - Start Telegram Bot...
+2025-07-16 16:32:31,250 - api.startup - INFO - Init subscribe types
+2025-07-16 16:32:31,342 - api.startup - INFO - Init subscribe types done
+2025-07-16 16:32:31,494 - api.main - INFO - Start Telegram Bot...
+2025-07-16 16:53:27,683 - api.startup - INFO - Init subscribe types
+2025-07-16 16:53:27,754 - api.startup - INFO - Init subscribe types done
+2025-07-16 16:53:27,929 - api.main - INFO - Start Telegram Bot...
+2025-07-16 16:54:26,268 - api.startup - INFO - Init subscribe types
+2025-07-16 16:54:26,343 - api.startup - INFO - Init subscribe types done
+2025-07-16 16:54:26,505 - api.main - INFO - Start Telegram Bot...
+2025-07-16 17:13:20,708 - api - INFO - New DATA: [GameFullModel(steam_appid=886630, name='GlitchPets', is_free=False, short_description="This game is still in development: kind of a puzzle-platform-climb-story-adventure where your cartridge 'pets' glitches out from pet pee. You control a &quot;debug&quot; npc", final_price=499, final_formatted_price='$4.99', metacritic='-1', discount=0, recomendations=0, release_data=datetime.date(2018, 7, 16), game_ganre=[GanresOut(ganres_id=18, ganres_name='Early Access'), GanresOut(ganres_id=9, ganres_name='Simulation'), GanresOut(ganres_id=8, ganres_name='Casual'), GanresOut(ganres_id=6, ganres_name='Indie'), GanresOut(ganres_id=4, ganres_name='Adventure'), GanresOut(ganres_id=1, ganres_name='Action')], game_publisher=[], game_categories=[CategoryOut(category_id=30, category_name='Remote Play Together'), CategoryOut(category_id=23, category_name='LAN Co-op'), CategoryOut(category_id=21, category_name='Family Sharing'), CategoryOut(category_id=19, category_name='Full controller support'), CategoryOut(category_id=18, category_name='Steam Achievements'), CategoryOut(category_id=17, category_name='Online Co-op'), CategoryOut(category_id=14, category_name='Single-player'), CategoryOut(category_id=12, category_name='Co-op'), CategoryOut(category_id=1, category_name='Multi-player')]), GameFullModel(steam_appid=1679690, name='The Secret Blue Forest', is_free=False, short_description='A relaxing low poly 3d platformer fantasy adventure.', final_price=199, final_formatted_price='$1.99', metacritic='-1', discount=0, recomendations=0, release_data=datetime.date(2021, 7, 16), game_ganre=[GanresOut(ganres_id=8, ganres_name='Casual'), GanresOut(ganres_id=6, ganres_name='Indie'), GanresOut(ganres_id=4, ganres_name='Adventure')], game_publisher=[], game_categories=[CategoryOut(category_id=21, category_name='Family Sharing'), CategoryOut(category_id=14, category_name='Single-player')]), GameFullModel(steam_appid=1271540, name='1 Screen Platformer: Prologue', is_free=True, short_description='FREE DEMO features 1 playable character and 1 complete level with leaderboards. Try, die, retry in this challenging but fair precision platformer that takes place on 1 screen. Ultra tight controls, dozens of traps. Great for speedrunning, and 100% completionists. Also, no water levels!', final_price=0, final_formatted_price='Free', metacritic='-1', discount=0, recomendations=0, release_data=datetime.date(2020, 7, 16), game_ganre=[GanresOut(ganres_id=4, ganres_name='Adventure'), GanresOut(ganres_id=1, ganres_name='Action')], game_publisher=[], game_categories=[CategoryOut(category_id=37, category_name='Steam Leaderboards'), CategoryOut(category_id=19, category_name='Full controller support'), CategoryOut(category_id=18, category_name='Steam Achievements'), CategoryOut(category_id=14, category_name='Single-player')]), GameFullModel(steam_appid=987290, name='DUSTNET', is_free=False, short_description='DUSTNET is the last remaining de_dust2 server. Connect to it through PC, VR, or AR and sift through the corrupted cyberspace.', final_price=599, final_formatted_price='$5.99', metacritic='-1', discount=0, recomendations=0, release_data=datetime.date(2019, 7, 16), game_ganre=[GanresOut(ganres_id=6, ganres_name='Indie'), GanresOut(ganres_id=1, ganres_name='Action')], game_publisher=[], game_categories=[CategoryOut(category_id=34, category_name='VR Supported'), CategoryOut(category_id=33, category_name='Tracked Controller Support'), CategoryOut(category_id=21, category_name='Family Sharing'), CategoryOut(category_id=16, category_name='Online PvP'), CategoryOut(category_id=15, category_name='PvP'), CategoryOut(category_id=2, category_name='Cross-Platform Multiplayer'), CategoryOut(category_id=1, category_name='Multi-player')]), GameFullModel(steam_appid=658430, name='Professor Watts Word Search: Into The Ocean', is_free=False, short_description="Hello Professor Watts here and I need your help! I've been hard at work on my ocean expedition, collecting samples and documenting important research materials. Now that I have returned to my laboratory I find all of my research files has been jumbled about.", final_price=74, final_formatted_price='$0.74', metacritic='-1', discount=85, recomendations=0, release_data=datetime.date(2017, 7, 16), game_ganre=[GanresOut(ganres_id=8, ganres_name='Casual'), GanresOut(ganres_id=6, ganres_name='Indie'), GanresOut(ganres_id=3, ganres_name='Strategy')], game_publisher=[], game_categories=[CategoryOut(category_id=21, category_name='Family Sharing'), CategoryOut(category_id=18, category_name='Steam Achievements'), CategoryOut(category_id=14, category_name='Single-player')]), GameFullModel(steam_appid=1568880, name='秘封フラグメント', is_free=False, short_description='東方Projectでおなじみ、上海アリス幻樂団様制作の音楽CDシリーズ「秘封倶楽部」の二次創作ノベルゲームです。選択肢はありません。物語中で入手した記憶の欠片「フラグメント」や、プレイヤー自身の知恵によって物語を分岐させ、彼女達の冒険―蓮台野夜行―を成功に導きましょう。', final_price=749, final_formatted_price='$7.49', metacritic='-1', discount=50, recomendations=152, release_data=datetime.date(2021, 7, 16), game_ganre=[GanresOut(ganres_id=6, ganres_name='Indie'), GanresOut(ganres_id=4, ganres_name='Adventure')], game_publisher=[], game_categories=[CategoryOut(category_id=21, category_name='Family Sharing'), CategoryOut(category_id=14, category_name='Single-player')]), GameFullModel(steam_appid=1072710, name='Soviet Jump Game', is_free=True, short_description='Snag powerups, collect coins, and battle against 49 other comrades in this 2D sidescrolling free-for-all. Together, we are one--but will you be the one who is held above all others?', final_price=0, final_formatted_price='Free', metacritic='-1', discount=0, recomendations=123, release_data=datetime.date(2020, 7, 16), game_ganre=[GanresOut(ganres_id=8, ganres_name='Casual'), GanresOut(ganres_id=6, ganres_name='Indie'), GanresOut(ganres_id=5, ganres_name='Massively Multiplayer'), GanresOut(ganres_id=2, ganres_name='Free To Play'), GanresOut(ganres_id=1, ganres_name='Action')], game_publisher=[], game_categories=[CategoryOut(category_id=19, category_name='Full controller support'), CategoryOut(category_id=16, category_name='Online PvP'), CategoryOut(category_id=15, category_name='PvP'), CategoryOut(category_id=5, category_name='In-App Purchases'), CategoryOut(category_id=1, category_name='Multi-player')]), GameFullModel(steam_appid=3011440, name='CLICKOLDING', is_free=False, short_description='The man in the corner of your hotel room wants you to click something. He wants to watch you click it.', final_price=209, final_formatted_price='$2.09', metacritic='-1', discount=30, recomendations=1409, release_data=datetime.date(2024, 7, 16), game_ganre=[GanresOut(ganres_id=6, ganres_name='Indie')], game_publisher=[], game_categories=[CategoryOut(category_id=21, category_name='Family Sharing'), CategoryOut(category_id=14, category_name='Single-player')]), GameFullModel(steam_appid=2870420, name='Mech Builder', is_free=False, short_description='Welcome to Mech Builder- a relaxing puzzle game inspired by Model building(gunpla). You will experience the relaxing process of building a model kit with complete freedom with over 70+ puzzles.', final_price=499, final_formatted_price='$4.99', metacritic='-1', discount=50, recomendations=425, release_data=datetime.date(2024, 7, 16), game_ganre=[GanresOut(ganres_id=6, ganres_name='Indie')], game_publisher=[], game_categories=[CategoryOut(category_id=21, category_name='Family Sharing'), CategoryOut(category_id=18, category_name='Steam Achievements'), CategoryOut(category_id=14, category_name='Single-player')]), GameFullModel(steam_appid=1876070, name='Windsor - Grand Strategy MMO', is_free=False, short_description='Windsor is a massively multiplayer strategy game. Look forward or backward in time as you plan your moves to bring your kingdom to victory', final_price=399, final_formatted_price='$3.99', metacritic='-1', discount=0, recomendations=0, release_data=datetime.date(2022, 7, 16), game_ganre=[GanresOut(ganres_id=18, ganres_name='Early Access'), GanresOut(ganres_id=5, ganres_name='Massively Multiplayer'), GanresOut(ganres_id=3, ganres_name='Strategy')], game_publisher=[], game_categories=[CategoryOut(category_id=27, category_name='MMO'), CategoryOut(category_id=21, category_name='Family Sharing'), CategoryOut(category_id=17, category_name='Online Co-op'), CategoryOut(category_id=16, category_name='Online PvP'), CategoryOut(category_id=15, category_name='PvP'), CategoryOut(category_id=12, category_name='Co-op'), CategoryOut(category_id=2, category_name='Cross-Platform Multiplayer'), CategoryOut(category_id=1, category_name='Multi-player')]), GameFullModel(steam_appid=2768440, name='Résop Paz Yandere True ( Rpyt ) ( R-pyt ) ( Resop Paz )', is_free=False, short_description='Cute horror choice game with a lot of varied gameplay, from bloody battles to platforms. Come break the fourth wall that separates us! Choices that have real impacts, charming characters, a blend of retro and realistic video games. Come meet Résop and Paz.', final_price=999, final_formatted_price='$9.99', metacritic='-1', discount=0, recomendations=0, release_data=datetime.date(2024, 7, 16), game_ganre=[GanresOut(ganres_id=18, ganres_name='Early Access'), GanresOut(ganres_id=7, ganres_name='RPG'), GanresOut(ganres_id=6, ganres_name='Indie'), GanresOut(ganres_id=4, ganres_name='Adventure'), GanresOut(ganres_id=1, ganres_name='Action')], game_publisher=[], game_categories=[CategoryOut(category_id=36, category_name='Shared/Split Screen PvP'), CategoryOut(category_id=32, category_name='Shared/Split Screen'), CategoryOut(category_id=31, category_name='Shared/Split Screen Co-op'), CategoryOut(category_id=30, category_name='Remote Play Together'), CategoryOut(category_id=28, category_name='Partial Controller Support'), CategoryOut(category_id=21, category_name='Family Sharing'), CategoryOut(category_id=15, category_name='PvP'), CategoryOut(category_id=14, category_name='Single-player'), CategoryOut(category_id=12, category_name='Co-op'), CategoryOut(category_id=1, category_name='Multi-player')]), GameFullModel(steam_appid=786450, name="Don't Bite Me Bro! +", is_free=False, short_description="Don't Bite Me Bro! is a 1-4 Player Couch Co-op open-world zombie apocalypse game. Explore the world for resources, find and save survivors throughout the world, each which become playable characters with unique traits and abilities.", final_price=99, final_formatted_price='$0.99', metacritic='-1', discount=0, recomendations=320, release_data=datetime.date(2018, 7, 16), game_ganre=[GanresOut(ganres_id=9, ganres_name='Simulation'), GanresOut(ganres_id=7, ganres_name='RPG'), GanresOut(ganres_id=6, ganres_name='Indie'), GanresOut(ganres_id=4, ganres_name='Adventure'), GanresOut(ganres_id=3, ganres_name='Strategy'), GanresOut(ganres_id=1, ganres_name='Action')], game_publisher=[], game_categories=[CategoryOut(category_id=36, category_name='Shared/Split Screen PvP'), CategoryOut(category_id=32, category_name='Shared/Split Screen'), CategoryOut(category_id=31, category_name='Shared/Split Screen Co-op'), CategoryOut(category_id=30, category_name='Remote Play Together'), CategoryOut(category_id=28, category_name='Partial Controller Support'), CategoryOut(category_id=21, category_name='Family Sharing'), CategoryOut(category_id=18, category_name='Steam Achievements'), CategoryOut(category_id=15, category_name='PvP'), CategoryOut(category_id=14, category_name='Single-player'), CategoryOut(category_id=12, category_name='Co-op'), CategoryOut(category_id=1, category_name='Multi-player')]), GameFullModel(steam_appid=878440, name='Fantasy Ball', is_free=False, short_description='Challenge your friends in fast-paced fantasy soccer matches! Play as 4 different characters, compete in unique game modes, and score as many goals as you can!', final_price=299, final_formatted_price='$2.99', metacritic='-1', discount=0, recomendations=0, release_data=datetime.date(2019, 7, 16), game_ganre=[GanresOut(ganres_id=20, ganres_name='Sports'), GanresOut(ganres_id=8, ganres_name='Casual'), GanresOut(ganres_id=6, ganres_name='Indie'), GanresOut(ganres_id=1, ganres_name='Action')], game_publisher=[], game_categories=[CategoryOut(category_id=36, category_name='Shared/Split Screen PvP'), CategoryOut(category_id=32, category_name='Shared/Split Screen'), CategoryOut(category_id=31, category_name='Shared/Split Screen Co-op'), CategoryOut(category_id=30, category_name='Remote Play Together'), CategoryOut(category_id=21, category_name='Family Sharing'), CategoryOut(category_id=19, category_name='Full controller support'), CategoryOut(category_id=15, category_name='PvP'), CategoryOut(category_id=12, category_name='Co-op'), CategoryOut(category_id=1, category_name='Multi-player')]), GameFullModel(steam_appid=3067400, name='Cursed Cove', is_free=False, short_description='Cursed Cove is an exciting 3D strategic game where players immerse themselves in a dark world of pirates and necromancy. Your task is to capture the enemy tower using an army of skeletons that you can summon.', final_price=299, final_formatted_price='$2.99', metacritic='-1', discount=0, recomendations=0, release_data=datetime.date(2024, 7, 16), game_ganre=[GanresOut(ganres_id=6, ganres_name='Indie')], game_publisher=[], game_categories=[CategoryOut(category_id=21, category_name='Family Sharing'), CategoryOut(category_id=14, category_name='Single-player')]), GameFullModel(steam_appid=303590, name='Hidden in Plain Sight', is_free=False, short_description='Hidden in Plain Sight is a local-multiplayer stealth party game. Blend into the crowd of AI characters and eliminate the other players before they eliminate you!', final_price=599, final_formatted_price='$5.99', metacritic='-1', discount=0, recomendations=814, release_data=datetime.date(2014, 7, 16), game_ganre=[GanresOut(ganres_id=8, ganres_name='Casual'), GanresOut(ganres_id=6, ganres_name='Indie'), GanresOut(ganres_id=1, ganres_name='Action')], game_publisher=[], game_categories=[CategoryOut(category_id=36, category_name='Shared/Split Screen PvP'), CategoryOut(category_id=32, category_name='Shared/Split Screen'), CategoryOut(category_id=31, category_name='Shared/Split Screen Co-op'), CategoryOut(category_id=30, category_name='Remote Play Together'), CategoryOut(category_id=21, category_name='Family Sharing'), CategoryOut(category_id=19, category_name='Full controller support'), CategoryOut(category_id=15, category_name='PvP'), CategoryOut(category_id=12, category_name='Co-op'), CategoryOut(category_id=10, category_name='Remote Play on TV'), CategoryOut(category_id=1, category_name='Multi-player')]), GameFullModel(steam_appid=3067390, name='Pirates Slayer', is_free=False, short_description='Pirates Slayer is an exciting 3D action-roguelike game where each level represents a new adventure! You will have to battle sinister skeletons, collect gold coins, and use them to unlock unique characters and powerful weapons.', final_price=5499, final_formatted_price='$54.99', metacritic='-1', discount=0, recomendations=0, release_data=datetime.date(2024, 7, 16), game_ganre=[GanresOut(ganres_id=6, ganres_name='Indie')], game_publisher=[], game_categories=[CategoryOut(category_id=21, category_name='Family Sharing'), CategoryOut(category_id=14, category_name='Single-player')]), GameFullModel(steam_appid=3040690, name='Lost boat: VR Underwater Discovery', is_free=False, short_description='This is a fascinating VR immersive submarine tour exploration game, which provides players with an unforgettable seabed shipbuilding and aircraft wreckage exploration experience.', final_price=151, final_formatted_price='$1.51', metacritic='-1', discount=62, recomendations=0, release_data=datetime.date(2024, 7, 16), game_ganre=[GanresOut(ganres_id=9, ganres_name='Simulation'), GanresOut(ganres_id=8, ganres_name='Casual'), GanresOut(ganres_id=4, ganres_name='Adventure'), GanresOut(ganres_id=1, ganres_name='Action')], game_publisher=[], game_categories=[CategoryOut(category_id=40, category_name='VR Only'), CategoryOut(category_id=21, category_name='Family Sharing'), CategoryOut(category_id=14, category_name='Single-player')]), GameFullModel(steam_appid=854150, name='Snail Racer Extreme', is_free=False, short_description='Come play this extremely addictive and fun snail racing game! Can you dominate the scoreboards?', final_price=99, final_formatted_price='$0.99', metacritic='-1', discount=0, recomendations=0, release_data=datetime.date(2018, 7, 16), game_ganre=[GanresOut(ganres_id=20, ganres_name='Sports'), GanresOut(ganres_id=19, ganres_name='Racing'), GanresOut(ganres_id=8, ganres_name='Casual'), GanresOut(ganres_id=6, ganres_name='Indie')], game_publisher=[], game_categories=[CategoryOut(category_id=37, category_name='Steam Leaderboards'), CategoryOut(category_id=21, category_name='Family Sharing'), CategoryOut(category_id=20, category_name='Steam Cloud'), CategoryOut(category_id=18, category_name='Steam Achievements'), CategoryOut(category_id=14, category_name='Single-player')]), GameFullModel(steam_appid=302590, name='Of Guards And Thieves', is_free=True, short_description='Of Guards and Thieves is a multiplayer stealth game in which high-powered guards face off against fast and elusive thieves in a contest of wits. Outsmarting the enemy and shooting your way through to the goal are equally valid strategies. Simple rules, emergent gameplay and high replayability.', final_price=0, final_formatted_price='Free', metacritic='-1', discount=0, recomendations=386, release_data=datetime.date(2014, 7, 16), game_ganre=[GanresOut(ganres_id=19, ganres_name='Racing'), GanresOut(ganres_id=18, ganres_name='Early Access'), GanresOut(ganres_id=8, ganres_name='Casual'), GanresOut(ganres_id=6, ganres_name='Indie'), GanresOut(ganres_id=5, ganres_name='Massively Multiplayer'), GanresOut(ganres_id=3, ganres_name='Strategy'), GanresOut(ganres_id=2, ganres_name='Free To Play'), GanresOut(ganres_id=1, ganres_name='Action')], game_publisher=[], game_categories=[CategoryOut(category_id=27, category_name='MMO'), CategoryOut(category_id=25, category_name='Includes level editor'), CategoryOut(category_id=20, category_name='Steam Cloud'), CategoryOut(category_id=18, category_name='Steam Achievements'), CategoryOut(category_id=17, category_name='Online Co-op'), CategoryOut(category_id=16, category_name='Online PvP'), CategoryOut(category_id=15, category_name='PvP'), CategoryOut(category_id=12, category_name='Co-op'), CategoryOut(category_id=5, category_name='In-App Purchases'), CategoryOut(category_id=3, category_name='Steam Trading Cards'), CategoryOut(category_id=2, category_name='Cross-Platform Multiplayer'), CategoryOut(category_id=1, category_name='Multi-player')]), GameFullModel(steam_appid=2307870, name='OutRage: Fight Fest', is_free=False, short_description='OutRage: Fight Fest is a hilarious 16-player beat-em-up party brawler! In short, chaotic sessions, you’ll fight through Battle Royale, Free for All and Team-based game modes. Do damage, build rage and become the best fighter in the arena!', final_price=249, final_formatted_price='$2.49', metacritic='-1', discount=75, recomendations=0, release_data=datetime.date(2024, 7, 16), game_ganre=[GanresOut(ganres_id=8, ganres_name='Casual'), GanresOut(ganres_id=5, ganres_name='Massively Multiplayer'), GanresOut(ganres_id=1, ganres_name='Action')], game_publisher=[], game_categories=[CategoryOut(category_id=21, category_name='Family Sharing'), CategoryOut(category_id=20, category_name='Steam Cloud'), CategoryOut(category_id=19, category_name='Full controller support'), CategoryOut(category_id=18, category_name='Steam Achievements'), CategoryOut(category_id=17, category_name='Online Co-op'), CategoryOut(category_id=16, category_name='Online PvP'), CategoryOut(category_id=15, category_name='PvP'), CategoryOut(category_id=12, category_name='Co-op'), CategoryOut(category_id=1, category_name='Multi-player')]), GameFullModel(steam_appid=629910, name='Clicker Heroes 2', is_free=False, short_description='Clicker Heroes 2 is an endless incremental idle Action RPG. Embark on a never-ending journey to the top right of your screen.', final_price=0, final_formatted_price='Free', metacritic='-1', discount=0, recomendations=2204, release_data=datetime.date(2018, 7, 16), game_ganre=[GanresOut(ganres_id=18, ganres_name='Early Access'), GanresOut(ganres_id=9, ganres_name='Simulation'), GanresOut(ganres_id=8, ganres_name='Casual'), GanresOut(ganres_id=7, ganres_name='RPG'), GanresOut(ganres_id=6, ganres_name='Indie'), GanresOut(ganres_id=4, ganres_name='Adventure'), GanresOut(ganres_id=3, ganres_name='Strategy'), GanresOut(ganres_id=1, ganres_name='Action')], game_publisher=[], game_categories=[CategoryOut(category_id=21, category_name='Family Sharing'), CategoryOut(category_id=14, category_name='Single-player'), CategoryOut(category_id=7, category_name='Stats')]), GameFullModel(steam_appid=886470, name='Another Otter', is_free=False, short_description='Jump, jump, jump, swim, swim, swim and help this otter to recover all the trophies that looked so good in his trophy case.', final_price=99, final_formatted_price='$0.99', metacritic='-1', discount=0, recomendations=0, release_data=datetime.date(2018, 7, 16), game_ganre=[GanresOut(ganres_id=8, ganres_name='Casual'), GanresOut(ganres_id=6, ganres_name='Indie')], game_publisher=[], game_categories=[CategoryOut(category_id=21, category_name='Family Sharing'), CategoryOut(category_id=18, category_name='Steam Achievements'), CategoryOut(category_id=14, category_name='Single-player')]), GameFullModel(steam_appid=359960, name='Choice Chamber', is_free=False, short_description="Choice Chamber is a real-time, crowdsourced, procedurally generated game where your fate is in everyone else's hands.", final_price=249, final_formatted_price='$2.49', metacritic='-1', discount=75, recomendations=122, release_data=datetime.date(2015, 7, 16), game_ganre=[GanresOut(ganres_id=6, ganres_name='Indie'), GanresOut(ganres_id=5, ganres_name='Massively Multiplayer'), GanresOut(ganres_id=1, ganres_name='Action')], game_publisher=[], game_categories=[CategoryOut(category_id=32, category_name='Shared/Split Screen'), CategoryOut(category_id=30, category_name='Remote Play Together'), CategoryOut(category_id=27, category_name='MMO'), CategoryOut(category_id=21, category_name='Family Sharing'), CategoryOut(category_id=19, category_name='Full controller support'), CategoryOut(category_id=18, category_name='Steam Achievements'), CategoryOut(category_id=14, category_name='Single-player'), CategoryOut(category_id=12, category_name='Co-op'), CategoryOut(category_id=3, category_name='Steam Trading Cards'), CategoryOut(category_id=2, category_name='Cross-Platform Multiplayer'), CategoryOut(category_id=1, category_name='Multi-player')]), GameFullModel(steam_appid=1619060, name='Martin Goes on the Attack', is_free=False, short_description='Martin is an advanced robot controlled from the main computer, you have to take control of a strong and fast robot soldier.', final_price=99, final_formatted_price='$0.99', metacritic='-1', discount=0, recomendations=0, release_data=datetime.date(2021, 7, 16), game_ganre=[GanresOut(ganres_id=6, ganres_name='Indie'), GanresOut(ganres_id=4, ganres_name='Adventure'), GanresOut(ganres_id=1, ganres_name='Action')], game_publisher=[], game_categories=[CategoryOut(category_id=21, category_name='Family Sharing'), CategoryOut(category_id=18, category_name='Steam Achievements'), CategoryOut(category_id=14, category_name='Single-player')]), GameFullModel(steam_appid=635390, name='Thief of Thieves', is_free=False, short_description='In Thief of Thieves you play as a cat burglar using stealth, social engineering and team members to pull off some high profile heists across the world. Based on the comic book series by Robert Kirkman, it’s time for Celia to make the leap from apprentice to master.', final_price=299, final_formatted_price='$2.99', metacritic='-1', discount=85, recomendations=143, release_data=datetime.date(2018, 7, 16), game_ganre=[GanresOut(ganres_id=6, ganres_name='Indie'), GanresOut(ganres_id=4, ganres_name='Adventure'), GanresOut(ganres_id=1, ganres_name='Action')], game_publisher=[], game_categories=[CategoryOut(category_id=21, category_name='Family Sharing'), CategoryOut(category_id=20, category_name='Steam Cloud'), CategoryOut(category_id=19, category_name='Full controller support'), CategoryOut(category_id=18, category_name='Steam Achievements'), CategoryOut(category_id=14, category_name='Single-player'), CategoryOut(category_id=10, category_name='Remote Play on TV'), CategoryOut(category_id=3, category_name='Steam Trading Cards')])]
+2025-07-16 17:13:20,724 - api - DEBUG - Message: 📜 <b>Трохи історії, трохи ігор!</b>
+Ось добірка, присвячена легендарним подіям та моментам зі світу Steam 👴💻
+Поринь у ностальгію (або вивчи щось новеньке) 👇<b>🎮1. GlitchPets</b>
+💰 $4.99
+🏆 Metacritic: -1 | 
+📚 <i>This game is still in development: kind of a puzzle-platform-climb-story-adventure where your cartridge &#x27;pets&#x27; glitches out from pet pee. You control a &amp;quot;debug&amp;quot; npc</i>
+🏷️ Жанри: Early Access, Simulation, Casual, Indie, Adventure, Action
+🎯 Категорії: Remote Play Together, LAN Co-op, Family Sharing, Full controller support, Steam Achievements, Online Co-op, Single-player, Co-op, Multi-player
+🏢 Видавець: Невідомий видавець
+📅 Реліз: 16.07.2018
+<a href="https://store.steampowered.com/app/886630">🔗 Відкрити у Steam</a>
+────────────────────
+<b>🎮2. The Secret Blue Forest</b>
+💰 $1.99
+🏆 Metacritic: -1 | 
+📚 <i>A relaxing low poly 3d platformer fantasy adventure.</i>
+🏷️ Жанри: Casual, Indie, Adventure
+🎯 Категорії: Family Sharing, Single-player
+🏢 Видавець: Невідомий видавець
+📅 Реліз: 16.07.2021
+<a href="https://store.steampowered.com/app/1679690">🔗 Відкрити у Steam</a>
+────────────────────
+<b>🎮3. 1 Screen Platformer: Prologue</b>
+🆓 Безкоштовно
+🏆 Metacritic: -1 | 
+📚 <i>FREE DEMO features 1 playable character and 1 complete level with leaderboards. Try, die, retry in this challenging but fair precision platformer that takes place on 1 screen. Ultra tight controls, dozens of traps. Great for speedrunning, and 100% completionists. Also, no water levels!</i>
+🏷️ Жанри: Adventure, Action
+🎯 Категорії: Steam Leaderboards, Full controller support, Steam Achievements, Single-player
+🏢 Видавець: Невідомий видавець
+📅 Реліз: 16.07.2020
+<a href="https://store.steampowered.com/app/1271540">🔗 Відкрити у Steam</a>
+────────────────────
+<b>🎮4. DUSTNET</b>
+💰 $5.99
+🏆 Metacritic: -1 | 
+📚 <i>DUSTNET is the last remaining de_dust2 server. Connect to it through PC, VR, or AR and sift through the corrupted cyberspace.</i>
+🏷️ Жанри: Indie, Action
+🎯 Категорії: VR Supported, Tracked Controller Support, Family Sharing, Online PvP, PvP, Cross-Platform Multiplayer, Multi-player
+🏢 Видавець: Невідомий видавець
+📅 Реліз: 16.07.2019
+<a href="https://store.steampowered.com/app/987290">🔗 Відкрити у Steam</a>
+────────────────────
+<b>🎮5. Professor Watts Word Search: Into The Ocean</b>
+🔻 -85% 💰 $0.74
+🏆 Metacritic: -1 | 
+📚 <i>Hello Professor Watts here and I need your help! I&#x27;ve been hard at work on my ocean expedition, collecting samples and documenting important research materials. Now that I have returned to my laboratory I find all of my research files has been jumbled about.</i>
+🏷️ Жанри: Casual, Indie, Strategy
+🎯 Категорії: Family Sharing, Steam Achievements, Single-player
+🏢 Видавець: Невідомий видавець
+📅 Реліз: 16.07.2017
+<a href="https://store.steampowered.com/app/658430">🔗 Відкрити у Steam</a>
+────────────────────
+<b>🎮6. 秘封フラグメント</b>
+🔻 -50% 💰 $7.49
+🏆 Metacritic: -1 | 👍 Рецензій: 152
+📚 <i>東方Projectでおなじみ、上海アリス幻樂団様制作の音楽CDシリーズ「秘封倶楽部」の二次創作ノベルゲームです。選択肢はありません。物語中で入手した記憶の欠片「フラグメント」や、プレイヤー自身の知恵によって物語を分岐させ、彼女達の冒険―蓮台野夜行―を成功に導きましょう。</i>
+🏷️ Жанри: Indie, Adventure
+🎯 Категорії: Family Sharing, Single-player
+🏢 Видавець: Невідомий видавець
+📅 Реліз: 16.07.2021
+<a href="https://store.steampowered.com/app/1568880">🔗 Відкрити у Steam</a>
+────────────────────
+<b>🎮7. Soviet Jump Game</b>
+🆓 Безкоштовно
+🏆 Metacritic: -1 | 👍 Рецензій: 123
+📚 <i>Snag powerups, collect coins, and battle against 49 other comrades in this 2D sidescrolling free-for-all. Together, we are one--but will you be the one who is held above all others?</i>
+🏷️ Жанри: Casual, Indie, Massively Multiplayer, Free To Play, Action
+🎯 Категорії: Full controller support, Online PvP, PvP, In-App Purchases, Multi-player
+🏢 Видавець: Невідомий видавець
+📅 Реліз: 16.07.2020
+<a href="https://store.steampowered.com/app/1072710">🔗 Відкрити у Steam</a>
+────────────────────
+<b>🎮8. CLICKOLDING</b>
+🔻 -30% 💰 $2.09
+🏆 Metacritic: -1 | 👍 Рецензій: 1409
+📚 <i>The man in the corner of your hotel room wants you to click something. He wants to watch you click it.</i>
+🏷️ Жанри: Indie
+🎯 Категорії: Family Sharing, Single-player
+🏢 Видавець: Невідомий видавець
+📅 Реліз: 16.07.2024
+<a href="https://store.steampowered.com/app/3011440">🔗 Відкрити у Steam</a>
+────────────────────
+<b>🎮9. Mech Builder</b>
+🔻 -50% 💰 $4.99
+🏆 Metacritic: -1 | 👍 Рецензій: 425
+📚 <i>Welcome to Mech Builder- a relaxing puzzle game inspired by Model building(gunpla). You will experience the relaxing process of building a model kit with complete freedom with over 70+ puzzles.</i>
+🏷️ Жанри: Indie
+🎯 Категорії: Family Sharing, Steam Achievements, Single-player
+🏢 Видавець: Невідомий видавець
+📅 Реліз: 16.07.2024
+<a href="https://store.steampowered.com/app/2870420">🔗 Відкрити у Steam</a>
+────────────────────
+<b>🎮10. Windsor - Grand Strategy MMO</b>
+💰 $3.99
+🏆 Metacritic: -1 | 
+📚 <i>Windsor is a massively multiplayer strategy game. Look forward or backward in time as you plan your moves to bring your kingdom to victory</i>
+🏷️ Жанри: Early Access, Massively Multiplayer, Strategy
+🎯 Категорії: MMO, Family Sharing, Online Co-op, Online PvP, PvP, Co-op, Cross-Platform Multiplayer, Multi-player
+🏢 Видавець: Невідомий видавець
+📅 Реліз: 16.07.2022
+<a href="https://store.steampowered.com/app/1876070">🔗 Відкрити у Steam</a>
+────────────────────
+<b>🎮11. Résop Paz Yandere True ( Rpyt ) ( R-pyt ) ( Resop Paz )</b>
+💰 $9.99
+🏆 Metacritic: -1 | 
+📚 <i>Cute horror choice game with a lot of varied gameplay, from bloody battles to platforms. Come break the fourth wall that separates us! Choices that have real impacts, charming characters, a blend of retro and realistic video games. Come meet Résop and Paz.</i>
+🏷️ Жанри: Early Access, RPG, Indie, Adventure, Action
+🎯 Категорії: Shared/Split Screen PvP, Shared/Split Screen, Shared/Split Screen Co-op, Remote Play Together, Partial Controller Support, Family Sharing, PvP, Single-player, Co-op, Multi-player
+🏢 Видавець: Невідомий видавець
+📅 Реліз: 16.07.2024
+<a href="https://store.steampowered.com/app/2768440">🔗 Відкрити у Steam</a>
+────────────────────
+<b>🎮12. Don&#x27;t Bite Me Bro! +</b>
+💰 $0.99
+🏆 Metacritic: -1 | 👍 Рецензій: 320
+📚 <i>Don&#x27;t Bite Me Bro! is a 1-4 Player Couch Co-op open-world zombie apocalypse game. Explore the world for resources, find and save survivors throughout the world, each which become playable characters with unique traits and abilities.</i>
+🏷️ Жанри: Simulation, RPG, Indie, Adventure, Strategy, Action
+🎯 Категорії: Shared/Split Screen PvP, Shared/Split Screen, Shared/Split Screen Co-op, Remote Play Together, Partial Controller Support, Family Sharing, Steam Achievements, PvP, Single-player, Co-op, Multi-player
+🏢 Видавець: Невідомий видавець
+📅 Реліз: 16.07.2018
+<a href="https://store.steampowered.com/app/786450">🔗 Відкрити у Steam</a>
+────────────────────
+<b>🎮13. Fantasy Ball</b>
+💰 $2.99
+🏆 Metacritic: -1 | 
+📚 <i>Challenge your friends in fast-paced fantasy soccer matches! Play as 4 different characters, compete in unique game modes, and score as many goals as you can!</i>
+🏷️ Жанри: Sports, Casual, Indie, Action
+🎯 Категорії: Shared/Split Screen PvP, Shared/Split Screen, Shared/Split Screen Co-op, Remote Play Together, Family Sharing, Full controller support, PvP, Co-op, Multi-player
+🏢 Видавець: Невідомий видавець
+📅 Реліз: 16.07.2019
+<a href="https://store.steampowered.com/app/878440">🔗 Відкрити у Steam</a>
+────────────────────
+<b>🎮14. Cursed Cove</b>
+💰 $2.99
+🏆 Metacritic: -1 | 
+📚 <i>Cursed Cove is an exciting 3D strategic game where players immerse themselves in a dark world of pirates and necromancy. Your task is to capture the enemy tower using an army of skeletons that you can summon.</i>
+🏷️ Жанри: Indie
+🎯 Категорії: Family Sharing, Single-player
+🏢 Видавець: Невідомий видавець
+📅 Реліз: 16.07.2024
+<a href="https://store.steampowered.com/app/3067400">🔗 Відкрити у Steam</a>
+────────────────────
+<b>🎮15. Hidden in Plain Sight</b>
+💰 $5.99
+🏆 Metacritic: -1 | 👍 Рецензій: 814
+📚 <i>Hidden in Plain Sight is a local-multiplayer stealth party game. Blend into the crowd of AI characters and eliminate the other players before they eliminate you!</i>
+🏷️ Жанри: Casual, Indie, Action
+🎯 Категорії: Shared/Split Screen PvP, Shared/Split Screen, Shared/Split Screen Co-op, Remote Play Together, Family Sharing, Full controller support, PvP, Co-op, Remote Play on TV, Multi-player
+🏢 Видавець: Невідомий видавець
+📅 Реліз: 16.07.2014
+<a href="https://store.steampowered.com/app/303590">🔗 Відкрити у Steam</a>
+────────────────────
+<b>🎮16. Pirates Slayer</b>
+💰 $54.99
+🏆 Metacritic: -1 | 
+📚 <i>Pirates Slayer is an exciting 3D action-roguelike game where each level represents a new adventure! You will have to battle sinister skeletons, collect gold coins, and use them to unlock unique characters and powerful weapons.</i>
+🏷️ Жанри: Indie
+🎯 Категорії: Family Sharing, Single-player
+🏢 Видавець: Невідомий видавець
+📅 Реліз: 16.07.2024
+<a href="https://store.steampowered.com/app/3067390">🔗 Відкрити у Steam</a>
+────────────────────
+<b>🎮17. Lost boat: VR Underwater Discovery</b>
+🔻 -62% 💰 $1.51
+🏆 Metacritic: -1 | 
+📚 <i>This is a fascinating VR immersive submarine tour exploration game, which provides players with an unforgettable seabed shipbuilding and aircraft wreckage exploration experience.</i>
+🏷️ Жанри: Simulation, Casual, Adventure, Action
+🎯 Категорії: VR Only, Family Sharing, Single-player
+🏢 Видавець: Невідомий видавець
+📅 Реліз: 16.07.2024
+<a href="https://store.steampowered.com/app/3040690">🔗 Відкрити у Steam</a>
+────────────────────
+<b>🎮18. Snail Racer Extreme</b>
+💰 $0.99
+🏆 Metacritic: -1 | 
+📚 <i>Come play this extremely addictive and fun snail racing game! Can you dominate the scoreboards?</i>
+🏷️ Жанри: Sports, Racing, Casual, Indie
+🎯 Категорії: Steam Leaderboards, Family Sharing, Steam Cloud, Steam Achievements, Single-player
+🏢 Видавець: Невідомий видавець
+📅 Реліз: 16.07.2018
+<a href="https://store.steampowered.com/app/854150">🔗 Відкрити у Steam</a>
+────────────────────
+<b>🎮19. Of Guards And Thieves</b>
+🆓 Безкоштовно
+🏆 Metacritic: -1 | 👍 Рецензій: 386
+📚 <i>Of Guards and Thieves is a multiplayer stealth game in which high-powered guards face off against fast and elusive thieves in a contest of wits. Outsmarting the enemy and shooting your way through to the goal are equally valid strategies. Simple rules, emergent gameplay and high replayability.</i>
+🏷️ Жанри: Racing, Early Access, Casual, Indie, Massively Multiplayer, Strategy, Free To Play, Action
+🎯 Категорії: MMO, Includes level editor, Steam Cloud, Steam Achievements, Online Co-op, Online PvP, PvP, Co-op, In-App Purchases, Steam Trading Cards, Cross-Platform Multiplayer, Multi-player
+🏢 Видавець: Невідомий видавець
+📅 Реліз: 16.07.2014
+<a href="https://store.steampowered.com/app/302590">🔗 Відкрити у Steam</a>
+────────────────────
+<b>🎮20. OutRage: Fight Fest</b>
+🔻 -75% 💰 $2.49
+🏆 Metacritic: -1 | 
+📚 <i>OutRage: Fight Fest is a hilarious 16-player beat-em-up party brawler! In short, chaotic sessions, you’ll fight through Battle Royale, Free for All and Team-based game modes. Do damage, build rage and become the best fighter in the arena!</i>
+🏷️ Жанри: Casual, Massively Multiplayer, Action
+🎯 Категорії: Family Sharing, Steam Cloud, Full controller support, Steam Achievements, Online Co-op, Online PvP, PvP, Co-op, Multi-player
+🏢 Видавець: Невідомий видавець
+📅 Реліз: 16.07.2024
+<a href="https://store.steampowered.com/app/2307870">🔗 Відкрити у Steam</a>
+────────────────────
+<b>🎮21. Clicker Heroes 2</b>
+🆓 Безкоштовно
+🏆 Metacritic: -1 | 👍 Рецензій: 2204
+📚 <i>Clicker Heroes 2 is an endless incremental idle Action RPG. Embark on a never-ending journey to the top right of your screen.</i>
+🏷️ Жанри: Early Access, Simulation, Casual, RPG, Indie, Adventure, Strategy, Action
+🎯 Категорії: Family Sharing, Single-player, Stats
+🏢 Видавець: Невідомий видавець
+📅 Реліз: 16.07.2018
+<a href="https://store.steampowered.com/app/629910">🔗 Відкрити у Steam</a>
+────────────────────
+<b>🎮22. Another Otter</b>
+💰 $0.99
+🏆 Metacritic: -1 | 
+📚 <i>Jump, jump, jump, swim, swim, swim and help this otter to recover all the trophies that looked so good in his trophy case.</i>
+🏷️ Жанри: Casual, Indie
+🎯 Категорії: Family Sharing, Steam Achievements, Single-player
+🏢 Видавець: Невідомий видавець
+📅 Реліз: 16.07.2018
+<a href="https://store.steampowered.com/app/886470">🔗 Відкрити у Steam</a>
+────────────────────
+<b>🎮23. Choice Chamber</b>
+🔻 -75% 💰 $2.49
+🏆 Metacritic: -1 | 👍 Рецензій: 122
+📚 <i>Choice Chamber is a real-time, crowdsourced, procedurally generated game where your fate is in everyone else&#x27;s hands.</i>
+🏷️ Жанри: Indie, Massively Multiplayer, Action
+🎯 Категорії: Shared/Split Screen, Remote Play Together, MMO, Family Sharing, Full controller support, Steam Achievements, Single-player, Co-op, Steam Trading Cards, Cross-Platform Multiplayer, Multi-player
+🏢 Видавець: Невідомий видавець
+📅 Реліз: 16.07.2015
+<a href="https://store.steampowered.com/app/359960">🔗 Відкрити у Steam</a>
+────────────────────
+<b>🎮24. Martin Goes on the Attack</b>
+💰 $0.99
+🏆 Metacritic: -1 | 
+📚 <i>Martin is an advanced robot controlled from the main computer, you have to take control of a strong and fast robot soldier.</i>
+🏷️ Жанри: Indie, Adventure, Action
+🎯 Категорії: Family Sharing, Steam Achievements, Single-player
+🏢 Видавець: Невідомий видавець
+📅 Реліз: 16.07.2021
+<a href="https://store.steampowered.com/app/1619060">🔗 Відкрити у Steam</a>
+────────────────────
+<b>🎮25. Thief of Thieves</b>
+🔻 -85% 💰 $2.99
+🏆 Metacritic: -1 | 👍 Рецензій: 143
+📚 <i>In Thief of Thieves you play as a cat burglar using stealth, social engineering and team members to pull off some high profile heists across the world. Based on the comic book series by Robert Kirkman, it’s time for Celia to make the leap from apprentice to master.</i>
+🏷️ Жанри: Indie, Adventure, Action
+🎯 Категорії: Family Sharing, Steam Cloud, Full controller support, Steam Achievements, Single-player, Remote Play on TV, Steam Trading Cards
+🏢 Видавець: Невідомий видавець
+📅 Реліз: 16.07.2018
+<a href="https://store.steampowered.com/app/635390">🔗 Відкрити у Steam</a>
+────────────────────
+
+
+2025-07-16 17:13:21,121 - api - DEBUG - Telegram server says - Bad Request: message is too long
+2025-07-16 17:13:21,301 - api - INFO - New DATA: [GameFullModel(steam_appid=848350, name='Katamari Damacy REROLL', is_free=False, short_description='The beloved roll-em-up game returns with fully updated graphics, completely recreated cutscenes and in full HD!', final_price=749, final_formatted_price='$7.49', metacritic='81', discount=75, recomendations=4532, release_data=datetime.date(2018, 12, 6), game_ganre=[GanresOut(ganres_id=1, ganres_name='Action'), GanresOut(ganres_id=8, ganres_name='Casual')], game_publisher=[], game_categories=[CategoryOut(category_id=1, category_name='Multi-player'), CategoryOut(category_id=3, category_name='Steam Trading Cards'), CategoryOut(category_id=14, category_name='Single-player'), CategoryOut(category_id=15, category_name='PvP'), CategoryOut(category_id=18, category_name='Steam Achievements'), CategoryOut(category_id=19, category_name='Full controller support'), CategoryOut(category_id=20, category_name='Steam Cloud'), CategoryOut(category_id=21, category_name='Family Sharing'), CategoryOut(category_id=30, category_name='Remote Play Together'), CategoryOut(category_id=36, category_name='Shared/Split Screen PvP')]), GameFullModel(steam_appid=33460, name='From Dust', is_free=False, short_description='Immerse yourself in a world as exotically beautiful as it is dangerous in this modern God-Game where Nature is the Star!', final_price=374, final_formatted_price='$3.74', metacritic='76', discount=75, recomendations=2693, release_data=datetime.date(2011, 8, 17), game_ganre=[GanresOut(ganres_id=4, ganres_name='Adventure'), GanresOut(ganres_id=9, ganres_name='Simulation')], game_publisher=[], game_categories=[CategoryOut(category_id=14, category_name='Single-player')]), GameFullModel(steam_appid=323320, name='Grow Home', is_free=False, short_description='Experience the freedom of unbounded climbing as you take control of BUD, a procedurally animated robot on a quest to save his planet. Create your own path through an alien world as you control and ride a giant plant on a vertical journey to the stars.', final_price=199, final_formatted_price='$1.99', metacritic='75', discount=75, recomendations=3839, release_data=datetime.date(2015, 2, 4), game_ganre=[GanresOut(ganres_id=4, ganres_name='Adventure'), GanresOut(ganres_id=6, ganres_name='Indie'), GanresOut(ganres_id=8, ganres_name='Casual')], game_publisher=[], game_categories=[CategoryOut(category_id=3, category_name='Steam Trading Cards'), CategoryOut(category_id=10, category_name='Remote Play on TV'), CategoryOut(category_id=14, category_name='Single-player'), CategoryOut(category_id=18, category_name='Steam Achievements'), CategoryOut(category_id=19, category_name='Full controller support'), CategoryOut(category_id=20, category_name='Steam Cloud'), CategoryOut(category_id=21, category_name='Family Sharing')]), GameFullModel(steam_appid=473950, name='Manifold Garden', is_free=False, short_description='Rediscover gravity and explore an Escher-esque world of impossible architecture. Witness infinity in first-person and master its rules to solve physics-defying puzzles. Cultivate a garden to open new paths forward, where an eternal expanse awaits.', final_price=499, final_formatted_price='$4.99', metacritic='85', discount=75, recomendations=6688, release_data=datetime.date(2020, 10, 20), game_ganre=[GanresOut(ganres_id=4, ganres_name='Adventure'), GanresOut(ganres_id=6, ganres_name='Indie')], game_publisher=[], game_categories=[CategoryOut(category_id=3, category_name='Steam Trading Cards'), CategoryOut(category_id=10, category_name='Remote Play on TV'), CategoryOut(category_id=14, category_name='Single-player'), CategoryOut(category_id=18, category_name='Steam Achievements'), CategoryOut(category_id=19, category_name='Full controller support'), CategoryOut(category_id=20, category_name='Steam Cloud'), CategoryOut(category_id=21, category_name='Family Sharing')]), GameFullModel(steam_appid=250620, name='Among the Sleep - Enhanced Edition', is_free=False, short_description='Among the Sleep: Enhanced Edition is a new and improved version of the award winning first person horror adventure. In the game you play as a small child trapped in a weird nightmare where you go looking for your mom.', final_price=424, final_formatted_price='$4.24', metacritic='66', discount=75, recomendations=5708, release_data=datetime.date(2014, 5, 29), game_ganre=[GanresOut(ganres_id=1, ganres_name='Action'), GanresOut(ganres_id=4, ganres_name='Adventure'), GanresOut(ganres_id=6, ganres_name='Indie')], game_publisher=[], game_categories=[CategoryOut(category_id=3, category_name='Steam Trading Cards'), CategoryOut(category_id=10, category_name='Remote Play on TV'), CategoryOut(category_id=14, category_name='Single-player'), CategoryOut(category_id=18, category_name='Steam Achievements'), CategoryOut(category_id=19, category_name='Full controller support'), CategoryOut(category_id=20, category_name='Steam Cloud'), CategoryOut(category_id=21, category_name='Family Sharing')])]
+2025-07-16 17:13:21,302 - api - DEBUG - Message: 💸 <b>Знижки летять, гаманці тремтять!</b>
+Ці ігри зараз зі знижками, а отже: саме час зробити вигляд, що тобі вони життєво необхідні 🛒🤣👇<b>🎮1. Katamari Damacy REROLL</b>
+🔻 -75% 💰 $7.49
+🏆 Metacritic: 81 | 👍 Рецензій: 4532
+📚 <i>The beloved roll-em-up game returns with fully updated graphics, completely recreated cutscenes and in full HD!</i>
+🏷️ Жанри: Action, Casual
+🎯 Категорії: Multi-player, Steam Trading Cards, Single-player, PvP, Steam Achievements, Full controller support, Steam Cloud, Family Sharing, Remote Play Together, Shared/Split Screen PvP
+🏢 Видавець: Невідомий видавець
+📅 Реліз: 06.12.2018
+<a href="https://store.steampowered.com/app/848350">🔗 Відкрити у Steam</a>
+────────────────────
+<b>🎮2. From Dust</b>
+🔻 -75% 💰 $3.74
+🏆 Metacritic: 76 | 👍 Рецензій: 2693
+📚 <i>Immerse yourself in a world as exotically beautiful as it is dangerous in this modern God-Game where Nature is the Star!</i>
+🏷️ Жанри: Adventure, Simulation
+🎯 Категорії: Single-player
+🏢 Видавець: Невідомий видавець
+📅 Реліз: 17.08.2011
+<a href="https://store.steampowered.com/app/33460">🔗 Відкрити у Steam</a>
+────────────────────
+<b>🎮3. Grow Home</b>
+🔻 -75% 💰 $1.99
+🏆 Metacritic: 75 | 👍 Рецензій: 3839
+📚 <i>Experience the freedom of unbounded climbing as you take control of BUD, a procedurally animated robot on a quest to save his planet. Create your own path through an alien world as you control and ride a giant plant on a vertical journey to the stars.</i>
+🏷️ Жанри: Adventure, Indie, Casual
+🎯 Категорії: Steam Trading Cards, Remote Play on TV, Single-player, Steam Achievements, Full controller support, Steam Cloud, Family Sharing
+🏢 Видавець: Невідомий видавець
+📅 Реліз: 04.02.2015
+<a href="https://store.steampowered.com/app/323320">🔗 Відкрити у Steam</a>
+────────────────────
+<b>🎮4. Manifold Garden</b>
+🔻 -75% 💰 $4.99
+🏆 Metacritic: 85 | 👍 Рецензій: 6688
+📚 <i>Rediscover gravity and explore an Escher-esque world of impossible architecture. Witness infinity in first-person and master its rules to solve physics-defying puzzles. Cultivate a garden to open new paths forward, where an eternal expanse awaits.</i>
+🏷️ Жанри: Adventure, Indie
+🎯 Категорії: Steam Trading Cards, Remote Play on TV, Single-player, Steam Achievements, Full controller support, Steam Cloud, Family Sharing
+🏢 Видавець: Невідомий видавець
+📅 Реліз: 20.10.2020
+<a href="https://store.steampowered.com/app/473950">🔗 Відкрити у Steam</a>
+────────────────────
+<b>🎮5. Among the Sleep - Enhanced Edition</b>
+🔻 -75% 💰 $4.24
+🏆 Metacritic: 66 | 👍 Рецензій: 5708
+📚 <i>Among the Sleep: Enhanced Edition is a new and improved version of the award winning first person horror adventure. In the game you play as a small child trapped in a weird nightmare where you go looking for your mom.</i>
+🏷️ Жанри: Action, Adventure, Indie
+🎯 Категорії: Steam Trading Cards, Remote Play on TV, Single-player, Steam Achievements, Full controller support, Steam Cloud, Family Sharing
+🏢 Видавець: Невідомий видавець
+📅 Реліз: 29.05.2014
+<a href="https://store.steampowered.com/app/250620">🔗 Відкрити у Steam</a>
+────────────────────
+
+
+2025-07-16 17:13:21,787 - api - INFO - New DATA: [GameFullModel(steam_appid=2287220, name='F1® Manager 2023', is_free=False, short_description='The intense world of Formula 1® comes alive for a new season in F1® Manager 2023. 23 races, six F1® Sprint events, new cars, new circuits including the Las Vegas Strip Circuit, new drivers, new challenges… Your legacy begins here.', final_price=5499, final_formatted_price='$54.99', metacritic='79', discount=0, recomendations=2166, release_data=datetime.date(2023, 7, 31), game_ganre=[GanresOut(ganres_id=3, ganres_name='Strategy'), GanresOut(ganres_id=9, ganres_name='Simulation')], game_publisher=[], game_categories=[CategoryOut(category_id=3, category_name='Steam Trading Cards'), CategoryOut(category_id=14, category_name='Single-player'), CategoryOut(category_id=18, category_name='Steam Achievements'), CategoryOut(category_id=20, category_name='Steam Cloud'), CategoryOut(category_id=21, category_name='Family Sharing'), CategoryOut(category_id=28, category_name='Partial Controller Support')])]
+2025-07-16 17:13:21,788 - api - DEBUG - Message: 🎲 <b>Рулетка часу!</b>
+Я вибрав гру випадково — а раптом це твоє нове геймерське кохання? 💘🎮
+Не дякуй, просто дивись 👇
+<b>🎮 F1® Manager 2023</b>
+💰 $54.99
+🏆 Metacritic: 79 | 👍 Рецензій: 2166
+📚 <i>The intense world of Formula 1® comes alive for a new season in F1® Manager 2023. 23 races, six F1® Sprint events, new cars, new circuits including the Las Vegas Strip Circuit, new drivers, new challenges… Your legacy begins here.</i>
+🏷️ Жанри: Strategy, Simulation
+🎯 Категорії: Steam Trading Cards, Single-player, Steam Achievements, Steam Cloud, Family Sharing, Partial Controller Support
+🏢 Видавець: Невідомий видавець
+📅 Реліз: 31.07.2023
+<a href="https://store.steampowered.com/app/2287220">🔗 Відкрити у Steam</a>
+────────────────────
+
+
+2025-07-16 17:13:22,329 - api - INFO - New DATA: [CalendarEventModel(name='Automation Fest', date_start=datetime.date(2025, 7, 14), date_end=datetime.date(2025, 7, 21), type_name='festival')]
+2025-07-16 17:13:22,329 - api - DEBUG - Message: <b>🎊 В Steam зараз проходить фестиваль</b> <i>Automation Fest</i>!
+<b>📅 Дата:</b> з <u>14.07.2025</u> до <u>21.07.2025</u>
+
+
+2025-07-16 17:19:57,679 - api - INFO - New DATA: [GameFullModel(steam_appid=1271540, name='1 Screen Platformer: Prologue', is_free=True, short_description='FREE DEMO features 1 playable character and 1 complete level with leaderboards. Try, die, retry in this challenging but fair precision platformer that takes place on 1 screen. Ultra tight controls, dozens of traps. Great for speedrunning, and 100% completionists. Also, no water levels!', final_price=0, final_formatted_price='Free', metacritic='-1', discount=0, recomendations=0, release_data=datetime.date(2020, 7, 16), game_ganre=[GanresOut(ganres_id=1, ganres_name='Action'), GanresOut(ganres_id=4, ganres_name='Adventure')], game_publisher=[], game_categories=[CategoryOut(category_id=14, category_name='Single-player'), CategoryOut(category_id=18, category_name='Steam Achievements'), CategoryOut(category_id=19, category_name='Full controller support'), CategoryOut(category_id=37, category_name='Steam Leaderboards')]), GameFullModel(steam_appid=1588390, name='FaceWorld', is_free=False, short_description='&quot;FaceWorld&quot; is a software that only requires a normal camera and a normal CPU to perform facial expressions and motion capture to operate pre-made or custom 3D virtual images and Live2d images.', final_price=399, final_formatted_price='$3.99', metacritic='-1', discount=0, recomendations=0, release_data=datetime.date(2022, 7, 16), game_ganre=[GanresOut(ganres_id=14, ganres_name='Animation & Modeling'), GanresOut(ganres_id=17, ganres_name='Utilities'), GanresOut(ganres_id=22, ganres_name='Video Production'), GanresOut(ganres_id=23, ganres_name='Education'), GanresOut(ganres_id=24, ganres_name='Game Development')], game_publisher=[], game_categories=[]), GameFullModel(steam_appid=846690, name="Lost Lands: Ice Spell Collector's Edition", is_free=False, short_description='Susan is back again in the middle of problems of epic proportions deep in the Lost Lands. Weather cataclysm, mythical creatures, ancient legends - these and more stands before the main hero of the Lost Lands.', final_price=499, final_formatted_price='$4.99', metacritic='-1', discount=50, recomendations=0, release_data=datetime.date(2018, 7, 16), game_ganre=[GanresOut(ganres_id=4, ganres_name='Adventure'), GanresOut(ganres_id=8, ganres_name='Casual')], game_publisher=[], game_categories=[CategoryOut(category_id=14, category_name='Single-player'), CategoryOut(category_id=18, category_name='Steam Achievements'), CategoryOut(category_id=20, category_name='Steam Cloud'), CategoryOut(category_id=21, category_name='Family Sharing')]), GameFullModel(steam_appid=1661380, name='Abandoned Croxon Mansion', is_free=False, short_description='Abandoned Croxon Mansion is a 2D Top-Down Survival Horror game based on the story of the Haunted Mansion, built during the 1960s.', final_price=51, final_formatted_price='$0.51', metacritic='-1', discount=87, recomendations=0, release_data=datetime.date(2021, 7, 16), game_ganre=[GanresOut(ganres_id=4, ganres_name='Adventure'), GanresOut(ganres_id=6, ganres_name='Indie'), GanresOut(ganres_id=8, ganres_name='Casual')], game_publisher=[], game_categories=[CategoryOut(category_id=14, category_name='Single-player'), CategoryOut(category_id=18, category_name='Steam Achievements'), CategoryOut(category_id=21, category_name='Family Sharing'), CategoryOut(category_id=28, category_name='Partial Controller Support')]), GameFullModel(steam_appid=2646120, name='Boons & Burdens', is_free=False, short_description="Boons &amp; Burdens is a single player action-roguelike set in the depths of hell. Battle hordes of demons through 12 levels, collect gems to purchase powerful boons, and choose from deadly burdens that alter the game's difficulty. Will you be the paragon of power or the architect of your own defeat?", final_price=203, final_formatted_price='$2.03', metacritic='-1', discount=66, recomendations=0, release_data=datetime.date(2024, 7, 16), game_ganre=[GanresOut(ganres_id=1, ganres_name='Action'), GanresOut(ganres_id=6, ganres_name='Indie'), GanresOut(ganres_id=7, ganres_name='RPG')], game_publisher=[], game_categories=[CategoryOut(category_id=14, category_name='Single-player'), CategoryOut(category_id=18, category_name='Steam Achievements'), CategoryOut(category_id=19, category_name='Full controller support'), CategoryOut(category_id=20, category_name='Steam Cloud'), CategoryOut(category_id=21, category_name='Family Sharing')])]
+2025-07-16 17:19:57,680 - api - DEBUG - Message: 📜 <b>Трохи історії, трохи ігор!</b>
+Ось добірка, присвячена легендарним подіям та моментам зі світу Steam 👴💻
+Поринь у ностальгію (або вивчи щось новеньке) 👇<b>🎮1. 1 Screen Platformer: Prologue</b>
+🆓 Безкоштовно
+🏆 Metacritic: -1 | 
+📚 <i>FREE DEMO features 1 playable character and 1 complete level with leaderboards. Try, die, retry in this challenging but fair precision platformer that takes place on 1 screen. Ultra tight controls, dozens of traps. Great for speedrunning, and 100% completionists. Also, no water levels!</i>
+🏷️ Жанри: Action, Adventure
+🎯 Категорії: Single-player, Steam Achievements, Full controller support, Steam Leaderboards
+🏢 Видавець: Невідомий видавець
+📅 Реліз: 16.07.2020
+<a href="https://store.steampowered.com/app/1271540">🔗 Відкрити у Steam</a>
+────────────────────
+<b>🎮2. FaceWorld</b>
+💰 $3.99
+🏆 Metacritic: -1 | 
+📚 <i>&amp;quot;FaceWorld&amp;quot; is a software that only requires a normal camera and a normal CPU to perform facial expressions and motion capture to operate pre-made or custom 3D virtual images and Live2d images.</i>
+🏷️ Жанри: Animation &amp; Modeling, Utilities, Video Production, Education, Game Development
+🎯 Категорії: Без категорій
+🏢 Видавець: Невідомий видавець
+📅 Реліз: 16.07.2022
+<a href="https://store.steampowered.com/app/1588390">🔗 Відкрити у Steam</a>
+────────────────────
+<b>🎮3. Lost Lands: Ice Spell Collector&#x27;s Edition</b>
+🔻 -50% 💰 $4.99
+🏆 Metacritic: -1 | 
+📚 <i>Susan is back again in the middle of problems of epic proportions deep in the Lost Lands. Weather cataclysm, mythical creatures, ancient legends - these and more stands before the main hero of the Lost Lands.</i>
+🏷️ Жанри: Adventure, Casual
+🎯 Категорії: Single-player, Steam Achievements, Steam Cloud, Family Sharing
+🏢 Видавець: Невідомий видавець
+📅 Реліз: 16.07.2018
+<a href="https://store.steampowered.com/app/846690">🔗 Відкрити у Steam</a>
+────────────────────
+<b>🎮4. Abandoned Croxon Mansion</b>
+🔻 -87% 💰 $0.51
+🏆 Metacritic: -1 | 
+📚 <i>Abandoned Croxon Mansion is a 2D Top-Down Survival Horror game based on the story of the Haunted Mansion, built during the 1960s.</i>
+🏷️ Жанри: Adventure, Indie, Casual
+🎯 Категорії: Single-player, Steam Achievements, Family Sharing, Partial Controller Support
+🏢 Видавець: Невідомий видавець
+📅 Реліз: 16.07.2021
+<a href="https://store.steampowered.com/app/1661380">🔗 Відкрити у Steam</a>
+────────────────────
+<b>🎮5. Boons &amp; Burdens</b>
+🔻 -66% 💰 $2.03
+🏆 Metacritic: -1 | 
+📚 <i>Boons &amp;amp; Burdens is a single player action-roguelike set in the depths of hell. Battle hordes of demons through 12 levels, collect gems to purchase powerful boons, and choose from deadly burdens that alter the game&#x27;s difficulty. Will you be the paragon of power or the architect of your own defeat?</i>
+🏷️ Жанри: Action, Indie, RPG
+🎯 Категорії: Single-player, Steam Achievements, Full controller support, Steam Cloud, Family Sharing
+🏢 Видавець: Невідомий видавець
+📅 Реліз: 16.07.2024
+<a href="https://store.steampowered.com/app/2646120">🔗 Відкрити у Steam</a>
+────────────────────
+
+
+2025-07-16 17:19:58,363 - api - INFO - New DATA: [GameFullModel(steam_appid=848350, name='Katamari Damacy REROLL', is_free=False, short_description='The beloved roll-em-up game returns with fully updated graphics, completely recreated cutscenes and in full HD!', final_price=749, final_formatted_price='$7.49', metacritic='81', discount=75, recomendations=4532, release_data=datetime.date(2018, 12, 6), game_ganre=[GanresOut(ganres_id=1, ganres_name='Action'), GanresOut(ganres_id=8, ganres_name='Casual')], game_publisher=[], game_categories=[CategoryOut(category_id=1, category_name='Multi-player'), CategoryOut(category_id=3, category_name='Steam Trading Cards'), CategoryOut(category_id=14, category_name='Single-player'), CategoryOut(category_id=15, category_name='PvP'), CategoryOut(category_id=18, category_name='Steam Achievements'), CategoryOut(category_id=19, category_name='Full controller support'), CategoryOut(category_id=20, category_name='Steam Cloud'), CategoryOut(category_id=21, category_name='Family Sharing'), CategoryOut(category_id=30, category_name='Remote Play Together'), CategoryOut(category_id=36, category_name='Shared/Split Screen PvP')]), GameFullModel(steam_appid=33460, name='From Dust', is_free=False, short_description='Immerse yourself in a world as exotically beautiful as it is dangerous in this modern God-Game where Nature is the Star!', final_price=374, final_formatted_price='$3.74', metacritic='76', discount=75, recomendations=2693, release_data=datetime.date(2011, 8, 17), game_ganre=[GanresOut(ganres_id=4, ganres_name='Adventure'), GanresOut(ganres_id=9, ganres_name='Simulation')], game_publisher=[], game_categories=[CategoryOut(category_id=14, category_name='Single-player')]), GameFullModel(steam_appid=323320, name='Grow Home', is_free=False, short_description='Experience the freedom of unbounded climbing as you take control of BUD, a procedurally animated robot on a quest to save his planet. Create your own path through an alien world as you control and ride a giant plant on a vertical journey to the stars.', final_price=199, final_formatted_price='$1.99', metacritic='75', discount=75, recomendations=3839, release_data=datetime.date(2015, 2, 4), game_ganre=[GanresOut(ganres_id=4, ganres_name='Adventure'), GanresOut(ganres_id=6, ganres_name='Indie'), GanresOut(ganres_id=8, ganres_name='Casual')], game_publisher=[], game_categories=[CategoryOut(category_id=3, category_name='Steam Trading Cards'), CategoryOut(category_id=10, category_name='Remote Play on TV'), CategoryOut(category_id=14, category_name='Single-player'), CategoryOut(category_id=18, category_name='Steam Achievements'), CategoryOut(category_id=19, category_name='Full controller support'), CategoryOut(category_id=20, category_name='Steam Cloud'), CategoryOut(category_id=21, category_name='Family Sharing')]), GameFullModel(steam_appid=473950, name='Manifold Garden', is_free=False, short_description='Rediscover gravity and explore an Escher-esque world of impossible architecture. Witness infinity in first-person and master its rules to solve physics-defying puzzles. Cultivate a garden to open new paths forward, where an eternal expanse awaits.', final_price=499, final_formatted_price='$4.99', metacritic='85', discount=75, recomendations=6688, release_data=datetime.date(2020, 10, 20), game_ganre=[GanresOut(ganres_id=4, ganres_name='Adventure'), GanresOut(ganres_id=6, ganres_name='Indie')], game_publisher=[], game_categories=[CategoryOut(category_id=3, category_name='Steam Trading Cards'), CategoryOut(category_id=10, category_name='Remote Play on TV'), CategoryOut(category_id=14, category_name='Single-player'), CategoryOut(category_id=18, category_name='Steam Achievements'), CategoryOut(category_id=19, category_name='Full controller support'), CategoryOut(category_id=20, category_name='Steam Cloud'), CategoryOut(category_id=21, category_name='Family Sharing')]), GameFullModel(steam_appid=250620, name='Among the Sleep - Enhanced Edition', is_free=False, short_description='Among the Sleep: Enhanced Edition is a new and improved version of the award winning first person horror adventure. In the game you play as a small child trapped in a weird nightmare where you go looking for your mom.', final_price=424, final_formatted_price='$4.24', metacritic='66', discount=75, recomendations=5708, release_data=datetime.date(2014, 5, 29), game_ganre=[GanresOut(ganres_id=1, ganres_name='Action'), GanresOut(ganres_id=4, ganres_name='Adventure'), GanresOut(ganres_id=6, ganres_name='Indie')], game_publisher=[], game_categories=[CategoryOut(category_id=3, category_name='Steam Trading Cards'), CategoryOut(category_id=10, category_name='Remote Play on TV'), CategoryOut(category_id=14, category_name='Single-player'), CategoryOut(category_id=18, category_name='Steam Achievements'), CategoryOut(category_id=19, category_name='Full controller support'), CategoryOut(category_id=20, category_name='Steam Cloud'), CategoryOut(category_id=21, category_name='Family Sharing')])]
+2025-07-16 17:19:58,364 - api - DEBUG - Message: 💸 <b>Знижки летять, гаманці тремтять!</b>
+Ці ігри зараз зі знижками, а отже: саме час зробити вигляд, що тобі вони життєво необхідні 🛒🤣👇<b>🎮1. Katamari Damacy REROLL</b>
+🔻 -75% 💰 $7.49
+🏆 Metacritic: 81 | 👍 Рецензій: 4532
+📚 <i>The beloved roll-em-up game returns with fully updated graphics, completely recreated cutscenes and in full HD!</i>
+🏷️ Жанри: Action, Casual
+🎯 Категорії: Multi-player, Steam Trading Cards, Single-player, PvP, Steam Achievements, Full controller support, Steam Cloud, Family Sharing, Remote Play Together, Shared/Split Screen PvP
+🏢 Видавець: Невідомий видавець
+📅 Реліз: 06.12.2018
+<a href="https://store.steampowered.com/app/848350">🔗 Відкрити у Steam</a>
+────────────────────
+<b>🎮2. From Dust</b>
+🔻 -75% 💰 $3.74
+🏆 Metacritic: 76 | 👍 Рецензій: 2693
+📚 <i>Immerse yourself in a world as exotically beautiful as it is dangerous in this modern God-Game where Nature is the Star!</i>
+🏷️ Жанри: Adventure, Simulation
+🎯 Категорії: Single-player
+🏢 Видавець: Невідомий видавець
+📅 Реліз: 17.08.2011
+<a href="https://store.steampowered.com/app/33460">🔗 Відкрити у Steam</a>
+────────────────────
+<b>🎮3. Grow Home</b>
+🔻 -75% 💰 $1.99
+🏆 Metacritic: 75 | 👍 Рецензій: 3839
+📚 <i>Experience the freedom of unbounded climbing as you take control of BUD, a procedurally animated robot on a quest to save his planet. Create your own path through an alien world as you control and ride a giant plant on a vertical journey to the stars.</i>
+🏷️ Жанри: Adventure, Indie, Casual
+🎯 Категорії: Steam Trading Cards, Remote Play on TV, Single-player, Steam Achievements, Full controller support, Steam Cloud, Family Sharing
+🏢 Видавець: Невідомий видавець
+📅 Реліз: 04.02.2015
+<a href="https://store.steampowered.com/app/323320">🔗 Відкрити у Steam</a>
+────────────────────
+<b>🎮4. Manifold Garden</b>
+🔻 -75% 💰 $4.99
+🏆 Metacritic: 85 | 👍 Рецензій: 6688
+📚 <i>Rediscover gravity and explore an Escher-esque world of impossible architecture. Witness infinity in first-person and master its rules to solve physics-defying puzzles. Cultivate a garden to open new paths forward, where an eternal expanse awaits.</i>
+🏷️ Жанри: Adventure, Indie
+🎯 Категорії: Steam Trading Cards, Remote Play on TV, Single-player, Steam Achievements, Full controller support, Steam Cloud, Family Sharing
+🏢 Видавець: Невідомий видавець
+📅 Реліз: 20.10.2020
+<a href="https://store.steampowered.com/app/473950">🔗 Відкрити у Steam</a>
+────────────────────
+<b>🎮5. Among the Sleep - Enhanced Edition</b>
+🔻 -75% 💰 $4.24
+🏆 Metacritic: 66 | 👍 Рецензій: 5708
+📚 <i>Among the Sleep: Enhanced Edition is a new and improved version of the award winning first person horror adventure. In the game you play as a small child trapped in a weird nightmare where you go looking for your mom.</i>
+🏷️ Жанри: Action, Adventure, Indie
+🎯 Категорії: Steam Trading Cards, Remote Play on TV, Single-player, Steam Achievements, Full controller support, Steam Cloud, Family Sharing
+🏢 Видавець: Невідомий видавець
+📅 Реліз: 29.05.2014
+<a href="https://store.steampowered.com/app/250620">🔗 Відкрити у Steam</a>
+────────────────────
+
+
+2025-07-16 17:19:58,777 - api - INFO - New DATA: [GameFullModel(steam_appid=1283410, name='Tails of Iron', is_free=False, short_description='Tails of Iron is an epic RPG Adventure with punishingly brutal combat. As Redgi, heir to the throne, you must embark on a perilous quest to reclaim your Kingdom. Explore a deceivingly charming world. Assemble a band of brave companions. Banish the merciless Frog clan!', final_price=2499, final_formatted_price='$24.99', metacritic='81', discount=0, recomendations=10926, release_data=datetime.date(2025, 7, 15), game_ganre=[GanresOut(ganres_id=1, ganres_name='Action'), GanresOut(ganres_id=4, ganres_name='Adventure'), GanresOut(ganres_id=6, ganres_name='Indie')], game_publisher=[], game_categories=[CategoryOut(category_id=3, category_name='Steam Trading Cards'), CategoryOut(category_id=14, category_name='Single-player'), CategoryOut(category_id=18, category_name='Steam Achievements'), CategoryOut(category_id=20, category_name='Steam Cloud'), CategoryOut(category_id=21, category_name='Family Sharing'), CategoryOut(category_id=28, category_name='Partial Controller Support')])]
+2025-07-16 17:19:58,778 - api - DEBUG - Message: 🎲 <b>Рулетка часу!</b>
+Я вибрав гру випадково — а раптом це твоє нове геймерське кохання? 💘🎮
+Не дякуй, просто дивись 👇
+<b>🎮 Tails of Iron</b>
+💰 $24.99
+🏆 Metacritic: 81 | 👍 Рецензій: 10926
+📚 <i>Tails of Iron is an epic RPG Adventure with punishingly brutal combat. As Redgi, heir to the throne, you must embark on a perilous quest to reclaim your Kingdom. Explore a deceivingly charming world. Assemble a band of brave companions. Banish the merciless Frog clan!</i>
+🏷️ Жанри: Action, Adventure, Indie
+🎯 Категорії: Steam Trading Cards, Single-player, Steam Achievements, Steam Cloud, Family Sharing, Partial Controller Support
+🏢 Видавець: Невідомий видавець
+📅 Реліз: 15.07.2025
+<a href="https://store.steampowered.com/app/1283410">🔗 Відкрити у Steam</a>
+────────────────────
+
+
+2025-07-16 17:19:59,214 - api - INFO - New DATA: [CalendarEventModel(name='Automation Fest', date_start=datetime.date(2025, 7, 14), date_end=datetime.date(2025, 7, 21), type_name='festival')]
+2025-07-16 17:19:59,214 - api - DEBUG - Message: <b>🎊 В Steam зараз проходить фестиваль</b> <i>Automation Fest</i>!
+<b>📅 Дата:</b> з <u>14.07.2025</u> до <u>21.07.2025</u>
+
+
+2025-07-16 17:44:04,352 - api - INFO - New DATA: [GameFullModel(steam_appid=1271540, name='1 Screen Platformer: Prologue', is_free=True, short_description='FREE DEMO features 1 playable character and 1 complete level with leaderboards. Try, die, retry in this challenging but fair precision platformer that takes place on 1 screen. Ultra tight controls, dozens of traps. Great for speedrunning, and 100% completionists. Also, no water levels!', final_price=0, final_formatted_price='Free', metacritic='-1', discount=0, recomendations=0, release_data=datetime.date(2020, 7, 16), game_ganre=[GanresOut(ganres_id=1, ganres_name='Action'), GanresOut(ganres_id=4, ganres_name='Adventure')], game_publisher=[], game_categories=[CategoryOut(category_id=14, category_name='Single-player'), CategoryOut(category_id=18, category_name='Steam Achievements'), CategoryOut(category_id=19, category_name='Full controller support'), CategoryOut(category_id=37, category_name='Steam Leaderboards')]), GameFullModel(steam_appid=1588390, name='FaceWorld', is_free=False, short_description='&quot;FaceWorld&quot; is a software that only requires a normal camera and a normal CPU to perform facial expressions and motion capture to operate pre-made or custom 3D virtual images and Live2d images.', final_price=399, final_formatted_price='$3.99', metacritic='-1', discount=0, recomendations=0, release_data=datetime.date(2022, 7, 16), game_ganre=[GanresOut(ganres_id=14, ganres_name='Animation & Modeling'), GanresOut(ganres_id=17, ganres_name='Utilities'), GanresOut(ganres_id=22, ganres_name='Video Production'), GanresOut(ganres_id=23, ganres_name='Education'), GanresOut(ganres_id=24, ganres_name='Game Development')], game_publisher=[], game_categories=[]), GameFullModel(steam_appid=846690, name="Lost Lands: Ice Spell Collector's Edition", is_free=False, short_description='Susan is back again in the middle of problems of epic proportions deep in the Lost Lands. Weather cataclysm, mythical creatures, ancient legends - these and more stands before the main hero of the Lost Lands.', final_price=499, final_formatted_price='$4.99', metacritic='-1', discount=50, recomendations=0, release_data=datetime.date(2018, 7, 16), game_ganre=[GanresOut(ganres_id=4, ganres_name='Adventure'), GanresOut(ganres_id=8, ganres_name='Casual')], game_publisher=[], game_categories=[CategoryOut(category_id=14, category_name='Single-player'), CategoryOut(category_id=18, category_name='Steam Achievements'), CategoryOut(category_id=20, category_name='Steam Cloud'), CategoryOut(category_id=21, category_name='Family Sharing')]), GameFullModel(steam_appid=1661380, name='Abandoned Croxon Mansion', is_free=False, short_description='Abandoned Croxon Mansion is a 2D Top-Down Survival Horror game based on the story of the Haunted Mansion, built during the 1960s.', final_price=51, final_formatted_price='$0.51', metacritic='-1', discount=87, recomendations=0, release_data=datetime.date(2021, 7, 16), game_ganre=[GanresOut(ganres_id=4, ganres_name='Adventure'), GanresOut(ganres_id=6, ganres_name='Indie'), GanresOut(ganres_id=8, ganres_name='Casual')], game_publisher=[], game_categories=[CategoryOut(category_id=14, category_name='Single-player'), CategoryOut(category_id=18, category_name='Steam Achievements'), CategoryOut(category_id=21, category_name='Family Sharing'), CategoryOut(category_id=28, category_name='Partial Controller Support')]), GameFullModel(steam_appid=2646120, name='Boons & Burdens', is_free=False, short_description="Boons &amp; Burdens is a single player action-roguelike set in the depths of hell. Battle hordes of demons through 12 levels, collect gems to purchase powerful boons, and choose from deadly burdens that alter the game's difficulty. Will you be the paragon of power or the architect of your own defeat?", final_price=203, final_formatted_price='$2.03', metacritic='-1', discount=66, recomendations=0, release_data=datetime.date(2024, 7, 16), game_ganre=[GanresOut(ganres_id=1, ganres_name='Action'), GanresOut(ganres_id=6, ganres_name='Indie'), GanresOut(ganres_id=7, ganres_name='RPG')], game_publisher=[], game_categories=[CategoryOut(category_id=14, category_name='Single-player'), CategoryOut(category_id=18, category_name='Steam Achievements'), CategoryOut(category_id=19, category_name='Full controller support'), CategoryOut(category_id=20, category_name='Steam Cloud'), CategoryOut(category_id=21, category_name='Family Sharing')])]
+2025-07-16 17:44:04,353 - api - DEBUG - Message: 📜 <b>Трохи історії, трохи ігор!</b>
+Ось добірка, присвячена легендарним подіям та моментам зі світу Steam 👴💻
+Поринь у ностальгію (або вивчи щось новеньке) 👇<b>🎮1. 1 Screen Platformer: Prologue</b>
+🆓 Безкоштовно
+🏆 Metacritic: -1 | 
+📚 <i>FREE DEMO features 1 playable character and 1 complete level with leaderboards. Try, die, retry in this challenging but fair precision platformer that takes place on 1 screen. Ultra tight controls, dozens of traps. Great for speedrunning, and 100% completionists. Also, no water levels!</i>
+🏷️ Жанри: Action, Adventure
+🎯 Категорії: Single-player, Steam Achievements, Full controller support, Steam Leaderboards
+🏢 Видавець: Невідомий видавець
+📅 Реліз: 16.07.2020
+<a href="https://store.steampowered.com/app/1271540">🔗 Відкрити у Steam</a>
+────────────────────
+<b>🎮2. FaceWorld</b>
+💰 $3.99
+🏆 Metacritic: -1 | 
+📚 <i>&amp;quot;FaceWorld&amp;quot; is a software that only requires a normal camera and a normal CPU to perform facial expressions and motion capture to operate pre-made or custom 3D virtual images and Live2d images.</i>
+🏷️ Жанри: Animation &amp; Modeling, Utilities, Video Production, Education, Game Development
+🎯 Категорії: Без категорій
+🏢 Видавець: Невідомий видавець
+📅 Реліз: 16.07.2022
+<a href="https://store.steampowered.com/app/1588390">🔗 Відкрити у Steam</a>
+────────────────────
+<b>🎮3. Lost Lands: Ice Spell Collector&#x27;s Edition</b>
+🔻 -50% 💰 $4.99
+🏆 Metacritic: -1 | 
+📚 <i>Susan is back again in the middle of problems of epic proportions deep in the Lost Lands. Weather cataclysm, mythical creatures, ancient legends - these and more stands before the main hero of the Lost Lands.</i>
+🏷️ Жанри: Adventure, Casual
+🎯 Категорії: Single-player, Steam Achievements, Steam Cloud, Family Sharing
+🏢 Видавець: Невідомий видавець
+📅 Реліз: 16.07.2018
+<a href="https://store.steampowered.com/app/846690">🔗 Відкрити у Steam</a>
+────────────────────
+<b>🎮4. Abandoned Croxon Mansion</b>
+🔻 -87% 💰 $0.51
+🏆 Metacritic: -1 | 
+📚 <i>Abandoned Croxon Mansion is a 2D Top-Down Survival Horror game based on the story of the Haunted Mansion, built during the 1960s.</i>
+🏷️ Жанри: Adventure, Indie, Casual
+🎯 Категорії: Single-player, Steam Achievements, Family Sharing, Partial Controller Support
+🏢 Видавець: Невідомий видавець
+📅 Реліз: 16.07.2021
+<a href="https://store.steampowered.com/app/1661380">🔗 Відкрити у Steam</a>
+────────────────────
+<b>🎮5. Boons &amp; Burdens</b>
+🔻 -66% 💰 $2.03
+🏆 Metacritic: -1 | 
+📚 <i>Boons &amp;amp; Burdens is a single player action-roguelike set in the depths of hell. Battle hordes of demons through 12 levels, collect gems to purchase powerful boons, and choose from deadly burdens that alter the game&#x27;s difficulty. Will you be the paragon of power or the architect of your own defeat?</i>
+🏷️ Жанри: Action, Indie, RPG
+🎯 Категорії: Single-player, Steam Achievements, Full controller support, Steam Cloud, Family Sharing
+🏢 Видавець: Невідомий видавець
+📅 Реліз: 16.07.2024
+<a href="https://store.steampowered.com/app/2646120">🔗 Відкрити у Steam</a>
+────────────────────
+
+
+2025-07-16 17:44:04,846 - api - INFO - New DATA: [GameFullModel(steam_appid=848350, name='Katamari Damacy REROLL', is_free=False, short_description='The beloved roll-em-up game returns with fully updated graphics, completely recreated cutscenes and in full HD!', final_price=749, final_formatted_price='$7.49', metacritic='81', discount=75, recomendations=4532, release_data=datetime.date(2018, 12, 6), game_ganre=[GanresOut(ganres_id=1, ganres_name='Action'), GanresOut(ganres_id=8, ganres_name='Casual')], game_publisher=[], game_categories=[CategoryOut(category_id=1, category_name='Multi-player'), CategoryOut(category_id=3, category_name='Steam Trading Cards'), CategoryOut(category_id=14, category_name='Single-player'), CategoryOut(category_id=15, category_name='PvP'), CategoryOut(category_id=18, category_name='Steam Achievements'), CategoryOut(category_id=19, category_name='Full controller support'), CategoryOut(category_id=20, category_name='Steam Cloud'), CategoryOut(category_id=21, category_name='Family Sharing'), CategoryOut(category_id=30, category_name='Remote Play Together'), CategoryOut(category_id=36, category_name='Shared/Split Screen PvP')]), GameFullModel(steam_appid=33460, name='From Dust', is_free=False, short_description='Immerse yourself in a world as exotically beautiful as it is dangerous in this modern God-Game where Nature is the Star!', final_price=374, final_formatted_price='$3.74', metacritic='76', discount=75, recomendations=2693, release_data=datetime.date(2011, 8, 17), game_ganre=[GanresOut(ganres_id=4, ganres_name='Adventure'), GanresOut(ganres_id=9, ganres_name='Simulation')], game_publisher=[], game_categories=[CategoryOut(category_id=14, category_name='Single-player')]), GameFullModel(steam_appid=323320, name='Grow Home', is_free=False, short_description='Experience the freedom of unbounded climbing as you take control of BUD, a procedurally animated robot on a quest to save his planet. Create your own path through an alien world as you control and ride a giant plant on a vertical journey to the stars.', final_price=199, final_formatted_price='$1.99', metacritic='75', discount=75, recomendations=3839, release_data=datetime.date(2015, 2, 4), game_ganre=[GanresOut(ganres_id=4, ganres_name='Adventure'), GanresOut(ganres_id=6, ganres_name='Indie'), GanresOut(ganres_id=8, ganres_name='Casual')], game_publisher=[], game_categories=[CategoryOut(category_id=3, category_name='Steam Trading Cards'), CategoryOut(category_id=10, category_name='Remote Play on TV'), CategoryOut(category_id=14, category_name='Single-player'), CategoryOut(category_id=18, category_name='Steam Achievements'), CategoryOut(category_id=19, category_name='Full controller support'), CategoryOut(category_id=20, category_name='Steam Cloud'), CategoryOut(category_id=21, category_name='Family Sharing')]), GameFullModel(steam_appid=473950, name='Manifold Garden', is_free=False, short_description='Rediscover gravity and explore an Escher-esque world of impossible architecture. Witness infinity in first-person and master its rules to solve physics-defying puzzles. Cultivate a garden to open new paths forward, where an eternal expanse awaits.', final_price=499, final_formatted_price='$4.99', metacritic='85', discount=75, recomendations=6688, release_data=datetime.date(2020, 10, 20), game_ganre=[GanresOut(ganres_id=4, ganres_name='Adventure'), GanresOut(ganres_id=6, ganres_name='Indie')], game_publisher=[], game_categories=[CategoryOut(category_id=3, category_name='Steam Trading Cards'), CategoryOut(category_id=10, category_name='Remote Play on TV'), CategoryOut(category_id=14, category_name='Single-player'), CategoryOut(category_id=18, category_name='Steam Achievements'), CategoryOut(category_id=19, category_name='Full controller support'), CategoryOut(category_id=20, category_name='Steam Cloud'), CategoryOut(category_id=21, category_name='Family Sharing')]), GameFullModel(steam_appid=250620, name='Among the Sleep - Enhanced Edition', is_free=False, short_description='Among the Sleep: Enhanced Edition is a new and improved version of the award winning first person horror adventure. In the game you play as a small child trapped in a weird nightmare where you go looking for your mom.', final_price=424, final_formatted_price='$4.24', metacritic='66', discount=75, recomendations=5708, release_data=datetime.date(2014, 5, 29), game_ganre=[GanresOut(ganres_id=1, ganres_name='Action'), GanresOut(ganres_id=4, ganres_name='Adventure'), GanresOut(ganres_id=6, ganres_name='Indie')], game_publisher=[], game_categories=[CategoryOut(category_id=3, category_name='Steam Trading Cards'), CategoryOut(category_id=10, category_name='Remote Play on TV'), CategoryOut(category_id=14, category_name='Single-player'), CategoryOut(category_id=18, category_name='Steam Achievements'), CategoryOut(category_id=19, category_name='Full controller support'), CategoryOut(category_id=20, category_name='Steam Cloud'), CategoryOut(category_id=21, category_name='Family Sharing')])]
+2025-07-16 17:44:04,846 - api - DEBUG - Message: 💸 <b>Знижки летять, гаманці тремтять!</b>
+Ці ігри зараз зі знижками, а отже: саме час зробити вигляд, що тобі вони життєво необхідні 🛒🤣👇<b>🎮1. Katamari Damacy REROLL</b>
+🔻 -75% 💰 $7.49
+🏆 Metacritic: 81 | 👍 Рецензій: 4532
+📚 <i>The beloved roll-em-up game returns with fully updated graphics, completely recreated cutscenes and in full HD!</i>
+🏷️ Жанри: Action, Casual
+🎯 Категорії: Multi-player, Steam Trading Cards, Single-player, PvP, Steam Achievements, Full controller support, Steam Cloud, Family Sharing, Remote Play Together, Shared/Split Screen PvP
+🏢 Видавець: Невідомий видавець
+📅 Реліз: 06.12.2018
+<a href="https://store.steampowered.com/app/848350">🔗 Відкрити у Steam</a>
+────────────────────
+<b>🎮2. From Dust</b>
+🔻 -75% 💰 $3.74
+🏆 Metacritic: 76 | 👍 Рецензій: 2693
+📚 <i>Immerse yourself in a world as exotically beautiful as it is dangerous in this modern God-Game where Nature is the Star!</i>
+🏷️ Жанри: Adventure, Simulation
+🎯 Категорії: Single-player
+🏢 Видавець: Невідомий видавець
+📅 Реліз: 17.08.2011
+<a href="https://store.steampowered.com/app/33460">🔗 Відкрити у Steam</a>
+────────────────────
+<b>🎮3. Grow Home</b>
+🔻 -75% 💰 $1.99
+🏆 Metacritic: 75 | 👍 Рецензій: 3839
+📚 <i>Experience the freedom of unbounded climbing as you take control of BUD, a procedurally animated robot on a quest to save his planet. Create your own path through an alien world as you control and ride a giant plant on a vertical journey to the stars.</i>
+🏷️ Жанри: Adventure, Indie, Casual
+🎯 Категорії: Steam Trading Cards, Remote Play on TV, Single-player, Steam Achievements, Full controller support, Steam Cloud, Family Sharing
+🏢 Видавець: Невідомий видавець
+📅 Реліз: 04.02.2015
+<a href="https://store.steampowered.com/app/323320">🔗 Відкрити у Steam</a>
+────────────────────
+<b>🎮4. Manifold Garden</b>
+🔻 -75% 💰 $4.99
+🏆 Metacritic: 85 | 👍 Рецензій: 6688
+📚 <i>Rediscover gravity and explore an Escher-esque world of impossible architecture. Witness infinity in first-person and master its rules to solve physics-defying puzzles. Cultivate a garden to open new paths forward, where an eternal expanse awaits.</i>
+🏷️ Жанри: Adventure, Indie
+🎯 Категорії: Steam Trading Cards, Remote Play on TV, Single-player, Steam Achievements, Full controller support, Steam Cloud, Family Sharing
+🏢 Видавець: Невідомий видавець
+📅 Реліз: 20.10.2020
+<a href="https://store.steampowered.com/app/473950">🔗 Відкрити у Steam</a>
+────────────────────
+<b>🎮5. Among the Sleep - Enhanced Edition</b>
+🔻 -75% 💰 $4.24
+🏆 Metacritic: 66 | 👍 Рецензій: 5708
+📚 <i>Among the Sleep: Enhanced Edition is a new and improved version of the award winning first person horror adventure. In the game you play as a small child trapped in a weird nightmare where you go looking for your mom.</i>
+🏷️ Жанри: Action, Adventure, Indie
+🎯 Категорії: Steam Trading Cards, Remote Play on TV, Single-player, Steam Achievements, Full controller support, Steam Cloud, Family Sharing
+🏢 Видавець: Невідомий видавець
+📅 Реліз: 29.05.2014
+<a href="https://store.steampowered.com/app/250620">🔗 Відкрити у Steam</a>
+────────────────────
+
+
+2025-07-16 17:44:05,330 - api - INFO - New DATA: [GameFullModel(steam_appid=315460, name='Dig or Die', is_free=False, short_description="Crash land on a hostile planet where you'll have to build the strongest defenses if you wish to live to escape from it. But be warned... this planet is merciless. Build strong, and smart; else physics may flood or destroy your only hopes of survival.", final_price=599, final_formatted_price='$5.99', metacritic='76', discount=50, recomendations=3782, release_data=datetime.date(2018, 7, 10), game_ganre=[GanresOut(ganres_id=1, ganres_name='Action'), GanresOut(ganres_id=3, ganres_name='Strategy'), GanresOut(ganres_id=6, ganres_name='Indie'), GanresOut(ganres_id=7, ganres_name='RPG')], game_publisher=[], game_categories=[CategoryOut(category_id=1, category_name='Multi-player'), CategoryOut(category_id=3, category_name='Steam Trading Cards'), CategoryOut(category_id=12, category_name='Co-op'), CategoryOut(category_id=14, category_name='Single-player'), CategoryOut(category_id=15, category_name='PvP'), CategoryOut(category_id=16, category_name='Online PvP'), CategoryOut(category_id=17, category_name='Online Co-op'), CategoryOut(category_id=18, category_name='Steam Achievements'), CategoryOut(category_id=20, category_name='Steam Cloud'), CategoryOut(category_id=21, category_name='Family Sharing'), CategoryOut(category_id=54, category_name='Playable without Timed Input'), CategoryOut(category_id=55, category_name='Stereo Sound'), CategoryOut(category_id=58, category_name='Custom Volume Controls'), CategoryOut(category_id=59, category_name='Adjustable Difficulty'), CategoryOut(category_id=64, category_name='Save Anytime')])]
+2025-07-16 17:44:05,330 - api - DEBUG - Message: 🎲 <b>Рулетка часу!</b>
+Я вибрав гру випадково — а раптом це твоє нове геймерське кохання? 💘🎮
+Не дякуй, просто дивись 👇
+<b>🎮 Dig or Die</b>
+🔻 -50% 💰 $5.99
+🏆 Metacritic: 76 | 👍 Рецензій: 3782
+📚 <i>Crash land on a hostile planet where you&#x27;ll have to build the strongest defenses if you wish to live to escape from it. But be warned... this planet is merciless. Build strong, and smart; else physics may flood or destroy your only hopes of survival.</i>
+🏷️ Жанри: Action, Strategy, Indie, RPG
+🎯 Категорії: Multi-player, Steam Trading Cards, Co-op, Single-player, PvP, Online PvP, Online Co-op, Steam Achievements, Steam Cloud, Family Sharing, Playable without Timed Input, Stereo Sound, Custom Volume Controls, Adjustable Difficulty, Save Anytime
+🏢 Видавець: Невідомий видавець
+📅 Реліз: 10.07.2018
+<a href="https://store.steampowered.com/app/315460">🔗 Відкрити у Steam</a>
+────────────────────
+
+
+2025-07-16 17:44:05,718 - api - INFO - New DATA: [CalendarEventModel(name='Automation Fest', date_start=datetime.date(2025, 7, 14), date_end=datetime.date(2025, 7, 21), type_name='festival')]
+2025-07-16 17:44:05,718 - api - DEBUG - Message: <b>🎊 В Steam зараз проходить фестиваль</b> <i>Automation Fest</i>!
+<b>📅 Дата:</b> з <u>14.07.2025</u> до <u>21.07.2025</u>
+
+

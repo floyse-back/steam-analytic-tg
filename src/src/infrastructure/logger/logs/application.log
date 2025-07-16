@@ -1,0 +1,6 @@
+2025-07-16 17:54:09,316 - application.users_service - DEBUG - Steam Appid From Use Case,<src.infrastructure.db.models.user_models.Users object at 0x0000025B8BBFDBE0>
+2025-07-16 18:09:45,875 - application.player_service - DEBUG - Steam Appid From Use Case,<src.infrastructure.db.models.user_models.Users object at 0x00000130AD7032C0>
+2025-07-16 18:09:46,991 - application.player_service - INFO - GetPlayerBudgesUseCase: user=76561199028668211
+2025-07-16 18:09:54,270 - application.player_service - DEBUG - Steam Appid From Use Case,<src.infrastructure.db.models.user_models.Users object at 0x00000130AD7D76B0>
+2025-07-16 18:09:58,170 - application.player_service - INFO - GetPlayerRatingUseCase: user=76561199028668211
+2025-07-16 18:09:58,173 - application.player_service - DEBUG - GetPlayerRatingUseCase: user=76561199028668211, Data:steam_appid=76561199028668211 user_rating=2340 personaname='floyse{fake}' player_level=7 player_xp=740 player_xp_needed_to_level_up=60 timecreated=datetime.date(2020, 2, 21) timelive='5р. 146д. 21г. 45хв.' friends_count=21 badges_count=6 lastlogoff=datetime.date(2025, 7, 14) playtime='85д. 06г. 04хв.' allow_games=True allow_friends=True allow_badges=True

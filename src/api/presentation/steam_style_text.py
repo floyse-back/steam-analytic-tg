@@ -4,14 +4,15 @@ from typing import Optional, List, Union
 from src.api.presentation.empty_messages import EmptyMessages
 from src.api.presentation.utils.shared_text import create_short_search_games_shared
 from src.application.dto.steam_dto import GameShortModel, GameAchievementsModel, GamePriceModel, GamesForYouModel
-from src.infrastructure.logging.logger import logger
+from src.domain.logger import ILogger
 from src.shared.config import ganre_config
 from src.shared.dispatcher import DispatcherCommands
 
 
 class SteamStyleText:
-    def __init__(self):
+    def __init__(self,logger:ILogger):
         self.first_smile = ["🎮","🎪","👻"]
+        self.logger = logger
 
         self.dispatcher_command = DispatcherCommands(
             command_map={
@@ -136,7 +137,7 @@ class SteamStyleText:
         return new_text
 
     def create_for_you(self,data:Optional[List[GamesForYouModel]],player:Optional['str']=None,page:int=1,limit:int=5):
-        logger.info("Steam Data %s",data)
+        self.logger.info("Steam Data %s",data)
         if data is None or (isinstance(data,dict) and data.get('detail')):
             return EmptyMessages.create_empty_message_for_you(data=data,player=player)
 

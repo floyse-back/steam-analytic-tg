@@ -4,12 +4,15 @@ from sqlalchemy import delete, select, and_
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import selectinload
 
+from src.domain.logger import ILogger
 from src.domain.user_context.repository import IUsersRepository
 from src.infrastructure.db.models import Users, Wishlist, Subscribes, SubscribesType, users_to_whishlist
-from src.infrastructure.logging.logger import logger
 
 
 class UsersRepository(IUsersRepository):
+    def __init__(self,logger:ILogger):
+        self.logger = logger
+
     async def check_user_created(self,user_id:int,session):
         """
         Надає True тоді коли користувач вже є
@@ -26,7 +29,7 @@ class UsersRepository(IUsersRepository):
         statement = select(Users.steam_id).where(Users.id == user_id)
         result = await session.execute(statement)
         data = result.scalars().first()
-        logger.debug(data)
+        self.logger.debug("CheckUserSteamID: user_id=%s",user_id)
         return True if data else False
 
     async def create_user(self,user_id:int,session,steam_id:Optional[int]=None,role:str="user")->None:
@@ -87,10 +90,12 @@ class UsersRepository(IUsersRepository):
         return result.scalars().first()
 
     async def add_game_wishlist_user(self,user:Users,wishlist:Wishlist,session:AsyncSession)->bool:
-        user.wishlist.append(wishlist)
         for wishlist_model in user.wishlist:
             if wishlist_model.game_id == wishlist.game_id:
+                self.logger.debug(f"No add_game_wishlist_user add game wishlist")
                 return False
+
+        user.wishlist.append(wishlist)
         await session.commit()
         return True
 
@@ -101,7 +106,7 @@ class UsersRepository(IUsersRepository):
              await session.commit()
              return True
         except Exception as e:
-            logger.error("SQLAlchemy Error: %s",e)
+            self.logger.error("SQLAlchemy Error: %s",e)
             return False
 
     async def check_subscribes(self,user_id:int,type_id:int,session:AsyncSession)->bool:
@@ -114,7 +119,7 @@ class UsersRepository(IUsersRepository):
     async def subscribe(self,type_id:int,user_id:int,session:AsyncSession)->bool:
         subscribes_type_model  = await session.get(SubscribesType,type_id)
         if subscribes_type_model is None:
-            logger.debug("subscribes_type_model not found %s",type_id)
+            self.logger.debug("subscribes_type_model not found %s",type_id)
             return False
         sub_model = Subscribes(
             user_id=user_id,

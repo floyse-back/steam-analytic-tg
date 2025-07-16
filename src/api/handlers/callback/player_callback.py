@@ -7,19 +7,15 @@ from src.api.keyboards.player.player_keyboards import create_inline_player_comma
 from src.api.keyboards.steam.steam_keyboards import create_player_steam_id
 from src.api.presentation.player_style_text import PlayerStyleText
 from src.api.utils.state import SteamPlayerName, BattleSteamPlayer
-from src.application.services.player_service import PlayerService
 from src.infrastructure.db.database import get_async_db
-from src.infrastructure.db.repository.users_repository import UsersRepository
-from src.infrastructure.logging.logger import logger
-from src.infrastructure.steam_analytic_api.steam_client import SteamAnalyticsAPIClient
+from src.infrastructure.logging.logger import Logger
 from src.shared.config import player_message_menu
+from src.shared.depends import get_player_service
 
 router = Router()
 
-player_service = PlayerService(
-    steam_client=SteamAnalyticsAPIClient(),
-    users_repository=UsersRepository(),
-)
+player_service = get_player_service()
+logger = Logger(name="api.player_callback",file_path="api")
 player_style_text = PlayerStyleText()
 
 @router.callback_query(lambda c: c.data in ["player_badges","player_full_stats","player_rating","player_play"])

@@ -1,12 +1,25 @@
-import logging
-from logging import getLogger,basicConfig
+from src.domain.logger import ILogger
+from src.infrastructure.logging.logger_conf import get_logger
 
 
-logger = getLogger(__name__)
-logger.setLevel(logging.DEBUG)
+class Logger(ILogger):
+    def __init__(self,name,file_path:str=None)->None:
+        self.__logger = get_logger(name,file_path)
 
-basicConfig(level=logging.DEBUG,
-            format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-            datefmt='%m/%d/%Y %I:%M:%S %p'
-            )
+    def trace(self, msg :str ,*args, **kwargs):
+        self.__logger.debug(msg,*args, **kwargs)
 
+    def debug(self ,msg :str, *args, **kwargs):
+        self.__logger.debug(msg,*args, **kwargs)
+
+    def info(self ,msg :str ,*args, **kwargs):
+        self.__logger.info(msg,*args, **kwargs)
+
+    def warning(self ,msg :str ,*args, **kwargs):
+        self.__logger.warning(msg,*args, **kwargs)
+
+    def error(self ,msg :str ,*args, **kwargs):
+        self.__logger.error(msg,*args, **kwargs)
+
+    def critical(self ,msg :str ,*args, **kwargs):
+        self.__logger.critical(msg,*args, **kwargs)

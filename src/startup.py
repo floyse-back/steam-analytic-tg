@@ -1,9 +1,10 @@
 from src.infrastructure.db.repository.subscribe_types_repository import SubscribeTypesRepository
-from src.infrastructure.logging.logger import logger
+from src.infrastructure.logging.logger import Logger
 from src.shared.subscribe_types import SUBSCRIBES_TYPE_DATA
 
 
 async def init_subscribe_types(session):
+    logger = Logger(name="api.startup",file_path="api")
     logger.info("Init subscribe types")
     subscribe_types_repository = SubscribeTypesRepository()
     #Оновлення всіх типів subscribes

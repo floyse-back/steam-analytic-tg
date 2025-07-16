@@ -13,7 +13,7 @@ class Subscribes(Base):
     __tablename__ = "subscribes"
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
-    user_id: Mapped[int] = mapped_column(BigInteger,ForeignKey("users.id"), nullable=False)
+    user_id: Mapped[int] = mapped_column(BigInteger,ForeignKey("users.id",ondelete="CASCADE"), nullable=False)
     type_id: Mapped[int] = mapped_column(ForeignKey("subscribes_types.id"), nullable=False)
     role_permitions: Mapped[int] = mapped_column(Integer, nullable=1)
 

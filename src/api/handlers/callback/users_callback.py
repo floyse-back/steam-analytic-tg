@@ -10,22 +10,16 @@ from src.api.keyboards.users.users_keyboards import create_user_inline_keyboard,
 from src.api.presentation.users_style_text import UsersStyleText
 from src.api.utils.pages_utils import page_utils_elements
 from src.api.utils.state import ProfileSteamName, ChangeSteamName, WishlistGame
-from src.application.services.users_service import UsersService
 from src.infrastructure.db.database import get_async_db
-from src.infrastructure.db.repository.users_repository import UsersRepository
-from src.infrastructure.db.repository.wishlist_repository import WishlistRepository
-from src.infrastructure.logging.logger import logger
-from src.infrastructure.steam_analytic_api.steam_client import SteamAnalyticsAPIClient
+from src.infrastructure.logging.logger import Logger
 from src.shared.config import user_message_menu
+from src.shared.depends import get_users_service
 
 router = Router()
 
-users_service = UsersService(
-    users_repository=UsersRepository(),
-    steam_client=SteamAnalyticsAPIClient(),
-    wishlist_repository=WishlistRepository(),
-)
+users_service = get_users_service()
 users_style_text = UsersStyleText()
+logger = Logger(name="api.users_callback",file_path="api")
 
 @router.callback_query(lambda c: c.data.startswith("wishlist"))
 async def wishlist_callback(callback_query: CallbackQuery):
@@ -33,7 +27,7 @@ async def wishlist_callback(callback_query: CallbackQuery):
     async for session in get_async_db():
         data = await users_service.show_wishlist_games(user_id=callback_query.from_user.id,session=session,page=page,limit=5)
         response = users_style_text.create_short_wishlist_message(data=data)
-    if data is None and page !=1:
+    if data is None and page != 1:
         await callback_query.message.edit_reply_markup(
             reply_markup=create_wishlist_inline_keyboard(
             callback_data="wishlist",
@@ -49,7 +43,7 @@ async def wishlist_callback(callback_query: CallbackQuery):
             reply_markup=create_wishlist_inline_keyboard(
             callback_data="wishlist",
             current_page=page,
-            count=len(data),
+            count=len(data) if not data is None else 0,
             limit=5,
             next_page=None
         ),

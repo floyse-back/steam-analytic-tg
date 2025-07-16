@@ -2,28 +2,22 @@ from aiogram import Router
 from aiogram.enums import ParseMode
 from aiogram.fsm.context import FSMContext
 from aiogram.types import Message
-from aiogram.filters import Command
 
 from src.api.keyboards.player.player_keyboards import create_inline_player_commands, find_other_player
 from src.api.keyboards.steam.steam_keyboards import create_player_steam_id
 from src.api.presentation.player_style_text import PlayerStyleText
 from src.api.utils.state import SteamPlayerName, BattleSteamPlayer
 from src.application.dto.users_dto import SteamVanityNameCorrection
+from src.infrastructure.logging.logger import Logger
 
-from src.application.services.player_service import PlayerService
-from src.infrastructure.db.repository.users_repository import UsersRepository
-from src.infrastructure.logging.logger import logger
-from src.infrastructure.steam_analytic_api.steam_client import SteamAnalyticsAPIClient
 from src.shared.config import MainMenu, player_message_menu
+from src.shared.depends import get_player_service
 
 router = Router(name=__name__)
 
-player_service = PlayerService(
-    steam_client=SteamAnalyticsAPIClient(),
-    users_repository=UsersRepository(),
-)
+player_service = get_player_service()
 player_style_text = PlayerStyleText()
-
+logger = Logger(name="api.player_callback",file_path="api")
 
 @router.message(lambda message: message.text == f"{MainMenu.player}")
 async def player_main(message: Message):

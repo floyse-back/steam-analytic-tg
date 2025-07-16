@@ -1,5 +1,3 @@
-from typing import Optional
-
 from dataclasses import dataclass
 from dotenv import load_dotenv
 from os import getenv
@@ -7,11 +5,19 @@ from os import getenv
 load_dotenv()
 
 ASYNC_DATABASE_URL = getenv("ASYNC_DATABASE_URL")
+SYNC_DATABASE_URL = getenv("SYNC_DATABASE_URL")
 
 TELEGRAM_API_TOKEN = getenv('TELEGRAM_API_TOKEN')
 
 STEAM_ANALYTIC_NAME = getenv('STEAM_ANALYTIC_NAME')
 STEAM_ANALYTIC_PASSWORD = getenv('STEAM_ANALYTIC_PASSWORD')
+
+CHAT_ID = getenv('CHAT_ID')
+
+RABBITMQ_CONNECTION = getenv('RABBITMQ_CONNECTION')
+
+CELERY_BROKER_URL = getenv('CELERY_BROKER_URL')
+CELERY_RESULT_BACKEND = getenv('CELERY_RESULT_BACKEND')
 
 @dataclass(frozen=True)
 class MainMenu:
@@ -65,7 +71,6 @@ subscribes_commands: dict[str, str] = {
     "🆕 Нові релізи": "subscribe_new_release",
     "🆓 Безкоштовні ігри": "subscribe_free_games",
     "📅 Івенти та події": "subscribe_new_events",
-    "📰 Офіційні новини": "subscribe_steam_news",
     "🔔 Бажані ігри зі знижками": "subscribe_wishlist_notificate",
     "🔥 Гарячі знижки": "subscribe_hot_discount_notificate",
     "📋 Переглянути всі категорії":"chose_category"

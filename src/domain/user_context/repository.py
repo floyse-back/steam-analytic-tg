@@ -42,7 +42,7 @@ class IUsersRepository(ABC):
         pass
 
     @abstractmethod
-    async def add_game_wishlist_user(self,user:Users,wishlist:Wishlist,session)->bool:
+    async def add_game_wishlist_user(self, user: Users, wishlist: Wishlist, session: object)-> bool:
         pass
 
     @abstractmethod

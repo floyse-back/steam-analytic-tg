@@ -10,20 +10,15 @@ from src.api.keyboards.steam.steam_keyboards import create_inline_steam_commands
 from src.api.presentation.steam_style_text import SteamStyleText
 from src.api.utils.pages_utils import page_utils_elements
 from src.api.utils.state import SteamGamesID, PlayerSteamName
-from src.application.services.steam_service import SteamService
 from src.infrastructure.db.database import get_async_db
-from src.infrastructure.db.repository.users_repository import UsersRepository
-from src.infrastructure.logging.logger import logger
-from src.infrastructure.steam_analytic_api.steam_client import SteamAnalyticsAPIClient
+from src.infrastructure.logging.logger import Logger
 from src.shared.config import steam_message_menu
+from src.shared.depends import get_steam_service
 
 router = Router()
-steam_service = SteamService(
-    steam_client=SteamAnalyticsAPIClient(),
-    users_repository = UsersRepository()
-)
-steam_style_text = SteamStyleText()
-
+steam_service = get_steam_service()
+logger = Logger(name="api.steam_callback",file_path="api")
+steam_style_text = SteamStyleText(logger=logger)
 
 #Callbacks
 @router.callback_query(F.data == "search_game")

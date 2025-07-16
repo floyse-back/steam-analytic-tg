@@ -1,7 +1,16 @@
+from datetime import date
 from typing import Optional, List, Dict, Union
 
 from pydantic import BaseModel, field_validator
 
+class CalendarEventModel(BaseModel):
+    name: Optional[str]
+    date_start: date
+    date_end: date
+    type_name: Optional[str] = 'festival'
+
+    class Config:
+        from_attributes = True
 
 class GameShortModel(BaseModel):
     name:str
@@ -33,6 +42,46 @@ class GameShortListModel(BaseModel):
     negative:Optional[int]
     average_forever:Optional[int]
     img_url:Optional[str]
+
+class CategoryOut(BaseModel):
+    category_id: int
+    category_name: str
+
+    class Config:
+        from_attributes = True
+
+class GanresOut(BaseModel):
+    ganres_id: int
+    ganres_name: str
+
+    class Config:
+        from_attributes = True
+
+class PublisherOut(BaseModel):
+    publisher_id: int
+    publisher_name: str
+
+    class Config:
+        from_attributes = True
+
+class GameFullModel(BaseModel):
+    steam_appid: int
+    name: str
+    is_free: Optional[bool] = None
+    short_description: Optional[str] = None
+    final_price: Optional[int] = None
+    final_formatted_price: Optional[str] = None
+    metacritic: Optional[str] = None
+    discount: Optional[int] = None
+    recomendations: Optional[int] = None
+    release_data: Optional[date] = None
+
+    game_ganre: List[GanresOut]
+    game_publisher: List[PublisherOut]
+    game_categories: List[CategoryOut]
+
+    class Config:
+        from_attributes = True
 
 class GameForYouModel(BaseModel):
     appid:Union[int]
@@ -106,5 +155,8 @@ class GameAppidValidatedModel(BaseModel):
             raise ValueError(f"steam_appid must be an integer, not {v}")
         return v
 
-def transform_to_dto(model:BaseModel,orm:dict):
-    return model.model_validate(orm).model_dump()
+def transform_to_dto(model:BaseModel,orm:dict,model_dump=True):
+    if model_dump:
+        return model.model_validate(orm).model_dump()
+    else:
+        return model.model_validate(orm)

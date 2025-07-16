@@ -47,8 +47,10 @@ class PlayerStyleText:
         return "<s><b>Примітка:</b></s>\n" + "\n".join(messages)
 
     def __format_date(self,date:Optional[Union[datetime.date,int]]) -> str:
-        if isinstance(date, int):
+        if isinstance(date, int) and date!=-1:
             date = self.__change_int_to_date(date)
+        if date == -1:
+            return "-"
         return date.strftime("%Y.%m.%d") if date else "-"
 
     def __change_int_to_date(self,date:int):

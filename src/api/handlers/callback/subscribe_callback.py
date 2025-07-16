@@ -6,19 +6,17 @@ from src.api.keyboards.subscribes.subscribe_keyboards import create_inline_subsc
     create_subscribes_keyboard, create_unsubscribes_keyboard, inline_back_subscribe_menu
 from src.api.presentation.subscribe_style_text import SubscribeStyleText
 from src.api.utils.sub_utils import subscribe_correct
-from src.application.services.subscribe_service import SubscribeService
 from src.infrastructure.db.database import get_async_db
-from src.infrastructure.db.repository.users_repository import UsersRepository
-from src.infrastructure.logging.logger import logger
+from src.infrastructure.logging.logger import Logger
 from src.shared.config import subscribes_message_menu
+from src.shared.depends import get_subscribes_service
 from src.shared.subscribe_types import SUBSCRIBES_TYPE_DATA_REVERSE, SUBSCRIBES_TYPE_DATA
 
 router = Router()
+logger = Logger(name="api.subscribe_callback",file_path="api")
 
 subscribes_list = [i for i in list(SUBSCRIBES_TYPE_DATA.values())]
-subscribes_service = SubscribeService(
-    users_repository=UsersRepository()
-)
+subscribes_service = get_subscribes_service()
 
 subscribes_style_text = SubscribeStyleText()
 
@@ -46,7 +44,7 @@ async def callback_subscribe(callback_query: CallbackQuery):
 
 @router.callback_query(lambda c:c.data.startswith("subscribe_user"))
 async def callback_subscribe_confirm(callback_query: CallbackQuery):
-    subscribe_type_id,user_id=subscribe_correct(callback_query=callback_query)
+    subscribe_type_id,user_id=subscribe_correct(callback_query=callback_query,logger=logger)
     logger.debug("Logger Debug Sub Type %s",subscribe_type_id)
     if subscribe_type_id is None:
         return None

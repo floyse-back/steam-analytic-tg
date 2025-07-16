@@ -1,5 +1,7 @@
 from src.infrastructure.db.database import get_async_db
-from src.infrastructure.logging.logger import logger
+from src.infrastructure.logging.logger import Logger
+from src.infrastructure.logging.logger_conf import startup_logger_configure
+from src.infrastructure.messages.consumer import consumer_news, consumer_subscribes
 from src.shared.config import TELEGRAM_API_TOKEN
 from aiogram import Bot, Dispatcher
 
@@ -30,10 +32,17 @@ dp.include_routers(user_router,user_callback_router,
 
 
 async def main():
+    #Створення logger config and logger api.main
+    startup_logger_configure()
+    logger = Logger(name="api.main",file_path="api")
+    #Створення
     async for session in get_async_db():
         await init_subscribe_types(session=session)
         break
-
+    #Створення Слухачів
+    asyncio.create_task(consumer_news())
+    asyncio.create_task(consumer_subscribes())
+    #
     bot = Bot(token=TELEGRAM_API_TOKEN)
     logger.info("Start Telegram Bot...")
     await dp.start_polling(bot)

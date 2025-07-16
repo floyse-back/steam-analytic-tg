@@ -13,16 +13,16 @@ from src.application.usecases.get_user_use_case import GetUserUseCase
 from src.application.usecases.most_played_games_use_case import MostPlayedGamesUseCase
 from src.application.usecases.search_games_use_case import SearchGamesUseCase
 from src.application.usecases.suggest_game_use_case import GetSuggestGameUseCase
+from src.domain.logger import ILogger
 from src.domain.user_context.repository import IUsersRepository
-from src.infrastructure.logging.logger import logger
 from src.infrastructure.steam_analytic_api.steam_client import SteamAnalyticsAPIClient
 from src.shared.dispatcher import DispatcherCommands
 
 
 class SteamService:
-    def __init__(self,steam_client:SteamAnalyticsAPIClient,users_repository:IUsersRepository):
+    def __init__(self,steam_client:SteamAnalyticsAPIClient,users_repository:IUsersRepository,logger:ILogger):
         self.steam_client = steam_client
-
+        self.logger = logger
         self.dispatcher_command = DispatcherCommands(
             command_map={
                 "search_game":self.search_games,
@@ -38,12 +38,14 @@ class SteamService:
         )
         self.discount_games_use_case = DiscountsGameUseCase(
             steam_client = self.steam_client,
+            logger = logger
         )
         self.most_played_games_use_case = MostPlayedGamesUseCase(
             steam_client = self.steam_client,
         )
         self.games_for_you_use_case = GamesGameForYouUseCase(
             steam_client = self.steam_client,
+            logger = logger
         )
         self.discount_for_you_use_case = DiscountsGameForYouUseCase(
             steam_client = self.steam_client,
@@ -53,6 +55,7 @@ class SteamService:
         )
         self.achievements_game_use_case = AchievementsGameUseCase(
             steam_client = self.steam_client,
+            logger = logger
         )
         self.suggest_game_use_case = GetSuggestGameUseCase(
             steam_client = self.steam_client
@@ -61,7 +64,8 @@ class SteamService:
             steam_client = self.steam_client
         )
         self.get_user_use_case = GetUserUseCase(
-            users_repository=users_repository
+            users_repository=users_repository,
+            logger=logger
         )
 
     async def search_games(self,name,page:int=1,limit:int=5,share:bool=True)->List[Optional[Union[GameShortModel,GameListModel]]]:
@@ -108,13 +112,11 @@ class SteamService:
 
     async def get_player(self,telegram_appid:int,session):
         data:Optional[int] = await self.get_user_use_case.execute(user_id=telegram_appid,session=session)
-        logger.info("Steam Appid From Steam Service,%s",data)
+        self.logger.info("Steam Appid From Steam Service,%s",data)
         if data is None:
             return None
-        logger.info("Steam Appid From Steam Service,%s",data)
+        self.logger.info("Steam Appid From Steam Service,%s",data)
         return data
-
-
 
     async def dispatcher(self,command_name,*args,**kwargs):
         return await self.dispatcher_command.dispatch(command_name, *args, **kwargs)

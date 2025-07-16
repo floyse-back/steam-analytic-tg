@@ -15,25 +15,28 @@ from src.application.usecases.remove_wishlist_game import RemoveWishlistGameUseC
 from src.application.usecases.search_games_use_case import SearchGamesUseCase
 from src.application.usecases.steamid_correct_use_case import SteamIDCorrectUseCase
 from src.application.usecases.update_user_use_case import UpdateUserUseCase
+from src.domain.logger import ILogger
 from src.domain.user_context.repository import IUsersRepository, IWishlistRepository
 from src.infrastructure.db.database import get_async_db
-from src.infrastructure.logging.logger import logger
 from src.infrastructure.steam_analytic_api.steam_client import SteamAnalyticsAPIClient
 
 
 class UsersService:
-    def __init__(self,users_repository:IUsersRepository,steam_client:SteamAnalyticsAPIClient,wishlist_repository:IWishlistRepository):
+    def __init__(self,users_repository:IUsersRepository,steam_client:SteamAnalyticsAPIClient,wishlist_repository:IWishlistRepository,logger:ILogger):
         self.create_user_use_case = CreateUserUseCase(
-            users_repository=users_repository
+            users_repository=users_repository,
+            logger = logger
         )
         self.get_player_full_stats_use_case = PlayerFullStatsUseCase(
-            steam_client=steam_client
+            steam_client=steam_client,
+            logger = logger
         )
         self.check_user_steam_id_use_case = CheckUserSteamIDUseCase(
             users_repository=users_repository
         )
         self.get_user_use_case = GetUserUseCase(
-            users_repository=users_repository
+            users_repository=users_repository,
+            logger = logger
         )
         self.update_user_use_case = UpdateUserUseCase(
             users_repository=users_repository
@@ -42,7 +45,8 @@ class UsersService:
             steam_client = steam_client
         )
         self.get_player_steam_id_use_case = GetUserUseCase(
-            users_repository=users_repository
+            users_repository=users_repository,
+            logger=logger
         )
         self.search_games_short_use_case = SearchGamesUseCase(
             steam_client=steam_client
@@ -65,6 +69,7 @@ class UsersService:
         self.remove_wishlist_game_use_case = RemoveWishlistGameUseCase(
             users_repository=users_repository
         )
+        self.logger = logger
 
     async def update_or_register_user(self,user_id,steam_user:Optional[str]=None)->Optional[bool]:
         """
@@ -83,21 +88,23 @@ class UsersService:
                 await self.create_user_use_case.execute(user_id=user_id,steam_id=steam_appid['steam_appid'],session=session)
             else:
                 await self.update_user_use_case.execute(user=user,session=session,steam_id=steam_appid["steam_appid"])
-                logger.debug("Error Update User Use Case %s,%s User:",user_id,steam_appid,user)
+                self.logger.debug("Error Update User Use Case %s,%s User:",user_id,steam_appid,user)
             return True
 
     async def check_register_steam_id_user(self,user_id,session):
         data = await self.check_user_steam_id_use_case.execute(user_id=user_id,session=session)
         return data
 
-    async def get_profile_user(self,telegram_id:int,session):
+    async def get_profile_user(self,telegram_id:int,session,account=True):
         """
         Повертає False коли користувач або не зареєстрований або не ввів steam_appid
         """
         steam_appid = await self.get_player_steam_id_use_case.execute(user_id=telegram_id,session=session)
         if steam_appid is None:
             return False
-        return await self.get_player_full_stats_use_case.execute(user=steam_appid)
+        if account == True:
+            return await self.get_player_full_stats_use_case.execute(user=steam_appid)
+        return True
 
     async def search_games_short(self,name:str,page:int=1,limit:int=5):
         data = await self.search_games_short_use_case.execute(name=name,page=page,limit=limit,share=False)
@@ -107,26 +114,26 @@ class UsersService:
 
     async def add_wishlist_game(self, game:int,user_id:int,session)->bool:
         user_model = await self.get_user_use_case.execute(user_id=user_id,session=session,integer=False,other_models ="wishlist")
-        logger.debug("Start Find User_Model %s",user_model)
+        self.logger.debug("Start Find User_Model %s",user_model)
         if user_model is None:
             return False
         if wishlist_model:= await self.get_wishlist_use_case.execute(game_id=game,session=session):
-            logger.debug("WishlistModel finded %s",wishlist_model)
+            self.logger.debug("WishlistModel finded %s",wishlist_model)
             pass
         else:
             #Відбувається запит до SteamAnalytic для отримання гри по Appid потім відбувається серіалізація
             #І занесення до бази даних нового wishlist.
             #І вже аж тоді додання до user нового wishlist.
-            logger.debug("WishlistModel don`t found %s",wishlist_model)
+            self.logger.debug("WishlistModel don`t found %s",wishlist_model)
             data:Optional[GamesToWishlist] = await self.get_games_to_wishlist_use_case.execute(steam_appid=game)
-            logger.debug("Start Find Wishlist_Model %s",data)
+            self.logger.debug("Start Find Wishlist_Model %s",data)
             if data is None:
                 return False
             if data.price_overview is None:
                 wishlist_model=await self.create_wishlist_use_case.execute(game_id=data.steam_appid,name=data.name,short_desc=data.short_description,discount=0,price=0,session=session,back_response=True)
             else:
                 wishlist_model=await self.create_wishlist_use_case.execute(game_id=data.steam_appid,name=data.name,short_desc=data.short_description,discount=data.price_overview.discount_percent,price=data.price_overview.final,session=session,back_response=True)
-        logger.debug("Wishlist Model %s",wishlist_model)
+        self.logger.debug("Wishlist Model %s",wishlist_model)
         return await self.add_wishlist_game_use_case.execute(wishlist=wishlist_model,user=user_model,session=session)
 
     async def remove_wishlist_game(self,user_id:int,game_id:int,session)->Optional[bool]:

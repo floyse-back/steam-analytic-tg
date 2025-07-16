@@ -7,6 +7,10 @@ class ISubscribeRepository(ABC):
     async def get_subscribe_type(self,type:int,session):
         pass
 
+    @abstractmethod
+    def get_user_id_from_subscribes_type(self,type_id:int,session):
+        pass
+
 class ISubscribesTypesRepository(ABC):
     @abstractmethod
     async def delete_subscribe_types(self,session):

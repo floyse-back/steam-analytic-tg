@@ -10,7 +10,6 @@ from src.api.presentation.main_style_text import MainStyleText
 from src.api.utils.state import ProfileSteamName
 from src.application.services.users_service import UsersService
 from src.infrastructure.db.database import get_async_db
-from src.infrastructure.logging.logger import logger
 
 
 async def create_page_message(callback_query:CallbackQuery,callback_data:str,page,data:Optional[Union[BaseModel,dict]],response:str,limit:int=5):

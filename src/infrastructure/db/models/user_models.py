@@ -10,7 +10,7 @@ from sqlalchemy.orm import mapped_column, Mapped, relationship
 users_to_whishlist = Table(
     "users_to_whishlist",
     Base.metadata,
-    Column("user_id", BigInteger, ForeignKey("users.id"), primary_key=True),
+    Column("user_id", BigInteger, ForeignKey("users.id",ondelete="CASCADE"), primary_key=True),
     Column("game_id", Integer, ForeignKey("wishlist.game_id"), primary_key=True)
 )
 

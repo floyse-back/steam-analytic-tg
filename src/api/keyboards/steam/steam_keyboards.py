@@ -3,7 +3,6 @@ from typing import List, Union, Optional
 from aiogram.utils.keyboard import InlineKeyboardButton,InlineKeyboardMarkup, InlineKeyboardBuilder
 
 from src.application.dto.steam_dto import GameListModel
-from src.infrastructure.logging.logger import logger
 from src.shared.config import steam_commands
 
 async def create_inline_steam_commands():
@@ -138,7 +137,6 @@ def create_search_share_keyboards(callback_data:str,value:str,data:List[GameList
         mark_up=False
     )
     start_value = (page-1)*limit+1
-    logger.debug("Search Share Keyboards:%s", data)
     for i,model in enumerate(data):
         inline_keyboard.add(
             InlineKeyboardButton(

@@ -1,7 +1,6 @@
 from aiogram import Router
 from aiogram.enums import ParseMode
 from aiogram.exceptions import TelegramBadRequest
-from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
 from aiogram.types import Message
 
@@ -11,21 +10,16 @@ from src.api.keyboards.steam.steam_keyboards import create_inline_steam_commands
 from src.api.presentation.steam_style_text import SteamStyleText
 from src.application.dto.steam_dto import GameAppidValidatedModel
 from src.application.dto.users_dto import SteamVanityNameCorrection
-from src.application.services.steam_service import SteamService
-from src.infrastructure.db.repository.users_repository import UsersRepository
-from src.infrastructure.logging.logger import logger
-from src.infrastructure.steam_analytic_api.steam_client import SteamAnalyticsAPIClient
+from src.infrastructure.logging.logger import Logger
 from src.shared.config import MainMenu, steam_message_menu
 from src.api.utils.state import SteamGamesID, PlayerSteamName
+from src.shared.depends import get_steam_service
 
 router = Router(name=__name__)
 
-steam_service = SteamService(
-    steam_client= SteamAnalyticsAPIClient(),
-    users_repository=UsersRepository()
-)
-
-steam_style_text = SteamStyleText()
+steam_service = get_steam_service()
+logger = Logger(name="api.player_callback",file_path="api")
+steam_style_text = SteamStyleText(logger=logger)
 
 @router.message(lambda message: message.text == f"{MainMenu.steam}")
 async def steam_main(message: Message):

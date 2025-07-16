@@ -1,0 +1,50 @@
+2025-07-16 16:55:08,539 - api.startup - INFO - Init subscribe types
+2025-07-16 16:55:08,610 - api.startup - INFO - Init subscribe types done
+2025-07-16 16:55:08,769 - api.main - INFO - Start Telegram Bot...
+2025-07-16 16:55:20,342 - api.startup - INFO - Init subscribe types
+2025-07-16 16:55:20,418 - api.startup - INFO - Init subscribe types done
+2025-07-16 16:55:20,585 - api.main - INFO - Start Telegram Bot...
+2025-07-16 16:58:54,198 - api.startup - INFO - Init subscribe types
+2025-07-16 16:58:54,271 - api.startup - INFO - Init subscribe types done
+2025-07-16 16:58:54,417 - api.main - INFO - Start Telegram Bot...
+2025-07-16 17:01:05,538 - api.startup - INFO - Init subscribe types
+2025-07-16 17:01:05,607 - api.startup - INFO - Init subscribe types done
+2025-07-16 17:01:05,761 - api.main - INFO - Start Telegram Bot...
+2025-07-16 17:02:31,924 - api.startup - INFO - Init subscribe types
+2025-07-16 17:02:31,993 - api.startup - INFO - Init subscribe types done
+2025-07-16 17:02:32,150 - api.main - INFO - Start Telegram Bot...
+2025-07-16 17:07:06,993 - api.startup - INFO - Init subscribe types
+2025-07-16 17:07:07,183 - api.startup - INFO - Init subscribe types done
+2025-07-16 17:07:07,344 - api.main - INFO - Start Telegram Bot...
+2025-07-16 17:08:50,595 - api.startup - INFO - Init subscribe types
+2025-07-16 17:08:50,667 - api.startup - INFO - Init subscribe types done
+2025-07-16 17:08:50,829 - api.main - INFO - Start Telegram Bot...
+2025-07-16 17:10:36,155 - api.startup - INFO - Init subscribe types
+2025-07-16 17:10:36,231 - api.startup - INFO - Init subscribe types done
+2025-07-16 17:10:36,394 - api.main - INFO - Start Telegram Bot...
+2025-07-16 17:54:13,437 - api.subscribe_callback - DEBUG - Logger Debug Sub Type subscribe_new_events
+2025-07-16 17:54:13,438 - api.subscribe_callback - DEBUG - Logger Debug Sub Type {'type_id': 3, 'description': '📅🎉 <b>Ігрові події</b>\nФестивалі, розпродажі, оновлення — усе найцікавіше зі світу Steam! Будь у центрі подій 🎊📢'}
+2025-07-16 18:04:59,771 - api.startup - INFO - Init subscribe types
+2025-07-16 18:04:59,838 - api.startup - INFO - Init subscribe types done
+2025-07-16 18:04:59,992 - api.main - INFO - Start Telegram Bot...
+2025-07-16 18:07:28,136 - api.subscribe_callback - DEBUG - Logger Debug Sub Type subscribe_new_release
+2025-07-16 18:07:28,136 - api.subscribe_callback - DEBUG - Logger Debug Sub Type {'type_id': 1, 'description': '🆕🎮 <b>Нові релізи</b>\nХочеш бути першим, хто дізнається про нові ігри у Steam? Ми сповістимо тебе одразу після релізу! 🚀✨'}
+2025-07-16 18:07:29,770 - api.subscribe_callback - DEBUG - callback_split_data: ['subscribe_user', '1', '5366078830']
+2025-07-16 18:07:29,771 - api.subscribe_callback - DEBUG - user_id: 5366078830 vs callback_query.from_user.id = 5366078830
+2025-07-16 18:07:29,771 - api.subscribe_callback - DEBUG - Logger Debug Sub Type 1
+2025-07-16 18:07:32,641 - api.subscribe_callback - DEBUG - Logger Debug Sub Type subscribe_hot_discount_notificate
+2025-07-16 18:07:32,642 - api.subscribe_callback - DEBUG - Logger Debug Sub Type {'type_id': 6, 'description': '🔥💸 <b>Гарячі знижки</b>\nНе пропусти шалені знижки на топові ігри! Найкращі пропозиції — прямо до тебе 🛍️🚨'}
+2025-07-16 18:07:33,868 - api.subscribe_callback - DEBUG - callback_split_data: ['subscribe_user', '6', '5366078830']
+2025-07-16 18:07:33,868 - api.subscribe_callback - DEBUG - user_id: 5366078830 vs callback_query.from_user.id = 5366078830
+2025-07-16 18:07:33,869 - api.subscribe_callback - DEBUG - Logger Debug Sub Type 6
+2025-07-16 18:07:36,934 - api.subscribe_callback - DEBUG - Logger Debug Sub Type subscribe_wishlist_notificate
+2025-07-16 18:07:36,934 - api.subscribe_callback - DEBUG - Logger Debug Sub Type {'type_id': 5, 'description': '🔔💖 <b>Знижки на бажане</b>\nМрієш про гру зі списку бажаного? Ми нагадаємо, коли вона отримає знижку! 🎯🎮'}
+2025-07-16 18:08:33,219 - api.startup - INFO - Init subscribe types
+2025-07-16 18:08:33,291 - api.startup - INFO - Init subscribe types done
+2025-07-16 18:08:33,455 - api.main - INFO - Start Telegram Bot...
+2025-07-16 18:09:45,866 - api.player_callback - DEBUG - Callback_query player_badges
+2025-07-16 18:09:45,876 - api.player_callback - INFO - Steam appid: 76561199028668211
+2025-07-16 18:09:46,991 - api.player_callback - DEBUG - Callback_query player_badges:76561199028668211:
+2025-07-16 18:09:54,267 - api.player_callback - DEBUG - Callback_query player_rating
+2025-07-16 18:09:54,275 - api.player_callback - INFO - Steam appid: 76561199028668211
+2025-07-16 18:09:56,069 - api.player_callback - DEBUG - Callback_query player_rating:76561199028668211:

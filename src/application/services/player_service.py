@@ -4,24 +4,30 @@ from src.application.usecases.player_full_stats_use_case import PlayerFullStatsU
 from src.application.usecases.player_get_budges import GetPlayerBudgesUseCase
 from src.application.usecases.player_player_rating_use_case import GetPlayerRatingUseCase
 from src.application.usecases.steamid_correct_use_case import SteamIDCorrectUseCase
+from src.domain.logger import ILogger
 from src.domain.user_context.repository import IUsersRepository
 from src.infrastructure.steam_analytic_api.steam_client import SteamAnalyticsAPIClient
 from src.shared.dispatcher import DispatcherCommands
 
 
 class PlayerService:
-    def __init__(self,steam_client:SteamAnalyticsAPIClient,users_repository:IUsersRepository):
+    def __init__(self,steam_client:SteamAnalyticsAPIClient,users_repository:IUsersRepository,logger:ILogger):
+        self.logger = logger
         self.get_player_full_stats_use_case = PlayerFullStatsUseCase(
-            steam_client=steam_client
+            steam_client=steam_client,
+            logger=logger
         )
         self.get_player_budges_use_case = GetPlayerBudgesUseCase(
-            steam_client=steam_client
+            steam_client=steam_client,
+            logger=logger
         )
         self.get_player_battle_use_case = GetPlayerBattleUseCase(
-            steam_client=steam_client
+            steam_client=steam_client,
+            logger=logger
         )
         self.get_player_rating_use_case = GetPlayerRatingUseCase(
-            steam_client=steam_client
+            steam_client=steam_client,
+            logger=logger
         )
         self.get_vanity_use_case = SteamIDCorrectUseCase(
             steam_client = steam_client
@@ -35,7 +41,8 @@ class PlayerService:
             }
         )
         self.get_player_steam_id_use_case = GetUserUseCase(
-            users_repository=users_repository
+            users_repository=users_repository,
+            logger=logger
         )
 
     async def get_player_badges(self,user):

@@ -1,13 +1,14 @@
 from typing import Optional
 
+from src.domain.logger import ILogger
 from src.domain.user_context.models import Users
 from src.domain.user_context.repository import IUsersRepository
-from src.infrastructure.logging.logger import logger
 
 
 class GetUserUseCase:
-    def __init__(self,users_repository:IUsersRepository):
+    def __init__(self,users_repository:IUsersRepository,logger:ILogger):
         self.users_repository=users_repository
+        self.logger = logger
 
     async def execute(self,user_id:int,session,integer:bool=True,other_models:Optional[str]=None):
         """
@@ -21,7 +22,7 @@ class GetUserUseCase:
 
         else:
             user:Users= await self.users_repository.get_user(user_id=user_id,session=session)
-        logger.debug("Steam Appid From Use Case,%s",user)
+        self.logger.debug("Steam Appid From Use Case,%s",user)
         if user is None:
             return None
         if integer:
