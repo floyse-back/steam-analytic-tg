@@ -57,7 +57,7 @@ async def callback_subscribe_confirm(callback_query: CallbackQuery):
 
 @router.callback_query(lambda c:c.data.startswith("unsubscribe_user"))
 async def callback_unsubscribe_confirm(callback_query: CallbackQuery):
-    subscribe_type_id,user_id=subscribe_correct(callback_query=callback_query)
+    subscribe_type_id,user_id=subscribe_correct(callback_query=callback_query,logger=logger)
     if subscribe_type_id is None:
         return None
     async for session in get_async_db():

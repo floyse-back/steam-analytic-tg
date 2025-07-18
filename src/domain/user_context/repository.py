@@ -1,8 +1,7 @@
 from abc import ABC,abstractmethod
 from typing import Optional, List
 
-from src.domain.user_context.models import Users, Game
-from src.infrastructure.db.models import Wishlist
+from src.domain.user_context.models import Users, Game,Wishlist
 
 
 class IUsersRepository(ABC):
@@ -67,10 +66,6 @@ class IUsersRepository(ABC):
 
 class IWishlistRepository(ABC):
     @abstractmethod
-    async def update_game_wishlist(self,game_id:int,name:str,short_desc:Optional[str],price:int,session)->None:
-        pass
-
-    @abstractmethod
     async def get_game_wishlist(self,game_id:int,session)->Optional[Game]:
         pass
 
@@ -78,5 +73,16 @@ class IWishlistRepository(ABC):
     async def create_wishlist(self,game_id:int,name:str,short_desc:str,discount:int,price:int,session,back_response:bool = False) ->Optional["Wishlist"]:
         pass
 
+    @abstractmethod
+    def get_game_node_wishlist(self,page:int,limit:int,session)->Optional[List[Wishlist]]:
+        pass
+
+    @abstractmethod
+    def upsert_wishlist_games(self, data:List[dict], session):
+        pass
+
+    @abstractmethod
+    def get_games_changed(self, session, data:List[dict]):
+        pass
 
 

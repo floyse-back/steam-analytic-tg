@@ -19,6 +19,7 @@ def news_send_message(type_news:str,data:List[dict]):
         model = CalendarEventModel
     else:
         model = GameFullModel
+    logger.debug("Last Data %s",data)
     new_data = [transform_to_dto(model,i,model_dump=False) for i in data]
     if len(new_data) == 1:
         new_data = new_data[0:1]

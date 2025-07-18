@@ -58,7 +58,7 @@ class GanresOut(BaseModel):
         from_attributes = True
 
 class PublisherOut(BaseModel):
-    publisher_id: int
+    publisher_id: Optional[int] = None
     publisher_name: str
 
     class Config:
@@ -75,6 +75,7 @@ class GameFullModel(BaseModel):
     discount: Optional[int] = None
     recomendations: Optional[int] = None
     release_data: Optional[date] = None
+    img_url:Optional[str] = None
 
     game_ganre: List[GanresOut]
     game_publisher: List[PublisherOut]
@@ -139,6 +140,14 @@ class GamesForYouModel(BaseModel):
     recomendations:Optional[int]
     metacritic:Optional[str]
 
+class ChangedGamesWishlistModel(BaseModel):
+    steam_appid:Optional[int]
+    name:int
+    short_description:Optional[str]
+    price_now:int
+    discount_now:int
+    price_before:int
+    discount_before:int
 
 class GameAppidValidatedModel(BaseModel):
     steam_appid:Optional[str]

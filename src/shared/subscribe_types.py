@@ -2,10 +2,9 @@
 SUBSCRIBES_TYPE_DATA = {
     1:"subscribe_new_release",
     2:"subscribe_free_games",
-    3:"subscribe_new_events",
-    4:"subscribe_steam_news",
-    5:"subscribe_wishlist_notificate",
-    6:"subscribe_hot_discount_notificate"
+    3:"subscribe_steam_news",
+    4:"subscribe_wishlist_notificate",
+    5:"subscribe_hot_discount_notificate"
 }
 
 SUBSCRIBES_TYPE_DATA_REVERSE = {
@@ -17,20 +16,16 @@ SUBSCRIBES_TYPE_DATA_REVERSE = {
         "type_id": 2,
         "description": "🎁🕹️ <b>Безкоштовні ігри</b>\nНе плати — просто грай! Ми підкажемо, коли і які ігри можна отримати абсолютно безкоштовно 💸🤑"
     },
-    "subscribe_new_events": {
+    "subscribe_steam_news": {
         "type_id": 3,
         "description": "📅🎉 <b>Ігрові події</b>\nФестивалі, розпродажі, оновлення — усе найцікавіше зі світу Steam! Будь у центрі подій 🎊📢"
     },
-    "subscribe_steam_news": {
-        "type_id": 4,
-        "description": "📰💬 <b>Новини Steam</b>\nОфіційні новини, важливі оновлення, великі анонси — усе це ти отримаєш просто в Telegram 🧠📲"
-    },
     "subscribe_wishlist_notificate": {
-        "type_id": 5,
+        "type_id": 4,
         "description": "🔔💖 <b>Знижки на бажане</b>\nМрієш про гру зі списку бажаного? Ми нагадаємо, коли вона отримає знижку! 🎯🎮"
     },
     "subscribe_hot_discount_notificate": {
-        "type_id": 6,
+        "type_id": 5,
         "description": "🔥💸 <b>Гарячі знижки</b>\nНе пропусти шалені знижки на топові ігри! Найкращі пропозиції — прямо до тебе 🛍️🚨"
     }
 }

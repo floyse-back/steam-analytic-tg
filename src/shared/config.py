@@ -70,7 +70,7 @@ player_message_menu = "Оберіть команду, пов’язану з г�
 subscribes_commands: dict[str, str] = {
     "🆕 Нові релізи": "subscribe_new_release",
     "🆓 Безкоштовні ігри": "subscribe_free_games",
-    "📅 Івенти та події": "subscribe_new_events",
+    "📅 Івенти та події": "subscribe_steam_news",
     "🔔 Бажані ігри зі знижками": "subscribe_wishlist_notificate",
     "🔥 Гарячі знижки": "subscribe_hot_discount_notificate",
     "📋 Переглянути всі категорії":"chose_category"

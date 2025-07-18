@@ -41,5 +41,6 @@ def get_subscribes_service()->SubscribeService:
     return SubscribeService(
         users_repository=get_user_repository(),
         subscribes_repository=SubscribeRepository(),
-        logger = Logger(name="application.subscribes_service",file_path="application")
+        logger = Logger(name="application.subscribes_service",file_path="application"),
+        wishlist_repository=WishlistRepository()
     )

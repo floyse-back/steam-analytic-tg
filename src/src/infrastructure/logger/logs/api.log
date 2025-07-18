@@ -48,3 +48,196 @@
 2025-07-16 18:09:54,267 - api.player_callback - DEBUG - Callback_query player_rating
 2025-07-16 18:09:54,275 - api.player_callback - INFO - Steam appid: 76561199028668211
 2025-07-16 18:09:56,069 - api.player_callback - DEBUG - Callback_query player_rating:76561199028668211:
+2025-07-16 23:01:32,693 - api.startup - INFO - Init subscribe types
+2025-07-16 23:01:32,897 - api.startup - INFO - Init subscribe types done
+2025-07-16 23:01:33,064 - api.main - INFO - Start Telegram Bot...
+2025-07-16 23:03:02,293 - api.startup - INFO - Init subscribe types
+2025-07-16 23:03:02,393 - api.startup - INFO - Init subscribe types done
+2025-07-16 23:03:02,581 - api.main - INFO - Start Telegram Bot...
+2025-07-16 23:03:16,361 - api.player_callback - DEBUG - Callback_query player_rating
+2025-07-16 23:03:16,364 - api.player_callback - INFO - Steam appid: 76561199028668211
+2025-07-17 11:03:56,552 - api.startup - INFO - Init subscribe types
+2025-07-17 11:03:56,627 - api.startup - INFO - Init subscribe types done
+2025-07-17 11:03:56,793 - api.main - INFO - Start Telegram Bot...
+2025-07-17 11:15:25,082 - api.startup - INFO - Init subscribe types
+2025-07-17 11:15:25,154 - api.startup - INFO - Init subscribe types done
+2025-07-17 11:15:25,334 - api.main - INFO - Start Telegram Bot...
+2025-07-17 11:57:36,179 - api.subscribe_callback - DEBUG - Logger Debug Sub Type subscribe_new_events
+2025-07-17 11:57:36,180 - api.subscribe_callback - DEBUG - Logger Debug Sub Type {'type_id': 3, 'description': '📅🎉 <b>Ігрові події</b>\nФестивалі, розпродажі, оновлення — усе найцікавіше зі світу Steam! Будь у центрі подій 🎊📢'}
+2025-07-17 11:58:40,272 - api.startup - INFO - Init subscribe types
+2025-07-17 11:58:40,347 - api.startup - INFO - Init subscribe types done
+2025-07-17 11:58:40,502 - api.main - INFO - Start Telegram Bot...
+2025-07-17 12:04:01,227 - api.startup - INFO - Init subscribe types
+2025-07-17 12:04:01,296 - api.startup - INFO - Init subscribe types done
+2025-07-17 12:04:01,446 - api.main - INFO - Start Telegram Bot...
+2025-07-17 12:12:46,726 - api.startup - INFO - Init subscribe types
+2025-07-17 12:12:46,798 - api.startup - INFO - Init subscribe types done
+2025-07-17 12:12:46,947 - api.main - INFO - Start Telegram Bot...
+2025-07-17 12:14:11,069 - api.subscribe_callback - DEBUG - Logger Debug Sub Type subscribe_new_events
+2025-07-17 12:14:11,069 - api.subscribe_callback - DEBUG - Logger Debug Sub Type {'type_id': 3, 'description': '📅🎉 <b>Ігрові події</b>\nФестивалі, розпродажі, оновлення — усе найцікавіше зі світу Steam! Будь у центрі подій 🎊📢'}
+2025-07-17 12:14:56,883 - api.startup - INFO - Init subscribe types
+2025-07-17 12:14:56,960 - api.startup - INFO - Init subscribe types done
+2025-07-17 12:14:57,121 - api.main - INFO - Start Telegram Bot...
+2025-07-17 12:15:03,827 - api.subscribe_callback - DEBUG - Logger Debug Sub Type subscribe_new_events
+2025-07-17 12:15:03,827 - api.subscribe_callback - DEBUG - Logger Debug Sub Type {'type_id': 3, 'description': '📅🎉 <b>Ігрові події</b>\nФестивалі, розпродажі, оновлення — усе найцікавіше зі світу Steam! Будь у центрі подій 🎊📢'}
+2025-07-17 12:15:05,356 - api.subscribe_callback - DEBUG - callback_split_data: ['unsubscribe_user', '3', '5366078830']
+2025-07-17 12:15:05,357 - api.subscribe_callback - DEBUG - user_id: 5366078830 vs callback_query.from_user.id = 5366078830
+2025-07-17 12:15:09,139 - api.subscribe_callback - DEBUG - Logger Debug Sub Type subscribe_new_events
+2025-07-17 12:15:09,139 - api.subscribe_callback - DEBUG - Logger Debug Sub Type {'type_id': 3, 'description': '📅🎉 <b>Ігрові події</b>\nФестивалі, розпродажі, оновлення — усе найцікавіше зі світу Steam! Будь у центрі подій 🎊📢'}
+2025-07-17 12:15:10,370 - api.subscribe_callback - DEBUG - callback_split_data: ['subscribe_user', '3', '5366078830']
+2025-07-17 12:15:10,370 - api.subscribe_callback - DEBUG - user_id: 5366078830 vs callback_query.from_user.id = 5366078830
+2025-07-17 12:15:10,370 - api.subscribe_callback - DEBUG - Logger Debug Sub Type 3
+2025-07-17 12:24:31,836 - api.startup - INFO - Init subscribe types
+2025-07-17 12:24:31,913 - api.startup - INFO - Init subscribe types done
+2025-07-17 12:24:32,067 - api.main - INFO - Start Telegram Bot...
+2025-07-17 12:25:38,897 - api.subscribe_callback - DEBUG - Logger Debug Sub Type subscribe_new_release
+2025-07-17 12:25:38,897 - api.subscribe_callback - DEBUG - Logger Debug Sub Type {'type_id': 1, 'description': '🆕🎮 <b>Нові релізи</b>\nХочеш бути першим, хто дізнається про нові ігри у Steam? Ми сповістимо тебе одразу після релізу! 🚀✨'}
+2025-07-17 12:46:27,854 - api.startup - INFO - Init subscribe types
+2025-07-17 12:46:27,932 - api.startup - INFO - Init subscribe types done
+2025-07-17 12:46:28,095 - api.main - INFO - Start Telegram Bot...
+2025-07-17 12:46:56,749 - api.subscribe_callback - DEBUG - Logger Debug Sub Type subscribe_new_release
+2025-07-17 12:46:56,750 - api.subscribe_callback - DEBUG - Logger Debug Sub Type {'type_id': 1, 'description': '🆕🎮 <b>Нові релізи</b>\nХочеш бути першим, хто дізнається про нові ігри у Steam? Ми сповістимо тебе одразу після релізу! 🚀✨'}
+2025-07-17 12:47:01,044 - api.subscribe_callback - DEBUG - Logger Debug Sub Type subscribe_new_release
+2025-07-17 12:47:01,045 - api.subscribe_callback - DEBUG - Logger Debug Sub Type {'type_id': 1, 'description': '🆕🎮 <b>Нові релізи</b>\nХочеш бути першим, хто дізнається про нові ігри у Steam? Ми сповістимо тебе одразу після релізу! 🚀✨'}
+2025-07-17 12:47:02,365 - api.subscribe_callback - DEBUG - callback_split_data: ['subscribe_user', '1', '5366078830']
+2025-07-17 12:47:02,365 - api.subscribe_callback - DEBUG - user_id: 5366078830 vs callback_query.from_user.id = 5366078830
+2025-07-17 12:47:02,365 - api.subscribe_callback - DEBUG - Logger Debug Sub Type 1
+2025-07-17 12:47:05,237 - api.subscribe_callback - DEBUG - Logger Debug Sub Type subscribe_hot_discount_notificate
+2025-07-17 12:47:05,238 - api.subscribe_callback - DEBUG - Logger Debug Sub Type {'type_id': 5, 'description': '🔥💸 <b>Гарячі знижки</b>\nНе пропусти шалені знижки на топові ігри! Найкращі пропозиції — прямо до тебе 🛍️🚨'}
+2025-07-17 12:47:06,264 - api.subscribe_callback - DEBUG - callback_split_data: ['subscribe_user', '5', '5366078830']
+2025-07-17 12:47:06,264 - api.subscribe_callback - DEBUG - user_id: 5366078830 vs callback_query.from_user.id = 5366078830
+2025-07-17 12:47:06,265 - api.subscribe_callback - DEBUG - Logger Debug Sub Type 5
+2025-07-17 12:47:10,666 - api.subscribe_callback - DEBUG - Logger Debug Sub Type subscribe_free_games
+2025-07-17 12:47:10,666 - api.subscribe_callback - DEBUG - Logger Debug Sub Type {'type_id': 2, 'description': '🎁🕹️ <b>Безкоштовні ігри</b>\nНе плати — просто грай! Ми підкажемо, коли і які ігри можна отримати абсолютно безкоштовно 💸🤑'}
+2025-07-17 12:47:11,951 - api.subscribe_callback - DEBUG - callback_split_data: ['subscribe_user', '2', '5366078830']
+2025-07-17 12:47:11,951 - api.subscribe_callback - DEBUG - user_id: 5366078830 vs callback_query.from_user.id = 5366078830
+2025-07-17 12:47:11,951 - api.subscribe_callback - DEBUG - Logger Debug Sub Type 2
+2025-07-17 12:47:14,863 - api.subscribe_callback - DEBUG - Logger Debug Sub Type subscribe_steam_news
+2025-07-17 12:47:14,863 - api.subscribe_callback - DEBUG - Logger Debug Sub Type {'type_id': 3, 'description': '📅🎉 <b>Ігрові події</b>\nФестивалі, розпродажі, оновлення — усе найцікавіше зі світу Steam! Будь у центрі подій 🎊📢'}
+2025-07-17 12:47:16,865 - api.subscribe_callback - DEBUG - callback_split_data: ['subscribe_user', '3', '5366078830']
+2025-07-17 12:47:16,866 - api.subscribe_callback - DEBUG - user_id: 5366078830 vs callback_query.from_user.id = 5366078830
+2025-07-17 12:47:16,866 - api.subscribe_callback - DEBUG - Logger Debug Sub Type 3
+2025-07-17 12:47:20,902 - api.subscribe_callback - DEBUG - Logger Debug Sub Type subscribe_steam_news
+2025-07-17 12:47:20,902 - api.subscribe_callback - DEBUG - Logger Debug Sub Type {'type_id': 3, 'description': '📅🎉 <b>Ігрові події</b>\nФестивалі, розпродажі, оновлення — усе найцікавіше зі світу Steam! Будь у центрі подій 🎊📢'}
+2025-07-17 12:49:34,846 - api.startup - INFO - Init subscribe types
+2025-07-17 12:49:34,916 - api.startup - INFO - Init subscribe types done
+2025-07-17 12:49:35,070 - api.main - INFO - Start Telegram Bot...
+2025-07-17 14:07:31,842 - api.startup - INFO - Init subscribe types
+2025-07-17 14:07:31,914 - api.startup - INFO - Init subscribe types done
+2025-07-17 14:07:32,069 - api.main - INFO - Start Telegram Bot...
+2025-07-17 16:05:35,369 - api.startup - INFO - Init subscribe types
+2025-07-17 16:05:35,482 - api.startup - INFO - Init subscribe types done
+2025-07-17 16:05:35,774 - api.main - INFO - Start Telegram Bot...
+2025-07-17 16:12:09,974 - api.startup - INFO - Init subscribe types
+2025-07-17 16:12:10,060 - api.startup - INFO - Init subscribe types done
+2025-07-17 16:12:10,236 - api.main - INFO - Start Telegram Bot...
+2025-07-17 16:20:50,100 - api.startup - INFO - Init subscribe types
+2025-07-17 16:20:50,179 - api.startup - INFO - Init subscribe types done
+2025-07-17 16:20:50,355 - api.main - INFO - Start Telegram Bot...
+2025-07-17 16:22:50,063 - api.steam_callback - DEBUG - Steam Appid From Steam Service,8082953690
+2025-07-17 16:22:50,063 - api.steam_callback - DEBUG - steam_appid: 76561199028668211
+2025-07-17 16:22:52,165 - api.steam_callback - DEBUG - Discount Params games_for_you 76561199028668211 1
+2025-07-17 16:22:56,260 - api.steam_callback - INFO - Steam Data [{'steam_appid': 2160420, 'name': 'The Backrooms Multiplayer', 'final_formatted_price': '$8.99', 'total': 7938, 'discount': 0, 'short_description': "You and your friends have found a camera with a footage in it. For some reason you can't rewind the video, and as soon as you try winding it forward you all find yourself in the Backrooms. Together figure out whats in the footage and try to ESCAPE AS FAST AS POSSIBLE!", 'recomendations': 0, 'metacritic': '-1'}, {'steam_appid': 1013320, 'name': '"Firestone" Online Idle RPG', 'final_formatted_price': 'Free', 'total': 7236, 'discount': 0, 'short_description': 'Firestone: Online Idle RPG is a multiplayer fantasy game with idle rpg mechanics. Collect heroes, upgrade their gear &amp; skills, and send them in idle battles or go on an incremental clicker frenzy to beat monstrous bosses! Chat with guild friends or engage in PVP- the choice is in your hands!', 'recomendations': 0, 'metacritic': '-1'}, {'steam_appid': 394690, 'name': 'Tower Unite', 'final_formatted_price': '$13.99', 'total': 6806, 'discount': 30, 'short_description': 'PLAY, CREATE, PARTY! Tower Unite is a community-based virtual world party game with online games, entertainment, activities, and absolutely NO microtransactions.', 'recomendations': 15479, 'metacritic': '-1'}, {'steam_appid': 1124660, 'name': 'STORM AREA 51: AYY LMAO EDITION', 'final_formatted_price': '$0.49', 'total': 6672, 'discount': 51, 'short_description': "STORM AREA 51: AYY LMAO EDITION - it's time to Storm AREA 51, and see them aliens. If we Naruto Run, we can move faster than their bullets. Rock Throwers will throw pebbles (to annoy them enough to not shoot the Kyles as often). They can't stop all of us...", 'recomendations': 846, 'metacritic': '-1'}, {'steam_appid': 1071870, 'name': 'Biped', 'final_formatted_price': '$2.99', 'total': 6401, 'discount': 80, 'short_description': 'Biped is a coop action adventure game with a strong focus on moment-to-moment collaboration between 2 players.', 'recomendations': 7191, 'metacritic': '74'}]
+2025-07-17 16:23:31,488 - api.steam_callback - DEBUG - Discount Params games_for_you 76561199028668211 2
+2025-07-17 16:23:32,698 - api.steam_callback - INFO - Steam Data [{'steam_appid': 1269690, 'name': 'Attack on Toys', 'final_formatted_price': '$6.99', 'total': 6308, 'discount': 0, 'short_description': 'Relive Your Childhood Toys comes to life! Build your Army Toys, make battle scenario, watch the Toys battling each other, and customize your play with Attack on Toys Toy Box. Command your Army Toys to fight againts another toys strategically and keep them alive during battle!', 'recomendations': 973, 'metacritic': '-1'}, {'steam_appid': 2562980, 'name': 'Kwark', 'final_formatted_price': 'Free', 'total': 6147, 'discount': 0, 'short_description': 'Kwark is a single player game about a creature that has to go through levels and then something impossible happens at the end! The game can be both from 1 person and from 3!', 'recomendations': 0, 'metacritic': '-1'}, {'steam_appid': 1947280, 'name': 'KAOS SurVival', 'final_formatted_price': '$3.99', 'total': 6096, 'discount': 0, 'short_description': 'Get ready for chaos in KAOS SurVival! Explore an open world, gather resources, and build shelters to survive. Form clans, raid other players, and craft essential items. In a world where everything can be destroyed, only the strongest will reign. Prove your strength and dominate the chaos!', 'recomendations': 0, 'metacritic': '-1'}, {'steam_appid': 1419850, 'name': 'Saleblazers', 'final_formatted_price': '$14.99', 'total': 6003, 'discount': 50, 'short_description': 'Fight. Sell. Survive. Live off the land, build your perfect shop, and defend against nightly horrors in this open world survival shop simulator for 1-8 players.', 'recomendations': 1366, 'metacritic': '-1'}, {'steam_appid': 1275070, 'name': 'A Buttload of Free Games', 'final_formatted_price': 'Free', 'total': 5900, 'discount': 0, 'short_description': 'A collection of over one hundred completely free small games wrapped into one convenient launcher! Slash slimes, shoot lemons, blow kisses, take blood, and so much more in these wacky, weird, and wild games!', 'recomendations': 0, 'metacritic': '-1'}]
+2025-07-17 16:23:42,236 - api.steam_callback - DEBUG - Discount Params games_for_you 76561199028668211 3
+2025-07-17 16:23:43,544 - api.steam_callback - INFO - Steam Data [{'steam_appid': 436180, 'name': 'Spacelords', 'final_formatted_price': 'Free', 'total': 5899, 'discount': 0, 'short_description': 'Embark on an epic sci-fi, free-to-play adventure. Spacelords is a brand-new take on the shooter genre. Through its 4 vs 1 campaign, you experience both sides of the story: Join the Raiders in their fight to free the legendary Broken Planet, or switch sides and fight as the Antagonist alongside the invading hordes!', 'recomendations': 152, 'metacritic': '-1'}, {'steam_appid': 1614550, 'name': 'Astro Colony', 'final_formatted_price': '$9.99', 'total': 5707, 'discount': 50, 'short_description': 'Explore endless Universe and create the most efficient constellation of colonies. Build conveyor systems to automate production. Take care of Astronauts and their needs! Establish new colonies as part of intergalactic simulation.', 'recomendations': 1992, 'metacritic': '-1'}, {'steam_appid': 414120, 'name': 'Modbox', 'final_formatted_price': '$14.99', 'total': 5706, 'discount': 0, 'short_description': 'Modbox is a multiplayer game creation sandbox for Desktop+VR', 'recomendations': 200, 'metacritic': '-1'}, {'steam_appid': 840260, 'name': 'Endless World Idle RPG', 'final_formatted_price': 'Free', 'total': 5673, 'discount': 0, 'short_description': 'Explore the eternal landscapes of 3D Idle clicker RPG Endless World! Enjoy an epic adventure with a cast of 40+ characters. Build your army, craft unique weapons, balance your teams and set forth on an heroic saga that spans endless levels of monsters and mayhem!', 'recomendations': 0, 'metacritic': '-1'}, {'steam_appid': 1592110, 'name': 'Spirit of the Island', 'final_formatted_price': '$14.99', 'total': 5672, 'discount': 0, 'short_description': 'A beautiful Life Sim Sandbox RPG with Cross-Platform Online COOP set on a tropical Archipelago. Build your farm, grow crops and animals, craft various items, cook dishes, gather resources, build shops and museum to attract visitors, and turn a desolate Island into a prosperous tourist destination!', 'recomendations': 1101, 'metacritic': '-1'}]
+2025-07-17 16:23:50,325 - api.steam_callback - DEBUG - Discount Params games_for_you 76561199028668211 4
+2025-07-17 16:23:51,507 - api.steam_callback - INFO - Steam Data [{'steam_appid': 541300, 'name': 'Survive the Nights', 'final_formatted_price': '$4.99', 'total': 5622, 'discount': 75, 'short_description': 'Survive the Nights is a unique FPS survival game focusing on teamwork, fortification, creativity &amp; strategy. Secure a structure or roam free, the choice is yours. Gameplay focuses on realistic survival, post zombie infestation. Prepare during the day for nightfall. How many nights will you survive?', 'recomendations': 3330, 'metacritic': '-1'}, {'steam_appid': 696370, 'name': 'BROKE PROTOCOL', 'final_formatted_price': 'Free', 'total': 5467, 'discount': 0, 'short_description': 'A fully moddable city sandbox with jobs, NPCs, apartments, garages, gangs, and more. Broke Protocol is an open-world action game focused on roleplaying and custom content. Define your goals and identity in a persistent, reactive world where you write your own story.', 'recomendations': 1632, 'metacritic': '-1'}, {'steam_appid': 1339220, 'name': "Matt's Project Zombies: Open World", 'final_formatted_price': '$9.99', 'total': 5455, 'discount': 0, 'short_description': 'Take place on a Deserted Island in the middle of the ocean with very few landmarks left in sight being overrun with the Undead. Face an intense open world while you Craft equipment, Craft shelter and out-smart wildlife, bandits, and online players all while trying to survive!', 'recomendations': 0, 'metacritic': '-1'}, {'steam_appid': 204360, 'name': 'Castle Crashers®', 'final_formatted_price': '$4.49', 'total': 5213, 'discount': 70, 'short_description': 'Hack, slash, and smash your way to victory in this award winning 2D arcade adventure from The Behemoth!', 'recomendations': 97080, 'metacritic': '-1'}, {'steam_appid': 979640, 'name': 'Cepheus Protocol', 'final_formatted_price': '$15.99', 'total': 5201, 'discount': 20, 'short_description': 'Cepheus Protocol is an Open World RTS Military Survival Game. Play as the CERC hunting Patient 0, maintain Quarantine camps, fight dangerous mutations &amp; Rogue Civilian Combatants . There’s nobody else coming, it’s up to you now.', 'recomendations': 2431, 'metacritic': '-1'}]
+2025-07-17 16:23:58,926 - api.steam_callback - DEBUG - Discount Params games_for_you 76561199028668211 5
+2025-07-17 16:24:00,236 - api.steam_callback - INFO - Steam Data [{'steam_appid': 113020, 'name': "Monaco: What's Yours Is Mine", 'final_formatted_price': '$14.99', 'total': 5175, 'discount': 0, 'short_description': "Monaco: What's Yours Is Mine is a single player or co-op heist game. Assemble a crack team of thieves, case the joint, and pull off the perfect heist.", 'recomendations': 3753, 'metacritic': '83'}, {'steam_appid': 512900, 'name': 'Streets of Rogue', 'final_formatted_price': '$3.99', 'total': 5103, 'discount': 80, 'short_description': "Fight, sneak, and hack your way through randomly generated cities. It's like Nuclear Throne meets Deus Ex, mixed with the anarchy of GTA. Rogue-lite meets immersive sim, and goes completely insane.", 'recomendations': 16446, 'metacritic': '-1'}, {'steam_appid': 238460, 'name': 'BattleBlock Theater®', 'final_formatted_price': '$14.99', 'total': 5088, 'discount': 0, 'short_description': 'Welcome to BattleBlock Theater! You’ve got no where to go but up...on stage. Play single player or co-op to free your friends and save Hatty Hattington! Jump, solve and battle your way through a mysterious theater inhabited by highly technological felines.', 'recomendations': 54716, 'metacritic': '85'}, {'steam_appid': 1148480, 'name': 'SPACERIFT: Arcanum System', 'final_formatted_price': '$9.99', 'total': 5078, 'discount': 50, 'short_description': 'At the sunset of human life on planet Earth, you are a military pilot controlling a space ship, and you find yourself at the very epicenter of the battle in the solar system. You are forced to retreat into the unknown, distant Arcanum system through hyper-jumping.', 'recomendations': 349, 'metacritic': '-1'}, {'steam_appid': 1514690, 'name': 'Peekaboo Lite', 'final_formatted_price': '$0.55', 'total': 5078, 'discount': 44, 'short_description': 'Peekaboo — A Cross-Platform Hide &amp; Seek online game. Players are divided into two teams: Props and Hunters. Props hide, taking the form of objects and adopting their physical properties, and hunters try with all their might to find them.', 'recomendations': 161, 'metacritic': '-1'}]
+2025-07-17 16:24:05,075 - api.steam_callback - DEBUG - Discount Params games_for_you 76561199028668211 6
+2025-07-17 16:24:06,279 - api.steam_callback - INFO - Steam Data [{'steam_appid': 2399830, 'name': 'ARK: Survival Ascended', 'final_formatted_price': '$44.99', 'total': 5041, 'discount': 0, 'short_description': 'ARK is reimagined from the ground-up into the next-generation of video game technology with Unreal Engine 5! Form a tribe, tame &amp; breed hundreds of unique dinosaurs and primeval creatures, explore, craft, build, and fight your way to the top of the food-chain. Your new world awaits!', 'recomendations': 73391, 'metacritic': '-1'}, {'steam_appid': 1980980, 'name': 'The Backrooms Project', 'final_formatted_price': '$4.99', 'total': 5034, 'discount': 50, 'short_description': 'Scientists made a new discovery about the Backrooms. Noclipping out of bounds in normal reality was a myth for long, but now it can be real! Now they are looking for subjects to test it on civil people. There are already scientists inside, so you have nothing to worry about, they say. Or do you?', 'recomendations': 108, 'metacritic': '-1'}, {'steam_appid': 393800, 'name': 'GearStorm - Armored Survival', 'final_formatted_price': '$11.99', 'total': 5008, 'discount': 0, 'short_description': 'GearStorm - Armored Survival is a story-driven, open-world sci-fi survival adventure. Discover what led to the Phage, a deadly virus apocalypse and our escape to a alien world. Explore a vast alien planet, build your base, create your colony, acquire vehicles, weapons, and supplies to defend it.', 'recomendations': 0, 'metacritic': '-1'}, {'steam_appid': 1281150, 'name': 'Modiverse', 'final_formatted_price': '$0.99', 'total': 4990, 'discount': 0, 'short_description': 'An open multiplayer sandbox game; includes tools, props, levels, NPCs, character models, game-modes and much more! Make your own using our mod kit!', 'recomendations': 0, 'metacritic': '-1'}, {'steam_appid': 658480, 'name': 'Starfighter General', 'final_formatted_price': 'Free', 'total': 4932, 'discount': 0, 'short_description': "INFINITE PLAYER MMO! HI-TEC! Most Ambitious! End game play &amp; Server Breakthrough: NEVER GONNA SHUT YOU DOWN! We cool with outside trades for real $$! We ban hackers not Progamers. Bonus Play: Base &amp; Fleet Clash. Coming Soon: Skills/Beach Babe Aliens/Crafting/Bounty. So fun! You'll forget the grind.", 'recomendations': 0, 'metacritic': '-1'}]
+2025-07-17 17:06:35,161 - api.startup - INFO - Init subscribe types
+2025-07-17 17:06:35,246 - api.startup - INFO - Init subscribe types done
+2025-07-17 17:06:35,423 - api.main - INFO - Start Telegram Bot...
+2025-07-17 17:08:26,348 - api.startup - INFO - Init subscribe types
+2025-07-17 17:08:26,427 - api.startup - INFO - Init subscribe types done
+2025-07-17 17:08:26,600 - api.main - INFO - Start Telegram Bot...
+2025-07-17 17:08:33,342 - api.steam_callback - DEBUG - Discount Params games_for_you 76561199028668211 7
+2025-07-17 17:08:36,818 - api.steam_callback - INFO - Steam Data [{'steam_appid': 302590, 'name': 'Of Guards And Thieves', 'final_formatted_price': 'Free', 'total': 4920, 'discount': 0, 'short_description': 'Of Guards and Thieves is a multiplayer stealth game in which high-powered guards face off against fast and elusive thieves in a contest of wits. Outsmarting the enemy and shooting your way through to the goal are equally valid strategies. Simple rules, emergent gameplay and high replayability.', 'recomendations': 386, 'metacritic': '-1'}, {'steam_appid': 523660, 'name': 'HYPERCHARGE: Unboxed', 'final_formatted_price': '$22.49', 'total': 4910, 'discount': 10, 'short_description': "Hypercharge is a first and third-person shooter action figure game you've always dreamed of! Grab your friends, complete objectives, defend the Hypercore against waves of weaponized toys, and defeat Major Evil together in the story campaign!", 'recomendations': 3731, 'metacritic': '-1'}, {'steam_appid': 326460, 'name': 'ShellShock Live', 'final_formatted_price': '$5.99', 'total': 4890, 'discount': 40, 'short_description': 'Demolish your friends with hundreds of upgradable weapons shot from your customizable tank in this action-packed online multiplayer tanks game. Earn XP to level up and unlock new tanks, weapons, and gear. Fight against or alongside your friends for strategic team or free-for-all matches.', 'recomendations': 28856, 'metacritic': '-1'}, {'steam_appid': 829590, 'name': 'CryoFall', 'final_formatted_price': '$1.99', 'total': 4874, 'discount': 90, 'short_description': 'CryoFall is a sci-fi colony simulation survival game set on a forgotten planet in a distant future. Master technology, agriculture, trading, industry, cybernetics, exploration, and more!', 'recomendations': 4685, 'metacritic': '-1'}, {'steam_appid': 1916100, 'name': 'Day of the Dino', 'final_formatted_price': 'Free', 'total': 4868, 'discount': 0, 'short_description': '2v6 PvP hide-and-seek horror! Two players become deadly dinosaurs hunting six humans. Humans must run, hide, and survive a 3-minute countdown until rescue. If all humans die, the dinosaurs win. If any escape, humanity prevails. Hunt or be hunted!', 'recomendations': 0, 'metacritic': '-1'}]
+2025-07-17 17:09:52,265 - api.startup - INFO - Init subscribe types
+2025-07-17 17:09:52,351 - api.startup - INFO - Init subscribe types done
+2025-07-17 17:09:52,544 - api.main - INFO - Start Telegram Bot...
+2025-07-17 17:38:02,148 - api.startup - INFO - Init subscribe types
+2025-07-17 17:38:02,224 - api.startup - INFO - Init subscribe types done
+2025-07-17 17:38:02,404 - api.main - INFO - Start Telegram Bot...
+2025-07-18 09:44:00,134 - api.startup - INFO - Init subscribe types
+2025-07-18 09:44:00,210 - api.startup - INFO - Init subscribe types done
+2025-07-18 09:44:00,394 - api.main - INFO - Start Telegram Bot...
+2025-07-18 10:16:59,960 - api.user_handler - DEBUG - User wishlist game {'command': 'add_wishlist_game', 'game': 'Cuphead'}
+2025-07-18 10:17:08,976 - api.users_callback - DEBUG - Callback Data Name: add_wishlist_game:268910
+2025-07-18 10:18:17,172 - api.user_handler - DEBUG - User wishlist game {'command': 'add_wishlist_game', 'game': 'Fort Solis'}
+2025-07-18 10:18:21,679 - api.users_callback - DEBUG - Callback Data Name: add_wishlist_game:1931730
+2025-07-18 12:07:55,652 - api.startup - INFO - Init subscribe types
+2025-07-18 12:07:55,736 - api.startup - INFO - Init subscribe types done
+2025-07-18 12:07:55,920 - api.main - INFO - Start Telegram Bot...
+2025-07-18 12:29:18,002 - api.startup - INFO - Init subscribe types
+2025-07-18 12:29:18,074 - api.startup - INFO - Init subscribe types done
+2025-07-18 12:29:18,238 - api.main - INFO - Start Telegram Bot...
+2025-07-18 12:54:56,993 - api.startup - INFO - Init subscribe types
+2025-07-18 12:54:57,060 - api.startup - INFO - Init subscribe types done
+2025-07-18 12:54:57,219 - api.main - INFO - Start Telegram Bot...
+2025-07-18 12:59:20,258 - api.startup - INFO - Init subscribe types
+2025-07-18 12:59:20,325 - api.startup - INFO - Init subscribe types done
+2025-07-18 12:59:20,484 - api.main - INFO - Start Telegram Bot...
+2025-07-18 13:03:56,644 - api.startup - INFO - Init subscribe types
+2025-07-18 13:03:56,715 - api.startup - INFO - Init subscribe types done
+2025-07-18 13:03:56,869 - api.main - INFO - Start Telegram Bot...
+2025-07-18 13:06:06,348 - api.startup - INFO - Init subscribe types
+2025-07-18 13:06:06,416 - api.startup - INFO - Init subscribe types done
+2025-07-18 13:06:06,573 - api.main - INFO - Start Telegram Bot...
+2025-07-18 15:40:32,937 - api.startup - INFO - Init subscribe types
+2025-07-18 15:40:33,132 - api.startup - INFO - Init subscribe types done
+2025-07-18 15:40:33,312 - api.main - INFO - Start Telegram Bot...
+2025-07-18 15:40:47,801 - api.subscribe_callback - DEBUG - Logger Debug Sub Type subscribe_new_release
+2025-07-18 15:40:47,801 - api.subscribe_callback - DEBUG - Logger Debug Sub Type {'type_id': 1, 'description': '🆕🎮 <b>Нові релізи</b>\nХочеш бути першим, хто дізнається про нові ігри у Steam? Ми сповістимо тебе одразу після релізу! 🚀✨'}
+2025-07-18 15:40:51,078 - api.subscribe_callback - DEBUG - Logger Debug Sub Type subscribe_steam_news
+2025-07-18 15:40:51,078 - api.subscribe_callback - DEBUG - Logger Debug Sub Type {'type_id': 3, 'description': '📅🎉 <b>Ігрові події</b>\nФестивалі, розпродажі, оновлення — усе найцікавіше зі світу Steam! Будь у центрі подій 🎊📢'}
+2025-07-18 15:40:53,942 - api.subscribe_callback - DEBUG - Logger Debug Sub Type subscribe_hot_discount_notificate
+2025-07-18 15:40:53,943 - api.subscribe_callback - DEBUG - Logger Debug Sub Type {'type_id': 5, 'description': '🔥💸 <b>Гарячі знижки</b>\nНе пропусти шалені знижки на топові ігри! Найкращі пропозиції — прямо до тебе 🛍️🚨'}
+2025-07-18 15:40:56,824 - api.subscribe_callback - DEBUG - Logger Debug Sub Type subscribe_free_games
+2025-07-18 15:40:56,824 - api.subscribe_callback - DEBUG - Logger Debug Sub Type {'type_id': 2, 'description': '🎁🕹️ <b>Безкоштовні ігри</b>\nНе плати — просто грай! Ми підкажемо, коли і які ігри можна отримати абсолютно безкоштовно 💸🤑'}
+2025-07-18 15:41:00,147 - api.subscribe_callback - DEBUG - Logger Debug Sub Type subscribe_wishlist_notificate
+2025-07-18 15:41:00,148 - api.subscribe_callback - DEBUG - Logger Debug Sub Type {'type_id': 4, 'description': '🔔💖 <b>Знижки на бажане</b>\nМрієш про гру зі списку бажаного? Ми нагадаємо, коли вона отримає знижку! 🎯🎮'}
+2025-07-18 15:41:02,344 - api.subscribe_callback - DEBUG - callback_split_data: ['subscribe_user', '4', '5366078830']
+2025-07-18 15:41:02,345 - api.subscribe_callback - DEBUG - user_id: 5366078830 vs callback_query.from_user.id = 5366078830
+2025-07-18 15:41:02,345 - api.subscribe_callback - DEBUG - Logger Debug Sub Type 4
+2025-07-18 15:41:57,044 - api.startup - INFO - Init subscribe types
+2025-07-18 15:41:57,114 - api.startup - INFO - Init subscribe types done
+2025-07-18 15:41:57,277 - api.main - INFO - Start Telegram Bot...
+2025-07-18 16:33:25,800 - api.startup - INFO - Init subscribe types
+2025-07-18 16:33:25,991 - api.startup - INFO - Init subscribe types done
+2025-07-18 16:33:26,151 - api.main - INFO - Start Telegram Bot...
+2025-07-18 16:34:46,427 - api.startup - INFO - Init subscribe types
+2025-07-18 16:34:46,498 - api.startup - INFO - Init subscribe types done
+2025-07-18 16:34:46,648 - api.main - INFO - Start Telegram Bot...
+2025-07-18 16:38:50,796 - api.startup - INFO - Init subscribe types
+2025-07-18 16:38:50,868 - api.startup - INFO - Init subscribe types done
+2025-07-18 16:38:51,017 - api.main - INFO - Start Telegram Bot...
+2025-07-18 16:45:13,142 - api.startup - INFO - Init subscribe types
+2025-07-18 16:45:13,215 - api.startup - INFO - Init subscribe types done
+2025-07-18 16:45:13,378 - api.main - INFO - Start Telegram Bot...
+2025-07-18 16:49:01,725 - api.startup - INFO - Init subscribe types
+2025-07-18 16:49:01,796 - api.startup - INFO - Init subscribe types done
+2025-07-18 16:49:01,960 - api.main - INFO - Start Telegram Bot...
+2025-07-18 16:50:42,824 - api.subscribe_callback - DEBUG - Logger Debug Sub Type subscribe_new_release
+2025-07-18 16:50:42,826 - api.subscribe_callback - DEBUG - Logger Debug Sub Type {'type_id': 1, 'description': '🆕🎮 <b>Нові релізи</b>\nХочеш бути першим, хто дізнається про нові ігри у Steam? Ми сповістимо тебе одразу після релізу! 🚀✨'}
+2025-07-18 16:50:44,047 - api.subscribe_callback - DEBUG - callback_split_data: ['unsubscribe_user', '1', '5366078830']
+2025-07-18 16:50:44,047 - api.subscribe_callback - DEBUG - user_id: 5366078830 vs callback_query.from_user.id = 5366078830
+2025-07-18 16:50:47,025 - api.subscribe_callback - DEBUG - Logger Debug Sub Type subscribe_steam_news
+2025-07-18 16:50:47,026 - api.subscribe_callback - DEBUG - Logger Debug Sub Type {'type_id': 3, 'description': '📅🎉 <b>Ігрові події</b>\nФестивалі, розпродажі, оновлення — усе найцікавіше зі світу Steam! Будь у центрі подій 🎊📢'}
+2025-07-18 16:50:48,019 - api.subscribe_callback - DEBUG - callback_split_data: ['unsubscribe_user', '3', '5366078830']
+2025-07-18 16:50:48,020 - api.subscribe_callback - DEBUG - user_id: 5366078830 vs callback_query.from_user.id = 5366078830
+2025-07-18 16:50:50,802 - api.subscribe_callback - DEBUG - Logger Debug Sub Type subscribe_hot_discount_notificate
+2025-07-18 16:50:50,802 - api.subscribe_callback - DEBUG - Logger Debug Sub Type {'type_id': 5, 'description': '🔥💸 <b>Гарячі знижки</b>\nНе пропусти шалені знижки на топові ігри! Найкращі пропозиції — прямо до тебе 🛍️🚨'}
+2025-07-18 16:50:51,830 - api.subscribe_callback - DEBUG - callback_split_data: ['unsubscribe_user', '5', '5366078830']
+2025-07-18 16:50:51,830 - api.subscribe_callback - DEBUG - user_id: 5366078830 vs callback_query.from_user.id = 5366078830
+2025-07-18 16:50:54,689 - api.subscribe_callback - DEBUG - Logger Debug Sub Type subscribe_free_games
+2025-07-18 16:50:54,689 - api.subscribe_callback - DEBUG - Logger Debug Sub Type {'type_id': 2, 'description': '🎁🕹️ <b>Безкоштовні ігри</b>\nНе плати — просто грай! Ми підкажемо, коли і які ігри можна отримати абсолютно безкоштовно 💸🤑'}
+2025-07-18 16:50:55,785 - api.subscribe_callback - DEBUG - callback_split_data: ['unsubscribe_user', '2', '5366078830']
+2025-07-18 16:50:55,785 - api.subscribe_callback - DEBUG - user_id: 5366078830 vs callback_query.from_user.id = 5366078830
+2025-07-18 16:50:58,587 - api.subscribe_callback - DEBUG - Logger Debug Sub Type subscribe_wishlist_notificate
+2025-07-18 16:50:58,587 - api.subscribe_callback - DEBUG - Logger Debug Sub Type {'type_id': 4, 'description': '🔔💖 <b>Знижки на бажане</b>\nМрієш про гру зі списку бажаного? Ми нагадаємо, коли вона отримає знижку! 🎯🎮'}
+2025-07-18 16:50:59,609 - api.subscribe_callback - DEBUG - callback_split_data: ['unsubscribe_user', '4', '5366078830']
+2025-07-18 16:50:59,610 - api.subscribe_callback - DEBUG - user_id: 5366078830 vs callback_query.from_user.id = 5366078830

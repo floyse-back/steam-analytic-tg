@@ -1,4 +1,3 @@
-import asyncio
 import json
 
 from aio_pika import connect,Message

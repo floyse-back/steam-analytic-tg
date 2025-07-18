@@ -15,11 +15,12 @@ class TelegramNotifier:
         try:
             await self.bot.send_message(chat_id=chat_id,text=text,parse_mode=ParseMode.HTML)
         except Exception as e:
-            self.logger.debug(e)
+            self.logger.debug(f"Error: {e}", exc_info=True)
 
     async def notify_users_message_sub(self,telegram_user_id:List[int],text:str):
         for index in telegram_user_id:
             try:
+                self.logger.info(f"Notifying user {index}")
                 await self.bot.send_message(chat_id=index,text=text,parse_mode=ParseMode.HTML)
             except Exception as e:
-                self.logger.debug(e,exc_info=True)
+                self.logger.debug(f"Error: {e}",exc_info=True)
