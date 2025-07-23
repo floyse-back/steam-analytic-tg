@@ -1,6 +1,7 @@
 from typing import List
 
-from src.application.dto.steam_dto import GameFullModel, CalendarEventModel
+import html
+from src.application.dto.steam_dto import GameFullModel, CalendarEventModel, GanresOut
 from src.shared.dispatcher import DispatcherCommands
 from html import escape
 
@@ -16,6 +17,7 @@ class NewsStyleText(DispatcherCommands):
                 "news_random_game": self.random_game_message,
                 "news_trailer_from_day": self.trailer_from_day_message,
                 "news_calendar_event_now": self.festivale_message,
+                "news_game_from_ganre": self.game_from_ganre_message
             }
         )
 
@@ -38,13 +40,13 @@ class NewsStyleText(DispatcherCommands):
             recommendations = f"👍 Рецензій: {game.recomendations}" if game.recomendations else ""
 
             # Жанри
-            genres = ", ".join([escape(g.ganres_name) for g in game.game_ganre]) or "Без жанру"
+            genres = ", ".join([escape(g.ganres_name) for g in game.game_ganre[0:5]]) or "Без жанру"
 
             # Категорії
-            categories = ", ".join([escape(c.category_name) for c in game.game_categories]) or "Без категорій"
+            categories = ", ".join([escape(c.category_name) for c in game.game_categories[0:5]]) or "Без категорій"
 
             # Видавці
-            publishers = ", ".join([escape(p.publisher_name) for p in game.game_publisher]) or "Невідомий видавець"
+            publishers = ", ".join([escape(p.publisher_name) for p in game.game_publisher[0:5]]) or "Невідомий видавець"
 
             # Опис
             description = escape(game.short_description or "Опису немає")
@@ -63,7 +65,7 @@ class NewsStyleText(DispatcherCommands):
                 f"🏢 Видавець: {publishers}\n"
                 f"{release}\n"
                 f"<a href=\"https://store.steampowered.com/app/{game.steam_appid}\">🔗 Відкрити у Steam</a>\n"
-                f"────────────────────\n"
+                f"────────────────────────────────────────\n"
             )
         return text
 
@@ -90,7 +92,7 @@ class NewsStyleText(DispatcherCommands):
         text_start = (
             "📜 <b>Трохи історії, трохи ігор!</b>\n"
             "Ось добірка, присвячена легендарним подіям та моментам зі світу Steam 👴💻\n"
-            "Поринь у ностальгію (або вивчи щось новеньке) 👇"
+            "Поринь у ностальгію (або вивчи щось новеньке) 👇\n"
             f"{self.__create_data_games_list(data)}\n"
         )
         return text_start
@@ -98,7 +100,7 @@ class NewsStyleText(DispatcherCommands):
     def news_discounts_steam_message(self, data: List[GameFullModel]):
         text_start = (
             "💸 <b>Знижки летять, гаманці тремтять!</b>\n"
-            "Ці ігри зараз зі знижками, а отже: саме час зробити вигляд, що тобі вони життєво необхідні 🛒🤣👇"
+            "Ці ігри зараз зі знижками, а отже: саме час зробити вигляд, що тобі вони життєво необхідні 🛒🤣👇\n"
             f"{self.__create_data_games_list(data)}\n"
         )
         return text_start
@@ -107,7 +109,7 @@ class NewsStyleText(DispatcherCommands):
         text_start = (
             "🪙 <b>Максимум кайфу — мінімум витрат!</b>\n"
             "Ось топ ігор, які дають більше, ніж коштують.\n"
-            "Бо навіщо платити 1000 грн, якщо за 100 можна залипнути на тиждень? 😎👇"
+            "Бо навіщо платити 1000 грн, якщо за 100 можна залипнути на тиждень? 😎👇\n"
             f"{self.__create_data_games_list(data)}\n"
         )
         return text_start
@@ -125,10 +127,81 @@ class NewsStyleText(DispatcherCommands):
         pass
 
     def festivale_message(self, event: CalendarEventModel) -> str:
-        if isinstance(event,list):
+        if isinstance(event, list):
             event = event[0]
-        base = (
-            f"<b>🎊 В Steam зараз проходить фестиваль</b> <i>{event.name or 'без назви'}</i>!\n"
-            f"<b>📅 Дата:</b> з <u>{event.date_start.strftime('%d.%m.%Y')}</u> до <u>{event.date_end.strftime('%d.%m.%Y')}</u>\n\n"
+
+        name = event.name or "без назви"
+        start = event.date_start.strftime('%d.%m.%Y')
+        end = event.date_end.strftime('%d.%m.%Y')
+
+        if event.type_name == "sale":
+            return (
+                f"<b>🔥 Глобальний розпродаж в Steam вже почався!</b>\n\n"
+                f"🛒 <i>{name}</i> — це твоя можливість поповнити бібліотеку ігор за вигідними цінами. "
+                f"Знижки на тисячі тайтлів, від інді-проєктів до легендарних AAA-хітів!\n\n"
+                f"<b>📅 Акція діє з</b> <u>{start}</u> <b>до</b> <u>{end}</u>\n\n"
+                f"💡 Не зволікай — найкращі пропозиції можуть зникнути швидше, ніж ти думаєш.\n\n"
+                f"💸 Час економити з розумом і грати в кайф!"
+            )
+        else:
+            return (
+                f"<b>🎉 Steam знову тішить нас фестивалем!</b>\n\n"
+                f"🕹️ <i>{name}</i> — це чудова нагода відкрити нові ігри, зануритись у жанри, які ти міг оминати, "
+                f"та спробувати демо найочікуваніших тайтлів майбутнього.\n\n"
+                f"<b>📅 Тривалість:</b> з <u>{start}</u> до <u>{end}</u>\n\n"
+                f"👀 Слідкуй за оновленнями, адже під час фестивалів часто з’являються спеціальні покази, "
+                f"стріми від розробників та унікальні активності.\n\n"
+                f"🎮 Час досліджувати нове!"
+            )
+
+    def game_from_ganre_message(self, dict_data: dict) -> str:
+        ganre_name:str = dict_data["type_ganre"]
+        data:GameFullModel = dict_data["data"][0]
+        return (
+            f"🎮 <b>Гра за жанром — {ganre_name}</b>\n"
+            f"🔍 Якщо ти фанат жанру <b><i>{ganre_name}</i></b>, ця гра точно приверне твою увагу!\n"
+            f"Ось що ми для тебе знайшли:\n"
+            f"{self.__generate_game_ganre_message(data,ganre_main=ganre_name)}\n"
         )
-        return base
+
+    def __generate_game_ganre_message(self, game: GameFullModel,ganre_main:str) -> str:
+        game_ganre = game.game_ganre[0:5]
+        if ganre_main not in game_ganre:
+            game_ganre.insert(0, GanresOut(
+                ganres_id=42,
+                ganres_name=ganre_main
+            ))
+        genre_names = ", ".join(html.escape(g.ganres_name) for g in game_ganre)
+        category_names = ", ".join(html.escape(c.category_name) for c in game.game_categories[0:5]) or "Немає"
+        publisher_names = ", ".join(html.escape(p.publisher_name) for p in game.game_publisher[0:5]) or "Невідомо"
+
+        price_info = (
+            f"💰 <b>Ціна:</b> {html.escape(game.final_formatted_price)} (-{game.discount}%)"
+            if not game.is_free and game.final_formatted_price
+            else "🆓 <b>Безкоштовно</b>"
+        )
+
+        metacritic = f"🏆 <b>Metacritic:</b> {html.escape(game.metacritic)}" if game.metacritic !=-1 else ""
+        recommendations = f"👍 <b>Рекомендацій:</b> {game.recomendations}" if game.recomendations else ""
+        release = f"📅 <b>Реліз:</b> {game.release_data.strftime('%d.%m.%Y')}" if game.release_data else ""
+
+
+        text = f"""
+    <b>{html.escape(game.name)}</b>
+    {html.escape(game.short_description or "Опис відсутній.")}
+
+    {price_info}
+    {metacritic}
+    {recommendations}
+    {release}
+
+    🏷️ <b>Жанри:</b> {genre_names}
+    📢 <b>Видавець:</b> {publisher_names}
+    📂 <b>Категорії:</b> {category_names}
+
+    🔗 <a href="https://store.steampowered.com/app/{game.steam_appid}">Сторінка в Steam</a>"""
+
+        if game.trailer_url:
+            text += f'\n🎬 <a href="{html.escape(game.trailer_url)}">Трейлер</a>'
+
+        return text.strip()

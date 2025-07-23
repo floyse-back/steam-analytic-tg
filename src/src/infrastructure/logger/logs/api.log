@@ -241,3 +241,431 @@
 2025-07-18 16:50:58,587 - api.subscribe_callback - DEBUG - Logger Debug Sub Type {'type_id': 4, 'description': '🔔💖 <b>Знижки на бажане</b>\nМрієш про гру зі списку бажаного? Ми нагадаємо, коли вона отримає знижку! 🎯🎮'}
 2025-07-18 16:50:59,609 - api.subscribe_callback - DEBUG - callback_split_data: ['unsubscribe_user', '4', '5366078830']
 2025-07-18 16:50:59,610 - api.subscribe_callback - DEBUG - user_id: 5366078830 vs callback_query.from_user.id = 5366078830
+2025-07-19 10:22:44,314 - api.startup - INFO - Init subscribe types
+2025-07-19 10:22:44,411 - api.startup - INFO - Init subscribe types done
+2025-07-19 10:22:44,596 - api.main - INFO - Start Telegram Bot...
+2025-07-19 10:24:43,828 - api.startup - INFO - Init subscribe types
+2025-07-19 10:24:43,908 - api.startup - INFO - Init subscribe types done
+2025-07-19 10:24:44,086 - api.main - INFO - Start Telegram Bot...
+2025-07-19 10:44:40,600 - api.startup - INFO - Init subscribe types
+2025-07-19 10:44:40,683 - api.startup - INFO - Init subscribe types done
+2025-07-19 10:44:40,856 - api.main - INFO - Start Telegram Bot...
+2025-07-19 12:16:13,168 - api.main_handler - DEBUG - Start_handler: Steam Appid From Steam Service,5366078830
+2025-07-19 12:16:13,169 - api.main_handler - DEBUG - Start_handler: Chat ID -4820440379
+2025-07-19 12:16:13,169 - api.main_handler - INFO - Start_handler: Chat ID -4820440379
+2025-07-19 12:16:54,415 - api.player_callback - DEBUG - Handler {🥺 Нажаль, гру не знайдено...}
+2025-07-19 12:17:03,382 - api.player_callback - DEBUG - Handler {🥺 Нажаль, гру не знайдено...}
+2025-07-19 12:17:08,010 - api.player_callback - DEBUG - Handler {👻 <b><a href='https://store.steampowered.com/app/638510/'>dotAGE</a></b> - 💵 $13.19 - (25)
+<b><i>Village elder, help us! The Apocalypse is approaching, and we need your guidance to survive. Assign your workers and build a thriving village against the pending doom. DotAGE is the merciless survival roguelite turn-based city builder. Will you fulfill the Prophecy?</i></b>
+✅ <b>Ganres: ♟️Strategy 🎮Indie 🖥️Simulation </b>
+
+👻 <b><a href='https://store.steampowered.com/app/1046930/'>Dota Underlords</a></b> - 🆓 Free
+<b><i>Hire a crew and destroy your rivals in this new strategy battler set in the world of Dota. Introducing Season One: Explore White Spire and earn rewards on the Battle Pass. Pick from several different game modes, play on your own or with friends, and take advantage of crossplay on PC and mobile.</i></b>
+✅ <b>Ganres: 🎮Free To Play ♟️Strategy 🎮Casual </b>
+
+}
+2025-07-19 12:23:33,753 - api.startup - INFO - Init subscribe types
+2025-07-19 12:23:33,833 - api.startup - INFO - Init subscribe types done
+2025-07-19 12:23:34,001 - api.main - INFO - Start Telegram Bot...
+2025-07-19 12:27:05,687 - api.player_callback - DEBUG - Response: 
+1.<b><a href='https://store.steampowered.com/app/1005990/'>Swordbreaker: Back to The Castle</a></b>
+Ціна гри: $7.99
+2.<b><a href='https://store.steampowered.com/app/936610/'>Of Gods and Men: The Daybreak Empire</a></b>
+Ціна гри: Free
+3.<b><a href='https://store.steampowered.com/app/1568720/'>Plague Breaker</a></b>
+Ціна гри: $11.99
+4.<b><a href='https://store.steampowered.com/app/1331340/'>Break the Loop</a></b>
+Ціна гри: $14.99
+5.<b><a href='https://store.steampowered.com/app/1714100/'>Castle Daybreak</a></b>
+Ціна гри: $5.99
+2025-07-19 12:27:05,689 - api.player_callback - DEBUG - Handler {
+1.<b><a href='https://store.steampowered.com/app/1005990/'>Swordbreaker: Back to The Castle</a></b>
+Ціна гри: $7.99
+2.<b><a href='https://store.steampowered.com/app/936610/'>Of Gods and Men: The Daybreak Empire</a></b>
+Ціна гри: Free
+3.<b><a href='https://store.steampowered.com/app/1568720/'>Plague Breaker</a></b>
+Ціна гри: $11.99
+4.<b><a href='https://store.steampowered.com/app/1331340/'>Break the Loop</a></b>
+Ціна гри: $14.99
+5.<b><a href='https://store.steampowered.com/app/1714100/'>Castle Daybreak</a></b>
+Ціна гри: $5.99}
+2025-07-19 12:27:08,602 - api.steam_callback - DEBUG - Game:search_short_games,Page:search_short_games:Brea:game_price:2
+2025-07-19 12:27:08,603 - api.steam_callback - DEBUG - main_callback_name:game_price
+2025-07-19 12:27:08,680 - api.steam_callback - DEBUG - Game:Brea,Page:2
+2025-07-19 12:27:11,639 - api.steam_callback - DEBUG - Game:search_short_games,Page:search_short_games:Brea:game_price:3
+2025-07-19 12:27:11,639 - api.steam_callback - DEBUG - main_callback_name:game_price
+2025-07-19 12:27:11,753 - api.steam_callback - DEBUG - Game:Brea,Page:3
+2025-07-19 12:27:48,642 - api.steam_callback - DEBUG - Steam Appid From Steam Service,8082953690
+2025-07-19 12:27:48,642 - api.steam_callback - DEBUG - steam_appid: 76561199028668211
+2025-07-19 12:27:50,793 - api.steam_callback - DEBUG - Discount Params discount_for_you 76561199028668211 1
+2025-07-19 12:27:52,256 - api.steam_callback - INFO - Steam Data [{'steam_appid': 541300, 'name': 'Survive the Nights', 'final_formatted_price': '$4.99', 'total': 5622, 'discount': 75, 'short_description': 'Survive the Nights is a unique FPS survival game focusing on teamwork, fortification, creativity &amp; strategy. Secure a structure or roam free, the choice is yours. Gameplay focuses on realistic survival, post zombie infestation. Prepare during the day for nightfall. How many nights will you survive?', 'recomendations': 3330, 'metacritic': '-1'}, {'steam_appid': 204360, 'name': 'Castle Crashers®', 'final_formatted_price': '$4.49', 'total': 5213, 'discount': 70, 'short_description': 'Hack, slash, and smash your way to victory in this award winning 2D arcade adventure from The Behemoth!', 'recomendations': 97080, 'metacritic': '-1'}, {'steam_appid': 512900, 'name': 'Streets of Rogue', 'final_formatted_price': '$3.99', 'total': 5103, 'discount': 80, 'short_description': "Fight, sneak, and hack your way through randomly generated cities. It's like Nuclear Throne meets Deus Ex, mixed with the anarchy of GTA. Rogue-lite meets immersive sim, and goes completely insane.", 'recomendations': 16446, 'metacritic': '-1'}, {'steam_appid': 829590, 'name': 'CryoFall', 'final_formatted_price': '$1.99', 'total': 4874, 'discount': 90, 'short_description': 'CryoFall is a sci-fi colony simulation survival game set on a forgotten planet in a distant future. Master technology, agriculture, trading, industry, cybernetics, exploration, and more!', 'recomendations': 4685, 'metacritic': '-1'}, {'steam_appid': 696140, 'name': 'No Heroes Here', 'final_formatted_price': '$4.49', 'total': 4682, 'discount': 70, 'short_description': 'No Heroes Here is a frantic co-op game for 1 to 4 players, available in local and online modes. Craft and use several items effectively whilst coordinating your ragtag band of non-heroes to defend castles and survive! ...Oh, as well as saving the Kingdom in the meantime!', 'recomendations': 364, 'metacritic': '-1'}]
+2025-07-19 12:28:34,405 - api.steam_callback - DEBUG - Steam Appid From Steam Service,8082953690
+2025-07-19 12:28:34,405 - api.steam_callback - DEBUG - steam_appid: 76561199028668211
+2025-07-19 12:28:37,160 - api.steam_callback - DEBUG - Discount Params games_for_you 76561199028668211 1
+2025-07-19 12:28:38,372 - api.steam_callback - INFO - Steam Data [{'steam_appid': 2160420, 'name': 'The Backrooms Multiplayer', 'final_formatted_price': '$8.99', 'total': 7938, 'discount': 0, 'short_description': "You and your friends have found a camera with a footage in it. For some reason you can't rewind the video, and as soon as you try winding it forward you all find yourself in the Backrooms. Together figure out whats in the footage and try to ESCAPE AS FAST AS POSSIBLE!", 'recomendations': 0, 'metacritic': '-1'}, {'steam_appid': 1013320, 'name': '"Firestone" Online Idle RPG', 'final_formatted_price': 'Free', 'total': 7236, 'discount': 0, 'short_description': 'Firestone: Online Idle RPG is a multiplayer fantasy game with idle rpg mechanics. Collect heroes, upgrade their gear &amp; skills, and send them in idle battles or go on an incremental clicker frenzy to beat monstrous bosses! Chat with guild friends or engage in PVP- the choice is in your hands!', 'recomendations': 0, 'metacritic': '-1'}, {'steam_appid': 394690, 'name': 'Tower Unite', 'final_formatted_price': '$13.99', 'total': 6806, 'discount': 30, 'short_description': 'PLAY, CREATE, PARTY! Tower Unite is a community-based virtual world party game with online games, entertainment, activities, and absolutely NO microtransactions.', 'recomendations': 15479, 'metacritic': '-1'}, {'steam_appid': 1124660, 'name': 'STORM AREA 51: AYY LMAO EDITION', 'final_formatted_price': '$0.49', 'total': 6672, 'discount': 51, 'short_description': "STORM AREA 51: AYY LMAO EDITION - it's time to Storm AREA 51, and see them aliens. If we Naruto Run, we can move faster than their bullets. Rock Throwers will throw pebbles (to annoy them enough to not shoot the Kyles as often). They can't stop all of us...", 'recomendations': 846, 'metacritic': '-1'}, {'steam_appid': 1071870, 'name': 'Biped', 'final_formatted_price': '$14.99', 'total': 6401, 'discount': 0, 'short_description': 'Biped is a coop action adventure game with a strong focus on moment-to-moment collaboration between 2 players.', 'recomendations': 7220, 'metacritic': '74'}]
+2025-07-19 12:28:47,961 - api.steam_callback - DEBUG - Discount Params games_for_you 76561199028668211 2
+2025-07-19 12:28:49,262 - api.steam_callback - INFO - Steam Data [{'steam_appid': 1269690, 'name': 'Attack on Toys', 'final_formatted_price': '$6.99', 'total': 6308, 'discount': 0, 'short_description': 'Relive Your Childhood Toys comes to life! Build your Army Toys, make battle scenario, watch the Toys battling each other, and customize your play with Attack on Toys Toy Box. Command your Army Toys to fight againts another toys strategically and keep them alive during battle!', 'recomendations': 973, 'metacritic': '-1'}, {'steam_appid': 2562980, 'name': 'Kwark', 'final_formatted_price': 'Free', 'total': 6147, 'discount': 0, 'short_description': 'Kwark is a single player game about a creature that has to go through levels and then something impossible happens at the end! The game can be both from 1 person and from 3!', 'recomendations': 0, 'metacritic': '-1'}, {'steam_appid': 1947280, 'name': 'KAOS SurVival', 'final_formatted_price': '$3.99', 'total': 6096, 'discount': 0, 'short_description': 'Get ready for chaos in KAOS SurVival! Explore an open world, gather resources, and build shelters to survive. Form clans, raid other players, and craft essential items. In a world where everything can be destroyed, only the strongest will reign. Prove your strength and dominate the chaos!', 'recomendations': 0, 'metacritic': '-1'}, {'steam_appid': 1419850, 'name': 'Saleblazers', 'final_formatted_price': '$14.99', 'total': 6003, 'discount': 50, 'short_description': 'Fight. Sell. Survive. Live off the land, build your perfect shop, and defend against nightly horrors in this open world survival shop simulator for 1-8 players.', 'recomendations': 1366, 'metacritic': '-1'}, {'steam_appid': 1275070, 'name': 'A Buttload of Free Games', 'final_formatted_price': 'Free', 'total': 5900, 'discount': 0, 'short_description': 'A collection of over one hundred completely free small games wrapped into one convenient launcher! Slash slimes, shoot lemons, blow kisses, take blood, and so much more in these wacky, weird, and wild games!', 'recomendations': 0, 'metacritic': '-1'}]
+2025-07-19 12:29:06,938 - api.steam_callback - DEBUG - Discount Params games_for_you 76561199028668211 3
+2025-07-19 12:29:08,225 - api.steam_callback - INFO - Steam Data [{'steam_appid': 436180, 'name': 'Spacelords', 'final_formatted_price': 'Free', 'total': 5899, 'discount': 0, 'short_description': 'Embark on an epic sci-fi, free-to-play adventure. Spacelords is a brand-new take on the shooter genre. Through its 4 vs 1 campaign, you experience both sides of the story: Join the Raiders in their fight to free the legendary Broken Planet, or switch sides and fight as the Antagonist alongside the invading hordes!', 'recomendations': 152, 'metacritic': '-1'}, {'steam_appid': 1614550, 'name': 'Astro Colony', 'final_formatted_price': '$9.99', 'total': 5707, 'discount': 50, 'short_description': 'Explore endless Universe and create the most efficient constellation of colonies. Build conveyor systems to automate production. Take care of Astronauts and their needs! Establish new colonies as part of intergalactic simulation.', 'recomendations': 1992, 'metacritic': '-1'}, {'steam_appid': 414120, 'name': 'Modbox', 'final_formatted_price': '$14.99', 'total': 5706, 'discount': 0, 'short_description': 'Modbox is a multiplayer game creation sandbox for Desktop+VR', 'recomendations': 200, 'metacritic': '-1'}, {'steam_appid': 840260, 'name': 'Endless World Idle RPG', 'final_formatted_price': 'Free', 'total': 5673, 'discount': 0, 'short_description': 'Explore the eternal landscapes of 3D Idle clicker RPG Endless World! Enjoy an epic adventure with a cast of 40+ characters. Build your army, craft unique weapons, balance your teams and set forth on an heroic saga that spans endless levels of monsters and mayhem!', 'recomendations': 0, 'metacritic': '-1'}, {'steam_appid': 1592110, 'name': 'Spirit of the Island', 'final_formatted_price': '$14.99', 'total': 5672, 'discount': 0, 'short_description': 'A beautiful Life Sim Sandbox RPG with Cross-Platform Online COOP set on a tropical Archipelago. Build your farm, grow crops and animals, craft various items, cook dishes, gather resources, build shops and museum to attract visitors, and turn a desolate Island into a prosperous tourist destination!', 'recomendations': 1101, 'metacritic': '-1'}]
+2025-07-19 12:29:10,678 - api.steam_callback - DEBUG - Discount Params games_for_you 76561199028668211 4
+2025-07-19 12:29:12,038 - api.steam_callback - INFO - Steam Data [{'steam_appid': 541300, 'name': 'Survive the Nights', 'final_formatted_price': '$4.99', 'total': 5622, 'discount': 75, 'short_description': 'Survive the Nights is a unique FPS survival game focusing on teamwork, fortification, creativity &amp; strategy. Secure a structure or roam free, the choice is yours. Gameplay focuses on realistic survival, post zombie infestation. Prepare during the day for nightfall. How many nights will you survive?', 'recomendations': 3330, 'metacritic': '-1'}, {'steam_appid': 696370, 'name': 'BROKE PROTOCOL', 'final_formatted_price': 'Free', 'total': 5467, 'discount': 0, 'short_description': 'A fully moddable city sandbox with jobs, NPCs, apartments, garages, gangs, and more. Broke Protocol is an open-world action game focused on roleplaying and custom content. Define your goals and identity in a persistent, reactive world where you write your own story.', 'recomendations': 1632, 'metacritic': '-1'}, {'steam_appid': 1339220, 'name': "Matt's Project Zombies: Open World", 'final_formatted_price': '$9.99', 'total': 5455, 'discount': 0, 'short_description': 'Take place on a Deserted Island in the middle of the ocean with very few landmarks left in sight being overrun with the Undead. Face an intense open world while you Craft equipment, Craft shelter and out-smart wildlife, bandits, and online players all while trying to survive!', 'recomendations': 0, 'metacritic': '-1'}, {'steam_appid': 204360, 'name': 'Castle Crashers®', 'final_formatted_price': '$4.49', 'total': 5213, 'discount': 70, 'short_description': 'Hack, slash, and smash your way to victory in this award winning 2D arcade adventure from The Behemoth!', 'recomendations': 97080, 'metacritic': '-1'}, {'steam_appid': 979640, 'name': 'Cepheus Protocol', 'final_formatted_price': '$15.99', 'total': 5201, 'discount': 20, 'short_description': 'Cepheus Protocol is an Open World RTS Military Survival Game. Play as the CERC hunting Patient 0, maintain Quarantine camps, fight dangerous mutations &amp; Rogue Civilian Combatants . There’s nobody else coming, it’s up to you now.', 'recomendations': 2431, 'metacritic': '-1'}]
+2025-07-19 12:51:14,245 - api.startup - INFO - Init subscribe types
+2025-07-19 12:51:14,332 - api.startup - INFO - Init subscribe types done
+2025-07-19 12:51:14,537 - api.main - INFO - Start Telegram Bot...
+2025-07-19 12:54:22,889 - api.startup - INFO - Init subscribe types
+2025-07-19 12:54:23,077 - api.startup - INFO - Init subscribe types done
+2025-07-19 12:54:23,227 - api.main - INFO - Start Telegram Bot...
+2025-07-19 12:54:38,383 - api.player_callback - DEBUG - Response: 
+1.<b><a href='https://store.steampowered.com/app/395570/'>We Are The Dwarves</a></b>
+Ціна гри: $1.99
+2.<b><a href='https://store.steampowered.com/app/372740/'>Second Warfare</a></b>
+Ціна гри: $1.49
+3.<b><a href='https://store.steampowered.com/app/1021940/'>Space Warfare</a></b>
+Ціна гри: Free
+4.<b><a href='https://store.steampowered.com/app/56438/'>Dawn of War II: Retribution – The Last Stand</a></b>
+Ціна гри: Free
+5.<b><a href='https://store.steampowered.com/app/1631350/'>Fight of Steel: Infinity Warrior</a></b>
+Ціна гри: $6.49
+2025-07-19 12:54:38,384 - api.player_callback - DEBUG - Handler {
+1.<b><a href='https://store.steampowered.com/app/395570/'>We Are The Dwarves</a></b>
+Ціна гри: $1.99
+2.<b><a href='https://store.steampowered.com/app/372740/'>Second Warfare</a></b>
+Ціна гри: $1.49
+3.<b><a href='https://store.steampowered.com/app/1021940/'>Space Warfare</a></b>
+Ціна гри: Free
+4.<b><a href='https://store.steampowered.com/app/56438/'>Dawn of War II: Retribution – The Last Stand</a></b>
+Ціна гри: Free
+5.<b><a href='https://store.steampowered.com/app/1631350/'>Fight of Steel: Infinity Warrior</a></b>
+Ціна гри: $6.49}
+2025-07-19 12:55:21,752 - api.player_callback - DEBUG - Callback_query player_rating
+2025-07-19 12:55:21,760 - api.player_callback - INFO - Steam appid: 76561199028668211
+2025-07-19 12:55:22,992 - api.player_callback - DEBUG - Callback_query player_rating:76561199028668211:
+2025-07-19 12:55:31,109 - api.player_callback - DEBUG - Callback_query player_badges
+2025-07-19 12:55:31,115 - api.player_callback - INFO - Steam appid: 76561199028668211
+2025-07-19 12:55:32,773 - api.player_callback - DEBUG - Callback_query player_badges:76561199028668211:
+2025-07-19 12:55:45,529 - api.player_callback - DEBUG - Callback_query compare_users
+2025-07-19 12:55:46,565 - api.player_callback - DEBUG - Callback_query compare_users:76561199028668211:
+2025-07-19 12:55:52,405 - api.player_callback - INFO - Return Player_User_2 data {'steam_appid': 76561199028668211, 'user1': '76561199028668211', 'complited': True},correct_user {'steam_appid': 76561198144270080}
+2025-07-19 12:58:37,087 - api.player_callback - DEBUG - Response: 
+1.<b><a href='https://store.steampowered.com/app/730/'>Counter-Strike 2</a></b>
+Ціна гри: Free
+2025-07-19 12:58:37,599 - api.player_callback - DEBUG - Response: None  ,Command:achievements_game
+2025-07-19 12:58:37,599 - api.player_callback - DEBUG - Handler {🥺 Нажаль, гру не знайдено...}
+2025-07-19 12:58:45,948 - api.player_callback - DEBUG - Response: 
+1.<b><a href='https://store.steampowered.com/app/1079610/'>Counterspell</a></b>
+Ціна гри: $9.99
+2.<b><a href='https://store.steampowered.com/app/1451440/'>Void Encounter</a></b>
+Ціна гри: $9.99
+3.<b><a href='https://store.steampowered.com/app/551690/'>Counter Fight</a></b>
+Ціна гри: Free
+4.<b><a href='https://store.steampowered.com/app/1486440/'>Graze Counter GM</a></b>
+Ціна гри: $5.99
+5.<b><a href='https://store.steampowered.com/app/502300/'>Heartomics: Lost Count</a></b>
+Ціна гри: $1.99
+2025-07-19 12:58:45,948 - api.player_callback - DEBUG - Handler {
+1.<b><a href='https://store.steampowered.com/app/1079610/'>Counterspell</a></b>
+Ціна гри: $9.99
+2.<b><a href='https://store.steampowered.com/app/1451440/'>Void Encounter</a></b>
+Ціна гри: $9.99
+3.<b><a href='https://store.steampowered.com/app/551690/'>Counter Fight</a></b>
+Ціна гри: Free
+4.<b><a href='https://store.steampowered.com/app/1486440/'>Graze Counter GM</a></b>
+Ціна гри: $5.99
+5.<b><a href='https://store.steampowered.com/app/502300/'>Heartomics: Lost Count</a></b>
+Ціна гри: $1.99}
+2025-07-19 12:58:50,637 - api.steam_callback - DEBUG - Game:search_short_games,Page:search_short_games:Count:achievements_game:2
+2025-07-19 12:58:50,637 - api.steam_callback - DEBUG - main_callback_name:achievements_game
+2025-07-19 12:58:50,701 - api.steam_callback - DEBUG - Game:Count,Page:2
+2025-07-19 12:58:53,283 - api.steam_callback - DEBUG - Game:search_short_games,Page:search_short_games:Count:achievements_game:3
+2025-07-19 12:58:53,283 - api.steam_callback - DEBUG - main_callback_name:achievements_game
+2025-07-19 12:58:53,328 - api.steam_callback - DEBUG - Game:Count,Page:3
+2025-07-19 12:58:55,351 - api.steam_callback - DEBUG - Game:search_short_games,Page:search_short_games:Count:achievements_game:4
+2025-07-19 12:58:55,351 - api.steam_callback - DEBUG - main_callback_name:achievements_game
+2025-07-19 12:58:55,398 - api.steam_callback - DEBUG - Game:Count,Page:4
+2025-07-19 12:59:34,680 - api.player_callback - DEBUG - Response: 
+1.<b><a href='https://store.steampowered.com/app/230410/'>Warframe</a></b>
+Ціна гри: Free
+2025-07-19 12:59:35,224 - api.player_callback - DEBUG - Response: {'name': 'Warframe', 'steam_appid': 230410, 'achievements': {'total': 193, 'highlighted': [{'name': 'We Shape Our Tools'}, {'name': 'Our Tools Shape Us'}, {'name': 'Blade Mastery I'}, {'name': 'Blade Mastery II'}, {'name': 'Blade Mastery III'}, {'name': 'Blade Proficiency I'}, {'name': 'Blade Proficiency II'}, {'name': 'Blade Proficiency III'}, {'name': 'Bow Mastery I'}, {'name': 'Bow Mastery II'}]}, 'price_overview': None, 'short_description': 'Awaken as an unstoppable warrior and battle alongside your friends in this story-driven free-to-play online action game'}  ,Command:achievements_game
+2025-07-19 12:59:35,224 - api.player_callback - DEBUG - Handler {🔥 <b>Гра</b>: <b><i><a href='https://store.steampowered.com/app/230410/'>Warframe</a></i></b>
+📝 <b>Короткий опис</b>: <i>Awaken as an unstoppable warrior and battle alongside your friends in this story-driven free-to-play online action game</i>
+<b>🏅 Кількість досягнень: 193</b>
+🏅 <b>Список досягнень</b>:
+<i> - 1.We Shape Our Tools
+ - 2.Our Tools Shape Us
+ - 3.Blade Mastery I
+ - 4.Blade Mastery II
+ - 5.Blade Mastery III
+ - 6.Blade Proficiency I
+ - 7.Blade Proficiency II
+ - 8.Blade Proficiency III
+ - 9.Bow Mastery I
+ - 10.Bow Mastery II
+</i>
+🎪 <b>Ціна</b>: <i><b>Безкоштовно</b></i>}
+2025-07-19 13:00:09,005 - api.player_callback - DEBUG - Response: 🥺 Нажаль, гру не знайдено...
+2025-07-19 13:00:09,005 - api.player_callback - DEBUG - Handler {🥺 Нажаль, гру не знайдено...}
+2025-07-19 13:00:09,047 - api.player_callback - CRITICAL - Chat ID -4820440379,message 3769 Error Info:Bad Request: message to delete not found
+2025-07-19 13:00:20,964 - api.subscribe_callback - DEBUG - Logger Debug Sub Type subscribe_new_release
+2025-07-19 13:00:20,965 - api.subscribe_callback - DEBUG - Logger Debug Sub Type {'type_id': 1, 'description': '🆕🎮 <b>Нові релізи</b>\nХочеш бути першим, хто дізнається про нові ігри у Steam? Ми сповістимо тебе одразу після релізу! 🚀✨'}
+2025-07-19 13:00:23,137 - api.subscribe_callback - DEBUG - callback_split_data: ['subscribe_user', '1', '5366078830']
+2025-07-19 13:00:23,137 - api.subscribe_callback - DEBUG - user_id: 5366078830 vs callback_query.from_user.id = 5366078830
+2025-07-19 13:00:23,137 - api.subscribe_callback - DEBUG - Logger Debug Sub Type 1
+2025-07-19 13:00:25,418 - api.subscribe_callback - DEBUG - Logger Debug Sub Type subscribe_steam_news
+2025-07-19 13:00:25,418 - api.subscribe_callback - DEBUG - Logger Debug Sub Type {'type_id': 3, 'description': '📅🎉 <b>Ігрові події</b>\nФестивалі, розпродажі, оновлення — усе найцікавіше зі світу Steam! Будь у центрі подій 🎊📢'}
+2025-07-19 13:00:26,345 - api.subscribe_callback - DEBUG - callback_split_data: ['subscribe_user', '3', '5366078830']
+2025-07-19 13:00:26,346 - api.subscribe_callback - DEBUG - user_id: 5366078830 vs callback_query.from_user.id = 5366078830
+2025-07-19 13:00:26,346 - api.subscribe_callback - DEBUG - Logger Debug Sub Type 3
+2025-07-19 13:00:28,613 - api.subscribe_callback - DEBUG - Logger Debug Sub Type subscribe_hot_discount_notificate
+2025-07-19 13:00:28,613 - api.subscribe_callback - DEBUG - Logger Debug Sub Type {'type_id': 5, 'description': '🔥💸 <b>Гарячі знижки</b>\nНе пропусти шалені знижки на топові ігри! Найкращі пропозиції — прямо до тебе 🛍️🚨'}
+2025-07-19 13:00:29,989 - api.subscribe_callback - DEBUG - callback_split_data: ['subscribe_user', '5', '5366078830']
+2025-07-19 13:00:29,989 - api.subscribe_callback - DEBUG - user_id: 5366078830 vs callback_query.from_user.id = 5366078830
+2025-07-19 13:00:29,989 - api.subscribe_callback - DEBUG - Logger Debug Sub Type 5
+2025-07-19 13:00:32,620 - api.subscribe_callback - DEBUG - Logger Debug Sub Type subscribe_free_games
+2025-07-19 13:00:32,620 - api.subscribe_callback - DEBUG - Logger Debug Sub Type {'type_id': 2, 'description': '🎁🕹️ <b>Безкоштовні ігри</b>\nНе плати — просто грай! Ми підкажемо, коли і які ігри можна отримати абсолютно безкоштовно 💸🤑'}
+2025-07-19 13:00:33,659 - api.subscribe_callback - DEBUG - callback_split_data: ['subscribe_user', '2', '5366078830']
+2025-07-19 13:00:33,659 - api.subscribe_callback - DEBUG - user_id: 5366078830 vs callback_query.from_user.id = 5366078830
+2025-07-19 13:00:33,659 - api.subscribe_callback - DEBUG - Logger Debug Sub Type 2
+2025-07-19 13:00:36,034 - api.subscribe_callback - DEBUG - Logger Debug Sub Type subscribe_wishlist_notificate
+2025-07-19 13:00:36,034 - api.subscribe_callback - DEBUG - Logger Debug Sub Type {'type_id': 4, 'description': '🔔💖 <b>Знижки на бажане</b>\nМрієш про гру зі списку бажаного? Ми нагадаємо, коли вона отримає знижку! 🎯🎮'}
+2025-07-19 13:00:37,263 - api.subscribe_callback - DEBUG - callback_split_data: ['subscribe_user', '4', '5366078830']
+2025-07-19 13:00:37,263 - api.subscribe_callback - DEBUG - user_id: 5366078830 vs callback_query.from_user.id = 5366078830
+2025-07-19 13:00:37,263 - api.subscribe_callback - DEBUG - Logger Debug Sub Type 4
+2025-07-19 13:14:15,181 - api.player_callback - DEBUG - Handler {🎮 <b><a href='https://store.steampowered.com/app/273110/'>Counter-Strike Nexon</a></b> - 🆓 Free
+<b><i>Counter-Strike Nexon is a Free to Play MMOFPS offering competitive PvP and PvE action including content from the original Counter-Strike and all new game modes, map creation function, weapons, and hordes of Zombies!</i></b>
+✅ <b>Ganres: ⚡Action 🎮Free To Play 🎮Massively Multiplayer 🎮Indie 🎮Casual </b>
+
+👻 <b><a href='https://store.steampowered.com/app/207570/'>English Country Tune</a></b> - 💵 $1.49 - (70)
+<b><i>English Country Tune is a luxuriant abstract 3D puzzle game containing more than a hundred levels situated throughout 17 worlds.</i></b>
+✅ <b>Ganres: 🎮Indie 🎮Casual </b>
+
+👻 <b><a href='https://store.steampowered.com/app/1376140/'>CounterBlocks</a></b> - 💵 $4.99
+<b><i>CounterBlocks is an arcade-like rebellious block-breaking game that combines simple block-breaking and non-simple counter bullets.</i></b>
+✅ <b>Ganres: ⚡Action 🎮Indie </b>
+
+👻 <b><a href='https://store.steampowered.com/app/1065940/'>Country Girl Keiko</a></b> - 💵 $9.59 - (40)
+<b><i>Play as Keiko, a socially awkward woman living in a small country village. Explore the town and help her overcome her social anxiety, so she can thrive at her university.</i></b>
+✅ <b>Ganres: 🎮Indie 🛡️RPG </b>
+
+👻 <b><a href='https://store.steampowered.com/app/1131420/'>For a Better Country</a></b> - 💵 $9.99
+<b><i>This game is a text-based simulation for a pure country management experience. Old-school mechanics are combined with up-to-date topics and clean graphics.</i></b>
+✅ <b>Ganres: 🎮Indie 🎮Casual 🖥️Simulation </b>
+
+}
+2025-07-19 13:14:22,824 - api.steam_callback - DEBUG - Game:Count,Page:2
+2025-07-19 13:14:23,021 - api.steam_callback - DEBUG - data:[{'name': 'Countryside Legends', 'steam_appid': 3515300, 'final_formatted_price': '$0.99', 'discount': 0, 'game_ganre': [{'ganres_id': 8, 'ganres_name': 'Casual'}, {'ganres_id': 19, 'ganres_name': 'Racing'}], 'short_description': 'Peaceful racing in a stylized countryside world awaits you, offering relaxing drives with six unique cars. Enjoy the serene atmosphere, explore scenic tracks, and compete against AI at your own pace.', 'img_url': 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3515300/fe2f703172f40da3d5cc44b31d7334f289b62bc8/capsule_231x87.jpg?t=1750960887'}, {'name': 'Counter Clash', 'steam_appid': 2838160, 'final_formatted_price': '$4.19', 'discount': 30, 'game_ganre': [{'ganres_id': 1, 'ganres_name': 'Action'}, {'ganres_id': 3, 'ganres_name': 'Strategy'}, {'ganres_id': 6, 'ganres_name': 'Indie'}, {'ganres_id': 18, 'ganres_name': 'Early Access'}], 'short_description': 'A minimalist real-time strategy game about building up and defending your small kingdom', 'img_url': 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2838160/802e436fc9f348148bb8ea7fead358ff0df3b904/capsule_231x87.jpg?t=1747130277'}, {'name': 'Count 427', 'steam_appid': 2829760, 'final_formatted_price': '$4.99', 'discount': 0, 'game_ganre': [{'ganres_id': 6, 'ganres_name': 'Indie'}], 'short_description': 'Urgent Recruitment! 100,000 Yen Daily Wage! Easy Job, Just Press a Button.', 'img_url': 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2829760/capsule_231x87.jpg?t=1744099795'}, {'name': 'Countryside Life', 'steam_appid': 3449880, 'final_formatted_price': '$7.64', 'discount': 15, 'game_ganre': [{'ganres_id': 4, 'ganres_name': 'Adventure'}, {'ganres_id': 6, 'ganres_name': 'Indie'}], 'short_description': 'A summer memory in the countryside. Get a taste of nostalgia and let the pixel art warm your soul in this country life simulation. Do all the things you remember, and all the things you wish you had.', 'img_url': 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3449880/a6fca6c9707a6566bcd7bf5ed1294a7616bb3b61/capsule_231x87.jpg?t=1744948814'}, {'name': 'Flag & Country', 'steam_appid': 2832430, 'final_formatted_price': '$0.69', 'discount': 30, 'game_ganre': [{'ganres_id': 6, 'ganres_name': 'Indie'}, {'ganres_id': 8, 'ganres_name': 'Casual'}], 'short_description': 'A small word formation game with a flag theme, use your knowledge or ask for tips to move forward', 'img_url': 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2832430/capsule_231x87.jpg?t=1745369842'}]
+2025-07-19 13:14:24,655 - api.steam_callback - DEBUG - Game:Count,Page:3
+2025-07-19 13:14:24,842 - api.steam_callback - DEBUG - data:[{'name': 'How a Retired Strategist Saved the Country', 'steam_appid': 2169830, 'final_formatted_price': '$9.79', 'discount': 30, 'game_ganre': [{'ganres_id': 3, 'ganres_name': 'Strategy'}, {'ganres_id': 4, 'ganres_name': 'Adventure'}, {'ganres_id': 7, 'ganres_name': 'RPG'}], 'short_description': "How a Retired Strategist Saved the Country is a real time strategy simulation game where you manage resources to develop your country. The player is asked by elves, beastmen... Etc. various heroines ask you for help, and then you take command of their country's army.", 'img_url': 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2169830/capsule_231x87.jpg?t=1748934003'}, {'name': 'Counterspell', 'steam_appid': 1079610, 'final_formatted_price': '$9.99', 'discount': 0, 'game_ganre': [{'ganres_id': 1, 'ganres_name': 'Action'}], 'short_description': 'Counterspell is a fast and vicious local multiplayer bloodsport, in which contestants cast and counter spells at each other. Choose any of 8 inter-dimensional combatants and scramble for victory. No Gibs, No Glory!', 'img_url': 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1079610/capsule_231x87.jpg?t=1565346301'}, {'name': 'Counter Fight', 'steam_appid': 551690, 'final_formatted_price': 'Free', 'discount': 0, 'game_ganre': [{'ganres_id': 1, 'ganres_name': 'Action'}, {'ganres_id': 6, 'ganres_name': 'Indie'}, {'ganres_id': 8, 'ganres_name': 'Casual'}, {'ganres_id': 9, 'ganres_name': 'Simulation'}], 'short_description': 'Counter Fight is a VR game. You can enjoy the ramen shop . You offer a variety of dishes to eccentric customers.', 'img_url': 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/551690/capsule_231x87.jpg?t=1694796354'}, {'name': 'Graze Counter GM', 'steam_appid': 1486440, 'final_formatted_price': '$5.99', 'discount': 60, 'game_ganre': [{'ganres_id': 1, 'ganres_name': 'Action'}, {'ganres_id': 8, 'ganres_name': 'Casual'}], 'short_description': "A refreshing and highly re-playable bullet hell style shooter that WANTS you to play dangerously! Ride the razor's edge of life and death in this high-risk high-reward danger oriented arcade style shooting game.", 'img_url': 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1486440/capsule_231x87.jpg?t=1736841850'}, {'name': 'Heartomics: Lost Count', 'steam_appid': 502300, 'final_formatted_price': '$1.99', 'discount': 0, 'game_ganre': [{'ganres_id': 1, 'ganres_name': 'Action'}, {'ganres_id': 6, 'ganres_name': 'Indie'}], 'short_description': 'Battle humanoid &quot;Heartomics&quot; in this sexy shooter, Heartomics: Lost Count. A bullet hell game that uses fan service to entice players. Join us in the challenge to evade visually stunning shot patterns with thousands of bullets. Can you uncover the hidden mysteries!?', 'img_url': 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/502300/capsule_231x87.jpg?t=1725510627'}]
+2025-07-19 13:14:27,458 - api.steam_callback - DEBUG - Game:Count,Page:4
+2025-07-19 13:14:27,659 - api.steam_callback - DEBUG - data:[{'name': 'Counterspell', 'steam_appid': 2211960, 'final_formatted_price': '$0.99', 'discount': 0, 'game_ganre': [{'ganres_id': 1, 'ganres_name': 'Action'}, {'ganres_id': 6, 'ganres_name': 'Indie'}, {'ganres_id': 8, 'ganres_name': 'Casual'}], 'short_description': 'How long can you survive in this endless draw-em-up? Cast spells to defend yourself from the deadly warding glyphs.', 'img_url': 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2211960/capsule_231x87.jpg?t=1669310965'}, {'name': 'Bathory - The Bloody Countess', 'steam_appid': 486170, 'final_formatted_price': '$5.99', 'discount': 0, 'game_ganre': [{'ganres_id': 4, 'ganres_name': 'Adventure'}, {'ganres_id': 6, 'ganres_name': 'Indie'}, {'ganres_id': 8, 'ganres_name': 'Casual'}], 'short_description': 'Stop the blood rite before something darker than the myth itself comes to live in Bathory: The Bloody Countess, a haunted hidden object adventure game.', 'img_url': 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/486170/96ff39488b021bef7de0bfc88465efcd220d89de/capsule_231x87.jpg?t=1738676650'}, {'name': 'Dictators:No Peace Countryballs', 'steam_appid': 1139890, 'final_formatted_price': '$0.99', 'discount': 0, 'game_ganre': [{'ganres_id': 3, 'ganres_name': 'Strategy'}, {'ganres_id': 6, 'ganres_name': 'Indie'}, {'ganres_id': 8, 'ganres_name': 'Casual'}, {'ganres_id': 9, 'ganres_name': 'Simulation'}], 'short_description': 'Dictators : No Peace Countryballs is a war simulation and dictator game. This is a fun,simple and some say a funny countryballs game. If you like simulation games, you will love playing Dictators : No Peace. Play as a dictator of your favourite country and colonize the world.', 'img_url': 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1139890/capsule_231x87.jpg?t=1577876451'}, {'name': 'The Count Lucanor', 'steam_appid': 440880, 'final_formatted_price': '$9.99', 'discount': 0, 'game_ganre': [{'ganres_id': 4, 'ganres_name': 'Adventure'}, {'ganres_id': 6, 'ganres_name': 'Indie'}, {'ganres_id': 7, 'ganres_name': 'RPG'}], 'short_description': 'Pixel adventure inspired by classics like Zelda and Silent Hill.', 'img_url': 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/440880/capsule_231x87.jpg?t=1741006380'}, {'name': 'Frog Detective 3: Corruption at Cowboy County', 'steam_appid': 1171320, 'final_formatted_price': '$4.99', 'discount': 0, 'game_ganre': [{'ganres_id': 4, 'ganres_name': 'Adventure'}, {'ganres_id': 6, 'ganres_name': 'Indie'}, {'ganres_id': 8, 'ganres_name': 'Casual'}], 'short_description': "You're a detective, and a frog, and it's time to solve a mystery in the wild west.", 'img_url': 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1171320/capsule_231x87.jpg?t=1746201618'}]
+2025-07-19 13:14:30,445 - api.steam_callback - DEBUG - Game:Count,Page:5
+2025-07-19 13:14:30,645 - api.steam_callback - DEBUG - data:[{'name': 'AlexanderBall: A Countryball Tale', 'steam_appid': 1944660, 'final_formatted_price': '$12.99', 'discount': 0, 'game_ganre': [{'ganres_id': 3, 'ganres_name': 'Strategy'}, {'ganres_id': 7, 'ganres_name': 'RPG'}, {'ganres_id': 8, 'ganres_name': 'Casual'}, {'ganres_id': 9, 'ganres_name': 'Simulation'}], 'short_description': 'Ascend to the Macedonian throne as Alexander the Great and relive his conquests! Fighting alongside redoubtable and quirky commanders, recruit numerous types of balls for your army, construct countless cities named Alexandria, and build an empire that stretches to the ends of the known world!', 'img_url': 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1944660/capsule_231x87.jpg?t=1712052361'}, {'name': 'Countryside Legends', 'steam_appid': 3515300, 'final_formatted_price': '$0.99', 'discount': 0, 'game_ganre': [{'ganres_id': 8, 'ganres_name': 'Casual'}, {'ganres_id': 19, 'ganres_name': 'Racing'}], 'short_description': 'Peaceful racing in a stylized countryside world awaits you, offering relaxing drives with six unique cars. Enjoy the serene atmosphere, explore scenic tracks, and compete against AI at your own pace.', 'img_url': 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3515300/fe2f703172f40da3d5cc44b31d7334f289b62bc8/capsule_231x87.jpg?t=1750960887'}, {'name': 'Counter Clash', 'steam_appid': 2838160, 'final_formatted_price': '$4.19', 'discount': 30, 'game_ganre': [{'ganres_id': 1, 'ganres_name': 'Action'}, {'ganres_id': 3, 'ganres_name': 'Strategy'}, {'ganres_id': 6, 'ganres_name': 'Indie'}, {'ganres_id': 18, 'ganres_name': 'Early Access'}], 'short_description': 'A minimalist real-time strategy game about building up and defending your small kingdom', 'img_url': 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2838160/802e436fc9f348148bb8ea7fead358ff0df3b904/capsule_231x87.jpg?t=1747130277'}, {'name': 'Count 427', 'steam_appid': 2829760, 'final_formatted_price': '$4.99', 'discount': 0, 'game_ganre': [{'ganres_id': 6, 'ganres_name': 'Indie'}], 'short_description': 'Urgent Recruitment! 100,000 Yen Daily Wage! Easy Job, Just Press a Button.', 'img_url': 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2829760/capsule_231x87.jpg?t=1744099795'}, {'name': 'Countryside Life', 'steam_appid': 3449880, 'final_formatted_price': '$7.64', 'discount': 15, 'game_ganre': [{'ganres_id': 4, 'ganres_name': 'Adventure'}, {'ganres_id': 6, 'ganres_name': 'Indie'}], 'short_description': 'A summer memory in the countryside. Get a taste of nostalgia and let the pixel art warm your soul in this country life simulation. Do all the things you remember, and all the things you wish you had.', 'img_url': 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3449880/a6fca6c9707a6566bcd7bf5ed1294a7616bb3b61/capsule_231x87.jpg?t=1744948814'}]
+2025-07-19 13:14:34,116 - api.steam_callback - DEBUG - Game:Count,Page:6
+2025-07-19 13:14:34,315 - api.steam_callback - DEBUG - data:[{'name': 'Wild Country', 'steam_appid': 1515000, 'final_formatted_price': '$24.99', 'discount': 0, 'game_ganre': [{'ganres_id': 8, 'ganres_name': 'Casual'}, {'ganres_id': 6, 'ganres_name': 'Indie'}, {'ganres_id': 4, 'ganres_name': 'Adventure'}, {'ganres_id': 3, 'ganres_name': 'Strategy'}, {'ganres_id': 1, 'ganres_name': 'Action'}], 'short_description': 'Wild Country is a cozy-competitive card game with city-building elements! Collect cards, construct buildings, explore Big Sky, and challenge friends in this one of a kind strategy game.', 'img_url': 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1515000/capsule_231x87.jpg?t=1746044853'}, {'name': 'Metal Country', 'steam_appid': 1055770, 'final_formatted_price': '$1.99', 'discount': 0, 'game_ganre': [{'ganres_id': 6, 'ganres_name': 'Indie'}, {'ganres_id': 4, 'ganres_name': 'Adventure'}, {'ganres_id': 1, 'ganres_name': 'Action'}], 'short_description': 'Not even alien invasion can stop this guitarist from playing on his concert. Play as Amadoni, a guitarist on a hover board fighting alien invasion with using his musics.', 'img_url': 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1055770/capsule_231x87.jpg?t=1574931267'}, {'name': 'Counter Terrorism - Minesweeper', 'steam_appid': 1154560, 'final_formatted_price': '$2.99', 'discount': 0, 'game_ganre': [{'ganres_id': 8, 'ganres_name': 'Casual'}, {'ganres_id': 6, 'ganres_name': 'Indie'}], 'short_description': 'Base on budget control to locate and capture those terrorists, stop them before the attack countdown. Gameplay method inspired by the minesweeper.', 'img_url': 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1154560/capsule_231x87.jpg?t=1591635452'}, {'name': 'Country of One', 'steam_appid': 598720, 'final_formatted_price': '$8.99', 'discount': 0, 'game_ganre': [{'ganres_id': 18, 'ganres_name': 'Early Access'}, {'ganres_id': 9, 'ganres_name': 'Simulation'}, {'ganres_id': 4, 'ganres_name': 'Adventure'}, {'ganres_id': 1, 'ganres_name': 'Action'}], 'short_description': 'Country of one is a virtual sandbox that lets you live our your island fantasies. Extremely precise construction controls allow you to build anything from a tiny shack to a giant castle, what your island will end up like is up to you!', 'img_url': 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/598720/capsule_231x87.jpg?t=1496188821'}, {'name': '反现实症候群γ - Counterrealstic Syndrome γ', 'steam_appid': 1186860, 'final_formatted_price': 'Free', 'discount': 0, 'game_ganre': [{'ganres_id': 6, 'ganres_name': 'Indie'}, {'ganres_id': 4, 'ganres_name': 'Adventure'}, {'ganres_id': 2, 'ganres_name': 'Free To Play'}], 'short_description': '高楼上的微风轻拂少女的脸庞，她似乎已经准备好去迎接自己的结局。 果然，她期待已久的【银河铁道】已经向她驶来。 奇妙的星空之旅即将展开……', 'img_url': 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1186860/capsule_231x87.jpg?t=1573980272'}]
+2025-07-19 13:16:14,122 - api.player_callback - DEBUG - Handler {👻 <b><a href='https://store.steampowered.com/app/1171140/'>Countersnipe</a></b> - 🆓 Free
+<b><i>Multiplayer Seek and Snipe</i></b>
+✅ <b>Ganres: ⚡Action 🎮Free To Play </b>
+
+🎪 <b><a href='https://store.steampowered.com/app/2838160/'>Counter Clash</a></b> - 💵 $4.19 - (30)
+<b><i>A minimalist real-time strategy game about building up and defending your small kingdom</i></b>
+✅ <b>Ganres: ⚡Action ♟️Strategy 🎮Indie 🎮Early Access </b>
+
+🎪 <b><a href='https://store.steampowered.com/app/2211960/'>Counterspell</a></b> - 💵 $0.99
+<b><i>How long can you survive in this endless draw-em-up? Cast spells to defend yourself from the deadly warding glyphs.</i></b>
+✅ <b>Ganres: ⚡Action 🎮Indie 🎮Casual </b>
+
+👻 <b><a href='https://store.steampowered.com/app/1376140/'>CounterBlocks</a></b> - 💵 $4.99
+<b><i>CounterBlocks is an arcade-like rebellious block-breaking game that combines simple block-breaking and non-simple counter bullets.</i></b>
+✅ <b>Ganres: ⚡Action 🎮Indie </b>
+
+🎪 <b><a href='https://store.steampowered.com/app/1079610/'>Counterspell</a></b> - 💵 $9.99
+<b><i>Counterspell is a fast and vicious local multiplayer bloodsport, in which contestants cast and counter spells at each other. Choose any of 8 inter-dimensional combatants and scramble for victory. No Gibs, No Glory!</i></b>
+✅ <b>Ganres: ⚡Action </b>
+
+}
+2025-07-19 13:16:21,585 - api.steam_callback - DEBUG - Game:Counter,Page:2
+2025-07-19 13:16:21,801 - api.steam_callback - DEBUG - data:[{'name': 'Counter Fight 4', 'steam_appid': 1232430, 'final_formatted_price': 'Free', 'discount': 0, 'game_ganre': [{'ganres_id': 1, 'ganres_name': 'Action'}, {'ganres_id': 6, 'ganres_name': 'Indie'}, {'ganres_id': 8, 'ganres_name': 'Casual'}, {'ganres_id': 9, 'ganres_name': 'Simulation'}], 'short_description': 'This Counter Fight is about cafes! &quot;Counter Fight 4&quot; is a work simulation game where players become coffee shop owners and offer coffee, latte, and sandwiches to unique customers who appear one after another.', 'img_url': 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1232430/capsule_231x87.jpg?t=1694796332'}, {'name': 'Counter Agents', 'steam_appid': 549090, 'final_formatted_price': 'Free', 'discount': 0, 'game_ganre': [{'ganres_id': 1, 'ganres_name': 'Action'}, {'ganres_id': 2, 'ganres_name': 'Free To Play'}, {'ganres_id': 3, 'ganres_name': 'Strategy'}, {'ganres_id': 4, 'ganres_name': 'Adventure'}, {'ganres_id': 6, 'ganres_name': 'Indie'}, {'ganres_id': 8, 'ganres_name': 'Casual'}], 'short_description': 'Counter Agents is a spy-themed, head-to-head multiplayer game where your objective is to sneak around guards, steal the briefcase, and make it to an exit point before your opponent!', 'img_url': 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/549090/capsule_231x87.jpg?t=1706385328'}, {'name': 'Counter Fight 3', 'steam_appid': 984820, 'final_formatted_price': 'Free', 'discount': 0, 'game_ganre': [{'ganres_id': 1, 'ganres_name': 'Action'}, {'ganres_id': 6, 'ganres_name': 'Indie'}, {'ganres_id': 8, 'ganres_name': 'Casual'}, {'ganres_id': 9, 'ganres_name': 'Simulation'}], 'short_description': 'Counter Fight is never dead! “Counter Fight 3” is a work simulation game where the player becomes a chef of a pizza store and provides meals to unique customers who appear one after another.', 'img_url': 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/984820/capsule_231x87.jpg?t=1694796343'}, {'name': 'Counter Terrorism - Minesweeper', 'steam_appid': 1154560, 'final_formatted_price': '$2.99', 'discount': 0, 'game_ganre': [{'ganres_id': 6, 'ganres_name': 'Indie'}, {'ganres_id': 8, 'ganres_name': 'Casual'}], 'short_description': 'Base on budget control to locate and capture those terrorists, stop them before the attack countdown. Gameplay method inspired by the minesweeper.', 'img_url': 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1154560/capsule_231x87.jpg?t=1591635452'}, {'name': 'Counterspell', 'steam_appid': 2211960, 'final_formatted_price': '$0.99', 'discount': 0, 'game_ganre': [{'ganres_id': 1, 'ganres_name': 'Action'}, {'ganres_id': 6, 'ganres_name': 'Indie'}, {'ganres_id': 8, 'ganres_name': 'Casual'}], 'short_description': 'How long can you survive in this endless draw-em-up? Cast spells to defend yourself from the deadly warding glyphs.', 'img_url': 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2211960/capsule_231x87.jpg?t=1669310965'}]
+2025-07-19 13:16:26,505 - api.steam_callback - DEBUG - Game:Counter,Page:3
+2025-07-19 13:16:26,750 - api.steam_callback - DEBUG - data:[{'name': 'Counter Spell', 'steam_appid': 351230, 'final_formatted_price': '$4.99', 'discount': 0, 'game_ganre': [{'ganres_id': 1, 'ganres_name': 'Action'}, {'ganres_id': 6, 'ganres_name': 'Indie'}, {'ganres_id': 7, 'ganres_name': 'RPG'}], 'short_description': '&quot;Counter Spell&quot; combines elements of classic role playing games with modern stealth-based shooters. Single player, multiplayer coop, and competitive multiplayer are all supported with different game modes for each. An open, streaming world makes for an exciting sandbox to adventure in!', 'img_url': 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/351230/capsule_231x87.jpg?t=1537808649'}, {'name': 'Graze Counter GM', 'steam_appid': 1486440, 'final_formatted_price': '$5.99', 'discount': 60, 'game_ganre': [{'ganres_id': 1, 'ganres_name': 'Action'}, {'ganres_id': 8, 'ganres_name': 'Casual'}], 'short_description': "A refreshing and highly re-playable bullet hell style shooter that WANTS you to play dangerously! Ride the razor's edge of life and death in this high-risk high-reward danger oriented arcade style shooting game.", 'img_url': 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1486440/capsule_231x87.jpg?t=1736841850'}, {'name': 'USC: Counterforce', 'steam_appid': 1574870, 'final_formatted_price': '$5.99', 'discount': 70, 'game_ganre': [{'ganres_id': 3, 'ganres_name': 'Strategy'}, {'ganres_id': 6, 'ganres_name': 'Indie'}, {'ganres_id': 7, 'ganres_name': 'RPG'}], 'short_description': 'Lead your Space Commandos in a revival of turn-based squad tactics inspired by UFO/XCOM and Aliens. Utilize in-depth skill &amp; combat systems in multiple game modes, including a full campaign. Discover the truth behind the demise of colony MC83-A and join the USC in defending humanity!', 'img_url': 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1574870/96d87df48c2e7718465d95b7aa8f223d4e3820ff/capsule_231x87.jpg?t=1752242428'}, {'name': 'Counter Fight', 'steam_appid': 551690, 'final_formatted_price': 'Free', 'discount': 0, 'game_ganre': [{'ganres_id': 1, 'ganres_name': 'Action'}, {'ganres_id': 6, 'ganres_name': 'Indie'}, {'ganres_id': 8, 'ganres_name': 'Casual'}, {'ganres_id': 9, 'ganres_name': 'Simulation'}], 'short_description': 'Counter Fight is a VR game. You can enjoy the ramen shop . You offer a variety of dishes to eccentric customers.', 'img_url': 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/551690/capsule_231x87.jpg?t=1694796354'}, {'name': 'Counter-Strike Nexon', 'steam_appid': 273110, 'final_formatted_price': 'Free', 'discount': 0, 'game_ganre': [{'ganres_id': 1, 'ganres_name': 'Action'}, {'ganres_id': 2, 'ganres_name': 'Free To Play'}, {'ganres_id': 5, 'ganres_name': 'Massively Multiplayer'}, {'ganres_id': 6, 'ganres_name': 'Indie'}, {'ganres_id': 8, 'ganres_name': 'Casual'}], 'short_description': 'Counter-Strike Nexon is a Free to Play MMOFPS offering competitive PvP and PvE action including content from the original Counter-Strike and all new game modes, map creation function, weapons, and hordes of Zombies!', 'img_url': 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/273110/58fe355bc3b6e10db61c271784c0b4b46d83ff49/capsule_231x87.jpg?t=1747188197'}]
+2025-07-19 13:17:02,913 - api.player_callback - DEBUG - Handler {🎪 <b><a href='https://store.steampowered.com/app/1171140/'>Countersnipe</a></b> - 🆓 Free
+<b><i>Multiplayer Seek and Snipe</i></b>
+✅ <b>Ganres: ⚡Action 🎮Free To Play </b>
+
+👻 <b><a href='https://store.steampowered.com/app/2838160/'>Counter Clash</a></b> - 💵 $4.19 - (30)
+<b><i>A minimalist real-time strategy game about building up and defending your small kingdom</i></b>
+✅ <b>Ganres: ⚡Action ♟️Strategy 🎮Indie 🎮Early Access </b>
+
+🎮 <b><a href='https://store.steampowered.com/app/2211960/'>Counterspell</a></b> - 💵 $0.99
+<b><i>How long can you survive in this endless draw-em-up? Cast spells to defend yourself from the deadly warding glyphs.</i></b>
+✅ <b>Ganres: ⚡Action 🎮Indie 🎮Casual </b>
+
+🎮 <b><a href='https://store.steampowered.com/app/1376140/'>CounterBlocks</a></b> - 💵 $4.99
+<b><i>CounterBlocks is an arcade-like rebellious block-breaking game that combines simple block-breaking and non-simple counter bullets.</i></b>
+✅ <b>Ganres: ⚡Action 🎮Indie </b>
+
+🎮 <b><a href='https://store.steampowered.com/app/1079610/'>Counterspell</a></b> - 💵 $9.99
+<b><i>Counterspell is a fast and vicious local multiplayer bloodsport, in which contestants cast and counter spells at each other. Choose any of 8 inter-dimensional combatants and scramble for victory. No Gibs, No Glory!</i></b>
+✅ <b>Ganres: ⚡Action </b>
+
+}
+2025-07-20 12:38:54,385 - api.startup - INFO - Init subscribe types
+2025-07-20 12:38:54,470 - api.startup - INFO - Init subscribe types done
+2025-07-20 12:38:54,631 - api.main - INFO - Start Telegram Bot...
+2025-07-20 12:39:06,317 - api.player_callback - DEBUG - Handler {🥺 Нажаль, гру не знайдено...}
+2025-07-20 12:39:10,705 - api.player_callback - DEBUG - Handler {🎪 <b><a href='https://store.steampowered.com/app/730/'>Counter-Strike 2</a></b> - 🆓 Free
+<b><i>Упродовж більш ніж двох десятиліть Counter-Strike пропонував елітний змагальний досвід, сформований мільйонами гравців з усього світу. І тепер починається новий розділ в історії CS: Counter-Strike 2.</i></b>
+✅ <b>Ganres: 🎮Бойовики 🎮Вільний доступ </b>
+
+👻 <b><a href='https://store.steampowered.com/app/10/'>Counter-Strike</a></b> - 💵 169₴
+<b><i>Зіграйте у кращу в світі мережеву стрілянку. Пориньте в неймовірно реалістичні ситуації боротьби з терористами в цій шалено популярній командній грі. Об’єднуйтеся з іншими гравцями для виконання стратегічних місій. Знищуйте ворожі осередки. Рятуйте заручників. Ваша роль впливає на успіх команди. Успіх команди впливає на вашу роль.</i></b>
+✅ <b>Ganres: 🎮Бойовики </b>
+
+🎪 <b><a href='https://store.steampowered.com/app/240/'>Counter-Strike: Source</a></b> - 💵 225₴
+<b><i>Counter-Strike: Source blends Counter-Strike's award-winning teamplay action with the advanced technology of Source™ technology.</i></b>
+✅ <b>Ganres: 🎮Бойовики </b>
+
+👻 <b><a href='https://store.steampowered.com/app/80/'>Counter-Strike: Condition Zero</a></b> - 💵 169₴
+<b><i>З об'ємною кампанією &quot;Чергування&quot;, незліченною кількістю режимів гри, оновлень та нового контенту, до відзначеного нагородами, багатокористувацького режиму, гри «Counter-Strike» та з більш ніж 12-цятьма бонусними самотніми місіями - «Counter-Strike: Condition Zero» є приголомшливою пропозицією з самітного та багатокористувацьког</i></b>
+✅ <b>Ganres: 🎮Бойовики </b>
+
+👻 <b><a href='https://store.steampowered.com/app/273110/'>Counter-Strike Nexon</a></b> - 🆓 Free
+<b><i>Counter-Strike Nexon is a Free to Play MMOFPS offering competitive PvP and PvE action including content from the original Counter-Strike and all new game modes, map creation function, weapons, and hordes of Zombies!</i></b>
+✅ <b>Ganres: 🎮Бойовики 🎮Вільний доступ 🎮MMO 🎮Інді 🎮Казуальні ігри </b>
+
+}
+2025-07-20 12:39:22,489 - api.steam_callback - DEBUG - Game:Count,Page:2
+2025-07-20 12:39:22,999 - api.steam_callback - DEBUG - data:[{'name': 'English Country Tune', 'steam_appid': 207570, 'final_formatted_price': '124₴', 'discount': 0, 'game_ganre': [{'ganres_id': 38, 'ganres_name': 'Інді'}, {'ganres_id': 41, 'ganres_name': 'Казуальні ігри'}], 'short_description': 'English Country Tune is a luxuriant abstract 3D puzzle game containing more than a hundred levels situated throughout 17 worlds.', 'img_url': 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/207570/capsule_231x87.jpg?t=1447355424'}, {'name': 'Counter Spell', 'steam_appid': 351230, 'final_formatted_price': '124₴', 'discount': 0, 'game_ganre': [{'ganres_id': 34, 'ganres_name': 'Бойовики'}, {'ganres_id': 38, 'ganres_name': 'Інді'}, {'ganres_id': 39, 'ganres_name': 'Рольові ігри'}], 'short_description': '&quot;Counter Spell&quot; combines elements of classic role playing games with modern stealth-based shooters. Single player, multiplayer coop, and competitive multiplayer are all supported with different game modes for each. An open, streaming world makes for an exciting sandbox to adventure in!', 'img_url': 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/351230/capsule_231x87.jpg?t=1537808649'}, {'name': 'Countryside Legends', 'steam_appid': 3515300, 'final_formatted_price': '26₴', 'discount': 0, 'game_ganre': [{'ganres_id': 41, 'ganres_name': 'Казуальні ігри'}, {'ganres_id': 49, 'ganres_name': 'Перегони'}], 'short_description': 'Peaceful racing in a stylized countryside world awaits you, offering relaxing drives with six unique cars. Enjoy the serene atmosphere, explore scenic tracks, and compete against AI at your own pace.', 'img_url': 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3515300/fe2f703172f40da3d5cc44b31d7334f289b62bc8/capsule_231x87.jpg?t=1750960887'}, {'name': 'Counterspell', 'steam_appid': 1079610, 'final_formatted_price': '169₴', 'discount': 0, 'game_ganre': [{'ganres_id': 34, 'ganres_name': 'Бойовики'}], 'short_description': 'Counterspell is a fast and vicious local multiplayer bloodsport, in which contestants cast and counter spells at each other. Choose any of 8 inter-dimensional combatants and scramble for victory. No Gibs, No Glory!', 'img_url': 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1079610/capsule_231x87.jpg?t=1565346301'}, {'name': 'Country Tales', 'steam_appid': 394270, 'final_formatted_price': '225₴', 'discount': 0, 'game_ganre': [{'ganres_id': 38, 'ganres_name': 'Інді'}, {'ganres_id': 41, 'ganres_name': 'Казуальні ігри'}, {'ganres_id': 47, 'ganres_name': 'Стратегії'}], 'short_description': 'Explore the Wild West and help Ted, Catherine and friends in their adventures in this fun and colorful time management game!', 'img_url': 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/394270/capsule_231x87.jpg?t=1733137077'}]
+2025-07-20 12:39:26,495 - api.steam_callback - DEBUG - Game:Count,Page:3
+2025-07-20 12:39:26,911 - api.steam_callback - DEBUG - data:[{'name': 'Countryside Life Simulator', 'steam_appid': 2828260, 'final_formatted_price': '285₴', 'discount': 0, 'game_ganre': [{'ganres_id': 38, 'ganres_name': 'Інді'}, {'ganres_id': 40, 'ganres_name': 'Дочасний доступ'}, {'ganres_id': 42, 'ganres_name': 'Симулятори'}], 'short_description': 'Countryside Life Simulator is an extremely comprehensive and detailed simulation of the life of a rural farmer who owns a farm shop.', 'img_url': 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2828260/capsule_231x87.jpg?t=1742652145'}, {'name': 'Watermelon Country', 'steam_appid': 1714090, 'final_formatted_price': '21₴', 'discount': 0, 'game_ganre': [{'ganres_id': 34, 'ganres_name': 'Бойовики'}, {'ganres_id': 35, 'ganres_name': 'Пригоди'}, {'ganres_id': 41, 'ganres_name': 'Казуальні ігри'}], 'short_description': 'See Watermelons! Get Watermelons! Tackle enemies who stand in your way. Watermelon Country is a casual adventure game where you have to use timing and skill to reach the end of each level. Love Watermelon? Love stylized gaming filters then give this a go!', 'img_url': 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1714090/capsule_231x87.jpg?t=1629372145'}, {'name': 'Flag & Country', 'steam_appid': 2832430, 'final_formatted_price': '26₴', 'discount': 0, 'game_ganre': [{'ganres_id': 38, 'ganres_name': 'Інді'}, {'ganres_id': 41, 'ganres_name': 'Казуальні ігри'}], 'short_description': 'Um pequeno jogo de formar palavras com tema sobre bandeiras, use seu conhecimento ou peça dicas para seguir em frente', 'img_url': 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2832430/capsule_231x87.jpg?t=1745369842'}, {'name': 'Baobabs Mausoleum Grindhouse Edition - Country of Woods and Creepy Tales', 'steam_appid': 1478830, 'final_formatted_price': '249₴', 'discount': 0, 'game_ganre': [{'ganres_id': 35, 'ganres_name': 'Пригоди'}, {'ganres_id': 38, 'ganres_name': 'Інді'}], 'short_description': 'CONTAINS ALL EPISODES! Follow Watracio Walpurgis, our fresh eggplant FBI agent, in this arc of three chapters that unifies the universe of Celery Emblem’s Jacob Jazz on the ultimate Baobabs Masoleum Grindhouse Edition.', 'img_url': 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1478830/capsule_231x87.jpg?t=1651569119'}, {'name': 'For a Better Country', 'steam_appid': 1131420, 'final_formatted_price': '169₴', 'discount': 0, 'game_ganre': [{'ganres_id': 38, 'ganres_name': 'Інді'}, {'ganres_id': 41, 'ganres_name': 'Казуальні ігри'}, {'ganres_id': 42, 'ganres_name': 'Симулятори'}], 'short_description': 'This game is a text-based simulation for a pure country management experience. Old-school mechanics are combined with up-to-date topics and clean graphics.', 'img_url': 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1131420/capsule_231x87.jpg?t=1583279943'}]
+2025-07-20 12:39:29,454 - api.steam_callback - DEBUG - Game:Count,Page:4
+2025-07-20 12:39:29,966 - api.steam_callback - DEBUG - data:[{'name': 'Count 427', 'steam_appid': 2829760, 'final_formatted_price': '124₴', 'discount': 0, 'game_ganre': [{'ganres_id': 38, 'ganres_name': 'Інді'}], 'short_description': 'Urgent Recruitment! 100,000 Yen Daily Wage! Easy Job, Just Press a Button.', 'img_url': 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2829760/capsule_231x87.jpg?t=1744099795'}]
+2025-07-20 12:39:42,487 - api.player_callback - DEBUG - Response: 
+1.<b><a href='https://store.steampowered.com/app/2183900/'>Warhammer 40,000: Space Marine 2</a></b>
+Ціна гри: 1 299₴
+2.<b><a href='https://store.steampowered.com/app/594570/'>Total War: WARHAMMER II</a></b>
+Ціна гри: 949₴
+3.<b><a href='https://store.steampowered.com/app/779340/'>Total War: THREE KINGDOMS</a></b>
+Ціна гри: 1 299₴
+4.<b><a href='https://store.steampowered.com/app/2881650/'>Content Warning</a></b>
+Ціна гри: 187₴
+5.<b><a href='https://store.steampowered.com/app/219640/'>Chivalry: Medieval Warfare</a></b>
+Ціна гри: 329₴
+2025-07-20 12:39:42,489 - api.player_callback - DEBUG - Handler {
+1.<b><a href='https://store.steampowered.com/app/2183900/'>Warhammer 40,000: Space Marine 2</a></b>
+Ціна гри: 1 299₴
+2.<b><a href='https://store.steampowered.com/app/594570/'>Total War: WARHAMMER II</a></b>
+Ціна гри: 949₴
+3.<b><a href='https://store.steampowered.com/app/779340/'>Total War: THREE KINGDOMS</a></b>
+Ціна гри: 1 299₴
+4.<b><a href='https://store.steampowered.com/app/2881650/'>Content Warning</a></b>
+Ціна гри: 187₴
+5.<b><a href='https://store.steampowered.com/app/219640/'>Chivalry: Medieval Warfare</a></b>
+Ціна гри: 329₴}
+2025-07-20 12:39:45,933 - api.steam_callback - DEBUG - Game:search_short_games,Page:search_short_games:War:game_price:2
+2025-07-20 12:39:45,933 - api.steam_callback - DEBUG - main_callback_name:game_price
+2025-07-20 12:39:45,981 - api.steam_callback - DEBUG - Game:War,Page:2
+2025-07-20 12:39:52,198 - api.steam_callback - DEBUG - Game:search_short_games,Page:search_short_games:War:game_price:3
+2025-07-20 12:39:52,199 - api.steam_callback - DEBUG - main_callback_name:game_price
+2025-07-20 12:39:52,382 - api.steam_callback - DEBUG - Game:War,Page:3
+2025-07-20 12:42:49,338 - api.subscribe_callback - DEBUG - Logger Debug Sub Type subscribe_steam_news
+2025-07-20 12:42:49,338 - api.subscribe_callback - DEBUG - Logger Debug Sub Type {'type_id': 3, 'description': '📅🎉 <b>Ігрові події</b>\nФестивалі, розпродажі, оновлення — усе найцікавіше зі світу Steam! Будь у центрі подій 🎊📢'}
+2025-07-20 14:57:16,929 - api.subscribe_callback - DEBUG - Logger Debug Sub Type subscribe_new_release
+2025-07-20 14:57:16,930 - api.subscribe_callback - DEBUG - Logger Debug Sub Type {'type_id': 1, 'description': '🆕🎮 <b>Нові релізи</b>\nХочеш бути першим, хто дізнається про нові ігри у Steam? Ми сповістимо тебе одразу після релізу! 🚀✨'}
+2025-07-20 18:18:06,789 - api.startup - INFO - Init subscribe types
+2025-07-20 18:18:06,875 - api.startup - INFO - Init subscribe types done
+2025-07-20 18:18:07,061 - api.main - INFO - Start Telegram Bot...
+2025-07-20 18:32:51,291 - api.startup - INFO - Init subscribe types
+2025-07-20 18:32:51,377 - api.startup - INFO - Init subscribe types done
+2025-07-20 18:32:51,554 - api.main - INFO - Start Telegram Bot...
+2025-07-20 18:41:16,102 - api.startup - INFO - Init subscribe types
+2025-07-20 18:41:16,180 - api.startup - INFO - Init subscribe types done
+2025-07-20 18:41:16,377 - api.main - INFO - Start Telegram Bot...
+2025-07-20 18:42:40,198 - api.startup - INFO - Init subscribe types
+2025-07-20 18:42:40,287 - api.startup - INFO - Init subscribe types done
+2025-07-20 18:42:40,456 - api.main - INFO - Start Telegram Bot...
+2025-07-20 18:45:52,618 - api.startup - INFO - Init subscribe types
+2025-07-20 18:45:52,702 - api.startup - INFO - Init subscribe types done
+2025-07-20 18:45:52,875 - api.main - INFO - Start Telegram Bot...
+2025-07-20 18:49:52,382 - api.startup - INFO - Init subscribe types
+2025-07-20 18:49:52,468 - api.startup - INFO - Init subscribe types done
+2025-07-20 18:49:52,636 - api.main - INFO - Start Telegram Bot...
+2025-07-20 18:50:46,441 - api.startup - INFO - Init subscribe types
+2025-07-20 18:50:46,531 - api.startup - INFO - Init subscribe types done
+2025-07-20 18:50:46,737 - api.main - INFO - Start Telegram Bot...
+2025-07-20 18:52:03,259 - api.startup - INFO - Init subscribe types
+2025-07-20 18:52:03,351 - api.startup - INFO - Init subscribe types done
+2025-07-20 18:52:03,527 - api.main - INFO - Start Telegram Bot...
+2025-07-20 18:53:33,299 - api.startup - INFO - Init subscribe types
+2025-07-20 18:53:33,382 - api.startup - INFO - Init subscribe types done
+2025-07-20 18:53:33,558 - api.main - INFO - Start Telegram Bot...
+2025-07-20 19:02:40,807 - api.startup - INFO - Init subscribe types
+2025-07-20 19:02:40,887 - api.startup - INFO - Init subscribe types done
+2025-07-20 19:02:41,063 - api.main - INFO - Start Telegram Bot...
+2025-07-20 19:03:30,148 - api.startup - INFO - Init subscribe types
+2025-07-20 19:03:30,231 - api.startup - INFO - Init subscribe types done
+2025-07-20 19:03:30,418 - api.main - INFO - Start Telegram Bot...
+2025-07-20 19:03:55,226 - api.startup - INFO - Init subscribe types
+2025-07-20 19:03:55,306 - api.startup - INFO - Init subscribe types done
+2025-07-20 19:03:55,485 - api.main - INFO - Start Telegram Bot...
+2025-07-20 19:06:54,076 - api.startup - INFO - Init subscribe types
+2025-07-20 19:06:54,153 - api.startup - INFO - Init subscribe types done
+2025-07-20 19:06:54,332 - api.main - INFO - Start Telegram Bot...
+2025-07-20 19:50:07,711 - api.startup - INFO - Init subscribe types
+2025-07-20 19:50:07,783 - api.startup - INFO - Init subscribe types done
+2025-07-20 19:50:08,004 - api.main - INFO - Start Telegram Bot...
+2025-07-21 11:25:05,361 - api.startup - INFO - Init subscribe types
+2025-07-21 11:25:05,434 - api.startup - INFO - Init subscribe types done
+2025-07-21 11:25:05,591 - api.main - INFO - Start Telegram Bot...
+2025-07-21 11:25:25,686 - api.startup - INFO - Init subscribe types
+2025-07-21 11:25:25,756 - api.startup - INFO - Init subscribe types done
+2025-07-21 11:25:25,926 - api.main - INFO - Start Telegram Bot...
+2025-07-23 14:21:59,966 - api.startup - INFO - Init subscribe types
+2025-07-23 14:22:00,050 - api.startup - INFO - Init subscribe types done
+2025-07-23 14:22:00,209 - api.main - INFO - Start Telegram Bot...
+2025-07-23 14:48:16,718 - api.startup - INFO - Init subscribe types
+2025-07-23 14:48:16,788 - api.startup - INFO - Init subscribe types done
+2025-07-23 14:48:16,945 - api.main - INFO - Start Telegram Bot...
+2025-07-23 15:13:15,437 - api.startup - INFO - Init subscribe types
+2025-07-23 15:13:15,510 - api.startup - INFO - Init subscribe types done
+2025-07-23 15:13:15,666 - api.main - INFO - Start Telegram Bot...
+2025-07-23 15:16:21,819 - api.subscribe_callback - DEBUG - Logger Debug Sub Type subscribe_steam_news
+2025-07-23 15:16:21,820 - api.subscribe_callback - DEBUG - Logger Debug Sub Type {'type_id': 3, 'description': '📅🎉 <b>Ігрові події</b>\nФестивалі, розпродажі, оновлення — усе найцікавіше зі світу Steam! Будь у центрі подій 🎊📢'}
+2025-07-23 15:16:25,026 - api.subscribe_callback - DEBUG - Logger Debug Sub Type subscribe_free_games
+2025-07-23 15:16:25,026 - api.subscribe_callback - DEBUG - Logger Debug Sub Type {'type_id': 2, 'description': '🎁🕹️ <b>Безкоштовні ігри</b>\nНе плати — просто грай! Ми підкажемо, коли і які ігри можна отримати абсолютно безкоштовно 💸🤑'}
+2025-07-23 15:16:27,430 - api.subscribe_callback - DEBUG - Logger Debug Sub Type subscribe_wishlist_notificate
+2025-07-23 15:16:27,430 - api.subscribe_callback - DEBUG - Logger Debug Sub Type {'type_id': 4, 'description': '🔔💖 <b>Знижки на бажане</b>\nМрієш про гру зі списку бажаного? Ми нагадаємо, коли вона отримає знижку! 🎯🎮'}
+2025-07-23 15:16:30,652 - api.subscribe_callback - DEBUG - Logger Debug Sub Type subscribe_new_release
+2025-07-23 15:16:30,652 - api.subscribe_callback - DEBUG - Logger Debug Sub Type {'type_id': 1, 'description': '🆕🎮 <b>Нові релізи</b>\nХочеш бути першим, хто дізнається про нові ігри у Steam? Ми сповістимо тебе одразу після релізу! 🚀✨'}
+2025-07-23 15:16:46,509 - api.player_callback - DEBUG - Handler {👻 <b><a href='https://store.steampowered.com/app/1172380/'>STAR WARS Jedi: Fallen Order™</a></b> - 💵 1 199₴
+<b><i>A galaxy-spanning adventure awaits in Star Wars Jedi: Fallen Order, a 3rd person action-adventure title from Respawn. An abandoned Padawan must complete his training, develop new powerful Force abilities, and master the art of the lightsaber - all while staying one step ahead of the Empire.</i></b>
+✅ <b>Ganres: 🎮Бойовики 🎮Пригоди </b>
+
+🎪 <b><a href='https://store.steampowered.com/app/48700/'>Mount & Blade: Warband</a></b> - 💵 199₴
+<b><i>In a land torn asunder by incessant warfare, it is time to assemble your own band of hardened warriors and enter the fray. Lead your men into battle, expand your realm, and claim the ultimate prize: the throne of Calradia!</i></b>
+✅ <b>Ganres: 🎮Бойовики 🎮Рольові ігри </b>
+
+👻 <b><a href='https://store.steampowered.com/app/2183900/'>Warhammer 40,000: Space Marine 2</a></b> - 💵 1 299₴
+<b><i>Втільте надлюдську майстерність і безжальність космодесантників. Використовуйте смертоносні здібності й руйнівну зброю для знищення невблаганних орд тиранідів. Захистіть Імперіум у захопливому бойовику в одноосібному або багатокористувацькому режимі.</i></b>
+✅ <b>Ganres: 🎮Бойовики 🎮Пригоди 🎮Рольові ігри </b>
+
+🎮 <b><a href='https://store.steampowered.com/app/1593500/'>God of War</a></b> - 💵 1 199₴
+<b><i>Багато років минуло з тих пір, як Кратос помстився богам Олімпу. І зараз він живе як людина в царстві богів і чудовиськ Півночі. Щоб вижити в цьому жорстокому й невблаганному світі, йому потрібно битися й навчати свого сина робити те саме.</i></b>
+✅ <b>Ganres: 🎮Бойовики 🎮Пригоди 🎮Рольові ігри </b>
+
+🎮 <b><a href='https://store.steampowered.com/app/594570/'>Total War: WARHAMMER II</a></b> - 💵 949₴
+<b><i>Strategy gaming perfected. A breath-taking campaign of exploration, expansion and conquest across a fantasy world. Turn-based civilisation management and real-time epic strategy battles with thousands of troops and monsters at your command.</i></b>
+✅ <b>Ganres: 🎮Бойовики 🎮Стратегії </b>
+
+}
+2025-07-23 15:16:52,360 - api.steam_callback - DEBUG - Game:War,Page:2
+2025-07-23 15:16:52,535 - api.steam_callback - DEBUG - data:[{'name': 'Middle-earth™: Shadow of War™', 'steam_appid': 356190, 'final_formatted_price': '1 049₴', 'discount': 0, 'game_ganre': [{'ganres_id': 34, 'ganres_name': 'Бойовики'}, {'ganres_id': 35, 'ganres_name': 'Пригоди'}, {'ganres_id': 39, 'ganres_name': 'Рольові ігри'}], 'short_description': 'Опиніться в епічному відкритому світі, що буквально оживає завдяки відзначеній нагородами системі «Немезида». Викуйте новий Перстень влади, захопіть фортеці в масштабних битвах і правте Мордором за допомогою особистої армії орків у Middle-earth™: Shadow of War™.', 'img_url': 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/356190/capsule_231x87.jpg?t=1747346596'}, {'name': 'Total War: THREE KINGDOMS', 'steam_appid': 779340, 'final_formatted_price': '1 299₴', 'discount': 0, 'game_ganre': [{'ganres_id': 34, 'ganres_name': 'Бойовики'}, {'ganres_id': 47, 'ganres_name': 'Стратегії'}], 'short_description': 'Total War: THREE KINGDOMS is the first in the award-winning series to recreate epic conflict across ancient China. Combining a gripping turn-based campaign of empire-building &amp; conquest with stunning real-time battles, THREE KINGDOMS redefines the series in an age of heroes &amp; legends.', 'img_url': 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/capsule_231x87.jpg?t=1740720569'}, {'name': 'Content Warning', 'steam_appid': 2881650, 'final_formatted_price': '187₴', 'discount': 0, 'game_ganre': [{'ganres_id': 34, 'ganres_name': 'Бойовики'}, {'ganres_id': 35, 'ganres_name': 'Пригоди'}, {'ganres_id': 38, 'ganres_name': 'Інді'}], 'short_description': 'Знімайте, як ваші друзі коять моторошні речі, і станьте зіркою SpöökTube! (наполеглива порада: не ходіть наодинці)', 'img_url': 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2881650/capsule_231x87.jpg?t=1736717925'}, {'name': 'STAR WARS™ Battlefront II (Classic, 2005)', 'steam_appid': 6060, 'final_formatted_price': '225₴', 'discount': 0, 'game_ganre': [{'ganres_id': 34, 'ganres_name': 'Бойовики'}], 'short_description': 'Join the rise of Darth Vader’s elite 501st Legion of Stormtroopers as you fight through an all new story-based saga where every action you take impacts the battlefront and, ultimately, the fate of the Star Wars galaxy.', 'img_url': 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/6060/capsule_231x87.jpg?t=1707697325'}, {'name': 'Chivalry: Medieval Warfare', 'steam_appid': 219640, 'final_formatted_price': '329₴', 'discount': 0, 'game_ganre': [{'ganres_id': 34, 'ganres_name': 'Бойовики'}, {'ganres_id': 38, 'ganres_name': 'Інді'}], 'short_description': 'Besiege castles and raid villages in Chivalry: Medieval Warfare, a fast-paced medieval first person slasher with a focus on multiplayer battles', 'img_url': 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/219640/capsule_231x87.jpg?t=1710276094'}]
+2025-07-23 15:16:55,225 - api.steam_callback - DEBUG - Game:War,Page:3
+2025-07-23 15:16:55,401 - api.steam_callback - DEBUG - data:[{'name': 'Men of War: Assault Squad 2', 'steam_appid': 244450, 'final_formatted_price': '600₴', 'discount': 0, 'game_ganre': [{'ganres_id': 34, 'ganres_name': 'Бойовики'}, {'ganres_id': 42, 'ganres_name': 'Симулятори'}, {'ganres_id': 47, 'ganres_name': 'Стратегії'}], 'short_description': 'Men of War: Assault Squad 2 features new single player style skirmish modes that take players from extreme tank combat to deadly sniper stealth missions. Commanders can now faceoff against opponents on various new multiplayer 1v1 – 8v8 maps.', 'img_url': 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/244450/capsule_231x87.jpg?t=1726486647'}, {'name': 'Call of Duty®: Modern Warfare® 2 (2009)', 'steam_appid': 10180, 'final_formatted_price': '849₴', 'discount': 0, 'game_ganre': [{'ganres_id': 34, 'ganres_name': 'Бойовики'}], 'short_description': 'The most-anticipated game of the year and the sequel to the best-selling first-person action game of all time, Modern Warfare 2 continues the gripping and heart-racing action as players face off against a new threat dedicated to bringing the world to the brink of collapse.', 'img_url': 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/10180/capsule_231x87.jpg?t=1748044299'}, {'name': 'Wartales', 'steam_appid': 1527950, 'final_formatted_price': '251₴', 'discount': 60, 'game_ganre': [{'ganres_id': 35, 'ganres_name': 'Пригоди'}, {'ganres_id': 38, 'ganres_name': 'Інді'}, {'ganres_id': 39, 'ganres_name': 'Рольові ігри'}, {'ganres_id': 47, 'ganres_name': 'Стратегії'}], 'short_description': 'Wartales is an open world RPG in which you lead a group of mercenaries in their search for wealth across a massive medieval universe. Explore the world, recruit companions, collect bounties and unravel the secrets of the tombs of the ancients!', 'img_url': 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1527950/capsule_231x87.jpg?t=1752758059'}, {'name': 'STAR WARS™: Squadrons', 'steam_appid': 1222730, 'final_formatted_price': '1 199₴', 'discount': 0, 'game_ganre': [{'ganres_id': 34, 'ganres_name': 'Бойовики'}, {'ganres_id': 42, 'ganres_name': 'Симулятори'}], 'short_description': 'Master the art of starfighter combat in the authentic piloting experience STAR WARS™: Squadrons. Feel the adrenaline of first-person multiplayer space dogfights alongside your squadron, and buckle up in a thrilling STAR WARS™ story.', 'img_url': 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1222730/capsule_231x87.jpg?t=1748950120'}, {'name': 'Warhammer 40,000: Rogue Trader', 'steam_appid': 2186680, 'final_formatted_price': '799₴', 'discount': 0, 'game_ganre': [{'ganres_id': 34, 'ganres_name': 'Бойовики'}, {'ganres_id': 35, 'ganres_name': 'Пригоди'}, {'ganres_id': 38, 'ganres_name': 'Інді'}, {'ganres_id': 39, 'ganres_name': 'Рольові ігри'}, {'ganres_id': 47, 'ganres_name': 'Стратегії'}], 'short_description': 'Зроблена в тісному партнерстві з Games Workshop, Warhammer 40 000: Rogue Trader — це сюжетно багата класична рольова гра від Owlcat Games, розробників володарки безлічі нагород Pathfinder: Wrath of the Righteous.', 'img_url': 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2186680/capsule_231x87.jpg?t=1750967565'}]
+2025-07-23 15:24:29,709 - api.startup - INFO - Init subscribe types
+2025-07-23 15:24:29,780 - api.startup - INFO - Init subscribe types done
+2025-07-23 15:24:29,949 - api.main - INFO - Start Telegram Bot...
+2025-07-23 15:44:41,622 - api.startup - INFO - Init subscribe types
+2025-07-23 15:44:41,693 - api.startup - INFO - Init subscribe types done
+2025-07-23 15:44:41,858 - api.main - INFO - Start Telegram Bot...
+2025-07-23 15:46:01,355 - api.startup - INFO - Init subscribe types
+2025-07-23 15:46:01,425 - api.startup - INFO - Init subscribe types done
+2025-07-23 15:46:01,583 - api.main - INFO - Start Telegram Bot...

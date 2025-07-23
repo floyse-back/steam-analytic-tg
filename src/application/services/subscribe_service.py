@@ -35,7 +35,8 @@ class SubscribeService:
             logger=logger
         )
         self.get_changed_games_use_case = GetChangedWishlistGamesUseCase(
-            wishlist_repository=wishlist_repository
+            wishlist_repository=wishlist_repository,
+            logger=logger
         )
 
     async def check_subscribes_user(self,user_id:int,type_id:int,session):

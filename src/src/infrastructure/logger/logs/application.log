@@ -35,3 +35,61 @@
 2025-07-18 15:40:33,516 - application.users_service - DEBUG - Steam Appid From Use Case,<src.infrastructure.db.models.user_models.Users object at 0x0000012701A33B90>
 2025-07-18 15:40:43,155 - application.users_service - DEBUG - Steam Appid From Use Case,<src.infrastructure.db.models.user_models.Users object at 0x0000012701A72AE0>
 2025-07-18 16:50:41,180 - application.users_service - DEBUG - Steam Appid From Use Case,<src.infrastructure.db.models.user_models.Users object at 0x0000020ED8A62CC0>
+2025-07-19 12:16:16,155 - application.users_service - DEBUG - Steam Appid From Use Case,<src.infrastructure.db.models.user_models.Users object at 0x0000022F7A4D3230>
+2025-07-19 12:16:18,257 - application.users_service - DEBUG - Steam Appid From Use Case,<src.infrastructure.db.models.user_models.Users object at 0x0000022F7A555250>
+2025-07-19 12:16:18,257 - application.users_service - INFO - PlayerFullStatsUseCase: user=76561199028668211
+2025-07-19 12:16:22,592 - application.users_service - DEBUG - PlayerFullStatsUseCase: user=76561199028668211 data={'user_data': {'player': {'steamid': 76561199028668211, 'personaname': 'floyse{fake}', 'avatarfull': 'https://avatars.steamstatic.com/be88d2493ccbd52b21cfc0a73b7320d3c67de32a_full.jpg', 'personastate': 0, 'communityvisibilitystate': 3, 'profilestate': 1, 'lastlogoff': 1752865387, 'realname': None, 'primaryclanid': 103582791429521408, 'timecreated': 1582305861, 'timelive': 170610721.58506894, 'gameid': None, 'gameextrainfo': None, 'loccountrycode': None}}, 'user_friends_list': {'friends_count': 21, 'first_friend': {'steamid': '76561198403798416', 'relationship': 'friend', 'friend_since': 1623681105}, 'last_friend': {'steamid': '76561199840394425', 'relationship': 'friend', 'friend_since': 1746632140}, 'friends': [{'steamid': '76561198131826041', 'relationship': 'friend', 'friend_since': 1634229896}, {'steamid': '76561198144270080', 'relationship': 'friend', 'friend_since': 1740394008}, {'steamid': '76561198403798416', 'relationship': 'friend', 'friend_since': 1623681105}, {'steamid': '76561198973031339', 'relationship': 'friend', 'friend_since': 1724915595}, {'steamid': '76561198973182364', 'relationship': 'friend', 'friend_since': 1740393929}, {'steamid': '76561198983557642', 'relationship': 'friend', 'friend_since': 1664285092}, {'steamid': '76561199008491614', 'relationship': 'friend', 'friend_since': 1630336661}, {'steamid': '76561199047609617', 'relationship': 'friend', 'friend_since': 1628146063}, {'steamid': '76561199049138403', 'relationship': 'friend', 'friend_since': 1628189514}, {'steamid': '76561199050943641', 'relationship': 'friend', 'friend_since': 1626867276}, {'steamid': '76561199054741771', 'relationship': 'friend', 'friend_since': 1670144518}, {'steamid': '76561199059603519', 'relationship': 'friend', 'friend_since': 1644058104}, {'steamid': '76561199082273404', 'relationship': 'friend', 'friend_since': 1630336664}, {'steamid': '76561199091610834', 'relationship': 'friend', 'friend_since': 1628706469}, {'steamid': '76561199093545741', 'relationship': 'friend', 'friend_since': 1629129097}, {'steamid': '76561199139536554', 'relationship': 'friend', 'friend_since': 1626003134}, {'steamid': '76561199187929884', 'relationship': 'friend', 'friend_since': 1634835460}, {'steamid': '76561199190491252', 'relationship': 'friend', 'friend_since': 1626785731}, {'steamid': '76561199205637375', 'relationship': 'friend', 'friend_since': 1641280796}, {'steamid': '76561199667157069', 'relationship': 'friend', 'friend_since': 1723053274}, {'steamid': '76561199840394425', 'relationship': 'friend', 'friend_since': 1746632140}]}, 'user_badges': None, 'user_games': None}
+2025-07-19 12:25:50,344 - application.steam_service - DEBUG - DiscountsGamesUseCase: page=1 limit=10
+2025-07-19 12:25:52,950 - application.steam_service - DEBUG - DiscountsGamesUseCase: page=2 limit=10
+2025-07-19 12:25:59,292 - application.steam_service - DEBUG - DiscountsGamesUseCase: page=3 limit=10
+2025-07-19 12:26:02,202 - application.steam_service - DEBUG - DiscountsGamesUseCase: page=4 limit=10
+2025-07-19 12:26:04,648 - application.steam_service - DEBUG - DiscountsGamesUseCase: page=5 limit=10
+2025-07-19 12:26:08,163 - application.steam_service - DEBUG - DiscountsGamesUseCase: page=6 limit=10
+2025-07-19 12:26:10,301 - application.steam_service - DEBUG - DiscountsGamesUseCase: page=7 limit=10
+2025-07-19 12:26:12,422 - application.steam_service - DEBUG - DiscountsGamesUseCase: page=8 limit=10
+2025-07-19 12:26:15,087 - application.steam_service - DEBUG - DiscountsGamesUseCase: page=9 limit=10
+2025-07-19 12:27:48,642 - application.steam_service - DEBUG - Steam Appid From Use Case,<src.infrastructure.db.models.user_models.Users object at 0x0000012ECCAD1880>
+2025-07-19 12:27:48,642 - application.steam_service - INFO - Steam Appid From Steam Service,76561199028668211
+2025-07-19 12:27:48,642 - application.steam_service - INFO - Steam Appid From Steam Service,76561199028668211
+2025-07-19 12:28:34,403 - application.steam_service - DEBUG - Steam Appid From Use Case,<src.infrastructure.db.models.user_models.Users object at 0x0000012ECCAD0B30>
+2025-07-19 12:28:34,403 - application.steam_service - INFO - Steam Appid From Steam Service,76561199028668211
+2025-07-19 12:28:34,405 - application.steam_service - INFO - Steam Appid From Steam Service,76561199028668211
+2025-07-19 12:28:38,372 - application.steam_service - INFO - GamesGameForYouUseCase Success user = 76561199028668211
+2025-07-19 12:28:49,262 - application.steam_service - INFO - GamesGameForYouUseCase Success user = 76561199028668211
+2025-07-19 12:29:08,225 - application.steam_service - INFO - GamesGameForYouUseCase Success user = 76561199028668211
+2025-07-19 12:29:12,038 - application.steam_service - INFO - GamesGameForYouUseCase Success user = 76561199028668211
+2025-07-19 12:51:15,857 - application.steam_service - INFO - FreeGamesNowUseCase: Execute len(data)={'detail': False}
+2025-07-19 12:54:24,929 - application.steam_service - INFO - FreeGamesNowUseCase: Execute len(data)=None
+2025-07-19 12:55:21,760 - application.player_service - DEBUG - Steam Appid From Use Case,<src.infrastructure.db.models.user_models.Users object at 0x0000020604A45F40>
+2025-07-19 12:55:25,178 - application.player_service - INFO - GetPlayerRatingUseCase: user=76561199028668211
+2025-07-19 12:55:25,181 - application.player_service - DEBUG - GetPlayerRatingUseCase: user=76561199028668211, Data:steam_appid=76561199028668211 user_rating=2368 personaname='floyse{fake}' player_level=7 player_xp=740 player_xp_needed_to_level_up=60 timecreated=datetime.date(2020, 2, 21) timelive='5р. 149д. 16г. 31хв.' friends_count=21 badges_count=6 lastlogoff=datetime.date(2025, 7, 18) playtime='85д. 14г. 22хв.' allow_games=True allow_friends=True allow_badges=True
+2025-07-19 12:55:31,114 - application.player_service - DEBUG - Steam Appid From Use Case,<src.infrastructure.db.models.user_models.Users object at 0x0000020604A8CF20>
+2025-07-19 12:55:32,774 - application.player_service - INFO - GetPlayerBudgesUseCase: user=76561199028668211
+2025-07-19 12:55:45,534 - application.player_service - DEBUG - Steam Appid From Use Case,<src.infrastructure.db.models.user_models.Users object at 0x0000020604A462D0>
+2025-07-19 12:55:52,406 - application.player_service - INFO - GetPlayerBattleUseCase: user1=76561199028668211 user2=76561198144270080
+2025-07-19 12:55:54,920 - application.player_service - DEBUG - GetPlayerBattleUseCase: user1=76561199028668211, user2=76561198144270080, data=user_1='floyse{fake}' user_2='pacukevich❤' player_level=ComparisonModel(user_1=7, user_2=31, difference=24, winner='user_2') player_xp=ComparisonModel(user_1=740, user_2=6761, difference=6021, winner='user_2') badge_count=ComparisonModel(user_1=6, user_2=39, difference=33, winner='user_2') total_badges_xp=ComparisonModel(user_1=740, user_2=6761, difference=6021, winner='user_2') game_count=ComparisonModel(user_1=109, user_2=106, difference=3, winner='user_1') total_playtime=ComparisonModel(user_1=123262, user_2=74639, difference=48623, winner='user_1') total_rating=ComparisonModel(user_1=2368, user_2=5356, difference=2988, winner='user_2')
+2025-07-19 12:57:16,759 - application.steam_service - DEBUG - DiscountsGamesUseCase: page=1 limit=10
+2025-07-19 12:57:24,021 - application.steam_service - DEBUG - DiscountsGamesUseCase: page=2 limit=10
+2025-07-19 12:57:27,049 - application.steam_service - DEBUG - DiscountsGamesUseCase: page=3 limit=10
+2025-07-19 12:57:32,454 - application.steam_service - DEBUG - DiscountsGamesUseCase: page=4 limit=10
+2025-07-19 12:57:34,639 - application.steam_service - DEBUG - DiscountsGamesUseCase: page=5 limit=10
+2025-07-19 12:57:36,699 - application.steam_service - DEBUG - DiscountsGamesUseCase: page=6 limit=10
+2025-07-19 12:57:44,578 - application.steam_service - DEBUG - DiscountsGamesUseCase: page=7 limit=10
+2025-07-19 12:58:10,435 - application.steam_service - DEBUG - DiscountsGamesUseCase: page=8 limit=10
+2025-07-19 12:58:12,726 - application.steam_service - DEBUG - DiscountsGamesUseCase: page=9 limit=10
+2025-07-19 12:59:00,845 - application.steam_service - DEBUG - AchievementsGameUseCase Confirm {'name': 'Counter-Strike 2', 'steam_appid': 730, 'achievements': {'total': 1, 'highlighted': [{'name': 'A New Beginning'}]}, 'price_overview': None, 'short_description': 'For over two decades, Counter-Strike has offered an elite competitive experience, one shaped by millions of players from across the globe. And now the next chapter in the CS story is about to begin. This is Counter-Strike 2.'}
+2025-07-19 12:59:35,224 - application.steam_service - DEBUG - AchievementsGameUseCase Confirm {'name': 'Warframe', 'steam_appid': 230410, 'achievements': {'total': 193, 'highlighted': [{'name': 'We Shape Our Tools'}, {'name': 'Our Tools Shape Us'}, {'name': 'Blade Mastery I'}, {'name': 'Blade Mastery II'}, {'name': 'Blade Mastery III'}, {'name': 'Blade Proficiency I'}, {'name': 'Blade Proficiency II'}, {'name': 'Blade Proficiency III'}, {'name': 'Bow Mastery I'}, {'name': 'Bow Mastery II'}]}, 'price_overview': None, 'short_description': 'Awaken as an unstoppable warrior and battle alongside your friends in this story-driven free-to-play online action game'}
+2025-07-19 13:00:19,224 - application.users_service - DEBUG - Steam Appid From Use Case,<src.infrastructure.db.models.user_models.Users object at 0x0000020604C8B410>
+2025-07-20 12:42:59,336 - application.steam_service - DEBUG - DiscountsGamesUseCase: page=1 limit=10
+2025-07-20 12:43:02,997 - application.steam_service - DEBUG - DiscountsGamesUseCase: page=2 limit=10
+2025-07-20 12:43:06,233 - application.steam_service - DEBUG - DiscountsGamesUseCase: page=3 limit=10
+2025-07-20 12:43:07,586 - application.steam_service - DEBUG - DiscountsGamesUseCase: page=4 limit=10
+2025-07-20 12:43:08,904 - application.steam_service - DEBUG - DiscountsGamesUseCase: page=5 limit=10
+2025-07-20 12:43:10,003 - application.steam_service - DEBUG - DiscountsGamesUseCase: page=6 limit=10
+2025-07-20 14:57:25,501 - application.steam_service - DEBUG - DiscountsGamesUseCase: page=1 limit=10
+2025-07-20 14:57:27,187 - application.steam_service - DEBUG - DiscountsGamesUseCase: page=2 limit=10
+2025-07-20 14:57:28,208 - application.steam_service - DEBUG - DiscountsGamesUseCase: page=3 limit=10
+2025-07-20 14:57:35,634 - application.steam_service - DEBUG - DiscountsGamesUseCase: page=4 limit=10
+2025-07-20 14:57:38,772 - application.steam_service - DEBUG - DiscountsGamesUseCase: page=5 limit=10
+2025-07-20 14:57:39,938 - application.steam_service - DEBUG - DiscountsGamesUseCase: page=6 limit=10
+2025-07-23 15:16:15,560 - application.users_service - DEBUG - Steam Appid From Use Case,<src.infrastructure.db.models.user_models.Users object at 0x0000021CCD2E7AA0>

@@ -52,6 +52,7 @@ class SteamService:
         )
         self.free_games_now_use_case = FreeGamesNowUseCase(
             steam_client = self.steam_client,
+            logger=logger
         )
         self.achievements_game_use_case = AchievementsGameUseCase(
             steam_client = self.steam_client,

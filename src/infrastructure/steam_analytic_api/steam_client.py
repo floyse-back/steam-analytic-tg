@@ -53,7 +53,12 @@ class SteamAnalyticsAPIClient:
             response = await client.get(f"api/v1/analytics/free_games")
 
         if response.status_code == 200:
+            data = response.json()
+            if isinstance(data,dict) and data.get("detail") == False:
+                return None
             return response.json()
+        elif response.status_code == 401:
+            self.login_account()
 
     async def most_played_games(self,page=1,limit=5) -> Optional[List[dict]]:
         async with self.__create_client_session() as client:
@@ -64,6 +69,8 @@ class SteamAnalyticsAPIClient:
 
         if response.status_code == 200:
             return response.json()
+        elif response.status_code == 401:
+            self.login_account()
 
     async def games_for_you(self,user:Optional[str]=None,page:int=1,limit:int=5) -> Optional[dict]:
         if user is None:
@@ -93,6 +100,9 @@ class SteamAnalyticsAPIClient:
 
         if response.status_code == 200:
             return response.json().get("games")
+        elif response.status_code == 401:
+            self.login_account()
+
         return None
 
     async def achievements_game(self, game: str,page:int=1,offset:int=10) -> Optional[dict]:
@@ -104,6 +114,8 @@ class SteamAnalyticsAPIClient:
             })
         if response.status_code == 200:
             return response.json()
+        elif response.status_code == 401:
+            self.login_account()
 
     async def check_game_price(self, game_id: str):
         async with self.__create_client_session() as client:
@@ -111,6 +123,8 @@ class SteamAnalyticsAPIClient:
 
         if response.status_code == 200:
             return response.json()
+        elif response.status_code == 401:
+            self.login_account()
 
     async def suggest_game(self) -> Optional[List]:
         async with self.__create_client_session() as client:
@@ -118,6 +132,8 @@ class SteamAnalyticsAPIClient:
 
         if response.status_code == 200:
             return response.json()
+        elif response.status_code == 401:
+            self.login_account()
 
     async def vanity_user_find(self,steam_user:str)->Optional[dict]:
         async with self.__create_client_session() as client:
@@ -125,6 +141,8 @@ class SteamAnalyticsAPIClient:
 
         if response.status_code == 200:
             return response.json()
+        elif response.status_code == 401:
+            self.login_account()
 
     async def get_full_stats_player(self,user:str)->Optional[dict]:
         async with self.__create_client_session() as client:
@@ -138,6 +156,9 @@ class SteamAnalyticsAPIClient:
 
         if response.status_code == 200:
             return response.json()
+        elif response.status_code == 401:
+            self.login_account()
+
         return None
 
     async def get_player_badges(self,user:str)->Optional[dict]:
@@ -146,6 +167,9 @@ class SteamAnalyticsAPIClient:
 
         if response.status_code == 200:
             return response.json()
+        elif response.status_code == 401:
+            self.login_account()
+
         return None
 
     async def get_player_rating(self,user:str)->Optional[dict]:
@@ -156,6 +180,9 @@ class SteamAnalyticsAPIClient:
 
         if response.status_code == 200:
             return response.json()
+        elif response.status_code == 401:
+            self.login_account()
+
         return None
 
     async def get_player_battle(self,user1:str,user2:str)->Optional[dict]:
@@ -168,6 +195,9 @@ class SteamAnalyticsAPIClient:
                                         )
             if response.status_code == 200:
                 return response.json()
+            elif response.status_code == 401:
+                self.login_account()
+
             return None
 
     async def get_game_stats(self,steam_appid:str)->Optional[dict]:
@@ -176,3 +206,5 @@ class SteamAnalyticsAPIClient:
 
         if response.status_code == 200 and response.json().get(f"{steam_appid}",{"success": False}).get("success"):
             return response.json()[f"{steam_appid}"].get("data")
+        elif response.status_code == 401:
+            self.login_account()

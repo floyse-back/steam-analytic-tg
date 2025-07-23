@@ -76,6 +76,7 @@ class GameFullModel(BaseModel):
     recomendations: Optional[int] = None
     release_data: Optional[date] = None
     img_url:Optional[str] = None
+    trailer_url:Optional[str] = None
 
     game_ganre: List[GanresOut]
     game_publisher: List[PublisherOut]
@@ -142,7 +143,7 @@ class GamesForYouModel(BaseModel):
 
 class ChangedGamesWishlistModel(BaseModel):
     steam_appid:Optional[int]
-    name:int
+    name:str
     short_description:Optional[str]
     price_now:int
     discount_now:int

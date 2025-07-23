@@ -106,6 +106,10 @@ class SubscribeStyleText:
             f"<a href='https://store.steampowered.com/app/{game['steam_appid']}'>🔗 Відкрити в Steam</a>\n\n"
         )
 
+    @staticmethod
+    def __generate_wishlist_changes(game:dict)->str:
+        return "Soon"
+
     def generate_hot_discount_notificate(self, data) -> str:
         text = (
             "<b>🔥 Гарячі знижки в Steam!</b>\n"
@@ -139,5 +143,23 @@ class SubscribeStyleText:
             "Є нові новини про ігри, які ти додав до вішлиста. Не пропусти вигідні пропозиції та свіжі релізи! 🎮\n\n"
         )
 
+    def generate_wishlist_subscribe(self, data:dict)->dict[str,List[str]]:
+        new_data = {}
+
+        for k,v in data.items():
+            texts = []
+            text_batch = ""
+            for i,game in enumerate(v):
+                text_batch += self.__generate_wishlist_changes(game=game)
+                if i%5==0:
+                    texts.append(text_batch)
+                    text_batch = ""
+            new_data[k] = texts
+
+        return new_data
+
+
     def dispatcher(self,func_name,*args,**kwargs)->Optional[str]:
         return self.dispatcher_command.dispatch_sync(func_name,*args,**kwargs)
+
+
