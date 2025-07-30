@@ -82,7 +82,7 @@ class IWishlistRepository(ABC):
         pass
 
     @abstractmethod
-    def get_games_changed(self, session, data:List[dict]):
+    def get_games_changed(self, session, data:List[dict])->List[Wishlist]:
         pass
 
 

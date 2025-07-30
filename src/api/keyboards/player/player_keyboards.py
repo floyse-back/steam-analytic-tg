@@ -15,7 +15,7 @@ async def create_inline_player_commands():
             )
         )
 
-    return player_inline_keyboard.adjust(2).as_markup()
+    return player_inline_keyboard.adjust(1).as_markup()
 
 back_to_menu_inline_keyboard = InlineKeyboardMarkup(
     inline_keyboard = [

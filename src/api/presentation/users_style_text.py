@@ -54,10 +54,10 @@ class UsersStyleText:
         f"<b>📶 Статус:</b> {self.STATUS_MAP.get(player.personastate, 'Невідомо')}\n"
         f"<b>🏷️ Клан ID:</b> {player.primaryclanid or '—'}\n"
         f"<b>🧾 Ім’я:</b> {player.realname or '—'}\n\n"
-        f"<b>🆔 SteamID першого друга:</b> <code>{data.user_friends_list.first_friend.steamid}</code>\n"
-        f"👶 <b>Перший друг доданий:</b> {self.__format_date(data.user_friends_list.first_friend.friend_since)}\n"
-        f"<b>🆔 SteamID останього друга:</b> <code>{data.user_friends_list.last_friend.steamid}</code>\n"
-        f"🧓 <b>Останній друг доданий:</b> {self.__format_date(data.user_friends_list.last_friend.friend_since)}\n"
+        f"<b>🆔 SteamID першого друга:</b> <code>{data.user_friends_list.first_friend.steamid}</code>\n" if data.user_friends_list.first_friend.steamid else ""
+        f"👶 <b>Перший друг доданий:</b> {self.__format_date(data.user_friends_list.first_friend.friend_since)}\n" if data.user_friends_list.first_friend.friend_since else ""
+        f"<b>🆔 SteamID останього друга:</b> <code>{data.user_friends_list.last_friend.steamid}</code>\n" if data.user_friends_list.last_friend.steamid else ""
+        f"🧓 <b>Останній друг доданий:</b> {self.__format_date(data.user_friends_list.last_friend.friend_since)}\n" if data.user_friends_list.last_friend.friend_since else ""
         f"<a href=\"{player.avatarfull}\">🖼️ Аватарка</a>"
     )
         return new_text
@@ -92,8 +92,8 @@ class UsersStyleText:
     def message_post_game(self):
         return "<b>🎮 Введіть назву гри, яку хочете додати:</b>"
 
-    def message_incorrect_game(self):
-        return "<b>⚠️ Гру не знайдено. Перевірте правильність написання та спробуйте ще раз.</b>"
+    def message_incorrect_game(self,game):
+        return f"<b>⚠️ Гру не знайдено за запитом {game}. Перевірте правильність написання та спробуйте ще раз.</b>"
 
     def create_short_search_games(self,data,page:int=1,limit:int=5):
         return create_short_search_games_shared(data,page,limit)
@@ -130,11 +130,11 @@ class UsersStyleText:
                 if discount > 0:
                     discounted_price = price * (100 - discount) / 100
                     line += (
-                        f"💸 Ціна: <s>{price:.2f}$</s> → <b>{discounted_price:.2f}$</b> "
+                        f"💸 Ціна: <s>{price:.2f} грн.</s> → <b>{discounted_price:.2f} грн.</b> "
                         f"(<i>-{discount}%</i>)\n"
                     )
                 else:
-                    line += f"💰 Ціна: <b>{price:.2f}$</b>\n"
+                    line += f"💰 Ціна: <b>{price:.2f} грн.</b>\n"
 
             else:
                 line += "💰 Ціна: відсутня\n"

@@ -17,6 +17,8 @@ class EmptyMessages:
     @staticmethod
     def create_empty_message_for_you(data:Optional[dict],player:str):
         player = f'<b><s>{player}<s></b>' if player else ''
-        if data['detail'] =="Steam user not found":
+        if data is None:
+            return "На жаль, ми не змогли знайти для вас гру 😔<br>Спробуйте пізніше 🔁"
+        if data.get('detail') =="Steam user not found":
             return f"<b>😔 Нажаль, гравця {player} не було знайдено</b>"
         return f"🔒 Гравець {player} закрив профіль 🙈"

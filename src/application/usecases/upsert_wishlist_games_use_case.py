@@ -10,7 +10,7 @@ class UpsertWishlistGamesUseCase:
         self.logger = logger
 
     def execute(self,data:Optional[List[dict]],session):
-        if data is None:
+        if data is None or len(data) == 0:
             return None
         self.logger.info("UpsertWishlistGamesUseCase execute data = %s",data)
         self.wishlist_repository.upsert_wishlist_games(data = data, session = session)

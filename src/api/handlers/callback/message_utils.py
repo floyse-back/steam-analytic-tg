@@ -12,9 +12,13 @@ from src.application.services.users_service import UsersService
 from src.infrastructure.db.database import get_async_db
 
 
-async def create_page_message(callback_query:CallbackQuery,callback_data:str,page,data:Optional[Union[BaseModel,dict]],response:str,limit:int=5):
+async def create_page_message(callback_query:CallbackQuery,callback_data:str,page,data:Optional[Union[BaseModel,dict]],response:str,limit:int=5,updated:bool=True):
     if data is not None:
-        await callback_query.message.edit_text(f"{response}",parse_mode=ParseMode.HTML,reply_markup=create_page_swapper_inline(callback_data=f"{callback_data}",current_page=page,menu_callback_data=f"steam_menu",limit=limit,count=len(data)))
+        if updated:
+            await callback_query.message.edit_text(f"{response}",parse_mode=ParseMode.HTML,reply_markup=create_page_swapper_inline(callback_data=f"{callback_data}",current_page=page,menu_callback_data=f"steam_menu",limit=limit,count=len(data)))
+        else:
+            await callback_query.message.delete()
+            await callback_query.message.answer(f"{response}",parse_mode=ParseMode.HTML,reply_markup=create_page_swapper_inline(callback_data=f"{callback_data}",current_page=page,menu_callback_data=f"steam_menu",limit=limit,count=len(data)))
     else:
         await callback_query.message.edit_reply_markup(reply_markup=create_page_swapper_inline(callback_data=f"{callback_data}",current_page=page,menu_callback_data=f"steam_menu",next_page=False))
     await callback_query.answer()

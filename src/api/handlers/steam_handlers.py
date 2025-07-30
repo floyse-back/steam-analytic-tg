@@ -7,6 +7,7 @@ from aiogram.types import Message
 from src.api.keyboards.steam.steam_dict_keyboards import steam_games_keyboards_dictionary
 from src.api.keyboards.steam.steam_keyboards import create_inline_steam_commands, \
     create_page_swapper_inline, create_search_share_keyboards
+from src.api.middleware.message_delete import message_delete
 from src.api.presentation.steam_style_text import SteamStyleText
 from src.application.dto.steam_dto import GameAppidValidatedModel
 from src.application.dto.users_dto import SteamVanityNameCorrection
@@ -22,7 +23,8 @@ logger = Logger(name="api.player_callback",file_path="api")
 steam_style_text = SteamStyleText(logger=logger)
 
 @router.message(lambda message: message.text == f"{MainMenu.steam}")
-async def steam_main(message: Message):
+async def steam_main(message: Message,state: FSMContext):
+    await message_delete(message=message,state=state)
     await message.delete()
     await message.answer(text=f"{steam_message_menu}",parse_mode=ParseMode.MARKDOWN,reply_markup=await create_inline_steam_commands())
 

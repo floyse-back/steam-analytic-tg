@@ -25,9 +25,11 @@ class TelegramNotifier:
                 return True
             except TelegramRetryAfter as RateLimit:
                 await asyncio.sleep(2)
-                self.logger.warning("RateLimit WARNING")
+                self.logger.warning("RateLimit WARNING %s",RateLimit)
             except TelegramBadRequest as BadRequest:
-                self.logger.warning("BadRequest WARNING %s",BadRequest)
+                self.logger.warning("BadRequest WARNING %s",BadRequest.message)
+                if BadRequest.message.find("failed to get HTTP URL content"):
+                    return "Bad Request"
                 return None
             except Exception as e:
                 retry += 1
@@ -36,16 +38,27 @@ class TelegramNotifier:
 
         return False
 
-    async def send_news_message(self,text:str,chat_id:Union[int,str],video_format:bool=False,video_url:Optional[str]=None):
+
+
+    async def send_news_message(self,text:str,chat_id:Union[int,str],video_format:bool=False,video_url:Optional[str]=None,img_url:Optional[str]=None):
         if video_format:
-            await self.__send_message_retry(func=self.bot.send_video,counter=1,chat_id=chat_id,caption=text,video=video_url,parse_mode=ParseMode.HTML)
+            data = await self.__send_message_retry(func=self.bot.send_video,counter=1,chat_id=chat_id,caption=text,video=video_url,parse_mode=ParseMode.HTML)
+            if data == "Bad Request":
+                await self.send_news_message(text,chat_id=chat_id,img_url=img_url)
+        elif img_url:
+            data = await self.__send_message_retry(func=self.bot.send_photo,counter=1,chat_id=chat_id,caption=text,photo=img_url,parse_mode=ParseMode.HTML)
+            if data == "Bad Request":
+                await self.send_news_message(text, chat_id=chat_id)
         else:
             await self.__send_message_retry(func=self.bot.send_message,counter=1,chat_id=chat_id,text=text,parse_mode=ParseMode.HTML)
 
-    async def notify_users_message_sub(self,telegram_user_id:List[int],text:str):
+    async def notify_users_message_sub(self,telegram_user_id:List[int],text:str,image:Optional[str]=None):
         counter = 1
         for user_id in telegram_user_id:
-            success = await self.__send_message_retry(self.bot.send_message,counter=counter,chat_id=user_id,text=text,parse_mode=ParseMode.HTML)
+            if image:
+                success = await self.__send_message_retry(self.bot.send_photo,counter=counter,chat_id=user_id,caption=text,photo=image,parse_mode=ParseMode.HTML)
+            else:
+                success = await self.__send_message_retry(self.bot.send_message,counter=counter,chat_id=user_id,text=text,parse_mode=ParseMode.HTML)
             counter += 1
             if not success:
                 self.logger.error(f"NotifyUsersMessageSub: Failed to notify user {user_id} after 3 retries.")

@@ -6,11 +6,14 @@ load_dotenv()
 
 ASYNC_DATABASE_URL = getenv("ASYNC_DATABASE_URL")
 SYNC_DATABASE_URL = getenv("SYNC_DATABASE_URL")
+BASE_URL = getenv("BASE_URL")
 
 TELEGRAM_API_TOKEN = getenv('TELEGRAM_API_TOKEN')
 
 STEAM_ANALYTIC_NAME = getenv('STEAM_ANALYTIC_NAME')
 STEAM_ANALYTIC_PASSWORD = getenv('STEAM_ANALYTIC_PASSWORD')
+STEAM_EMAIL = getenv('STEAM_EMAIL')
+STEAM_APPID = getenv('STEAM_APPID')
 
 CHAT_ID = getenv('CHAT_ID')
 
@@ -18,6 +21,8 @@ RABBITMQ_CONNECTION = getenv('RABBITMQ_CONNECTION')
 
 CELERY_BROKER_URL = getenv('CELERY_BROKER_URL')
 CELERY_RESULT_BACKEND = getenv('CELERY_RESULT_BACKEND')
+
+CHANNEL_URL = getenv('CHANNEL_URL')
 
 @dataclass(frozen=True)
 class MainMenu:
@@ -38,7 +43,7 @@ steam_commands: dict[str, str] = {
     "📜 Досягнення гри": "achievements_game",
     "💵 Ціна гри зараз": "game_price",
     "🎲 Рекомендована гра": "suggest_game",
-    "📋 Переглянути всі категорії": "chose_category"
+    "📋 Повернутися": "chose_category"
 }
 steam_message_menu = "Привіт! Що тебе цікавить у світі Steam? 🎮"
 
@@ -46,7 +51,7 @@ user_commands: dict[str, str] = {
     "👤 Профіль": "profile",
     "🎯 Улюблені ігри": "wishlist",
     "✏️ Змінити мій ID": "change_my_id",
-    "📋 Переглянути всі категорії": "chose_category"
+    "📋 Повернутися": "chose_category"
 
 }
 user_message_menu = (
@@ -63,19 +68,23 @@ player_commands: dict[str, str] = {
     "🏆 Рейтинг гравця": "player_rating",
     "🎖️ Досягнення": "player_badges",
     "⚖️ Порівняти з іншим": "compare_users",
-    "📋 Переглянути всі категорії":"chose_category"
+    "📋 Повернутися":"chose_category"
 }
-player_message_menu = "Оберіть команду, пов’язану з гравцем 🎮:"
+player_message_menu = (
+    "<b>🎮 Меню гравця</b>\n"
+    "Тут ви можете отримати детальну інформацію про себе або іншого користувача Steam.\n\n"
+    "<i>Оберіть одну з опцій нижче</i>"
+)
 
 subscribes_commands: dict[str, str] = {
-    "🆕 Нові релізи": "subscribe_new_release",
+    "🆕 Релізи": "subscribe_new_release",
     "🆓 Безкоштовні ігри": "subscribe_free_games",
-    "📅 Івенти та події": "subscribe_steam_news",
-    "🔔 Бажані ігри зі знижками": "subscribe_wishlist_notificate",
-    "🔥 Гарячі знижки": "subscribe_hot_discount_notificate",
-    "📋 Переглянути всі категорії":"chose_category"
+    "📅 Івенти": "subscribe_steam_news",
+    "🔔 Зміни бажаного": "subscribe_wishlist_notificate",
+    "🔥 Знижки": "subscribe_hot_discount_notificate",
+    "📋 Повернутися":"chose_category"
 }
-subscribes_message_menu = "Підписки на оновлення 🗞️ – оберіть категорію:"
+subscribes_message_menu = "🗞️ Ви можете підписатися на оновлення. Оберіть категорію нижче:"
 
 
 

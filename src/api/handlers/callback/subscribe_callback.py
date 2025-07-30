@@ -18,7 +18,9 @@ logger = Logger(name="api.subscribe_callback",file_path="api")
 subscribes_list = [i for i in list(SUBSCRIBES_TYPE_DATA.values())]
 subscribes_service = get_subscribes_service()
 
-subscribes_style_text = SubscribeStyleText()
+subscribes_style_text = SubscribeStyleText(
+    logger=Logger(name="api.subscribe_style_text",file_path="api")
+)
 
 @router.callback_query(lambda c:c.data in subscribes_list)
 async def callback_subscribe(callback_query: CallbackQuery):

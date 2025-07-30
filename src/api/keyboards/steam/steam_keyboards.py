@@ -127,10 +127,10 @@ suggest_game_keyboard = InlineKeyboardMarkup(
     ]
 )
 
-def create_search_share_keyboards(callback_data:str,value:str,data:List[GameListModel],page:int=1,limit:int=5):
+def create_search_share_keyboards(callback_data:str,value:str,data:List[GameListModel],menu_callback_data:str="steam_menu",page:int=1,limit:int=5):
     inline_keyboard = create_page_swapper_inline(
         callback_data=f"search_short_games:{value}:{callback_data}",
-        menu_callback_data=f"steam_menu",
+        menu_callback_data=menu_callback_data,
         current_page=page,
         limit = 5,
         count=len(data),
@@ -146,7 +146,7 @@ def create_search_share_keyboards(callback_data:str,value:str,data:List[GameList
         )
     return inline_keyboard.adjust(3).as_markup()
 
-def create_player_steam_id(callback_data:str,steam_appid:Optional[int],page:Union[int,str]=1)->Optional[InlineKeyboardMarkup]:
+def create_player_steam_id(callback_data:str,steam_appid:Optional[int],page:Union[int,str]=1,menu_name_data:str="steam_menu")->Optional[InlineKeyboardMarkup]:
     if steam_appid is None:
         return None
 
@@ -155,7 +155,29 @@ def create_player_steam_id(callback_data:str,steam_appid:Optional[int],page:Unio
             [InlineKeyboardButton(
                 text=f"{steam_appid} - Ваш",
                 callback_data =f"{callback_data}:{steam_appid}:{page}"
-            )]
+            )],
+            [InlineKeyboardButton(
+            text="🏠 Меню",
+            callback_data=f"{menu_name_data}"
+            )
+            ]
         ]
     )
     return inline_keyboard
+
+def try_now_keyboard_inline(callback_data:str)->Optional[InlineKeyboardMarkup]:
+    try_now_keyboard = InlineKeyboardMarkup(
+        inline_keyboard = [
+            [
+            InlineKeyboardButton(
+                text="Ввести іншого користувача",
+                callback_data=f"{callback_data}"
+            ),
+            InlineKeyboardButton(
+                text="🏠 Меню",
+                callback_data=f"steam_menu"
+            )
+        ]
+        ]
+    )
+    return try_now_keyboard

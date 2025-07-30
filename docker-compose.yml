@@ -4,14 +4,13 @@ services:
     hostname: rabbitmq
     container_name: rabbitmq
     ports:
-      - "5672:5672"
-      - "15672:15672"
+      - "5672:5672"       # порт для обміну повідомленнями
+      - "15672:15672"     # веб-інтерфейс RabbitMQ
     environment:
       RABBITMQ_DEFAULT_USER: "guest"
       RABBITMQ_DEFAULT_PASS: "guest"
     volumes:
       - rabbitmq-data:/var/lib/rabbitmq
-
 
 volumes:
   rabbitmq-data:

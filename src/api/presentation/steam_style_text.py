@@ -74,8 +74,12 @@ class SteamStyleText:
             return EmptyMessages.create_empty_message(game=game)
         return False
 
-    def create_short_desc(self,data:Union[GameShortModel,List[GameShortModel]]) -> str:
-        if (answer:=self.validator(data=data)):return answer
+    def create_short_desc(self,data:Union[GameShortModel,List[GameShortModel]],free=False) -> str:
+        if (answer:=self.validator(data=data)):
+            if free==False:
+                return answer
+            else:
+                return self.not_found_free_games()
         if isinstance(data, GameShortModel):
             data = [data]
         answer = ""
@@ -154,15 +158,29 @@ class SteamStyleText:
             )
         return new_text
 
-    def input_game_name(self,type:Optional[str] = None):
+    def input_game_name(self):
         return "<b>🔍 Введіть назву гри</b>\nНаприклад: <i>Counter-Strike 2</i>"
 
     def input_player_name(self):
         return (
             "<b>👤 Введіть ім'я, ID або URL користувача Steam:</b>\n"
-            "Наприклад: <i>pacukevich</i> або <i>https://steamcommunity.com/id/pacukevich</i>"
+            "Наприклад: <i>76561199139435574</i> або <i>https://steamcommunity.com/id/{Ваш ID}</i>"
         )
 
     def dispatcher(self,command_name,*args,**kwargs):
         return self.dispatcher_command.dispatch_sync(command_name,*args,**kwargs)
 
+    def create_private_player_answer(self, player_id):
+        return (
+            f"<b>🚫 Не вдалося отримати дані про ваш профіль <i>{player_id}</i></b>\n"
+            "🔒 Ваш акаунт <u>або не існує</u>, <u>або є приватним</u>.\n"
+            "⚙️ <b>Будь ласка, зробіть профіль публічним у налаштуваннях Steam</b>, "
+            "щоб ми могли отримати інформацію."
+        )
+
+    def not_found_free_games(self):
+        return (
+            "<b>🔍 Ми прочесали всі геймерські землі…</b>\n"
+            "Але безкоштовних ігор поки що не знайдено 🧭\n"
+            "Поверніться трохи пізніше — пригоди тривають!"
+        )

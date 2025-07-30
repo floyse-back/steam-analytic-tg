@@ -28,7 +28,7 @@ async def player_one_user_callback(callback_query:CallbackQuery,state:FSMContext
         steam_appid = await player_service.get_user_steam_id(telegram_id=callback_query.from_user.id,session=session)
     logger.info("Steam appid: %s",steam_appid)
     await callback_query.answer()
-    await callback_query.message.edit_text(f"{player_style_text.create_message_from_get_user()}",parse_mode=ParseMode.HTML,reply_markup=create_player_steam_id(steam_appid=steam_appid,callback_data=callback_data,page=""))
+    await callback_query.message.edit_text(f"{player_style_text.create_message_from_get_user()}",parse_mode=ParseMode.HTML,reply_markup=create_player_steam_id(steam_appid=steam_appid,menu_name_data="player_menu_callback_close",callback_data=callback_data,page=""))
 
 @router.callback_query(lambda c: any(c.data.startswith(i) for i in [
     "player_badges", "player_full_stats", "player_rating", "player_play"
@@ -52,7 +52,7 @@ async def compare_users_callback(callback_query: CallbackQuery,state:FSMContext)
         steam_appid = await player_service.get_user_steam_id(telegram_id=callback_query.from_user.id,session=session)
         if steam_appid:
             await state.update_data(steam_appid=steam_appid)
-    await callback_query.message.edit_text(f"{player_style_text.create_message_from_get_user()}",parse_mode=ParseMode.HTML,reply_markup=create_player_steam_id(steam_appid=steam_appid,callback_data=f"{callback_query.data}",page=""))
+    await callback_query.message.edit_text(f"{player_style_text.create_message_from_get_user()}",parse_mode=ParseMode.HTML,reply_markup=create_player_steam_id(steam_appid=steam_appid,menu_name_data="player_menu_callback_close",callback_data=f"{callback_query.data}",page=""))
     await callback_query.answer()
 
 @router.callback_query(lambda c: c.data.startswith("compare_users"))
@@ -74,13 +74,16 @@ async def compare_users_callback_between(callback_query: CallbackQuery,state:FSM
 @router.callback_query(F.data == "player_menu")
 async def player_main(callback_query: CallbackQuery):
     await callback_query.message.delete()
-    await callback_query.message.answer(text=f"{player_message_menu}",parse_mode=ParseMode.MARKDOWN,reply_markup=await create_inline_player_commands())
+    await callback_query.message.answer(text=f"{player_message_menu}",parse_mode=ParseMode.HTML,reply_markup=await create_inline_player_commands())
 
 @router.callback_query(F.data == "player_menu_callback_close")
 async def player_main(callback_query: CallbackQuery,state:FSMContext):
     state_data = await state.get_data()
+    t=0
     if state_data.get("last_bot_message_id") is not None:
+        t=1
         await callback_query.message.bot.delete_message(message_id=state_data["last_bot_message_id"],chat_id=callback_query.message.chat.id)
     await state.clear()
-    await callback_query.message.delete()
-    await callback_query.message.answer(text=f"{player_message_menu}",parse_mode=ParseMode.MARKDOWN,reply_markup=await create_inline_player_commands())
+    if t == 0:
+        await callback_query.message.delete()
+    await callback_query.message.answer(text=f"{player_message_menu}",parse_mode=ParseMode.HTML,reply_markup=await create_inline_player_commands())

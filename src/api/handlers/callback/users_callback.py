@@ -6,7 +6,7 @@ from aiogram.types import CallbackQuery
 from src.api.keyboards.main_keyboards import start_keyboard
 from src.api.keyboards.users.users_keyboards import create_user_inline_keyboard, \
     back_to_profile_main, profile_cancel_inline_keyboard_main, create_wishlist_inline_keyboard, \
-    create_remove_wishlist_inline_keyboard, go_to_wishlist_inline_keyboard
+    create_remove_wishlist_inline_keyboard, go_to_wishlist_inline_keyboard, find_or_back
 from src.api.presentation.users_style_text import UsersStyleText
 from src.api.utils.pages_utils import page_utils_elements
 from src.api.utils.state import ProfileSteamName, ChangeSteamName, WishlistGame
@@ -56,7 +56,8 @@ async def add_wishlist_game_callback(callback_query: CallbackQuery,state:FSMCont
     await state.update_data(command="add_wishlist_game")
     await state.set_state(WishlistGame.game)
     await callback_query.bot.delete_message(chat_id=callback_query.message.chat.id, message_id=callback_query.message.message_id)
-    await callback_query.message.answer(f"{users_style_text.message_post_game()}",parse_mode=ParseMode.HTML,reply_markup=go_to_wishlist_inline_keyboard)
+    new_message = await callback_query.message.answer(f"{users_style_text.message_post_game()}",parse_mode=ParseMode.HTML,reply_markup=go_to_wishlist_inline_keyboard)
+    await state.update_data(last_bot_message_id=new_message.message_id)
     await callback_query.answer()
 
 @router.callback_query(lambda c:c.data.startswith("add_wishlist_game"))
@@ -67,10 +68,10 @@ async def add_wishlist_game_callback_confirmation(callback_query: CallbackQuery)
         data = await users_service.add_wishlist_game(game=int(game),user_id=callback_query.from_user.id,session=session)
     if data:
         text = users_style_text.message_correct_add_game()
-        reply_markup = None
+        reply_markup = go_to_wishlist_inline_keyboard
     else:
         text = users_style_text.message_incorrect_add_game()
-        reply_markup = None
+        reply_markup = find_or_back
     await callback_query.answer()
     await callback_query.bot.delete_message(chat_id=callback_query.message.chat.id, message_id=callback_query.message.message_id)
     await callback_query.message.answer(text, parse_mode=ParseMode.HTML, reply_markup=reply_markup)
@@ -138,9 +139,9 @@ async def user_message_callback(callback_query: CallbackQuery):
 @router.callback_query(F.data=="change_my_id")
 async def change_id_callback(callback_query: CallbackQuery,state: FSMContext):
     await state.set_state(ChangeSteamName.steam_appid_new)
-    await state.update_data(last_bot_message_id=callback_query.message.message_id)
     await callback_query.bot.delete_message(chat_id=callback_query.message.chat.id, message_id=callback_query.message.message_id)
-    await callback_query.message.answer(f"{users_style_text.message_change_steam_id(username=callback_query.from_user.username)}",parse_mode=ParseMode.HTML,reply_markup=profile_cancel_inline_keyboard_main)
+    new_message = await callback_query.message.answer(f"{users_style_text.message_change_steam_id(username=callback_query.from_user.username)}",parse_mode=ParseMode.HTML,reply_markup=profile_cancel_inline_keyboard_main)
+    await state.update_data(last_bot_message_id=new_message.message_id)
     await callback_query.answer()
 
 @router.callback_query(F.data == "user_main")

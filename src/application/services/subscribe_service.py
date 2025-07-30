@@ -76,6 +76,9 @@ class SubscribeService:
 
     def upsert_games_wishlist(self,session,data:Optional[List[dict]]):
         self.logger.info("UPSERT_GAMES_WISHLIST EXECUTED len(data) = %s",len(data))
+        if data is None or len(data) == 0:
+            self.logger.info("Data is None")
+            return None
         self.upsert_wishlist_games_use_case.execute(session=session,data=data)
 
     def get_updated_wishlists(self,session,data:Optional[List[dict]]):

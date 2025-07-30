@@ -88,7 +88,7 @@ class UsersService:
                 await self.create_user_use_case.execute(user_id=user_id,steam_id=steam_appid['steam_appid'],session=session)
             else:
                 await self.update_user_use_case.execute(user=user,session=session,steam_id=steam_appid["steam_appid"])
-                self.logger.debug("Error Update User Use Case %s,%s User:",user_id,steam_appid,user)
+                self.logger.debug("Error Update User Use Case %s,%s",user_id,steam_appid)
             return True
 
     async def check_register_steam_id_user(self,user_id,session):

@@ -53,7 +53,7 @@ class WishlistRepository(IWishlistRepository):
         session.execute(statement)
         session.commit()
 
-    def get_games_changed(self, session, data:List[int])->List[Tuple[int, int,int,int]]:
+    def get_games_changed(self, session, data:List[int])->List[Wishlist]:
         statement = (select(Wishlist.game_id,Users.id,Wishlist.price,Wishlist.discount)
                      .join(users_to_whishlist,Wishlist.game_id == users_to_whishlist.c.game_id)
                      .join(Users,Users.id == users_to_whishlist.c.user_id)

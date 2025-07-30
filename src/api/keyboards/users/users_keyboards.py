@@ -75,6 +75,21 @@ go_to_wishlist_inline_keyboard = InlineKeyboardMarkup(
         ]
     ]
 )
+find_or_back = InlineKeyboardMarkup(
+    inline_keyboard = [
+        [
+            InlineKeyboardButton(
+                text="🎯 Улюблені ігри",
+                callback_data="wishlist"
+            ),
+            InlineKeyboardButton(
+                text="➕ Знайти іншу гру",
+                callback_data="add_wishlist_game"
+            ),
+
+        ]
+    ]
+)
 
 back_to_profile_main = InlineKeyboardMarkup(
     inline_keyboard=[

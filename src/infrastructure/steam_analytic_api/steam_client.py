@@ -1,32 +1,56 @@
-from typing import Optional, Union, List
+from typing import Optional, List
 
+import httpx
 from httpx import AsyncClient,Client
-from src.shared.config import STEAM_ANALYTIC_NAME,STEAM_ANALYTIC_PASSWORD
+
+from src.domain.logger import ILogger
+from src.shared.config import STEAM_ANALYTIC_NAME, STEAM_ANALYTIC_PASSWORD, BASE_URL,STEAM_EMAIL,STEAM_APPID
+
 
 class SteamAnalyticsAPIClient:
     API_KEY = None
-    BASE_URL = "http://127.0.0.1:8000/"
+    BASE_URL = BASE_URL
 
-    def __init__(self):
-        self.__url = "http://127.0.0.1:8000/"
+    def __init__(self,logger:ILogger):
+        self.logger = logger
         if self.API_KEY is None:
             self.login_account()
 
     def __create_client_session(self)->AsyncClient:
         auth = {"Authorization": "{}".format(self.API_KEY)}
-        return AsyncClient(base_url=self.__url,follow_redirects=True,timeout=8.0,headers=auth)
+        return AsyncClient(base_url=self.BASE_URL,follow_redirects=True,timeout=8.0,headers=auth)
 
-    @classmethod
-    def login_account(cls):
-        with Client(base_url=cls.BASE_URL) as client:
-            response = client.post(f"api/v1/auth/login",params={
-                "username": STEAM_ANALYTIC_NAME,
-                "password": STEAM_ANALYTIC_PASSWORD
-            })
-        if response.status_code == 201:
-            cls.API_KEY = response.json()["refresh_token"]
-        else:
-            raise Exception(response.text)
+    def register_account(self) -> None:
+        body = {
+            "username": f"{STEAM_ANALYTIC_NAME}",
+            "hashed_password": f"{STEAM_ANALYTIC_PASSWORD}",
+            "email": f"{STEAM_EMAIL}",
+            "steamid": f"{STEAM_APPID}"
+        }
+        try:
+            with Client(base_url=self.BASE_URL,follow_redirects=True) as client:
+                response = client.post("api/v1/auth/register_user/",json=body)
+                if response.status_code == 201:
+                    return self.login_account()
+        except Exception as e:
+            self.logger.error("Failed to register account: {}".format(e))
+
+    def login_account(self):
+        try:
+            with Client(base_url=self.BASE_URL) as client:
+                response = client.post(f"api/v1/auth/login",params={
+                    "username": STEAM_ANALYTIC_NAME,
+                    "password": STEAM_ANALYTIC_PASSWORD
+                })
+            if response.status_code == 201:
+                self.API_KEY = response.json()["refresh_token"]
+            if response.status_code == 401 or response.status_code == 404:
+                self.logger.info("Start Register")
+                self.register_account()
+        except httpx.ConnectError:
+            self.logger.warning("Failed to connect to Steam Analytics API. Server don`t response")
+
+
 
     async def search_games(self,name,page=1,limit=5,share:bool=True)->Optional[List[dict]]:
         async with self.__create_client_session() as client:
@@ -84,8 +108,10 @@ class SteamAnalyticsAPIClient:
 
         if response.status_code == 200:
             return response.json().get("games")
-        elif response.status_code in [404,403]:
+        elif response.status_code == 404:
             return response.json()
+        elif response.status_code == 403:
+            return None
         return None
 
     async def discount_for_you(self, user: Optional[str] = None,page:int=1,limit:int=5)-> Optional[dict]:
@@ -102,8 +128,8 @@ class SteamAnalyticsAPIClient:
             return response.json().get("games")
         elif response.status_code == 401:
             self.login_account()
-
-        return None
+        elif response.status_code == 403:
+            return None
 
     async def achievements_game(self, game: str,page:int=1,offset:int=10) -> Optional[dict]:
         async with self.__create_client_session() as client:
@@ -208,3 +234,4 @@ class SteamAnalyticsAPIClient:
             return response.json()[f"{steam_appid}"].get("data")
         elif response.status_code == 401:
             self.login_account()
+

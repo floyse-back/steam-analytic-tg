@@ -1,3 +1,4 @@
+from src.api.middleware.check_subscribe import CheckSubscribeMiddleware
 from src.infrastructure.db.database import get_async_db
 from src.infrastructure.logging.logger import Logger
 from src.infrastructure.logging.logger_conf import startup_logger_configure
@@ -29,7 +30,7 @@ dp.include_routers(user_router,user_callback_router,
                    player_router,player_callback_router,
                    subscribe_router,subscribe_callback_router,
                    main_router,main_callback_router)
-
+dp.message.outer_middleware(CheckSubscribeMiddleware())
 
 async def main():
     #Створення logger config and logger api.main
@@ -40,12 +41,13 @@ async def main():
         await init_subscribe_types(session=session)
         break
     #Створення Слухачів
-    asyncio.create_task(consumer_news())
-    asyncio.create_task(consumer_subscribes())
-    #
     bot = Bot(token=TELEGRAM_API_TOKEN)
     logger.info("Start Telegram Bot...")
-    await dp.start_polling(bot)
+    await asyncio.gather(
+        consumer_news(),
+        consumer_subscribes(),
+        dp.start_polling(bot),
+    )
 
 
 if __name__ == "__main__":

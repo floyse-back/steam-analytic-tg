@@ -15,9 +15,14 @@ def get_user_repository():
         logger = Logger(name="infrastructure.user_repository",file_path="infrastructure")
     )
 
+def get_steam_analytic_api_client():
+    return SteamAnalyticsAPIClient(
+        logger = Logger(name="infrastructure.steam_analytic_api_client",file_path="infrastructure")
+    )
+
 def get_steam_service()->SteamService:
     return SteamService(
-        steam_client=SteamAnalyticsAPIClient(),
+        steam_client=get_steam_analytic_api_client(),
         users_repository=get_user_repository(),
         logger = Logger(name="application.steam_service",file_path="application")
     )
@@ -25,14 +30,14 @@ def get_steam_service()->SteamService:
 def get_users_service()->UsersService:
     return UsersService(
         users_repository=get_user_repository(),
-        steam_client=SteamAnalyticsAPIClient(),
+        steam_client=get_steam_analytic_api_client(),
         wishlist_repository=WishlistRepository(),
         logger = Logger(name="application.users_service",file_path="application")
     )
 
 def get_player_service()->PlayerService:
     return PlayerService(
-        steam_client=SteamAnalyticsAPIClient(),
+        steam_client=get_steam_analytic_api_client(),
         users_repository=get_user_repository(),
         logger = Logger(name="application.player_service",file_path="application")
     )

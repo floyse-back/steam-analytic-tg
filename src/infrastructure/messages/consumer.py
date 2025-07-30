@@ -56,10 +56,8 @@ async def consumer_subscribes():
                         subscribe_provide_wishlist_batches.delay()
                     elif body.get("type") == "send_and_update_wishlist_games" and body.get("status",False):
                         logger.info("Send_and_update_wishlist_games")
-                        chain(
-                            send_notification_from_wishlist.s(body.get("data")),
-                            update_notification_from_wishlist_base.s()
-                        ).delay()
+                        send_notification_from_wishlist.delay(body.get("data")),
+                        update_notification_from_wishlist_base.delay(body.get("data"))
                         logger.info("Send_and_update_wishlist_games %s",body.get("data"))
                     else:
                         type_sub = body.get("sub_type")
