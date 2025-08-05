@@ -4,7 +4,7 @@ from aiogram.fsm.context import FSMContext
 from aiogram.types import CallbackQuery, ChatMemberBanned, ChatMemberLeft
 
 from src.api.keyboards.main_keyboards import start_keyboard
-from src.api.middleware.keyboards import check_subscribe
+from src.api.middleware.keyboards import check_subscribe, start_command_use
 from src.api.presentation.main_style_text import MainStyleText
 from src.shared.config import CHAT_ID, CHANNEL_URL
 
@@ -32,5 +32,5 @@ async def check_subscribe_answer(callback_query:CallbackQuery):
                                               reply_markup=check_subscribe)
         await callback_query.answer()
     else:
-        await callback_query.message.answer("Введіть ще раз /start")
+        await callback_query.message.answer("Введіть ще раз /start",parse_mode=ParseMode.HTML,reply_markup=start_command_use)
         await callback_query.answer()

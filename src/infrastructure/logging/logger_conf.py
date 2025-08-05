@@ -4,7 +4,7 @@ import sys
 
 
 def startup_logger_configure():
-    logging.basicConfig(level=logging.DEBUG,
+    logging.basicConfig(level=logging.INFO,
                 format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                 datefmt='%m/%d/%Y %I:%M:%S %p',
                         handlers=[

@@ -4,14 +4,24 @@ from typing import Union, List, Optional
 from aiogram import Bot
 from aiogram.enums import ParseMode
 from aiogram.exceptions import TelegramRetryAfter, TelegramBadRequest
+from aiogram.types import ChatMemberLeft, ChatMemberBanned
 
+from src.api.keyboards.main_keyboards import start_keyboard
 from src.domain.logger import ILogger
-from src.shared.config import TELEGRAM_API_TOKEN
+from src.shared.config import TELEGRAM_API_TOKEN, CHAT_ID
+
 
 class TelegramNotifier:
     def __init__(self,logger:ILogger):
         self.bot = Bot(token=TELEGRAM_API_TOKEN)
         self.logger = logger
+
+    async def check_user_leave_group(self,user_id:int):
+        checker = await self.bot.get_chat_member(chat_id=CHAT_ID, user_id=user_id)
+        if isinstance(checker, (ChatMemberLeft, ChatMemberBanned)):
+            return False
+        await asyncio.sleep(0.25)
+        return True
 
     async def __send_message_retry(self,func,counter:int,*args,**kwargs):
         if counter % 30 == 0:
@@ -54,11 +64,21 @@ class TelegramNotifier:
 
     async def notify_users_message_sub(self,telegram_user_id:List[int],text:str,image:Optional[str]=None):
         counter = 1
+        reply_board = start_keyboard
         for user_id in telegram_user_id:
-            if image:
-                success = await self.__send_message_retry(self.bot.send_photo,counter=counter,chat_id=user_id,caption=text,photo=image,parse_mode=ParseMode.HTML)
+            try:
+                checker = await self.bot.get_chat_member(chat_id=CHAT_ID, user_id=user_id)
+            except Exception as e:
+                await asyncio.sleep(2)
+                checker = None
+                self.logger.warning("CheckUserSubscribe: WARNING %s",e)
+
+            if isinstance(checker, (ChatMemberLeft, ChatMemberBanned)):
+                continue
+            elif image:
+                success = await self.__send_message_retry(self.bot.send_photo,counter=counter,chat_id=user_id,caption=text,photo=image,parse_mode=ParseMode.HTML,reply_markup=reply_board)
             else:
-                success = await self.__send_message_retry(self.bot.send_message,counter=counter,chat_id=user_id,text=text,parse_mode=ParseMode.HTML)
+                success = await self.__send_message_retry(self.bot.send_message,counter=counter,chat_id=user_id,text=text,parse_mode=ParseMode.HTML,reply_markup=reply_board)
             counter += 1
             if not success:
                 self.logger.error(f"NotifyUsersMessageSub: Failed to notify user {user_id} after 3 retries.")

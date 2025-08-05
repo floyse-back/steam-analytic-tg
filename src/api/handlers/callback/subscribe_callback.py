@@ -30,7 +30,7 @@ async def callback_subscribe(callback_query: CallbackQuery):
     logger.debug("Logger Debug Sub Type %s",subscribes_type_details)
     data = None
     if subscribes_type_details is not None:
-        async for session in get_async_db():
+        async with get_async_db() as session:
             data = await subscribes_service.check_subscribes_user(user_id=callback_query.from_user.id,type_id=subscribes_type_details.get("type_id"),session=session)
     if data == True:
         await callback_query.message.edit_text(text=f"{subscribes_style_text.user_have_subscribe(description=subscribes_type_details.get("description",'-'))}",
@@ -50,7 +50,7 @@ async def callback_subscribe_confirm(callback_query: CallbackQuery):
     logger.debug("Logger Debug Sub Type %s",subscribe_type_id)
     if subscribe_type_id is None:
         return None
-    async for session in get_async_db():
+    async with get_async_db() as session:
         if await subscribes_service.subscribe(user_id=int(user_id),type_id=int(subscribe_type_id),session=session):
             await callback_query.message.edit_text(text=f"{subscribes_style_text.after_subscribes()}",parse_mode=ParseMode.HTML,reply_markup=inline_back_subscribe_menu)
         else:
@@ -62,7 +62,7 @@ async def callback_unsubscribe_confirm(callback_query: CallbackQuery):
     subscribe_type_id,user_id=subscribe_correct(callback_query=callback_query,logger=logger)
     if subscribe_type_id is None:
         return None
-    async for session in get_async_db():
+    async with get_async_db() as session:
         if await subscribes_service.unsubscribe(user_id=callback_query.from_user.id,type_id=int(subscribe_type_id),session=session):
             await callback_query.message.edit_text(text=f"{subscribes_style_text.after_unsubscribe()}",parse_mode=ParseMode.HTML,reply_markup=inline_back_subscribe_menu)
         else:
@@ -71,5 +71,4 @@ async def callback_unsubscribe_confirm(callback_query: CallbackQuery):
 
 @router.callback_query(lambda c:c.data == "subscribe_main")
 async def subscribe_main(callback_query: CallbackQuery):
-    await callback_query.message.delete()
-    await callback_query.message.answer(text=f"{subscribes_message_menu}",parse_mode=ParseMode.MARKDOWN,reply_markup=await create_inline_subscribes_commands())
+    await callback_query.message.edit_text(text=f"{subscribes_message_menu}",parse_mode=ParseMode.MARKDOWN,reply_markup=await create_inline_subscribes_commands())

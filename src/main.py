@@ -37,9 +37,8 @@ async def main():
     startup_logger_configure()
     logger = Logger(name="api.main",file_path="api")
     #Створення
-    async for session in get_async_db():
+    async with get_async_db() as session:
         await init_subscribe_types(session=session)
-        break
     #Створення Слухачів
     bot = Bot(token=TELEGRAM_API_TOKEN)
     logger.info("Start Telegram Bot...")

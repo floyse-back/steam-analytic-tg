@@ -10,7 +10,7 @@ from src.infrastructure.db.database import get_async_db
 
 
 async def user_get_or_none(state:FSMContext,telegram_id,message:Message,users_service:UsersService,style_text=UsersStyleText()):
-    async for session in get_async_db():
+    async with get_async_db() as session:
         answer = await users_service.get_profile_user(telegram_id=telegram_id,session=session,account=False)
     if answer is None or answer is False:
         await state.update_data()

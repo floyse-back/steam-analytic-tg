@@ -76,7 +76,7 @@ class UsersService:
         return False - Означає що не було знайдено користувача
         return True - Все пройшло успішно
         """
-        async for session in get_async_db():
+        async with get_async_db() as session:
             if steam_user is not None:
                 steam_appid:Optional[SteamAppid] = await self.vanity_user_use_case.execute(steam_user=steam_user)
                 if steam_appid is None:

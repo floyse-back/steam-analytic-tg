@@ -1,4 +1,4 @@
-from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup, KeyboardButton
 
 check_subscribe = InlineKeyboardMarkup(
     inline_keyboard=[[
@@ -7,4 +7,11 @@ check_subscribe = InlineKeyboardMarkup(
             callback_data="check_subscribe"
         )]
     ]
+)
+start_command_use = ReplyKeyboardMarkup(
+    keyboard=[[
+        KeyboardButton(
+            text="/start"
+        )
+    ]]
 )

@@ -1,4 +1,19 @@
 services:
+  database-tg:
+    image: postgres:17
+    restart: always
+    shm_size: 1024mb
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD_TELEGRAM}
+      POSTGRES_USER: ${POSTGRES_USER_TELEGRAM}
+      POSTGRES_DB: ${POSTGRES_DB_TELEGRAM}
+    networks:
+      - tg-network
+    volumes:
+      - postgres-tg-data:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+
   rabbitmq:
     image: rabbitmq:4.1.2-management-alpine
     hostname: rabbitmq
@@ -6,11 +21,78 @@ services:
     ports:
       - "5672:5672"       # порт для обміну повідомленнями
       - "15672:15672"     # веб-інтерфейс RabbitMQ
+    depends_on:
+      - database-tg
     environment:
       RABBITMQ_DEFAULT_USER: "guest"
       RABBITMQ_DEFAULT_PASS: "guest"
     volumes:
-      - rabbitmq-data:/var/lib/rabbitmq
+      - rabbitmq-tg-data:/var/lib/rabbitmq
+    networks:
+      - app-network
+      - tg-network
+
+  telegram-bot:
+    build: .
+    container_name: "telegram-bot"
+    environment:
+      RUN_PRESTANT: 1
+      RABBITMQ_CONNECTION: "amqp://${RABBITMQ_DEFAULT_USER}:${RABBITMQ_DEFAULT_PASS}@rabbitmq:5672"
+      CELERY_BROKER_URL: "amqp://${RABBITMQ_DEFAULT_USER}:${RABBITMQ_DEFAULT_PASS}@rabbitmq:5672"
+      CELERY_RESULT_BACKEND: "rpc://"
+      ASYNC_DATABASE_URL: "postgresql+asyncpg://${POSTGRES_USER_TELEGRAM}:${POSTGRES_PASSWORD_TELEGRAM}@database-tg/${POSTGRES_DB_TELEGRAM}"
+      SYNC_DATABASE_URL: "postgresql://${POSTGRES_USER_TELEGRAM}:${POSTGRES_PASSWORD_TELEGRAM}@database-tg/${POSTGRES_DB_TELEGRAM}"
+      BASE_URL: "http://127.0.0.1:8000" #Бекенд з репозиторію
+    depends_on:
+      - rabbitmq
+      - database-tg
+    networks:
+      - app-network
+      - tg-network
+
+
+  subscribe-worker-tg:
+    build: .
+    container_name: "subscribe_worker_tg"
+    depends_on:
+      - rabbitmq
+      - telegram-bot
+      - database-tg
+    networks:
+      - tg-network
+    environment:
+      RABBITMQ_CONNECTION: "amqp://${RABBITMQ_DEFAULT_USER}:${RABBITMQ_DEFAULT_PASS}@rabbitmq:5672"
+      CELERY_BROKER_URL: "amqp://${RABBITMQ_DEFAULT_USER}:${RABBITMQ_DEFAULT_PASS}@rabbitmq:5672"
+      CELERY_RESULT_BACKEND: "rpc://"
+      ASYNC_DATABASE_URL: "postgresql+asyncpg://${POSTGRES_USER_TELEGRAM}:${POSTGRES_PASSWORD_TELEGRAM}@database-tg/${POSTGRES_DB_TELEGRAM}"
+      SYNC_DATABASE_URL: "postgresql://${POSTGRES_USER_TELEGRAM}:${POSTGRES_PASSWORD_TELEGRAM}@database-tg/${POSTGRES_DB_TELEGRAM}"
+      RUN_PRESTANT: 0
+
+    command: celery -A src.infrastructure.celery.celery_app worker --loglevel=INFO --pool=solo -Q subscribes_bot
+
+  news-worker-tg:
+    build: .
+    container_name: "news_worker_tg"
+    depends_on:
+      - rabbitmq
+      - telegram-bot
+      - database-tg
+    networks:
+      - tg-network
+    environment:
+      RABBITMQ_CONNECTION: "amqp://${RABBITMQ_DEFAULT_USER}:${RABBITMQ_DEFAULT_PASS}@rabbitmq:5672"
+      CELERY_BROKER_URL: "amqp://${RABBITMQ_DEFAULT_USER}:${RABBITMQ_DEFAULT_PASS}@rabbitmq:5672"
+      CELERY_RESULT_BACKEND: "rpc://"
+      ASYNC_DATABASE_URL: "postgresql+asyncpg://${POSTGRES_USER_TELEGRAM}:${POSTGRES_PASSWORD_TELEGRAM}@database-tg/${POSTGRES_DB_TELEGRAM}"
+      SYNC_DATABASE_URL: "postgresql://${POSTGRES_USER_TELEGRAM}:${POSTGRES_PASSWORD_TELEGRAM}@database-tg/${POSTGRES_DB_TELEGRAM}"
+      RUN_PRESTANT: 0
+
+    command: celery -A src.infrastructure.celery.celery_app worker --loglevel=INFO --pool=solo -Q news_bot
 
 volumes:
-  rabbitmq-data:
+  rabbitmq-tg-data:
+  postgres-tg-data:
+
+networks:
+  app-network:
+  tg-network:

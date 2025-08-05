@@ -45,6 +45,8 @@ def news_send_message(type_news:str,data:List[dict]):
         type_news = "news_game_from_categories"
     news_style_text = NewsStyleText()
     message = news_style_text.dispatch_sync(type_news,new_data)
+    if message is None:
+        return None
     if len(img_url) == 1:
         img_url = img_url[0]
     run_async(telegram_notifier.send_news_message(text=message,chat_id=CHAT_ID,video_format=video_format,video_url=video_url,img_url=img_url))

@@ -88,8 +88,7 @@ async def free_games_now_callback(callback_query: CallbackQuery):
 async def achievements_game_callback_state(callback_query: CallbackQuery,state: FSMContext):
     await state.update_data(command="achievements_game",last_bot_message_id = callback_query.message.message_id)
     await state.set_state(SteamGamesID.game)
-    await callback_query.message.delete()
-    await callback_query.message.answer(f"{steam_style_text.input_game_name()}",parse_mode=ParseMode.HTML,reply_markup=go_to_main_menu_inline_keyboard)
+    await callback_query.message.edit_text(f"{steam_style_text.input_game_name()}",parse_mode=ParseMode.HTML,reply_markup=go_to_main_menu_inline_keyboard)
     await callback_query.answer("Введіть назву гри")
 
 @router.callback_query(lambda c: c.data.startswith("achievements_game"))
@@ -123,7 +122,7 @@ async def discount_games_callback(callback_query: CallbackQuery):
 async def games_for_you_callback(callback_query:CallbackQuery,state: FSMContext):
     await state.update_data(command="games_for_you",text="🎮 Ігри для тебе",last_bot_message_id = callback_query.message.message_id)
     await state.set_state(PlayerSteamName.player)
-    async for session in get_async_db():
+    async with get_async_db() as session:
         steam_appid = await steam_service.get_player(telegram_appid=callback_query.from_user.id,session=session)
         logger.debug("Steam Appid From Steam Service,%s",callback_query.message.from_user.id)
         logger.debug(f"steam_appid: {steam_appid}")
@@ -147,7 +146,7 @@ async def games_for_you_callback_pages(callback_query: CallbackQuery):
 async def discount_for_you_callback(callback_query: CallbackQuery,state: FSMContext):
     await state.update_data(command="discount_for_you",text="💰 Знижки для тебе",last_bot_message_id = callback_query.message.message_id)
     await state.set_state(PlayerSteamName.player)
-    async for session in get_async_db():
+    async with get_async_db() as session:
         steam_appid = await steam_service.get_player(telegram_appid=callback_query.from_user.id,session=session)
         logger.debug("Steam Appid From Steam Service,%s",callback_query.message.from_user.id)
         logger.debug(f"steam_appid: {steam_appid}")

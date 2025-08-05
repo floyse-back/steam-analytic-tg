@@ -25,7 +25,7 @@ async def create_page_message(callback_query:CallbackQuery,callback_data:str,pag
 
 async def user_register_utils(message:Message,state:FSMContext,users_service:UsersService,main_style_text:MainStyleText,reply_markup:InlineKeyboardMarkup):
     await message.delete()
-    async for session in get_async_db():
+    async with get_async_db() as session:
         if not await users_service.check_register_steam_id_user(message.from_user.id,session=session):
             await state.update_data()
             await state.set_state(ProfileSteamName.profile)

@@ -13,6 +13,7 @@ from src.api.keyboards.users.users_keyboards import create_user_inline_keyboard,
 from src.api.middleware.account import user_get_or_none
 from src.api.middleware.message_delete import message_delete
 from src.api.utils.state import ProfileSteamName, ChangeSteamName, WishlistGame
+from src.application.dto.users_dto import SteamVanityNameCorrection
 from src.infrastructure.logging.logger import Logger
 from src.shared.config import MainMenu, user_message_menu
 from src.shared.depends import get_users_service
@@ -33,12 +34,23 @@ async def user_reply(message: Message,state: FSMContext):
 
 @router.message(ProfileSteamName.profile)
 async def user_profile(message:Message, state: FSMContext):
-    steam_appid:Optional[str] = message.text
+    steam_appid:Optional[str] = SteamVanityNameCorrection(
+        steam_appid=message.text
+    ).steam_appid
     logger.debug(f"User profile %s",steam_appid)
     bool_answer:bool = await users_service.update_or_register_user(user_id=message.from_user.id,steam_user=steam_appid)
     await state.clear()
     if bool_answer:
-        await message.answer(f"<b>Ви успішно зберегли SteamAppid:</b><code>{steam_appid}</code>!!",parse_mode=ParseMode.HTML,reply_markup=start_keyboard)
+        await message.answer(
+            f"✅ <b>Steam AppID <code>{steam_appid}</code> успішно збережено!</b>\n\n"
+            f"🔓 <i>Тепер вам відкриті всі можливості бота:</i>\n"
+            f"• 🔔 Отримуйте повідомлення про знижки\n"
+            f"• 🆓 Дізнавайтеся про безкоштовні ігри\n"
+            f"• 🗓 Слідкуйте за подіями та новинками\n\n"
+            f"🎯 <b>Оберіть категорію, яка вас цікавить нижче:</b>",
+            parse_mode=ParseMode.HTML,
+            reply_markup=start_keyboard
+        )
     else:
         await state.set_state(ProfileSteamName.profile)
         await message.answer(f"<b>Нажаль мені не вдалося знайти ваш SteamAppid <s>{steam_appid}</s></b>\n"

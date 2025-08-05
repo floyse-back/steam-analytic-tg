@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, date, timedelta
 from typing import List, Optional
 
 import html
@@ -21,6 +21,15 @@ class NewsStyleText(DispatcherCommands):
                 "news_game_from_categories": self.game_from_categories_message
             }
         )
+        self.category_messages = {
+            "Колекційні картки Steam": "🃏 <b>Збирай та обмінюйся!</b>\nSteam-картки — не просто картинки, це стиль. Ця гра дасть тобі шанс поповнити колекцію!",
+            "Кооперативна гра": "🤝 <b>Гра для команди</b>\nГрати разом завжди веселіше! Ця гра — саме те, що треба для спільного проходження!"
+        }
+        self.ganre_messages = {
+            "Стратегії": "🧠 <b>Стратегія — сила думки!</b>\nПлануй, керуй, перемагай! Ця гра змусить тебе мислити на кілька ходів уперед.",
+            "Пригоди": "🗺️ <b>Готовий до пригод?</b>\nНевідомі світи, таємниці й сюжети — ця гра захопить тебе з перших хвилин!",
+            "Рольові ігри": "🧙 <b>Рольова магія!</b>\nСтвори свого героя, занурся в історію та вирішуй долю світу. Обирай мудро!"
+        }
 
     @staticmethod
     def __create_game_from_history_news(data: List['GameFullModel']) -> str:
@@ -86,9 +95,11 @@ class NewsStyleText(DispatcherCommands):
         return "\n\n".join(result)
 
     @staticmethod
-    def __create_data_games_list(data: List[GameFullModel],index_allowed:bool=True) -> str:
+    def __create_data_games_list(data: List[GameFullModel],index_allowed:bool=True,shorted:bool=False,free_delete:bool=False) -> str:
         text = ""
         for index,game in enumerate(data):
+            if game.discount!=100 and free_delete:
+                continue
             # Назва гри
             name = escape(game.name)
             # Ціна
@@ -119,17 +130,25 @@ class NewsStyleText(DispatcherCommands):
             release = f"📅 Реліз: {game.release_data.strftime('%d.%m.%Y')}" if game.release_data else ""
 
             # Форматування HTML
-            text += (
+            if shorted:
+                text +=(
+                    f"<b>🎮{f'{index+1}.' if index_allowed else ""} {name}</b>\n"
+                    f"{discount}{price}\n"
+                    f"{metacritic} | {recommendations}\n"
+                    f"{release}\n"
+                    f"<a href=\"https://store.steampowered.com/app/{game.steam_appid}\">🔗 Відкрити у Steam</a>\n\n"
+                )
+            else:
+                text += (
                 f"<b>🎮{f'{index+1}.' if index_allowed else ""} {name}</b>\n"
                 f"{discount}{price}\n"
-                f"{metacritic} | {recommendations}\n"
-                f"📚 <i>{description}</i>\n"
+                f"{metacritic} | {recommendations}\n\n"
+                f"📚 <i>{description}</i>\n\n"
                 f"🏷️ Жанри: {genres}\n"
                 f"🎯 Категорії: {categories}\n"
                 f"{f'🏢 Видавець: {publishers}\n' if publishers else ''}\n"
                 f"{release}\n"
                 f"<a href=\"https://store.steampowered.com/app/{game.steam_appid}\">🔗 Відкрити у Steam</a>\n"
-                f"────────────────────────────────────────\n"
             )
         return text
 
@@ -138,16 +157,22 @@ class NewsStyleText(DispatcherCommands):
             "🚀 <b>Свіжачок прилетів!</b>\n"
             "Нові ігри щойно вискочили у Steam, ще гарячі 🔥\n"
             "Може знайдеш щось смачненьке 🎮👇\n"
-            f"{self.__create_game_from_steam_news(data)}\n"
         )
-        return text_start
+        result = self.__generate_steam_new_release(header=text_start,games=data)
+        return result
 
     def free_games_now_message(self, data: List[GameFullModel]):
+        if len(data) == 1:
+            data_list = self.__create_data_games_list(data,free_delete=True,index_allowed=False)
+        else:
+            data_list = self.__create_data_games_list(data,shorted = True)
+        if len(data_list)==0:
+            return None
         text_start = (
             "🆓 <b>БЕЗКОШТОВНО?!</b>\n"
             "Так! Ці ігри зараз можна забрати за 0 гривень! 🎁\n"
-            "Як каже народна мудрість: «Дарованому Steam-акаунту в метакритику не дивляться» 😅👇\n"
-            f"{self.__create_data_games_list(data)}\n"
+            "Як каже народна мудрість: «Дарованому Steam-акаунту в метакритику не дивляться» 😅👇\n\n"
+            f"{data_list}\n"
         )
         return text_start
 
@@ -155,7 +180,7 @@ class NewsStyleText(DispatcherCommands):
         text_start = (
             "📜 <b>Трохи історії, трохи ігор!</b>\n"
             "Ось добірка, присвячена легендарним подіям та моментам зі світу Steam 👴💻\n"
-            "Поринь у ностальгію (або вивчи щось новеньке) 👇\n"
+            "Поринь у ностальгію (або вивчи щось новеньке) 👇\n\n"
             f"{self.__create_game_from_history_news(data)}\n"
         )
         return text_start
@@ -181,7 +206,7 @@ class NewsStyleText(DispatcherCommands):
         text_start = (
             "🎲 <b>Рулетка часу!</b>\n"
             "Я вибрав гру випадково — а раптом це твоє нове геймерське кохання? 💘🎮\n"
-            "Не дякуй, просто дивись 👇\n"
+            "Не дякуй, просто дивись 👇\n\n"
             f"{self.__create_data_games_list(data,index_allowed=False)}\n"
         )
         return text_start
@@ -192,61 +217,126 @@ class NewsStyleText(DispatcherCommands):
     def festivale_message(self, event: CalendarEventModel) -> str:
         if isinstance(event, list):
             event = event[0]
+        text = self.__check_date_steam_event_and_chose_answer(event)
+        return text
 
-        name = event.name or "без назви"
-        start = event.date_start.strftime('%d.%m.%Y')
-        end = event.date_end.strftime('%d.%m.%Y')
+    def __check_date_steam_event_and_chose_answer(self,event:GameFullModel) -> Optional[str]:
+        """
+        Генерує HTML-повідомлення для Telegram залежно від дати та типу події:
+        1 - Початок події
+        2 - Закінчення події
+        3 - Завтра подія починається
+        """
+        today = date.today()
+        tomorrow = today + timedelta(days=1)
 
-        if event.type_name == "sale":
-            return (
-                f"<b>🔥 Глобальний розпродаж в Steam вже почався!</b>\n\n"
-                f"🛒 <i>{name}</i> — це твоя можливість поповнити бібліотеку ігор за вигідними цінами. "
-                f"Знижки на тисячі тайтлів, від інді-проєктів до легендарних AAA-хітів!\n\n"
-                f"<b>📅 Акція діє з</b> <u>{start}</u> <b>до</b> <u>{end}</u>\n\n"
-                f"💡 Не зволікай — найкращі пропозиції можуть зникнути швидше, ніж ти думаєш.\n\n"
-                f"💸 Час економити з розумом і грати в кайф!"
-            )
-        else:
-            return (
-                f"<b>🎉 Steam знову тішить нас фестивалем!</b>\n\n"
-                f"🕹️ <i>{name}</i> — це чудова нагода відкрити нові ігри, зануритись у жанри, які ти міг оминати, "
-                f"та спробувати демо найочікуваніших тайтлів майбутнього.\n\n"
-                f"<b>📅 Тривалість:</b> з <u>{start}</u> до <u>{end}</u>\n\n"
-                f"👀 Слідкуй за оновленнями, адже під час фестивалів часто з’являються спеціальні покази, "
-                f"стріми від розробників та унікальні активності.\n\n"
-                f"🎮 Час досліджувати нове!"
-            )
+        if today == event.date_start:
+            if event.type_name == "festival":
+                return (
+                    f"<b>🎉 Стартував новий фестиваль у Steam!</b>\n\n"
+                    f"🕹️ <i>{event.name}</i> — унікальна нагода відкрити для себе нові ігри, спробувати демо, переглянути стріми та просто кайфанути від улюбленого жанру.\n\n"
+                    f"<b>📅 Тривалість:</b> з <u>{event.date_start.strftime('%d.%m')}</u> до <u>{event.date_end.strftime('%d.%m')}</u>\n\n"
+                    f"🎮 Зазирни в Steam — буде гаряче!"
+                )
+            else:
+                return (
+                    f"<b>🔥 Знижки вже в Steam!</b>\n\n"
+                    f"🛒 <i>{event.name}</i> — ідеальний шанс поповнити бібліотеку новими тайтлами. Ціни падають, як FPS на старому ноуті.\n\n"
+                    f"<b>📅 Тривалість:</b> з <u>{event.date_start.strftime('%d.%m')}</u> до <u>{event.date_end.strftime('%d.%m')}</u>\n\n"
+                    f"💸 Не пропусти шалені пропозиції — знижки до -90%!"
+                )
+
+        elif today == event.date_end:
+            if event.type_name == "festival":
+                return (
+                    f"<b>⌛ Сьогодні останній день фестивалю!</b>\n\n"
+                    f"🕹️ <i>{event.name}</i> завершується вже сьогодні. Це твій останній шанс переглянути демо, оцінити ігри та забрати те, що сподобалося.\n\n"
+                    f"🎬 Не зволікай — віeventй Steam і встигни зацінити!\n\n"
+                    f"<b>🗓 До:</b> <u>{event.date_end.strftime('%d.%m')}</u>"
+                )
+            else:
+                return (
+                    f"<b>🕔 Останній шанс на шалені знижки!</b>\n\n"
+                    f"💰 <i>{event.name}</i> завершується вже сьогодні. Якщо ще щось залишилось у wishlist — час діяти!\n\n"
+                    f"<b>📅 До:</b> <u>{event.date_end.strftime('%d.%m')}</u>\n\n"
+                    f"🚨 Наступні знижки — не скоро. Не проґав!"
+                )
+
+        elif tomorrow == event.date_start:
+            if event.type_name == "festival":
+                return (
+                    f"<b>⏳ Завтра стартує новий фестиваль у Steam!</b>\n\n"
+                    f"🕹️ <i>{event.name}</i> — це буде справжнє свято для геймерів: демо, жанрові підбірки, стріми та багато всього цікавого!\n\n"
+                    f"<b>📅 Початок:</b> <u>{event.date_start.strftime('%d.%m')}</u>\n\n"
+                    f"🎮 Підготуй wishlist — завтра буде гаряче!"
+                )
+            else:
+                return (
+                    f"<b>💥 Завтра починається новий розпродаж у Steam!</b>\n\n"
+                    f"🛒 <i>{event.name}</i> — готуй свій гаманець, бо будуть шалені знижки!\n\n"
+                    f"<b>📅 Початок:</b> <u>{event.date_start.strftime('%d.%m')}</u>\n\n"
+                    f"💸 Wishlist уже на поготові?"
+                )
+
+        return None
+
 
     def game_from_ganre_message(self, dict_data: dict) -> str:
         ganre_name:str = dict_data["type_ganre"]
         data:GameFullModel = dict_data["data"][0]
+        description:str = f"🔍 Якщо ти фанат жанру <b><i>{ganre_name}</i></b>, ця гра точно приверне твою увагу!\n" if self.ganre_messages.get(f"{ganre_name}") is None else self.ganre_messages.get(f"{ganre_name}")
+
         return (
-            f"🎮 <b>Гра за жанром — {ganre_name}</b>\n"
-            f"🔍 Якщо ти фанат жанру <b><i>{ganre_name}</i></b>, ця гра точно приверне твою увагу!\n"
-            f"Ось що ми для тебе знайшли:\n"
+            f"{description}\n\n"
             f"{self.__generate_game_property_message(data,ganre_main=ganre_name)}\n"
         )
 
     def game_from_categories_message(self, dict_data: dict) -> str:
         category_name:str = dict_data["type_category"]
         data:GameFullModel = dict_data["data"][0]
+        description = f"🔍 Якщо ти полюбляєш категорію <b><i>{category_name}</i></b>, ця гра тобі сподобається!\n" if self.category_messages.get(f"{category_name}") is None else self.category_messages.get(f"{category_name}")
 
         return (
-            f"🎮 <b>Гра за категорією — {category_name}</b>\n"
-            f"🔍 Якщо ти полюбляєш категорію <b><i>{category_name}</i></b>, ця гра тобі сподобається!\n"
-            f"Ось що ми для тебе знайшли:\n"
+            f"{description}\n\n"
             f"{self.__generate_game_property_message(data, category_main=category_name)}\n"
         )
+
+
+    def __generate_steam_new_release(self,header:str,games: List[GameFullModel]) -> str:
+        msg = header
+
+        for game in games:
+            if game.is_free:
+                continue  # Пропускаємо безкоштовні (демки)
+
+            game_line = f"🎮 <b>{game.name}</b>\n"
+
+            if game.discount and game.final_formatted_price:
+                game_line += f"🔻 -{game.discount}% → <b>{game.final_formatted_price}</b>\n"
+            elif game.final_formatted_price:
+                game_line += f"💰 <b>{game.final_formatted_price}</b>\n"
+
+            release_year = game.release_data.strftime("%Y") if game.release_data else "?"
+            recs = f"{game.recomendations} рекомендацій" if game.recomendations else "💬 Немає рецензій"
+            game_line += f"📅 {release_year} | {recs}\n"
+            game_line += f'🔗 <a href="https://store.steampowered.com/app/{game.steam_appid}">Steam</a>\n\n'
+
+            if len(msg) + len(game_line) > 1024:
+                break  # не додаємо більше, щоб не перевищити ліміт
+
+            msg += game_line
+
+        return msg.strip()
 
     def __generate_game_property_message(self, game: GameFullModel,ganre_main:Optional[str] = None,category_main:Optional[str]=None) -> str:
         game_ganre = game.game_ganre[0:5]
         game_category = game.game_categories[0:5]
-        if not ganre_main is None and ganre_main not in game_ganre:
+        if ganre_main is not None and ganre_main not in [g.ganres_name for g in game_ganre]:
             game_ganre.insert(0, GanresOut(
                 ganres_id=42,
                 ganres_name=ganre_main
             ))
-        if not category_main is None and category_main not in game_ganre:
+        if category_main is not None and category_main not in [c.category_name for c in game_category]:
             game_category.insert(0, CategoryOut(
                 category_id = 42,
                 category_name=category_main
@@ -262,25 +352,22 @@ class NewsStyleText(DispatcherCommands):
             else "🆓 <b>Безкоштовно</b>"
         )
 
-        metacritic = f"🏆 <b>Metacritic:</b> {html.escape(game.metacritic)}" if game.metacritic !=-1 else ""
+        metacritic = f"🏆 <b>Metacritic:</b> {html.escape(game.metacritic)}" if game.metacritic !="-1" else ""
         recommendations = f"👍 <b>Рекомендацій:</b> {game.recomendations}" if game.recomendations else ""
         release = f"📅 <b>Реліз:</b> {game.release_data.strftime('%d.%m.%Y')}" if game.release_data else ""
 
-
-        text = f"""
-    <b>{html.escape(game.name)}</b>
-    {html.escape(game.short_description or "Опис відсутній.")}
-
-    {price_info}
-    {metacritic}
-    {recommendations}
-    {release}
-
-    🏷️ <b>Жанри:</b> {genre_names}
-    {f'📢 <b>Видавець:</b> {publisher_names}' if publisher_names else ''}
-    📂 <b>Категорії:</b> {category_names}
-
-    🔗 <a href="https://store.steampowered.com/app/{game.steam_appid}">Сторінка в Steam</a>"""
+        text = (
+            f"Назва: <b>{html.escape(game.name)}</b>\n"
+            f"{price_info}"
+            f"{metacritic}\n"
+            f"{recommendations}\n"
+            f"{release}\n\n"
+            f"📚 {html.escape(game.short_description or 'Опис відсутній.')}\n\n"
+            f"🏷️ <b>Жанри:</b> {genre_names}\n"
+            f"📂 <b>Категорії:</b> {category_names}\n"
+            f"{f'📢 <b>Видавець:</b> {publisher_names}\n' if publisher_names else ''}"
+            f"\n🔗 <a href=\"https://store.steampowered.com/app/{game.steam_appid}\">Сторінка в Steam</a>"
+        )
 
         if game.trailer_url:
             text += f'\n🎬 <a href="{html.escape(game.trailer_url)}">Трейлер</a>'

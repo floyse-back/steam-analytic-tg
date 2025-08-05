@@ -24,7 +24,7 @@ logger = Logger(name="api.users_callback",file_path="api")
 @router.callback_query(lambda c: c.data.startswith("wishlist"))
 async def wishlist_callback(callback_query: CallbackQuery):
     page = page_utils_elements(callback_data=callback_query.data,page_one_data="wishlist",index=1)
-    async for session in get_async_db():
+    async with get_async_db() as session:
         data = await users_service.show_wishlist_games(user_id=callback_query.from_user.id,session=session,page=page,limit=5)
         response = users_style_text.create_short_wishlist_message(data=data)
     if data is None and page != 1:
@@ -64,7 +64,7 @@ async def add_wishlist_game_callback(callback_query: CallbackQuery,state:FSMCont
 async def add_wishlist_game_callback_confirmation(callback_query: CallbackQuery):
     game = callback_query.data.split(":")[1]
     logger.debug("Callback Data Name: %s", callback_query.data)
-    async for session in get_async_db():
+    async with get_async_db() as session:
         data = await users_service.add_wishlist_game(game=int(game),user_id=callback_query.from_user.id,session=session)
     if data:
         text = users_style_text.message_correct_add_game()
@@ -79,7 +79,7 @@ async def add_wishlist_game_callback_confirmation(callback_query: CallbackQuery)
 @router.callback_query(lambda c:c.data.startswith("remove_wishlist_game"))
 async def remove_wishlist_game_callback(callback_query: CallbackQuery):
     page = page_utils_elements(callback_data=callback_query.data, page_one_data="remove_wishlist_game", index=1)
-    async for session in get_async_db():
+    async with get_async_db() as session:
         data = await users_service.show_wishlist_games(user_id=callback_query.from_user.id, session=session, page=page,
                                                        limit=5)
         response = users_style_text.create_short_wishlist_message(data=data)
@@ -109,7 +109,7 @@ async def remove_wishlist_game_callback_confirmation(callback_query: CallbackQue
     game_id = callback_query.data.split(":")[1]
     user_id = callback_query.data.split(":")[2]
     await callback_query.bot.delete_message(chat_id=callback_query.message.chat.id, message_id=callback_query.message.message_id)
-    async for session in get_async_db():
+    async with get_async_db() as session:
         if await users_service.remove_wishlist_game(user_id=int(user_id),session=session,game_id=int(game_id)):
             return await callback_query.message.answer(f"{users_style_text.game_correct_delete_wishlist(user=callback_query.from_user.username)}",parse_mode=ParseMode.HTML,reply_markup=go_to_wishlist_inline_keyboard)
         else:
@@ -120,7 +120,7 @@ async def remove_wishlist_game_callback_confirmation(callback_query: CallbackQue
 async def profile_callback(callback_query: CallbackQuery,state: FSMContext):
     await callback_query.answer()
     data = None
-    async for session in get_async_db():
+    async with get_async_db() as session:
         data = await users_service.get_profile_user(telegram_id=callback_query.from_user.id,session=session)
     if data is None or data == False:
         await state.update_data()
@@ -153,5 +153,5 @@ async def user_help_callback(callback_query: CallbackQuery):
 async def profile_cancel_callback(callback_query: CallbackQuery,state:FSMContext):
     await state.clear()
     await callback_query.message.delete()
-    await callback_query.message.answer(f"Добре оберіть розділ який вас цікавить!",parse_mode=ParseMode.HTML,reply_markup=start_keyboard)
+    await callback_query.message.answer(f"<b>Добре оберіть розділ який вас цікавить!</b>",parse_mode=ParseMode.HTML,reply_markup=start_keyboard)
     await callback_query.answer()

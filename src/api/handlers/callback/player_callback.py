@@ -24,7 +24,7 @@ async def player_one_user_callback(callback_query:CallbackQuery,state:FSMContext
     callback_data = callback_query.data
     await state.update_data(command = callback_data,last_bot_message_id=callback_query.message.message_id)
     await state.set_state(SteamPlayerName.player)
-    async for session in get_async_db():
+    async with get_async_db() as session:
         steam_appid = await player_service.get_user_steam_id(telegram_id=callback_query.from_user.id,session=session)
     logger.info("Steam appid: %s",steam_appid)
     await callback_query.answer()
@@ -48,7 +48,7 @@ async def compare_users_callback(callback_query: CallbackQuery,state:FSMContext)
     logger.debug("Callback_query %s",callback_query.data)
     await state.set_state(BattleSteamPlayer.user_1)
     steam_appid = None
-    async for session in get_async_db():
+    async with get_async_db() as session:
         steam_appid = await player_service.get_user_steam_id(telegram_id=callback_query.from_user.id,session=session)
         if steam_appid:
             await state.update_data(steam_appid=steam_appid)
