@@ -7,12 +7,14 @@
 [👉 Перейти до Steam Telegram Bot](https://t.me/SteamAnalyticsBot)
 
 ### 📱 QR-код для швидкого доступу:
-![QR-код до бота](https://github.com/user-attachments/assets/14ecbdeb-43ec-4167-afad-4226997712b3)
+<img src="https://github.com/user-attachments/assets/8abd81a5-4207-4f1c-a84d-fdd5ddd02bb3" alt="image" width="400" />
 
 ---
 
-## 📢 Telegram-канал який веде:
-[![Steam Telegram Channel](https://res.cloudinary.com/dgjz5nvuo/image/upload/v1754385784/24c57d3c-09c0-4081-b54a-8f0a52c56c83.png)](https://t.me/steam_news_ua)
+## 📢 Telegram-канал який веде бот:
+<a href="https://t.me/steam_news_ua">
+  <img src="https://res.cloudinary.com/dgjz5nvuo/image/upload/v1754385784/24c57d3c-09c0-4081-b54a-8f0a52c56c83.png" alt="Steam Telegram Channel" width="100" />
+</a>
 
 ---
 
